@@ -8,12 +8,11 @@ collect_nodes.py
 - 并行拉取、内容哈希增量跳过
 - t.me/s/ 频道最多翻 N 页
 - GitHub 仓库链接自动尝试 raw README.md
-- 可选：正文里的 http(s) 订阅链接再展开一层
+- 可选：正文里的 http(s) 订阅链接再展开一层（优化了跳过 <5 节点的限制条件）
 - 本轮更新 → nodes_update/；累计全量 → nodes/
 - 按协议分类，每 NODES_PER_FILE 个拆分
-- 基于核心指纹的全局持久化去重（只判重，不删参数）
-- 完整度与官方标准严格校验重构（洗白过滤残缺节点）
-- 指纹对 uid 做 strip().lower() 提升健壮性
+- 指纹设计加入 server 和 port，避免不同服务器被错误合并
+- 完整度与官方标准严格校验重构（洗白过滤残缺节点，完整保留 WS/gRPC 等核心参数与 Trojan 特殊密码）
 - 全量目录写入前增加数量暴跌保护
 """
 
@@ -338,6 +337,8 @@ def clash_proxy_to_share_link(p: dict) -> Optional[str]:
         if t == "ssr":
             return None
         if t == "vmess":
+            ws_opts = p.get("ws-opts") or {}
+            ws_headers = ws_opts.get("headers") or {}
             conf = {
                 "v": "2",
                 "ps": name,
@@ -348,8 +349,8 @@ def clash_proxy_to_share_link(p: dict) -> Optional[str]:
                 "scy": p.get("cipher") or "auto",
                 "net": p.get("network") or "tcp",
                 "type": "none",
-                "host": (p.get("ws-opts") or {}).get("headers", {}).get("Host") or p.get("host") or "",
-                "path": (p.get("ws-opts") or {}).get("path") or p.get("path") or "",
+                "host": ws_headers.get("Host") or p.get("host") or "",
+                "path": ws_opts.get("path") or p.get("path") or "",
                 "tls": "tls" if p.get("tls") else "",
                 "sni": p.get("servername") or p.get("sni") or "",
             }
@@ -362,16 +363,52 @@ def clash_proxy_to_share_link(p: dict) -> Optional[str]:
                 params.append("security=tls")
             if p.get("flow"):
                 params.append(f"flow={p['flow']}")
-            if p.get("network"):
-                params.append(f"type={p['network']}")
-            if p.get("servername") or p.get("sni"):
-                params.append(f"sni={p.get('servername') or p.get('sni')}")
+            net = p.get("network")
+            if net:
+                params.append(f"type={net}")
+            
+            servername = p.get("servername") or p.get("sni")
+            if servername:
+                params.append(f"sni={servername}")
+
+            # 完整保留 VLESS 的 ws-opts, grpc-opts 等参数映射
+            if net == "ws":
+                ws_opts = p.get("ws-opts") or {}
+                if ws_opts.get("path"):
+                    params.append(f"path={ws_opts['path']}")
+                ws_headers = ws_opts.get("headers") or {}
+                if ws_headers.get("Host"):
+                    params.append(f"host={ws_headers['Host']}")
+            elif p.get("path"):
+                params.append(f"path={p['path']}")
+            if p.get("host"):
+                params.append(f"host={p['host']}")
+
+            grpc_opts = p.get("grpc-opts") or {}
+            if grpc_opts.get("grpc-service-name"):
+                params.append(f"serviceName={grpc_opts['grpc-service-name']}")
+
             return f"vless://{uuid}@{server}:{port}?{'&'.join(params)}#{name}"
         if t == "trojan":
             password = p.get("password") or ""
             params = []
-            if p.get("sni") or p.get("servername"):
-                params.append(f"sni={p.get('sni') or p.get('servername')}")
+            servername = p.get("sni") or p.get("servername")
+            if servername:
+                params.append(f"sni={servername}")
+            
+            net = p.get("network")
+            if net:
+                params.append(f"type={net}")
+            if net == "ws":
+                ws_opts = p.get("ws-opts") or {}
+                if ws_opts.get("path"):
+                    params.append(f"path={ws_opts['path']}")
+                ws_headers = ws_opts.get("headers") or {}
+                if ws_headers.get("Host"):
+                    params.append(f"host={ws_headers['Host']}")
+            elif p.get("path"):
+                params.append(f"path={p['path']}")
+
             return f"trojan://{password}@{server}:{port}?{'&'.join(params)}#{name}"
         if t in ("hysteria", "hysteria2", "hy2"):
             auth = p.get("password") or p.get("auth") or ""
@@ -486,8 +523,7 @@ def strict_validate_and_normalize_vmess(uri: str) -> Optional[str]:
             if field not in cfg or not str(cfg[field]).strip():
                 return None
                 
-        add = str(cfg["add"]).strip()
-        # 排除本地/保留无效地址
+        add = str(cfg["add"]).strip().lower()
         if add in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
             return None
 
@@ -523,17 +559,24 @@ def strict_validate_and_normalize_vmess(uri: str) -> Optional[str]:
 
 
 def strict_validate_and_normalize_vless_trojan(uri: str) -> Optional[str]:
-    """严格校验并标准重构 VLESS / Trojan 节点"""
+    """严格校验并标准重构 VLESS / Trojan 节点（支持 Trojan 特殊密码 unquote 与安全 URL 编码）"""
     try:
         proto = "vless" if uri.startswith("vless://") else "trojan"
         p = urlparse(uri)
         
         user_info = p.username
+        if not user_info:
+            return None
+        if proto == "trojan":
+            user_info = unquote(user_info)
+            user_info = urllib.parse.quote(user_info, safe="")
+
         server = p.hostname
         port = p.port
         
-        if not user_info or not server or not port:
+        if not server or not port:
             return None
+        server = server.lower()
         if server in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
             return None
         if not (1 <= port <= 65535):
@@ -546,7 +589,7 @@ def strict_validate_and_normalize_vless_trojan(uri: str) -> Optional[str]:
 
         q = parse_qs(p.query)
         clean_q = []
-        allowed_params = ["type", "security", "encryption", "sni", "host", "path", "flow", "fp", "alpn"]
+        allowed_params = ["type", "security", "encryption", "sni", "host", "path", "flow", "fp", "alpn", "serviceName", "packetEncoding", "authority", "mode"]
         for k in allowed_params:
             if k in q and q[k]:
                 clean_q.append(f"{k}={q[k][0]}")
@@ -568,7 +611,6 @@ def strict_validate_and_normalize_node(link: str) -> Optional[str]:
     link = link.strip()
     low = link.lower()
     
-    # 过滤 Reality 节点
     if "security=reality" in low or "security%3dreality" in low:
         return None
 
@@ -580,9 +622,12 @@ def strict_validate_and_normalize_node(link: str) -> Optional[str]:
         try:
             p = urlparse(link)
             server = p.hostname
-            port = p.port
-            if not server or server in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
+            if not server:
                 return None
+            server = server.lower()
+            if server in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
+                return None
+            port = p.port
             if port and (1 <= port <= 65535):
                 return link
         except Exception:
@@ -605,6 +650,8 @@ def parse_uri_to_proxy(uri: str) -> Optional[dict]:
             return {
                 "type": "vmess",
                 "uuid": cfg.get("id"),
+                "server": str(cfg.get("add", "")).strip().lower(),
+                "port": str(cfg.get("port", "")).strip(),
                 "path": cfg.get("path") or "",
                 "servername": cfg.get("sni") or cfg.get("host") or ""
             }
@@ -620,6 +667,8 @@ def parse_uri_to_proxy(uri: str) -> Optional[dict]:
             return {
                 "type": proto,
                 "uuid": p.username or "",
+                "server": (p.hostname or "").lower(),
+                "port": str(p.port or ""),
                 "path": path,
                 "servername": host
             }
@@ -629,12 +678,14 @@ def parse_uri_to_proxy(uri: str) -> Optional[dict]:
 
 
 def node_fingerprint(proxy: dict) -> str:
-    """核心指纹：只用于判重，不用于精简数据（已对 uid 做 strip().lower()）"""
+    """核心指纹：加入 server 和 port，避免不同服务器被错误合并"""
     t = (proxy.get("type") or "").lower()
     uid = (proxy.get("uuid") or "").strip().lower()
+    server = (proxy.get("server") or "").strip().lower()
+    port = (proxy.get("port") or "").strip()
     path = (proxy.get("path") or "").strip()
     host = (proxy.get("servername") or "").strip().lower()
-    return f"{t}|{uid}|{path}|{host}"
+    return f"{t}|{uid}|{server}|{port}|{path}|{host}"
 
 
 def get_link_fingerprint(link: str) -> str:
@@ -715,7 +766,8 @@ def process_one_source(url: str, prev_hashes: Dict[str, str]) -> dict:
         return result
 
     links = detect_and_parse(content)
-    if ENABLE_SECOND_HOP and len(links) < 5:
+    # 修复：移除原先的 len(links) < 5 限制，只要开启二级展开且内容有 URL 就尝试按需展开
+    if ENABLE_SECOND_HOP:
         links.extend(expand_second_hop(content, url))
 
     seen = set()
@@ -805,7 +857,6 @@ def save_nodes_cumulative(update_links: List[str]):
             seen.add(norm)
             merged.append(link)
 
-    # 安全校验：合并后数量比历史暴跌超过 30% 则跳过覆盖
     if old and len(merged) < len(old) * 0.7:
         print(f"⚠️ 警告：合并后节点数 {len(merged)} 比历史 {len(old)} 下降超过 30%，跳过覆盖全量目录，防止数据被洗掉。")
         print(f"   本轮更新节点仍会写入 nodes_update/，请检查后再手动处理。")
@@ -888,22 +939,23 @@ def main():
                     if norm not in seen_global:
                         seen_global.add(norm)
                         
-                        # 官方标准严格校验与重构（洗白、过滤残缺、剔除 Reality）
                         validated_link = strict_validate_and_normalize_node(link)
                         if not validated_link:
                             continue
                             
                         fp = get_link_fingerprint(validated_link)
-                        if fp not in seen_fps and fp not in new_fps_this_run:
+                        # 修复：改为仅在本轮生命周期内做去重，不再因为历史文件永远屏蔽消逝后又重现的节点
+                        if fp not in new_fps_this_run:
                             new_fps_this_run.add(fp)
                             all_links.append(validated_link)
 
+    # 仅更新历史指纹库以备统计参考，而不作为拦截新节点的绝对死胡同
     if new_fps_this_run:
         seen_fps.update(new_fps_this_run)
         save_seen_fingerprints(seen_fps)
-        print(f"[信息] 本轮新增指纹: {len(new_fps_this_run)} 个，累计指纹总数: {len(seen_fps)}")
+        print(f"[信息] 本轮收集指纹: {len(new_fps_this_run)} 个，累计指纹总数: {len(seen_fps)}")
     else:
-        print(f"[信息] 本轮没有发现新服务器指纹（全部已存在）")
+        print(f"[信息] 本轮没有发现服务器指纹")
 
     new_hashes = dict(prev_hashes)
     for r in results:
