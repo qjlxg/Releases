@@ -12,7 +12,7 @@ collect_nodes.py
 - 本轮更新 → nodes_update/；累计全量 → nodes/
 - 按协议分类，每 NODES_PER_FILE 个拆分
 - 基于核心指纹的全局持久化去重（只判重，不删参数）
-- 完整度过滤（过滤残缺节点和 Reality 节点）
+- 完整度与官方标准严格校验重构（洗白过滤残缺节点）
 - 指纹对 uid 做 strip().lower() 提升健壮性
 - 全量目录写入前增加数量暴跌保护
 """
@@ -31,6 +31,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
 from urllib.parse import parse_qs, unquote, urlparse
+import urllib.parse
 
 import requests
 import yaml
@@ -465,145 +466,175 @@ def get_protocol(link: str) -> str:
     return proto
 
 
-# ======================== 指纹 + 完整度过滤 ========================
-def parse_vmess_uri(uri: str) -> Optional[dict]:
+# ======================== 官方标准严格校验与重构模块 ========================
+
+def strict_validate_and_normalize_vmess(uri: str) -> Optional[str]:
+    """严格校验并标准重构 VMess 节点"""
     try:
-        b64 = uri[8:].split("#")[0]
-        pad = 4 - len(b64) % 4
+        if not uri.startswith("vmess://"):
+            return None
+        b64_part = uri[8:].split("#")[0].strip()
+        pad = 4 - len(b64_part) % 4
         if pad != 4:
-            b64 += "=" * pad
-        cfg = json.loads(base64.b64decode(b64).decode("utf-8", errors="ignore"))
-        name = cfg.get("ps") or f"vmess-{cfg.get('add', 'node')}"
-        host = cfg.get("host") or ""
-        port = int(cfg.get("port") or 443)
-        tls = str(cfg.get("tls", "")).lower() == "tls" or port in (443, 8443, 2053, 2083, 2087, 2096)
-        proxy = {
-            "name": name,
-            "server": cfg.get("add"),
-            "port": port,
-            "type": "vmess",
-            "uuid": cfg.get("id"),
-            "alterId": int(cfg.get("aid") or 0),
-            "cipher": cfg.get("scy") or "auto",
-            "udp": True,
-            "tls": tls,
-            "skip-cert-verify": True,
-            "network": cfg.get("net") or "ws",
+            b64_part += "=" * pad
+        
+        decoded_bytes = base64.b64decode(b64_part, validate=True)
+        cfg = json.loads(decoded_bytes.decode("utf-8"))
+        
+        required_fields = ["v", "add", "port", "id"]
+        for field in required_fields:
+            if field not in cfg or not str(cfg[field]).strip():
+                return None
+                
+        add = str(cfg["add"]).strip()
+        # 排除本地/保留无效地址
+        if add in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
+            return None
+
+        port = int(cfg["port"])
+        if not (1 <= port <= 65535):
+            return None
+            
+        uuid_str = str(cfg["id"]).strip()
+        uuid_regex = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
+        if not uuid_regex.match(uuid_str):
+            return None
+
+        standard_cfg = {
+            "v": str(cfg.get("v", "2")),
+            "ps": str(cfg.get("ps", f"vmess-{add}")).strip(),
+            "add": add,
+            "port": str(port),
+            "id": uuid_str,
+            "aid": str(cfg.get("aid", 0)),
+            "scy": str(cfg.get("scy", "auto")),
+            "net": str(cfg.get("net", "tcp")),
+            "type": str(cfg.get("type", "none")),
+            "host": str(cfg.get("host", "")),
+            "path": str(cfg.get("path", "")),
+            "tls": str(cfg.get("tls", "")),
+            "sni": str(cfg.get("sni", ""))
         }
-        if tls:
-            proxy["servername"] = host or cfg.get("add")
-        if proxy["network"] == "ws":
-            proxy["ws-opts"] = {
-                "path": cfg.get("path") or "/?ed=2560",
-                "headers": {"Host": host} if host else {},
-            }
-        return proxy
+        raw_json = json.dumps(standard_cfg, ensure_ascii=False, separators=(",", ":"))
+        encoded_b64 = base64.b64encode(raw_json.encode("utf-8")).decode("utf-8").rstrip("=")
+        return f"vmess://{encoded_b64}#{urllib.parse.quote(standard_cfg['ps'])}"
     except Exception:
         return None
 
 
-def parse_trojan_uri(uri: str) -> Optional[dict]:
+def strict_validate_and_normalize_vless_trojan(uri: str) -> Optional[str]:
+    """严格校验并标准重构 VLESS / Trojan 节点"""
     try:
+        proto = "vless" if uri.startswith("vless://") else "trojan"
         p = urlparse(uri)
-        password = p.username
+        
+        user_info = p.username
         server = p.hostname
-        port = p.port or 443
-        name = unquote(p.fragment) if p.fragment else f"trojan-{server}"
+        port = p.port
+        
+        if not user_info or not server or not port:
+            return None
+        if server in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
+            return None
+        if not (1 <= port <= 65535):
+            return None
+            
+        if proto == "vless":
+            uuid_regex = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
+            if not uuid_regex.match(user_info.strip()):
+                return None
+
         q = parse_qs(p.query)
-        security = (q.get("security") or ["tls"])[0]
-        net = (q.get("type") or ["ws"])[0]
-        sni = (q.get("sni") or [""])[0]
-        host = (q.get("host") or [""])[0]
-        path = unquote((q.get("path") or ["/?ed=2560"])[0])   # 已修复括号
-        fp = (q.get("fp") or ["chrome"])[0]
-        tls = security == "tls" or port in (443, 8443, 2053, 2083, 2087, 2096)
-        proxy = {
-            "name": name,
-            "server": server,
-            "port": port,
-            "type": "trojan",
-            "password": password,
-            "network": net,
-            "udp": True,
-            "tls": tls,
-            "skip-cert-verify": True,
-            "client-fingerprint": fp,
-        }
-        if tls:
-            proxy["servername"] = sni or host or server
-        if net == "ws":
-            ws = {"path": path or "/?ed=2560"}
-            if host:
-                ws["headers"] = {"Host": host}
-            proxy["ws-opts"] = ws
-        return proxy
+        clean_q = []
+        allowed_params = ["type", "security", "encryption", "sni", "host", "path", "flow", "fp", "alpn"]
+        for k in allowed_params:
+            if k in q and q[k]:
+                clean_q.append(f"{k}={q[k][0]}")
+                
+        query_str = "&".join(clean_q)
+        if query_str:
+            query_str = "?" + query_str
+            
+        name = unquote(p.fragment).strip() if p.fragment else f"{proto}-{server}"
+        encoded_name = f"#{urllib.parse.quote(name)}" if name else ""
+        
+        return f"{proto}://{user_info}@{server}:{port}{query_str}{encoded_name}"
     except Exception:
         return None
 
 
-def parse_vless_uri(uri: str) -> Optional[dict]:
-    try:
-        p = urlparse(uri)
-        uuid = p.username
-        server = p.hostname
-        port = p.port or 443
-        name = unquote(p.fragment) if p.fragment else f"vless-{server}"
-        q = parse_qs(p.query)
-        net = (q.get("type") or ["ws"])[0]
-        security = (q.get("security") or ["tls"])[0]
-        sni = (q.get("sni") or [""])[0]
-        host = (q.get("host") or [""])[0]
-        path = unquote((q.get("path") or ["/?ed=2560"])[0])   # 已修复括号
-        tls = security == "tls" or port in (443, 8443, 2053, 2083, 2087, 2096)
-        proxy = {
-            "name": name,
-            "server": server,
-            "port": port,
-            "type": "vless",
-            "uuid": uuid,
-            "network": net,
-            "udp": True,
-            "tls": tls,
-            "skip-cert-verify": True,
-        }
-        if tls:
-            proxy["servername"] = sni or host or server
-        if net == "ws":
-            ws = {"path": path or "/?ed=2560"}
-            if host:
-                ws["headers"] = {"Host": host}
-            proxy["ws-opts"] = ws
-        return proxy
-    except Exception:
+def strict_validate_and_normalize_node(link: str) -> Optional[str]:
+    """总校验入口：严格按照官方标准校验并重构节点，剔除 Reality 与残缺节点"""
+    link = link.strip()
+    low = link.lower()
+    
+    # 过滤 Reality 节点
+    if "security=reality" in low or "security%3dreality" in low:
         return None
 
+    if link.startswith("vmess://"):
+        return strict_validate_and_normalize_vmess(link)
+    elif link.startswith("vless://") or link.startswith("trojan://"):
+        return strict_validate_and_normalize_vless_trojan(link)
+    elif link.startswith("ss://") or link.startswith("hysteria2://") or link.startswith("hy2://") or link.startswith("tuic://"):
+        try:
+            p = urlparse(link)
+            server = p.hostname
+            port = p.port
+            if not server or server in ("127.0.0.1", "localhost", "0.0.0.0", "::1"):
+                return None
+            if port and (1 <= port <= 65535):
+                return link
+        except Exception:
+            pass
+    return None
 
+
+# ======================== 指纹生成辅助 ========================
 def parse_uri_to_proxy(uri: str) -> Optional[dict]:
     uri = uri.strip()
     if not uri:
         return None
     if uri.startswith("vmess://"):
-        return parse_vmess_uri(uri)
-    if uri.startswith("trojan://"):
-        return parse_trojan_uri(uri)
-    if uri.startswith("vless://"):
-        return parse_vless_uri(uri)
+        try:
+            b64 = uri[8:].split("#")[0]
+            pad = 4 - len(b64) % 4
+            if pad != 4:
+                b64 += "=" * pad
+            cfg = json.loads(base64.b64decode(b64).decode("utf-8", errors="ignore"))
+            return {
+                "type": "vmess",
+                "uuid": cfg.get("id"),
+                "path": cfg.get("path") or "",
+                "servername": cfg.get("sni") or cfg.get("host") or ""
+            }
+        except Exception:
+            return None
+    elif uri.startswith(("vless://", "trojan://", "tuic://", "hysteria2://", "hy2://", "ss://")):
+        try:
+            p = urlparse(uri)
+            proto = get_protocol(uri)
+            q = parse_qs(p.query)
+            path = unquote((q.get("path") or [""])[0])
+            host = (q.get("sni") or q.get("host") or [""])[0]
+            return {
+                "type": proto,
+                "uuid": p.username or "",
+                "path": path,
+                "servername": host
+            }
+        except Exception:
+            return None
     return None
 
 
 def node_fingerprint(proxy: dict) -> str:
     """核心指纹：只用于判重，不用于精简数据（已对 uid 做 strip().lower()）"""
     t = (proxy.get("type") or "").lower()
-    uid = (proxy.get("uuid") or proxy.get("password") or "").strip().lower()
-    path = ""
-    host = ""
-    if isinstance(proxy.get("ws-opts"), dict):
-        path = proxy["ws-opts"].get("path") or ""
-        headers = proxy["ws-opts"].get("headers") or {}
-        if isinstance(headers, dict):
-            host = headers.get("Host") or ""
-    host = host or proxy.get("servername") or proxy.get("sni") or ""
-    return f"{t}|{uid}|{path}|{host}".lower()
+    uid = (proxy.get("uuid") or "").strip().lower()
+    path = (proxy.get("path") or "").strip()
+    host = (proxy.get("servername") or "").strip().lower()
+    return f"{t}|{uid}|{path}|{host}"
 
 
 def get_link_fingerprint(link: str) -> str:
@@ -611,34 +642,6 @@ def get_link_fingerprint(link: str) -> str:
     if proxy:
         return node_fingerprint(proxy)
     return "raw|" + normalize_link(link)
-
-
-def is_complete_enough(link: str) -> bool:
-    proxy = parse_uri_to_proxy(link)
-    if not proxy:
-        return False
-
-    uid = proxy.get("uuid") or proxy.get("password") or ""
-    if not uid:
-        return False
-
-    low = link.lower()
-    if "security=reality" in low or "security%3dreality" in low:
-        return False
-
-    path = ""
-    host = proxy.get("servername") or proxy.get("sni") or ""
-    if isinstance(proxy.get("ws-opts"), dict):
-        path = proxy["ws-opts"].get("path") or ""
-        headers = proxy["ws-opts"].get("headers") or {}
-        if isinstance(headers, dict):
-            host = host or headers.get("Host") or ""
-
-    t = (proxy.get("type") or "").lower()
-    if t in ("trojan", "vless", "vmess") and not path and not host:
-        return False
-
-    return True
 
 
 def load_seen_fingerprints() -> Set[str]:
@@ -659,7 +662,7 @@ def save_seen_fingerprints(fps: Set[str]):
         json.dump(sorted(list(fps)), f, ensure_ascii=False, indent=2)
 
 
-# ======================== 原有逻辑 ========================
+# ======================== 原有持久化与处理逻辑 ========================
 def load_previous_hashes() -> Dict[str, str]:
     if HASH_FILE.exists():
         try:
@@ -884,12 +887,16 @@ def main():
                     norm = normalize_link(link)
                     if norm not in seen_global:
                         seen_global.add(norm)
-                        if not is_complete_enough(link):
+                        
+                        # 官方标准严格校验与重构（洗白、过滤残缺、剔除 Reality）
+                        validated_link = strict_validate_and_normalize_node(link)
+                        if not validated_link:
                             continue
-                        fp = get_link_fingerprint(link)
+                            
+                        fp = get_link_fingerprint(validated_link)
                         if fp not in seen_fps and fp not in new_fps_this_run:
                             new_fps_this_run.add(fp)
-                            all_links.append(link)
+                            all_links.append(validated_link)
 
     if new_fps_this_run:
         seen_fps.update(new_fps_this_run)
@@ -904,7 +911,7 @@ def main():
             new_hashes[r["url"]] = r["hash"]
     save_hashes(new_hashes)
 
-    print(f"\n[信息] 本轮真正新节点（完整度过滤 + 指纹去重后）: {len(all_links)} 个")
+    print(f"\n[信息] 本轮真正新节点（官方标准校验 + 指纹去重后）: {len(all_links)} 个")
     save_nodes_update_only(all_links)
     save_nodes_cumulative(all_links)
     write_stats(results)
