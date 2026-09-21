@@ -1,4 +1,439 @@
 proxies:
+- name: CA | IP=104.21.7.70 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 104.21.7.70
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=104.21.7.70 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 104.21.7.70
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  sni: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=104.21.76.103 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 104.21.76.103
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=104.21.76.103 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 104.21.76.103
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  sni: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=130.94.58.215 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 130.94.58.215
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=130.94.58.215 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 130.94.58.215
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  sni: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=141.105.130.102 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 141.105.130.102
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=141.105.130.102 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 141.105.130.102
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  sni: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=172.64.156.156 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 172.64.156.156
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=172.64.156.156 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  server: 172.64.156.156
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  ws-opts:
+    path: /tr/ox5zBiRQjs2Rscy0XwxXY2ZzE?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  sni: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: CA | IP=104.21.0.245 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.0.245
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.0.245 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.0.245
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.16.145 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.16.145
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.16.145 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.16.145
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.19.200 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.19.200
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.19.200 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.19.200
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.31.241 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.31.241
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.31.241 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.31.241
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.34.253 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.34.253
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.34.253 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.34.253
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.40.179 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.40.179
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.40.179 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.40.179
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.50.106 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.50.106
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.50.106 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.50.106
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.61.24 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.61.24
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.61.24 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.61.24
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.66.17 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.66.17
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.66.17 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.66.17
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.66.54 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.66.54
+  port: 80
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+- name: CA | IP=104.21.66.54 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  server: 104.21.66.54
+  port: 443
+  type: trojan
+  password: Telegram_healer_config
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+    headers:
+      Host: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
 - name: CA | IP=104.21.7.70 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
   server: 104.21.7.70
   port: 80
@@ -1884,441 +2319,6 @@ proxies:
     headers:
       Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
   sni: z6y-dAoX0hyhDtDY.R720kpbyX2l3i406.worKerS.deV
-- name: CA | IP=104.21.0.245 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.0.245
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.0.245 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.0.245
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.16.145 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.16.145
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.16.145 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.16.145
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.19.200 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.19.200
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.19.200 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.19.200
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.31.241 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.31.241
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.31.241 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.31.241
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.34.253 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.34.253
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.34.253 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.34.253
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.40.179 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.40.179
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.40.179 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.40.179
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.50.106 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.50.106
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.50.106 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.50.106
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.61.24 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.61.24
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.61.24 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.61.24
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.66.17 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.66.17
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.66.17 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.66.17
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.66.54 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.66.54
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.66.54 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.66.54
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.7.70 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.7.70
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.7.70 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.7.70
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=104.21.76.103 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.76.103
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=104.21.76.103 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 104.21.76.103
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=130.94.58.215 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 130.94.58.215
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=130.94.58.215 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 130.94.58.215
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=141.105.130.102 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 141.105.130.102
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=141.105.130.102 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 141.105.130.102
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-- name: CA | IP=172.64.156.156 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 172.64.156.156
-  port: 80
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-- name: CA | IP=172.64.156.156 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  server: 172.64.156.156
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
-  ws-opts:
-    path: /tr/ZizffFwMuYF9RUfnS3Ad2bGqcOrQk?ed=2560
-    headers:
-      Host: z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  sni: Z6Y-Daox0HyHdTDy.R720KPBYx2L3I406.WorKERS.DEV
 - name: IN | IP=104.21.0.245 | PORT=80 | FP=trojan+tg3rnk7xp8b1+/?ed=2560+ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
   server: 104.21.0.245
   port: 80
@@ -3819,1626 +3819,6 @@ proxies:
   client-fingerprint: chrome
   servername: swiftly.meijireform.com
   sni: swiftly.meijireform.com
-- name: JP | IP=104.21.0.245 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.0.245
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.0.245 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.0.245
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.16.145 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.16.145
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.16.145 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.16.145
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.19.200 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.19.200
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.19.200 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.19.200
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.31.241 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.31.241
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.31.241 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.31.241
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.34.253 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.34.253
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.34.253 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.34.253
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.40.179 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.40.179
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.40.179 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.40.179
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.50.106 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.50.106
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.50.106 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.50.106
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.61.24 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.61.24
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.61.24 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.61.24
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.66.17 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.66.17
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.66.17 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.66.17
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.66.54 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.66.54
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.66.54 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.66.54
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.7.70 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.7.70
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.7.70 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.7.70
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=104.21.76.103 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.76.103
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=104.21.76.103 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 104.21.76.103
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=130.94.58.215 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 130.94.58.215
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=130.94.58.215 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 130.94.58.215
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=141.105.130.102 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 141.105.130.102
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=141.105.130.102 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 141.105.130.102
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: JP | IP=172.64.156.156 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 172.64.156.156
-  port: 80
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: JP | IP=172.64.156.156 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  server: 172.64.156.156
-  port: 443
-  type: trojan
-  password: tsuchiya
-  network: tcp
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: aa.ccmusic.jp
-  sni: aa.ccmusic.jp
-- name: CA | IP=104.21.0.245 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.0.245
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.0.245 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.0.245
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.16.145 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.16.145
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.16.145 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.16.145
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.19.200 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.19.200
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.19.200 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.19.200
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.31.241 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.31.241
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.31.241 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.31.241
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.34.253 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.34.253
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.34.253 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.34.253
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.40.179 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.40.179
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.40.179 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.40.179
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.50.106 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.50.106
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.50.106 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.50.106
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.61.24 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.61.24
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.61.24 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.61.24
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.66.17 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.17
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.66.17 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.17
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.66.54 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.54
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.66.54 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.54
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.7.70 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.7.70
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.7.70 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.7.70
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.76.103 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.76.103
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.76.103 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.76.103
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=130.94.58.215 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 130.94.58.215
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=130.94.58.215 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 130.94.58.215
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=141.105.130.102 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 141.105.130.102
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=141.105.130.102 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 141.105.130.102
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=172.64.156.156 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 172.64.156.156
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=172.64.156.156 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 172.64.156.156
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-  ws-opts:
-    path: /tr/SW8uIUDDGS2sKyM3X5qAV
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IdB8ONMVbntuYT5t7t6cEJfw8vLrb.paGEs.DeV
-- name: CA | IP=104.21.0.245 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.0.245
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.0.245 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.0.245
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.16.145 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.16.145
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.16.145 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.16.145
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.19.200 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.19.200
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.19.200 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.19.200
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.31.241 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.31.241
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.31.241 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.31.241
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.34.253 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.34.253
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.34.253 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.34.253
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.40.179 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.40.179
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.40.179 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.40.179
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.50.106 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.50.106
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.50.106 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.50.106
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.61.24 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.61.24
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.61.24 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.61.24
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.66.17 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.17
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.66.17 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.17
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.66.54 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.54
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.66.54 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.54
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.7.70 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.7.70
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.7.70 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.7.70
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.76.103 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.76.103
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.76.103 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.76.103
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=130.94.58.215 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 130.94.58.215
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=130.94.58.215 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 130.94.58.215
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=141.105.130.102 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 141.105.130.102
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=141.105.130.102 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 141.105.130.102
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=172.64.156.156 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 172.64.156.156
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=172.64.156.156 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 172.64.156.156
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-  ws-opts:
-    path: /tr/mPwnfIHtx0vldKy0A5AGJTZB
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: IDB8onmVBntUyt5T7T6cEjFW8VLRB.PAGES.DeV
-- name: CA | IP=104.21.0.245 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.0.245
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.0.245 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.0.245
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.16.145 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.16.145
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.16.145 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.16.145
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.19.200 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.19.200
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.19.200 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.19.200
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.31.241 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.31.241
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.31.241 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.31.241
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.34.253 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.34.253
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.34.253 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.34.253
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.40.179 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.40.179
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.40.179 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.40.179
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.50.106 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.50.106
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.50.106 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.50.106
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.61.24 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.61.24
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.61.24 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.61.24
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.66.17 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.17
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.66.17 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.17
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.66.54 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.54
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.66.54 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.66.54
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.7.70 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.7.70
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.7.70 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.7.70
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=104.21.76.103 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.76.103
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=104.21.76.103 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 104.21.76.103
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=130.94.58.215 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 130.94.58.215
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=130.94.58.215 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 130.94.58.215
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=141.105.130.102 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 141.105.130.102
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=141.105.130.102 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 141.105.130.102
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-- name: CA | IP=172.64.156.156 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 172.64.156.156
-  port: 80
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-- name: CA | IP=172.64.156.156 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  server: 172.64.156.156
-  port: 443
-  type: trojan
-  password: TsX0XJKMa2h%24CbKr0k
-  network: ws
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  servername: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
-  ws-opts:
-    path: /tr/60XnEWrAQkStT4oTTwmkao9a4sc
-    headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  sni: iDB8onmvBnTuyt5T7T6CejfW8vlRb.PagES.DeV
 - name: JP | IP=104.21.0.245 | PORT=80 | FP=trojan+ttfang+/?ed=2560+ttfang.fange.me
   server: 104.21.0.245
   port: 80
@@ -60979,10 +59359,1780 @@ proxies:
     headers:
       Host: internal-krill.rooster465.autos
   sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.40.179
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.40.179
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.50.106
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.50.106
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.61.24
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.61.24
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.66.17
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.66.17
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.66.54
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.66.54
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.7.70
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.7.70
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.76.103
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 104.21.76.103
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 130.94.58.215
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 130.94.58.215
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 141.105.130.102
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 141.105.130.102
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 172.64.156.156
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+- name: JP | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  server: 172.64.156.156
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: internal-krill.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: internal-krill.rooster465.autos
+  sni: internal-krill.rooster465.autos
+- name: JP | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.0.245
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.0.245
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.16.145
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.16.145
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.19.200
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.19.200
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.31.241
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.31.241
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.34.253
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.34.253
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.40.179
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.40.179
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.50.106
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.50.106
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.61.24
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.61.24
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.66.17
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.66.17
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.66.54
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.66.54
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.7.70
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.7.70
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.76.103
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 104.21.76.103
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 130.94.58.215
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 130.94.58.215
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 141.105.130.102
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 141.105.130.102
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 172.64.156.156
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+- name: JP | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  server: 172.64.156.156
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: key-flounder.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: key-flounder.rooster465.autos
+  sni: key-flounder.rooster465.autos
+- name: JP | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.0.245
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.0.245
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.16.145
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.16.145
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.19.200
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.19.200
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.31.241
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.31.241
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.34.253
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.34.253
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.40.179
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.40.179
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.50.106
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.50.106
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.61.24
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.61.24
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.66.17
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.66.17
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.66.54
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.66.54
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.7.70
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.7.70
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.76.103
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 104.21.76.103
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 130.94.58.215
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 130.94.58.215
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 141.105.130.102
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 141.105.130.102
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: JP | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 172.64.156.156
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+- name: JP | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  server: 172.64.156.156
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: learning-wren.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: learning-wren.rooster465.autos
+  sni: learning-wren.rooster465.autos
+- name: US | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.0.245
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.0.245
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.16.145
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.16.145
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.19.200
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.19.200
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.31.241
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.31.241
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.34.253
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.34.253
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.40.179
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.40.179
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.50.106
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.50.106
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.61.24
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.61.24
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.66.17
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.66.17
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.66.54
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.66.54
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.7.70
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.7.70
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.76.103
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 104.21.76.103
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 130.94.58.215
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 130.94.58.215
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 141.105.130.102
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 141.105.130.102
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: US | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 172.64.156.156
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+- name: US | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  server: 172.64.156.156
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: live-drake.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: live-drake.rooster465.autos
+  sni: live-drake.rooster465.autos
+- name: JP | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.0.245
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+- name: JP | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.0.245
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: logical-ram.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+  sni: logical-ram.rooster465.autos
+- name: JP | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.16.145
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+- name: JP | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.16.145
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: logical-ram.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+  sni: logical-ram.rooster465.autos
+- name: JP | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.19.200
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+- name: JP | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.19.200
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: logical-ram.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+  sni: logical-ram.rooster465.autos
+- name: JP | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.31.241
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+- name: JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.31.241
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: logical-ram.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+  sni: logical-ram.rooster465.autos
+- name: JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.34.253
+  port: 80
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+- name: JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  server: 104.21.34.253
+  port: 443
+  type: trojan
+  password: XG59623478
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: logical-ram.rooster465.autos
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: logical-ram.rooster465.autos
+  sni: logical-ram.rooster465.autos
 proxy-groups:
 - name: CF-Nest
   type: select
   proxies:
+  - CA | IP=104.21.7.70 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=104.21.7.70 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=104.21.76.103 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=104.21.76.103 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=130.94.58.215 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=130.94.58.215 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=141.105.130.102 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=141.105.130.102 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=172.64.156.156 | PORT=80 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=172.64.156.156 | PORT=443 | FP=trojan+telegram_healer_config+/tr/ox5zbirqjs2rscy0xwxxy2zze?ed=2560+6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  - CA | IP=104.21.0.245 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.0.245 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.16.145 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.16.145 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.19.200 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.19.200 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.31.241 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.31.241 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.34.253 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.34.253 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.40.179 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.40.179 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.50.106 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.50.106 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.61.24 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.61.24 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.66.17 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.66.17 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.66.54 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
+  - CA | IP=104.21.66.54 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
   - CA | IP=104.21.7.70 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
   - CA | IP=104.21.7.70 | PORT=443 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
   - CA | IP=104.21.76.103 | PORT=80 | FP=trojan+telegram_healer_config+/tr/gtmkujkm42jnkfar?ed=2560+th1r714o73d1p35f.mr2esnk29l620xo76kpuv-qub4b7idfr.workers.dev
@@ -61113,36 +61263,6 @@ proxy-groups:
   - CA | IP=141.105.130.102 | PORT=443 | FP=trojan+telegram_healer_config+/tr/202fq2rjaufakggp?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
   - CA | IP=172.64.156.156 | PORT=80 | FP=trojan+telegram_healer_config+/tr/202fq2rjaufakggp?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
   - CA | IP=172.64.156.156 | PORT=443 | FP=trojan+telegram_healer_config+/tr/202fq2rjaufakggp?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.0.245 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.0.245 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.16.145 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.16.145 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.19.200 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.19.200 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.31.241 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.31.241 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.34.253 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.34.253 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.40.179 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.40.179 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.50.106 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.50.106 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.61.24 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.61.24 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.66.17 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.66.17 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.66.54 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.66.54 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.7.70 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.7.70 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.76.103 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=104.21.76.103 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=130.94.58.215 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=130.94.58.215 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=141.105.130.102 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=141.105.130.102 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=172.64.156.156 | PORT=80 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
-  - CA | IP=172.64.156.156 | PORT=443 | FP=trojan+telegram_healer_config+/tr/zizfffwmuyf9rufns3ad2bgqcorqk?ed=2560+z6y-daox0hyhdtdy.r720kpbyx2l3i406.workers.dev
   - IN | IP=104.21.0.245 | PORT=80 | FP=trojan+tg3rnk7xp8b1+/?ed=2560+ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
   - IN | IP=104.21.0.245 | PORT=443 | FP=trojan+tg3rnk7xp8b1+/?ed=2560+ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
   - IN | IP=104.21.16.145 | PORT=80 | FP=trojan+tg3rnk7xp8b1+/?ed=2560+ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
@@ -61263,126 +61383,6 @@ proxy-groups:
   - JP | IP=141.105.130.102 | PORT=443 | FP=trojan+toza9e6pyq4z3pfyeieoc3apasdjr2wfueao8undx0czdf3ycswa3xjz3qzayb4yckczs++swiftly.meijireform.com
   - JP | IP=172.64.156.156 | PORT=80 | FP=trojan+toza9e6pyq4z3pfyeieoc3apasdjr2wfueao8undx0czdf3ycswa3xjz3qzayb4yckczs++swiftly.meijireform.com
   - JP | IP=172.64.156.156 | PORT=443 | FP=trojan+toza9e6pyq4z3pfyeieoc3apasdjr2wfueao8undx0czdf3ycswa3xjz3qzayb4yckczs++swiftly.meijireform.com
-  - JP | IP=104.21.0.245 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.0.245 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.16.145 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.16.145 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.19.200 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.19.200 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.31.241 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.31.241 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.34.253 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.34.253 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.40.179 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.40.179 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.50.106 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.50.106 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.61.24 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.61.24 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.66.17 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.66.17 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.66.54 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.66.54 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.7.70 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.7.70 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.76.103 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=104.21.76.103 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=130.94.58.215 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=130.94.58.215 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=141.105.130.102 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=141.105.130.102 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=172.64.156.156 | PORT=80 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - JP | IP=172.64.156.156 | PORT=443 | FP=trojan+tsuchiya++aa.ccmusic.jp
-  - CA | IP=104.21.0.245 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.0.245 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.16.145 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.16.145 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.19.200 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.19.200 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.31.241 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.31.241 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.34.253 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.34.253 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.40.179 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.40.179 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.50.106 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.50.106 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.61.24 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.61.24 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.17 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.17 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.54 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.54 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.7.70 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.7.70 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.76.103 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.76.103 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=130.94.58.215 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=130.94.58.215 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=141.105.130.102 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=141.105.130.102 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=172.64.156.156 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=172.64.156.156 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/sw8uiuddgs2skym3x5qav+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.0.245 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.0.245 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.16.145 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.16.145 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.19.200 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.19.200 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.31.241 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.31.241 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.34.253 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.34.253 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.40.179 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.40.179 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.50.106 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.50.106 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.61.24 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.61.24 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.17 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.17 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.54 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.54 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.7.70 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.7.70 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.76.103 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.76.103 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=130.94.58.215 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=130.94.58.215 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=141.105.130.102 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=141.105.130.102 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=172.64.156.156 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=172.64.156.156 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/mpwnfihtx0vldky0a5agjtzb+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.0.245 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.0.245 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.16.145 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.16.145 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.19.200 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.19.200 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.31.241 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.31.241 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.34.253 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.34.253 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.40.179 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.40.179 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.50.106 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.50.106 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.61.24 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.61.24 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.17 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.17 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.54 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.66.54 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.7.70 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.7.70 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.76.103 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=104.21.76.103 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=130.94.58.215 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=130.94.58.215 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=141.105.130.102 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=141.105.130.102 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=172.64.156.156 | PORT=80 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-  - CA | IP=172.64.156.156 | PORT=443 | FP=trojan+tsx0xjkma2h%24cbkr0k+/tr/60xnewraqkstt4ottwmkao9a4sc+idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
   - JP | IP=104.21.0.245 | PORT=80 | FP=trojan+ttfang+/?ed=2560+ttfang.fange.me
   - JP | IP=104.21.0.245 | PORT=443 | FP=trojan+ttfang+/?ed=2560+ttfang.fange.me
   - JP | IP=104.21.16.145 | PORT=80 | FP=trojan+ttfang+/?ed=2560+ttfang.fange.me
@@ -65983,5 +65983,125 @@ proxy-groups:
   - JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
   - JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
   - JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+internal-krill.rooster465.autos
+  - JP | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+key-flounder.rooster465.autos
+  - JP | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - JP | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+learning-wren.rooster465.autos
+  - US | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.40.179 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.40.179 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.50.106 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.50.106 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.61.24 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.61.24 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.66.17 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.66.17 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.66.54 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.66.54 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.7.70 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.7.70 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.76.103 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=104.21.76.103 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=130.94.58.215 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=130.94.58.215 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=141.105.130.102 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=141.105.130.102 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=172.64.156.156 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - US | IP=172.64.156.156 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+live-drake.rooster465.autos
+  - JP | IP=104.21.0.245 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.0.245 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.16.145 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.16.145 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.19.200 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.19.200 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.31.241 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.31.241 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.34.253 | PORT=80 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
+  - JP | IP=104.21.34.253 | PORT=443 | FP=trojan+xg59623478+/?ed=2560+logical-ram.rooster465.autos
 rules:
 - MATCH,CF-Nest
