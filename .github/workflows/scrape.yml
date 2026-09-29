@@ -32,11 +32,12 @@ jobs:
 
       - name: Test nodes and build AIO
         run: |
-          INPUTS=$(find output -mindepth 2 -maxdepth 2 -name clash.yaml ! -path 'output/aio/*' | sort | tr '\n' ' ')
+          # 自动查找 generated 目录下（排除 probe 目录自身）的所有 yaml 文件作为输入
+          INPUTS=$(find generated -name "*.yaml" ! -path 'generated/probe/*' | sort | tr '\n' ' ')
           if [ -n "$INPUTS" ]; then
-            python test_nodes.py output/source1/clash.yaml output/source2/clash.yaml -o generated/probe/cf_nest_1only_probe_01.yaml
+            python test_nodes.py $INPUTS -o generated/probe/cf_nest_1only_probe_01.yaml
           else
-            echo "::error::未找到任何待测的 clash.yaml 文件"
+            echo "::error::未找到任何待测的 yaml 文件"
             exit 1
           fi
 
@@ -47,6 +48,6 @@ jobs:
           git stash
           git pull --rebase || true
           git stash pop || true
-          git add output/aio/clash.yaml
+          git add generated/probe/cf_nest_1only_probe_01.yaml
           git diff --cached --quiet || git commit -m "update: $(TZ=Asia/Shanghai date +%Y-%m-%d %H:%M) AIO 节点自动测速合并"
           git push
