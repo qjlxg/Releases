@@ -1,0 +1,877 @@
+proxies:
+- name: ir | IP=104.19.87.143 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.87.143
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.87.143 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.87.143
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.212.49 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.212.49
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.212.49 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.212.49
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.184.244 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.184.244
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.184.244 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.184.244
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.146.123 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.146.123
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.146.123 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.146.123
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.142.160 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.142.160
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.142.160 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.142.160
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=14.102.228.65 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 14.102.228.65
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=14.102.228.65 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 14.102.228.65
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.2.77 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.2.77
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.2.77 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.2.77
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.17.152.4 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.17.152.4
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.17.152.4 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.17.152.4
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=162.159.194.53 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 162.159.194.53
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=162.159.194.53 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 162.159.194.53
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.136.243 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.136.243
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.136.243 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.136.243
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.63.95 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.63.95
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.63.95 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.63.95
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=198.41.199.179 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 198.41.199.179
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=198.41.199.179 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 198.41.199.179
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.90.25 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.90.25
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.90.25 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.90.25
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=185.193.31.247 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 185.193.31.247
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=185.193.31.247 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 185.193.31.247
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.175.207 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.175.207
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.175.207 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.175.207
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.224.147 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.224.147
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.224.147 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.224.147
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=49.238.238.96 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 49.238.238.96
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=49.238.238.96 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 49.238.238.96
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=185.207.198.119 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 185.207.198.119
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=185.207.198.119 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 185.207.198.119
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.95.200 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.95.200
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.95.200 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.95.200
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.112.169 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.112.169
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.112.169 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.112.169
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.17.47.123 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.17.47.123
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.17.47.123 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.17.47.123
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.185.130 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.185.130
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.185.130 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.185.130
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.145.55 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.145.55
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.145.55 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.145.55
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.24.52 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.24.52
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.24.52 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.24.52
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.226.65 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.226.65
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.226.65 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.226.65
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.174.116 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.174.116
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.18.174.116 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.18.174.116
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.20.208 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.20.208
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.20.208 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.20.208
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.17.204.43 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.17.204.43
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.17.204.43 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.17.204.43
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.56.75 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.56.75
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.19.56.75 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.19.56.75
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.228.172 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.228.172
+  port: 80
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+- name: ir | IP=104.16.228.172 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  server: 104.16.228.172
+  port: 443
+  type: vless
+  uuid: 08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f
+  network: ws
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: b911.qjlxg.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: b911.qjlxg.workers.dev
+proxy-groups:
+- name: CF-Nest
+  type: select
+  proxies:
+  - ir | IP=104.19.87.143 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.87.143 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.212.49 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.212.49 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.184.244 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.184.244 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.146.123 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.146.123 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.142.160 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.142.160 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=14.102.228.65 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=14.102.228.65 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.2.77 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.2.77 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.17.152.4 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.17.152.4 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=162.159.194.53 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=162.159.194.53 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.136.243 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.136.243 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.63.95 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.63.95 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=198.41.199.179 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=198.41.199.179 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.90.25 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.90.25 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=185.193.31.247 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=185.193.31.247 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.175.207 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.175.207 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.224.147 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.224.147 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=49.238.238.96 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=49.238.238.96 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=185.207.198.119 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=185.207.198.119 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.95.200 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.95.200 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.112.169 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.112.169 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.17.47.123 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.17.47.123 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.185.130 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.185.130 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.145.55 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.145.55 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.24.52 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.24.52 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.226.65 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.226.65 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.174.116 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.18.174.116 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.20.208 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.20.208 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.17.204.43 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.17.204.43 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.56.75 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.19.56.75 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.228.172 | PORT=80 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+  - ir | IP=104.16.228.172 | PORT=443 | FP=vless+08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f+/+b911.qjlxg.workers.dev
+rules:
+- MATCH,CF-Nest
