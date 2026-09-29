@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# mihomo 节点延迟连通测试 + AIO 合并 (GitHub Actions 专用极速版)
+# mihomo 节点内核自动测速 + AIO 合并 (GitHub Actions 最终稳妥版)
 
 import argparse
 import json
@@ -21,14 +21,8 @@ import yaml
 # 配置参数
 # ============================================================
 
-# 每次随机抽样测试 200 个节点
-TEST_COUNT = 2000
-
-# 测试网址（通过 Mihomo API 测延迟，只要能通就代表可用）
-TEST_URLS = [
-    "https://www.gstatic.com/generate_204",
-    "https://www.cloudflare.com/cdn-cgi/trace",
-]
+TEST_COUNT = 2000  # 抽样数（如您要求的 2000 个）
+TEST_URL = "https://www.gstatic.com/generate_204"
 TIMEOUT_MS = 5000
 
 GROUP_TYPES = {
@@ -56,22 +50,19 @@ def api_get(port, secret, path):
         return json.loads(r.read())
 
 
-def test_node_delay(port, secret, name):
-    """通过 Mihomo API 测试节点的延迟，确保多网址通过"""
+def test_single_node(port, secret, name):
+    """通过标准的 mihomo 节点延迟测试接口获取延迟"""
     q_name = urllib.parse.quote(name, safe="")
-    delays = []
-    for test_url in TEST_URLS:
-        url_q = urllib.parse.quote(test_url, safe="")
-        try:
-            data = api_get(port, secret, f"/proxies/{q_name}/delay?timeout={TIMEOUT_MS}&url={url_q}")
-            delay = data.get("delay")
-            if delay is not None:
-                delays.append(delay)
-            else:
-                return name, None
-        except Exception:
-            return name, None
-    return name, int(sum(delays) / len(delays))
+    url_q = urllib.parse.quote(TEST_URL, safe="")
+    try:
+        # 注意：Mihomo 的延迟测试是 GET 请求
+        data = api_get(port, secret, f"/proxies/{q_name}/delay?timeout={TIMEOUT_MS}&url={url_q}")
+        delay = data.get("delay")
+        if delay and isinstance(delay, int) and 0 < delay < 5000:
+            return name, delay
+    except Exception:
+        pass
+    return name, None
 
 
 def fake_proxy(name):
@@ -94,10 +85,10 @@ def find_mihomo():
 
 
 def main():
-    ap = argparse.ArgumentParser(description="mihomo 节点延迟测试 + AIO 合并")
+    ap = argparse.ArgumentParser(description="mihomo 节点测速 + AIO 合并")
     ap.add_argument("inputs", nargs="+", help="清洗后的各来源 clash.yaml")
     ap.add_argument("-o", "--output", required=True, help="输出 AIO clash.yaml")
-    ap.add_argument("--concurrency", type=int, default=32, help="测速并发数")
+    ap.add_argument("--concurrency", type=int, default=16, help="测速并发数")
     args = ap.parse_args()
 
     # 1. 读取并合并所有输入源的节点
@@ -122,7 +113,7 @@ def main():
     if not proxies:
         raise SystemExit("[FAIL] 无任何节点可测")
 
-    # 2. 随机抽样限制数量（抽样 200 个）
+    # 2. 随机抽样限制数量
     if len(proxies) > TEST_COUNT:
         proxies = random.sample(proxies, TEST_COUNT)
     print(f"🎯 本轮随机抽样测试节点数: {len(proxies)}")
@@ -172,23 +163,7 @@ def main():
                 raise SystemExit("[FAIL] mihomo API 未就绪")
 
             # 获取所有待测节点名称
-            proxies_map = {}
-            for _ in range(10):
-                try:
-                    proxies_map = api_get(api_port, secret, "/proxies")["proxies"]
-                except Exception:
-                    proxies_map = {}
-                if proxies_map:
-                    break
-                time.sleep(0.5)
-                
-            names = [
-                n for n, info in proxies_map.items()
-                if n not in SKIP_NAMES and info.get("type") not in GROUP_TYPES
-            ]
-
-            if not names:
-                raise SystemExit("[FAIL] Mihomo 中未解析到有效代理节点")
+            names = [p["name"] for p in proxies]
 
             print(f"[3/4] 开始对 {len(names)} 个抽样节点进行测速 (并发 {args.concurrency})")
             ok = {}
@@ -196,9 +171,9 @@ def main():
             total = len(names)
             interval = max(1, total // 50)
             
-            # 并发执行测速
+            # 使用线程池逐个调用 API 测速
             with ThreadPoolExecutor(max_workers=args.concurrency) as ex:
-                futs = {ex.submit(test_node_delay, api_port, secret, n): n for n in names}
+                futs = {ex.submit(test_single_node, api_port, secret, n): n for n in names}
                 for fut in as_completed(futs):
                     name, delay = fut.result()
                     done += 1
@@ -241,7 +216,7 @@ def main():
                     {
                         "name": "♻️ 自动选择",
                         "type": "url-test",
-                        "url": TEST_URLS[0],
+                        "url": TEST_URL,
                         "interval": 300,
                         "proxies": good_names,
                     },
