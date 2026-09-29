@@ -1,0 +1,52 @@
+name: 节点测速与 AIO 生成
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'        # 每 4 小时执行一次
+  workflow_dispatch:              # 支持手动触发
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml requests
+
+      - name: Install mihomo core
+        run: |
+          ARCH=$([ "$(uname -m)" = "aarch64" ] && echo arm64 || echo amd64)
+          curl -fsSL "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.9/mihomo-linux-${ARCH}-v1.19.9.gz" -o mihomo.gz
+          gunzip -f mihomo.gz
+          chmod +x mihomo
+          echo "MIHOMO_BIN=$PWD/mihomo" >> "$GITHUB_ENV"
+
+      - name: Test nodes and build AIO
+        run: |
+          INPUTS=$(find output -mindepth 2 -maxdepth 2 -name clash.yaml ! -path 'output/aio/*' | sort | tr '\n' ' ')
+          if [ -n "$INPUTS" ]; then
+            python test_nodes.py $INPUTS -o output/aio/clash.yaml
+          else
+            echo "::error::未找到任何待测的 clash.yaml 文件"
+            exit 1
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "proxy-node-bot"
+          git config user.email "bot@proxy-node.dev"
+          git stash
+          git pull --rebase || true
+          git stash pop || true
+          git add output/aio/clash.yaml
+          git diff --cached --quiet || git commit -m "update: $(TZ=Asia/Shanghai date +%Y-%m-%d %H:%M) AIO 节点自动测速合并"
+          git push
