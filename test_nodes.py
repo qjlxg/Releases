@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""用 Clash.Meta (mihomo) 内核逐节点测试可用性,合并生成 AIO 精选订阅。
+
+用法:
+  python scripts/test_nodes.py <cleaned1.yaml> [<cleaned2.yaml> ...] -o <out.yaml>
+
+流程:
+  1. 合并各来源清洗后的节点(按 type+server+port 去重);
+  2. 生成临时测试配置并启动 mihomo 内核;
+  3. 通过 RESTful API 对每个节点请求
+     GET /proxies/{name}/delay?url=https://www.gstatic.com/generate_204
+     测试代理可用性与延迟;
+  4. 保留可用的节点,按延迟升序排序,注入说明节点,写出 AIO 精选订阅。
+
+mihomo 二进制:环境变量 MIHOMO_BIN,否则自动探测 /usr/local/bin/mihomo、/tmp/mihomo。
+"""
 import argparse
 import json
 import os
@@ -14,24 +29,15 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-TEST_URLS = [
-    "https://www.gstatic.com/generate_204",
-    "https://www.cloudflare.com/cdn-cgi/trace",
-    "https://www.google.com/generate_204",
-]
+TEST_URL = "https://www.gstatic.com/generate_204"
 TIMEOUT_MS = 5000
 GROUP_TYPES = {
     "Selector", "URLTest", "Fallback", "Relay", "LoadBalance", "Compatible",
     "Pass", "ShadowTLS", "Reject", "Direct",
 }
 SKIP_NAMES = {"GLOBAL", "DIRECT", "REJECT", "PASS"}
-
-# 需要过滤掉的广告、推广、返利、加群等敏感字眼关键词列表
-AD_KEYWORDS = [
-    "广告", "推介", "返利", "群", "加Q", "加V", "电报", "TG", "t.me", 
-    "http", "www", ".com", ".net", "赞助", "机场", "买", "续费", "vps",
-    "定制", "联系", "老板", "频道", "公告", "说明", "订阅"
-]
+AUTHOR = "wzmwayne"
+REPO = "https://github.com/wzmwayne/proxy-node"
 
 
 def find_free_port():
@@ -51,28 +57,24 @@ def api_get(port, secret, path):
 
 def test_node(port, secret, name):
     q = urllib.parse.quote(name, safe="")
-    delays = []
-    for test_url in TEST_URLS:
-        url_q = urllib.parse.quote(test_url, safe="")
-        try:
-            data = api_get(port, secret, f"/proxies/{q}/delay?timeout={TIMEOUT_MS}&url={url_q}")
-            delay = data.get("delay")
-            if delay is not None:
-                delays.append(delay)
-            else:
-                return name, None
-        except Exception:
-            return name, None
-    return name, int(sum(delays) / len(delays))
+    url_q = urllib.parse.quote(TEST_URL, safe="")
+    try:
+        data = api_get(port, secret, f"/proxies/{q}/delay?timeout={TIMEOUT_MS}&url={url_q}")
+        return name, data.get("delay")
+    except Exception:
+        return name, None
 
 
-def is_ad_node(name):
-    """检查节点名称是否包含广告或推广信息"""
-    name_lower = str(name).lower()
-    for kw in AD_KEYWORDS:
-        if kw.lower() in name_lower:
-            return True
-    return False
+def fake_proxy(name):
+    return {
+        "name": name,
+        "type": "trojan",
+        "server": "127.0.0.1",
+        "port": 443,
+        "password": "dummy",
+        "udp": True,
+        "skip-cert-verify": True,
+    }
 
 
 def find_mihomo():
@@ -83,7 +85,7 @@ def find_mihomo():
 
 
 def main():
-    ap = argparse.ArgumentParser(description="mihomo 内核节点测试 + 去广告清洗")
+    ap = argparse.ArgumentParser(description="mihomo 内核节点测试 + AIO 合并")
     ap.add_argument("inputs", nargs="+", help="清洗后的各来源 clash.yaml")
     ap.add_argument("-o", "--output", required=True, help="输出 AIO clash.yaml")
     ap.add_argument("--concurrency", type=int, default=32)
@@ -98,17 +100,15 @@ def main():
         for p in d.get("proxies", []):
             if not isinstance(p, dict) or not p.get("name"):
                 continue
-            name = str(p["name"])
-            # 排除说明节点以及带广告、推广字眼的节点
-            if name.startswith("说明-") or is_ad_node(name):
+            if str(p["name"]).startswith("说明-"):
                 continue
             key = (p.get("type"), p.get("server"), p.get("port"))
             if key not in merged:
                 merged[key] = p
     proxies = list(merged.values())
-    print(f"[1/4] 合并并去除广告后待测节点: {len(proxies)}")
+    print(f"[1/4] 合并后待测节点: {len(proxies)}")
     if not proxies:
-        raise SystemExit("[FAIL] 无任何有效节点可测")
+        raise SystemExit("[FAIL] 无任何节点可测")
 
     mihomo = find_mihomo()
     port = find_free_port()
@@ -160,7 +160,7 @@ def main():
                 n for n, info in proxies_map.items()
                 if n not in SKIP_NAMES and info.get("type") not in GROUP_TYPES
             ]
-            print(f"[3/4] 开始测试 {len(names)} 个节点 -> 3个测试网址 (并发 {args.concurrency})")
+            print(f"[3/4] 开始测试 {len(names)} 个节点 -> {TEST_URL} (并发 {args.concurrency})")
             ok = {}
             done = 0
             total = len(names)
@@ -182,7 +182,15 @@ def main():
             good = [p for p in proxies if p["name"] in ok]
             good.sort(key=lambda p: ok[p["name"]])
             good_names = [p["name"] for p in good]
-            
+            now = time.strftime("%Y-%m-%d %H:%M", time.gmtime(time.time() + 8 * 3600))
+            fake_names = [
+                f"说明-来源: AIO 精选(合并 {len(args.inputs)} 个来源)",
+                f"说明-测试: {len(ok)}/{len(names)} 节点通过 generate_204",
+                f"说明-更新时间: {now} (CST)",
+                f"说明-作者: {AUTHOR}",
+                f"说明-仓库: {REPO}",
+            ]
+            fakes = [fake_proxy(n) for n in fake_names]
             aio = {
                 "mixed-port": 7890,
                 "allow-lan": False,
@@ -190,13 +198,14 @@ def main():
                 "log-level": "info",
                 "ipv6": False,
                 "external-controller": "127.0.0.1:9090",
-                "proxies": good,
+                "proxies": fakes + good,
                 "proxy-groups": [
+                    {"name": "说明", "type": "select", "proxies": fake_names},
                     {"name": "🚀 节点选择", "type": "select", "proxies": good_names},
                     {
                         "name": "♻️ 自动选择",
                         "type": "url-test",
-                        "url": TEST_URLS[0],
+                        "url": TEST_URL,
                         "interval": 300,
                         "proxies": good_names,
                     },
@@ -204,20 +213,9 @@ def main():
                 "rules": ["MATCH,🚀 节点选择"],
             }
             os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
-            
-            # 使用临时文件安全写入，避免原地覆盖损坏文件
-            out_dir = os.path.dirname(args.output) or "."
-            fd, tmp_out = tempfile.mkstemp(dir=out_dir, suffix=".yaml")
-            try:
-                with os.fdopen(fd, "w", encoding="utf-8") as f:
-                    yaml.dump(aio, f, Dumper=yaml.SafeDumper, allow_unicode=False, default_flow_style=False, sort_keys=False)
-                os.replace(tmp_out, args.output)
-            except Exception:
-                if os.path.exists(tmp_out):
-                    os.remove(tmp_out)
-                raise
-
-            print(f"[4/4] 纯净版 AIO 已写入 {args.output}: {len(good)} 个可用节点")
+            with open(args.output, "w", encoding="utf-8") as f:
+                yaml.dump(aio, f, Dumper=yaml.SafeDumper, allow_unicode=False, default_flow_style=False, sort_keys=False)
+            print(f"[4/4] AIO 已写入 {args.output}: {len(good)} 个可用节点")
         finally:
             proc.terminate()
             try:
