@@ -1,925 +1,326 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 基于代理节点合并与真实下载测试 (GitHub Actions 专用版)
 
-import os
-import sys
-import time
+import argparse
 import json
-import copy
+import os
 import random
-import shutil
-import tempfile
+import socket
+import string
 import subprocess
-import signal
-from pathlib import Path
-from urllib.parse import quote
-
-import requests
+import sys
+import tempfile
+import time
+import urllib.parse
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import yaml
 
-
 # ============================================================
-# 配置
-# ============================================================
-
-BASE = Path("/content/drive/MyDrive/AssetProject/scripts")
-
-INPUT_DIR = BASE / "generated" / "probe"
-OUTPUT_DIR = BASE / "data"
-
-INPUT_GLOB = "cf_nest_1only_probe_*.yaml"
-
-OUTPUT_YAML = OUTPUT_DIR / "cf_nest_download_probe_100.yaml"
-REPORT_JSON = OUTPUT_DIR / "cf_nest_download_probe_100_report.json"
-
-MIHOMO = os.environ.get(
-    "MIHOMO_BIN",
-    str(BASE / "mihomo_speed" / "mihomo")
-)
-
-# ============================================================
-# 本轮只抽样 100 个
+# 配置参数
 # ============================================================
 
-TEST_COUNT = 100
+# Cloudflare 实际下载测试接口
+DOWNLOAD_URL = "https://speed.cloudflare.com/__down?bytes=1048576"  # 请求 1MB
+# 每个节点实际下载接收到多少字节就算通过 (例如 512 KB 就判定可用)
+REQUIRED_BYTES = 512 * 1024 
 
-# 每个节点实际下载至少 1 MB 才算通过
-DOWNLOAD_BYTES = 1024 * 1024
-
-# Cloudflare 实际下载接口
-DOWNLOAD_URL = (
-    "https://speed.cloudflare.com/__down?bytes=1048576"
-)
-
-# Mihomo
-MIXED_PORT = 7898
-API_PORT = 9097
-
-# 超时
 CONNECT_TIMEOUT = 8
 READ_TIMEOUT = 12
 
-# 切换节点后等待 Mihomo 生效
-SELECT_WAIT = 0.25
-
-# None = 每次随机抽样
-# 如果以后想固定同一批节点，可以改成整数，例如 20260929
-RANDOM_SEED = None
-
-
-# ============================================================
-# DNS
-# ============================================================
-
-DNS = {
-    "enable": True,
-    "ipv6": False,
-    "enhanced-mode": "fake-ip",
-    "fake-ip-range": "198.18.0.1/16",
-
-    "default-nameserver": [
-        "223.5.5.5",
-        "119.29.29.29"
-    ],
-
-    "nameserver": [
-        "https://doh.pub/dns-query",
-        "https://dns.alidns.com/dns-query"
-    ],
-
-    "fallback": [
-        "tls://1.1.1.1",
-        "tls://8.8.8.8"
-    ],
-
-    "proxy-server-nameserver": [
-        "https://doh.pub/dns-query",
-        "https://dns.alidns.com/dns-query"
-    ],
-
-    "fallback-filter": {
-        "geoip": True,
-        "geoip-code": "CN",
-        "geosite": ["gfw"],
-        "domain": [
-            "+.google.com",
-            "+.youtube.com",
-            "+.github.com"
-        ]
-    }
+GROUP_TYPES = {
+    "Selector", "URLTest", "Fallback", "Relay", "LoadBalance", "Compatible",
+    "Pass", "ShadowTLS", "Reject", "Direct",
 }
-
+SKIP_NAMES = {"GLOBAL", "DIRECT", "REJECT", "PASS"}
+AUTHOR = "wzmwayne & 老前辈定制"
+REPO = "https://github.com/qjlxg/Releases"
 
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 "
-        "Chrome/151 Safari/537.36"
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/115.0.0.0 Safari/537.36"
     )
 }
 
 
-# ============================================================
-# 日志
-# ============================================================
+def find_free_port():
+    s = socket.socket()
+    s.bind(("127.0.0.1", 0))
+    port = s.getsockname()[1]
+    s.close()
+    return port
 
-def log(message):
-    print(
-        time.strftime("[%Y-%m-%d %H:%M:%S]"),
-        message,
-        flush=True
+
+def api_get(port, secret, path):
+    req = urllib.request.Request(f"http://127.0.0.1:{port}{path}")
+    if secret:
+        req.add_header("Authorization", f"Bearer {secret}")
+    with urllib.request.urlopen(req, timeout=10) as r:
+        return json.loads(r.read())
+
+
+def select_node(port, secret, name):
+    """通过 Mihomo API 切换当前测速组的节点"""
+    q_group = urllib.parse.quote("__DOWNLOAD_TEST__", safe="")
+    req = urllib.request.Request(
+        f"http://127.0.0.1:{port}/proxies/{q_group}",
+        data=json.dumps({"name": name}).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="PUT"
     )
+    if secret:
+        req.add_header("Authorization", f"Bearer {secret}")
+    with urllib.request.urlopen(req, timeout=5) as r:
+        pass
 
 
-def die(message):
-    log("❌ " + message)
-    raise SystemExit(1)
+def test_download_node(mixed_port, api_port, secret, name):
+    """核心测试：不测延迟，直接通过本地 mihomo 代理下载文件，看能否真正读到数据"""
+    try:
+        # 1. 切换节点
+        select_node(api_port, secret, name)
+        time.sleep(0.2)  # 等待节点切换生效
+
+        # 2. 构造带代理的请求
+        proxy_handler = urllib.request.ProxyHandler({
+            "http": f"http://127.0.0.1:{mixed_port}",
+            "https": f"http://127.0.0.1:{mixed_port}",
+        })
+        opener = urllib.request.build_opener(proxy_handler)
+        
+        req = urllib.request.Request(DOWNLOAD_URL, headers=HEADERS)
+        
+        start_time = time.time()
+        received = 0
+        
+        # 3. 打开连接并尝试读取一小部分数据
+        with opener.open(req, timeout=CONNECT_TIMEOUT) as resp:
+            if not (200 <= resp.status < 300):
+                return name, None
+            
+            # 边读边统计，达到 REQUIRED_BYTES 就认为成功，提前中断下载以节省流量
+            while True:
+                chunk = resp.read(65536)
+                if not chunk:
+                    break
+                received += len(chunk)
+                if received >= REQUIRED_BYTES:
+                    break
+                # 防止单次下载卡死超时
+                if time.time() - start_time > READ_TIMEOUT:
+                    break
+
+        if received >= REQUIRED_BYTES:
+            cost_ms = int((time.time() - start_time) * 1000)
+            return name, cost_ms
+        
+        return name, None
+    except Exception:
+        return name, None
 
 
-# ============================================================
-# 读取节点
-# ============================================================
+def fake_proxy(name):
+    return {
+        "name": name,
+        "type": "trojan",
+        "server": "127.0.0.1",
+        "port": 443,
+        "password": "dummy",
+        "udp": True,
+        "skip-cert-verify": True,
+    }
 
-def load_nodes():
 
-    files = sorted(INPUT_DIR.glob(INPUT_GLOB))
+def find_mihomo():
+    for p in [os.environ.get("MIHOMO_BIN"), "./mihomo", "/usr/local/bin/mihomo", "/tmp/mihomo", "mihomo"]:
+        if p and os.path.isfile(p):
+            return p
+    return "mihomo"
 
-    if not files:
-        die(
-            f"找不到输入文件："
-            f"{INPUT_DIR}/{INPUT_GLOB}"
-        )
 
-    nodes = []
-    seen = set()
+def main():
+    ap = argparse.ArgumentParser(description="mihomo 节点真实下载测试 + AIO 合并")
+    ap.add_argument("inputs", nargs="+", help="清洗后的各来源 clash.yaml")
+    ap.add_argument("-o", "--output", required=True, help="输出 AIO clash.yaml")
+    ap.add_argument("--concurrency", type=int, default=16, help="真实下载测试并发数（建议适中，避免并发过高被cloudflare限流）")
+    args = ap.parse_args()
 
-    for file in files:
-
-        try:
-            data = yaml.safe_load(
-                file.read_text(encoding="utf-8")
-            ) or {}
-
-        except Exception as e:
-            log(f"⚠️ 跳过无法读取 {file}: {e}")
+    # 1. 读取并合并所有输入源的节点
+    merged = {}
+    for inp in args.inputs:
+        if not os.path.exists(inp):
+            print(f"[WARN] 输入文件不存在，跳过: {inp}")
             continue
-
-        arr = (
-            data.get("proxies", [])
-            if isinstance(data, dict)
-            else []
-        )
-
-        log(
-            f"📄 {file}: {len(arr)} 个节点"
-        )
-
-        for proxy in arr:
-
-            if not isinstance(proxy, dict):
+        with open(inp, encoding="utf-8") as f:
+            d = yaml.safe_load(f) or {}
+        for p in d.get("proxies", []):
+            if not isinstance(p, dict) or not p.get("name"):
                 continue
-
-            if not proxy.get("type"):
+            if str(p["name"]).startswith("说明-"):
                 continue
+            key = (p.get("type"), p.get("server"), p.get("port"))
+            if key not in merged:
+                merged[key] = p
+                
+    proxies = list(merged.values())
+    print(f"[1/4] 合并后待测节点: {len(proxies)}")
+    if not proxies:
+        raise SystemExit("[FAIL] 无任何节点可测")
 
-            if not proxy.get("server"):
-                continue
+    mihomo = find_mihomo()
+    api_port = find_free_port()
+    mixed_port = api_port + 1
+    secret = "".join(random.choices(string.ascii_letters + string.digits, k=16))
 
-            # 完整复制原节点
-            node = copy.deepcopy(proxy)
-
-            # 去重：
-            # 只排除 name，其他所有配置都参与指纹
-            fingerprint_data = {
-                k: v
-                for k, v in node.items()
-                if k != "name"
-            }
-
-            fingerprint = json.dumps(
-                fingerprint_data,
-                sort_keys=True,
-                ensure_ascii=False,
-                separators=(",", ":")
-            )
-
-            if fingerprint in seen:
-                continue
-
-            seen.add(fingerprint)
-            nodes.append(node)
-
-    log(f"📦 去重后节点：{len(nodes)}")
-
-    return nodes
-
-
-# ============================================================
-# 确保 Mihomo 节点名称唯一
-# 不改变节点本身参数
-# ============================================================
-
-def unique_names(nodes):
-
-    used = {}
-
-    for node in nodes:
-
-        original = str(
-            node.get("name")
-            or (
-                f"{node.get('type', 'proxy')}-"
-                f"{node.get('server', '')}-"
-                f"{node.get('port', '')}"
-            )
-        )
-
-        if original not in used:
-
-            used[original] = 1
-            node["name"] = original
-
-        else:
-
-            used[original] += 1
-            node["name"] = (
-                f"{original} #{used[original]}"
-            )
-
-    return nodes
-
-
-# ============================================================
-# 生成 Mihomo 测试配置
-# ============================================================
-
-def make_config(nodes, path, external=True):
-
-    config = {
-        "mixed-port": MIXED_PORT,
+    # 2. 构造用于真实下载测试的 Mihomo 配置
+    # 核心技巧：加入一个名为 __DOWNLOAD_TEST__ 的 select 策略组，包含所有待测节点
+    test_cfg = {
+        "mixed-port": mixed_port,
         "allow-lan": False,
         "mode": "rule",
-        "log-level": "warning",
-        "ipv6": False,
-
-        "dns": DNS,
-
-        # 原始节点完整放进去
-        "proxies": nodes,
-
-        # 一个节点一个节点切换
+        "log-level": "silent",
+        "external-controller": f"127.0.0.1:{api_port}",
+        "secret": secret,
+        "proxies": proxies,
         "proxy-groups": [
             {
                 "name": "__DOWNLOAD_TEST__",
                 "type": "select",
-                "proxies": [
-                    node["name"]
-                    for node in nodes
-                ]
+                "proxies": [p["name"] for p in proxies]
             }
         ],
-
-        "rules": [
-            "MATCH,__DOWNLOAD_TEST__"
-        ]
+        "rules": ["MATCH,__DOWNLOAD_TEST__"],
     }
+    
+    print(f"[2/4] 启动 mihomo 内核进行真实下载测试 (控制端口: {api_port}, 混合代理端口: {mixed_port})")
+    with tempfile.TemporaryDirectory() as td:
+        cfg_path = os.path.join(td, "config.yaml")
+        with open(cfg_path, "w", encoding="utf-8") as f:
+            yaml.dump(test_cfg, f, Dumper=yaml.SafeDumper, allow_unicode=False, sort_keys=False)
+        
+        if os.path.isfile(mihomo):
+            os.chmod(mihomo, 0o755)
 
-    if external:
-        config["external-controller"] = (
-            f"127.0.0.1:{API_PORT}"
+        proc = subprocess.Popen(
+            [mihomo, "-d", td, "-f", cfg_path],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
-
-    path.write_text(
-        yaml.safe_dump(
-            config,
-            allow_unicode=True,
-            sort_keys=False
-        ),
-        encoding="utf-8"
-    )
-
-
-# ============================================================
-# 启动 Mihomo
-# ============================================================
-
-def start_mihomo(config_path):
-
-    if not Path(MIHOMO).exists():
-        die(f"Mihomo 不存在：{MIHOMO}")
-
-    os.chmod(MIHOMO, 0o755)
-
-    process = subprocess.Popen(
-        [
-            MIHOMO,
-            "-f",
-            str(config_path)
-        ],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        start_new_session=True
-    )
-
-    api = (
-        f"http://127.0.0.1:{API_PORT}"
-    )
-
-    session = requests.Session()
-
-    for _ in range(60):
-
         try:
-
-            response = session.get(
-                api + "/version",
-                timeout=1
-            )
-
-            if response.ok:
-                return process, session
-
-        except Exception:
-            pass
-
-        time.sleep(0.2)
-
-    try:
-        process.terminate()
-    except Exception:
-        pass
-
-    die("Mihomo API 启动超时")
-
-
-# ============================================================
-# 停止 Mihomo
-# ============================================================
-
-def stop_mihomo(process):
-
-    if not process:
-        return
-
-    try:
-
-        os.killpg(
-            process.pid,
-            signal.SIGTERM
-        )
-
-        process.wait(timeout=5)
-
-    except Exception:
-
-        try:
-            process.kill()
-        except Exception:
-            pass
-
-
-# ============================================================
-# 切换节点
-# ============================================================
-
-def select_node(session, name):
-
-    url = (
-        f"http://127.0.0.1:{API_PORT}"
-        f"/proxies/"
-        f"{quote('__DOWNLOAD_TEST__', safe='')}"
-    )
-
-    response = session.put(
-        url,
-        json={"name": name},
-        timeout=5
-    )
-
-    response.raise_for_status()
-
-    time.sleep(SELECT_WAIT)
-
-
-# ============================================================
-# 核心：
-# 只测试“实际下载”
-#
-# 不测：
-# ❌ 延迟
-# ❌ Google 204
-# ❌ YouTube
-# ❌ GitHub
-# ❌ 网站打开速度
-#
-# 只看：
-# ✅ 能不能真正收到至少 1 MB 数据
-# ============================================================
-
-def test_download(session, node):
-
-    name = node["name"]
-
-    try:
-
-        # 切换到当前节点
-        select_node(
-            session,
-            name
-        )
-
-        # 通过 Mihomo 本地代理实际下载
-        response = session.get(
-            DOWNLOAD_URL,
-
-            headers=HEADERS,
-
-            stream=True,
-
-            timeout=(
-                CONNECT_TIMEOUT,
-                READ_TIMEOUT
-            ),
-
-            proxies={
-                "http": (
-                    f"http://127.0.0.1:{MIXED_PORT}"
-                ),
-                "https": (
-                    f"http://127.0.0.1:{MIXED_PORT}"
-                )
-            }
-        )
-
-        status = response.status_code
-
-        received = 0
-
-        if not (
-            200 <= status < 300
-        ):
-
-            response.close()
-
-            return (
-                False,
-                received,
-                status,
-                f"HTTP {status}"
-            )
-
-        # 真正读取数据
-        for chunk in response.iter_content(
-            chunk_size=65536
-        ):
-
-            if not chunk:
-                continue
-
-            received += len(chunk)
-
-            # 收到 1 MB 就算通过
-            if received >= DOWNLOAD_BYTES:
-                break
-
-        response.close()
-
-        if received >= DOWNLOAD_BYTES:
-
-            return (
-                True,
-                received,
-                status,
-                "OK"
-            )
-
-        return (
-            False,
-            received,
-            status,
-            (
-                f"下载不足 "
-                f"{received}/{DOWNLOAD_BYTES} bytes"
-            )
-        )
-
-    except Exception as e:
-
-        return (
-            False,
-            0,
-            None,
-            f"{type(e).__name__}: {e}"
-        )
-
-
-# ============================================================
-# YAML 最终校验
-# ============================================================
-
-def validate_yaml(path):
-
-    try:
-
-        data = yaml.safe_load(
-            path.read_text(
-                encoding="utf-8"
-            )
-        )
-
-        assert isinstance(data, dict)
-
-        assert isinstance(
-            data.get("proxies"),
-            list
-        )
-
-        return len(
-            data["proxies"]
-        )
-
-    except Exception as e:
-
-        log(
-            f"❌ YAML 校验失败：{e}"
-        )
-
-        return 0
-
-
-# ============================================================
-# 主程序
-# ============================================================
-
-def main():
-
-    OUTPUT_DIR.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    # --------------------------------------------------------
-    # 读取全部节点
-    # --------------------------------------------------------
-
-    nodes = load_nodes()
-
-    nodes = unique_names(nodes)
-
-    if not nodes:
-        die("没有可测试节点")
-
-    # --------------------------------------------------------
-    # 随机抽样固定数量
-    # --------------------------------------------------------
-
-    test_count = min(
-        TEST_COUNT,
-        len(nodes)
-    )
-
-    rng = random.Random(
-        RANDOM_SEED
-    )
-
-    sample = rng.sample(
-        nodes,
-        test_count
-    )
-
-    log(
-        f"🎯 本轮随机抽样：{test_count} 个"
-    )
-
-    log(
-        "⚠️ 这 100 个全部测试完"
-    )
-
-    log(
-        "⚠️ 不因为找到成功节点而提前停止"
-    )
-
-    log(
-        "⚠️ 最终把所有成功节点全部输出"
-    )
-
-    log(
-        "🌐 唯一测试标准："
-        f"实际下载 ≥ {DOWNLOAD_BYTES // 1024} KB"
-    )
-
-    # --------------------------------------------------------
-    # 临时目录
-    # --------------------------------------------------------
-
-    temp_dir = Path(
-        tempfile.mkdtemp(
-            prefix="mihomo_download_probe_"
-        )
-    )
-
-    config_path = (
-        temp_dir / "config.yaml"
-    )
-
-    # --------------------------------------------------------
-    # 生成测试配置
-    # --------------------------------------------------------
-
-    make_config(
-        sample,
-        config_path
-    )
-
-    process = None
-    results = []
-    passed_nodes = []
-
-    try:
-
-        # ----------------------------------------------------
-        # 启动 Mihomo
-        # ----------------------------------------------------
-
-        log("🚀 启动 Mihomo...")
-
-        process, session = start_mihomo(
-            config_path
-        )
-
-        # ----------------------------------------------------
-        # 100 个全部测试
-        # ----------------------------------------------------
-
-        for index, node in enumerate(
-            sample,
-            1
-        ):
-
-            ok, received, status, error = (
-                test_download(
-                    session,
-                    node
-                )
-            )
-
-            result = {
-                "index": index,
-                "name": node["name"],
-                "type": node.get("type"),
-                "server": node.get("server"),
-                "port": node.get("port"),
-                "success": ok,
-                "received_bytes": received,
-                "http_status": status,
-                "error": error
-            }
-
-            results.append(result)
-
-            if ok:
-
-                # 完整复制原始节点
-                passed_nodes.append(
-                    copy.deepcopy(node)
-                )
-
-                log(
-                    f"✅ [{index}/{test_count}] "
-                    f"{node['name']} | "
-                    f"下载 "
-                    f"{received / 1024:.1f} KB"
-                )
-
-            else:
-
-                log(
-                    f"❌ [{index}/{test_count}] "
-                    f"{node['name']} | "
-                    f"{error}"
-                )
-
-    finally:
-
-        stop_mihomo(
-            process
-        )
-
-        shutil.rmtree(
-            temp_dir,
-            ignore_errors=True
-        )
-
-    # ========================================================
-    # 输出结果
-    # ========================================================
-
-    if not passed_nodes:
-
-        log(
-            f"⚠️ {test_count} 个节点全部"
-            "未通过真实下载测试"
-        )
-
-        log(
-            "⚠️ 不生成空的节点文件"
-        )
-
-    else:
-
-        # ----------------------------------------------------
-        # 最终客户端 YAML
-        # ----------------------------------------------------
-
-        final_config = {
-
-            "mixed-port": 7890,
-
-            "allow-lan": True,
-
-            "mode": "rule",
-
-            "log-level": "info",
-
-            "ipv6": False,
-
-            "dns": DNS,
-
-            # ------------------------------------------------
-            # 这里直接使用测试通过的原节点
-            # 不重新拼接 VLESS / WS / TLS
-            # ------------------------------------------------
-            "proxies": passed_nodes,
-
-            "proxy-groups": [
-
-                {
-                    "name": "🚀 节点选择",
-                    "type": "select",
-                    "proxies": [
-                        node["name"]
-                        for node in passed_nodes
-                    ] + [
-                        "DIRECT"
-                    ]
-                },
-
-                {
-                    "name": "🇨🇳 国内直连",
-                    "type": "select",
-                    "proxies": [
-                        "DIRECT",
-                        "🚀 节点选择"
-                    ]
-                },
-
-                {
-                    "name": "🌍 国外代理",
-                    "type": "select",
-                    "proxies": [
-                        "🚀 节点选择",
-                        "DIRECT"
-                    ]
-                }
-            ],
-
-            "rules": [
-                "DOMAIN-SUFFIX,cn,DIRECT",
-                "GEOIP,CN,DIRECT",
-                "MATCH,🌍 国外代理"
+            ready = False
+            for _ in range(120):
+                try:
+                    api_get(api_port, secret, "/version")
+                    ready = True
+                    break
+                except Exception:
+                    if proc.poll() is not None:
+                        raise SystemExit("[FAIL] mihomo 进程提前退出")
+                    time.sleep(0.5)
+            if not ready:
+                raise SystemExit("[FAIL] mihomo API 未就绪")
+
+            # 获取所有节点名称
+            proxies_map = {}
+            for _ in range(10):
+                try:
+                    proxies_map = api_get(api_port, secret, "/proxies")["proxies"]
+                except Exception:
+                    proxies_map = {}
+                if proxies_map:
+                    break
+                time.sleep(0.5)
+                
+            # 提取出实际的节点名字（排除分组和关键字）
+            names = [
+                n for n, info in proxies_map.get("__DOWNLOAD_TEST__", {}).get("all", [])
+                if n not in SKIP_NAMES and info not in GROUP_TYPES
             ]
-        }
+            if not names:
+                # 兼容旧版本结构
+                names = [
+                    n for n, info in proxies_map.items()
+                    if n not in SKIP_NAMES and info.get("type") not in GROUP_TYPES and n != "__DOWNLOAD_TEST__"
+                ]
 
-        # ----------------------------------------------------
-        # 临时输出
-        # ----------------------------------------------------
+            print(f"[3/4] 开始对 {len(names)} 个节点进行【真实下载测试】(并发 {args.concurrency})")
+            ok = {}
+            done = 0
+            total = len(names)
+            
+            if total == 0:
+                raise SystemExit("[FAIL] Mihomo 中未解析到有效代理节点")
+                
+            interval = max(1, total // 50)
+            
+            # 并发执行下载测试
+            with ThreadPoolExecutor(max_workers=args.concurrency) as ex:
+                futs = {ex.submit(test_download_node, mixed_port, api_port, secret, n): n for n in names}
+                for fut in as_completed(futs):
+                    name, cost = fut.result()
+                    done += 1
+                    if cost is not None:
+                        ok[name] = cost
+                    if done % interval == 0 or done == total:
+                        pct = done * 100 // total
+                        print(f"     进度 {done}/{total} ({pct}%) 可用 {len(ok)}", flush=True)
+                        
+            print(f"     真实下载通过节点: {len(ok)}")
+            if not ok:
+                raise SystemExit("[FAIL] 全部节点真实下载测试失败，不生成 AIO")
 
-        temp_output = (
-            OUTPUT_YAML.with_suffix(
-                ".tmp.yaml"
-            )
-        )
+            # 4. 排序并组装最终的 AIO 配置文件
+            good = [p for p in proxies if p["name"] in ok]
+            good.sort(key=lambda p: ok[p["name"]])
+            good_names = [p["name"] for p in good]
+            
+            now = time.strftime("%Y-%m-%d %H:%M", time.gmtime(time.time() + 8 * 3600))
+            fake_names = [
+                f"说明-来源: AIO 精选(合并 {len(args.inputs)} 个来源)",
+                f"说明-测试: {len(ok)}/{len(names)} 节点通过真实下载测试",
+                f"说明-更新时间: {now} (CST)",
+                f"说明-作者: {AUTHOR}",
+                f"说明-仓库: {REPO}",
+            ]
+            fakes = [fake_proxy(n) for n in fake_names]
+            
+            aio = {
+                "mixed-port": 7890,
+                "allow-lan": False,
+                "mode": "rule",
+                "log-level": "info",
+                "ipv6": False,
+                "external-controller": "127.0.0.1:9090",
+                "proxies": fakes + good,
+                "proxy-groups": [
+                    {"name": "说明", "type": "select", "proxies": fake_names},
+                    {"name": "🚀 节点选择", "type": "select", "proxies": good_names},
+                    {
+                        "name": "♻️ 自动选择",
+                        "type": "url-test",
+                        "url": "https://www.gstatic.com/generate_204",
+                        "interval": 300,
+                        "proxies": good_names,
+                    },
+                ],
+                "rules": ["MATCH,🚀 节点选择"],
+            }
+            
+            os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
+            with open(args.output, "w", encoding="utf-8") as f:
+                yaml.dump(aio, f, Dumper=yaml.SafeDumper, allow_unicode=False, default_flow_style=False, sort_keys=False)
+            print(f"[4/4] AIO 已写入 {args.output}: {len(good)} 个可用节点")
+            
+        finally:
+            proc.terminate()
+            try:
+                proc.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                proc.kill()
 
-        temp_output.write_text(
-            yaml.safe_dump(
-                final_config,
-                allow_unicode=True,
-                sort_keys=False
-            ),
-            encoding="utf-8"
-        )
-
-        # ----------------------------------------------------
-        # 校验
-        # ----------------------------------------------------
-
-        valid_count = validate_yaml(
-            temp_output
-        )
-
-        if valid_count != len(
-            passed_nodes
-        ):
-
-            die(
-                "最终 YAML 校验数量异常，"
-                "拒绝覆盖正式输出"
-            )
-
-        os.replace(
-            temp_output,
-            OUTPUT_YAML
-        )
-
-        log(
-            f"📤 成功节点已输出："
-            f"{OUTPUT_YAML}"
-        )
-
-    # ========================================================
-    # 保存详细测试报告
-    # ========================================================
-
-    report = {
-
-        "test_count": test_count,
-
-        "success_count": len(
-            passed_nodes
-        ),
-
-        "failed_count": (
-            test_count -
-            len(passed_nodes)
-        ),
-
-        "download_url": DOWNLOAD_URL,
-
-        "required_bytes": DOWNLOAD_BYTES,
-
-        "results": results,
-
-        "passed_names": [
-            node["name"]
-            for node in passed_nodes
-        ]
-    }
-
-    REPORT_JSON.write_text(
-        json.dumps(
-            report,
-            ensure_ascii=False,
-            indent=2
-        ),
-        encoding="utf-8"
-    )
-
-    # ========================================================
-    # 最终统计
-    # ========================================================
-
-    log("=" * 60)
-
-    log(
-        f"🏁 本轮测试完成"
-    )
-
-    log(
-        f"📦 实际测试：{test_count}"
-    )
-
-    log(
-        f"✅ 真实下载成功："
-        f"{len(passed_nodes)}"
-    )
-
-    log(
-        f"❌ 真实下载失败："
-        f"{test_count - len(passed_nodes)}"
-    )
-
-    log(
-        f"📄 测试报告："
-        f"{REPORT_JSON}"
-    )
-
-    if passed_nodes:
-
-        log(
-            f"📱 客户端测试文件："
-            f"{OUTPUT_YAML}"
-        )
-
-    log(
-        "📌 注意：GitHub 测试环境与手机客户端环境不同，"
-        "本轮只负责筛掉明显无法实际传输数据的节点；"
-        "最终可用性以客户端实测为准。"
-    )
-
-
-# ============================================================
-# 入口
-# ============================================================
 
 if __name__ == "__main__":
     main()
