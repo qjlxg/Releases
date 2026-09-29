@@ -23,7 +23,7 @@ NODES_DIR = Path("nodes_update")
 TEMPLATE_FILE: Optional[Path] = None # 例如 Path("nodes/vmess/001.txt")，Path("nodes/vless/001.txt") nodes/trojan/001.txt None 表示自动扫描
 
 OUTPUT_DIR = Path("generated")
-PROBE_IP_COUNT = 3000
+PROBE_IP_COUNT = 99000
 TEST_PORTS = [80,443,]
 MAX_NODES_PER_FILE = 5000
 TEST_IP_LIMIT = 5000
