@@ -1,0 +1,1 @@
+vless://08dad8a6-8a6c-4424-9d63-62f3a9bf7f4f@104.16.255.97:443?security=tls&sni=b911.qjlxg.workers.dev&fp=chrome&type=ws&path=/&host=b911.qjlxg.workers.dev&encryption=none#ir
