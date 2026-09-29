@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# 基于代理节点合并与真实下载测试 (GitHub Actions 专用抽样版)
+# 基于代理节点合并与真实下载测试 (GitHub Actions 专用完整版 - 抽样 200 个)
 
 import argparse
 import json
@@ -21,13 +21,13 @@ import yaml
 # 配置参数
 # ============================================================
 
-# 每次最多随机测试的节点数量（如 100 个）
-TEST_COUNT = 100
+# 每次随机抽样测试 200 个节点
+TEST_COUNT = 200
 
 # Cloudflare 实际下载测试接口
 DOWNLOAD_URL = "https://speed.cloudflare.com/__down?bytes=1048576"  # 请求 1MB
-# 每个节点实际下载接收到多少字节就算通过 (512 KB)
-REQUIRED_BYTES = 512 * 1024 
+# 每个节点实际下载接收到多少字节就算通过 (256 KB，减轻节点和云端压力)
+REQUIRED_BYTES = 256 * 1024 
 
 CONNECT_TIMEOUT = 8
 READ_TIMEOUT = 12
@@ -85,7 +85,7 @@ def test_download_node(mixed_port, api_port, secret, name):
     try:
         # 1. 切换节点
         select_node(api_port, secret, name)
-        time.sleep(0.2)  # 等待节点切换生效
+        time.sleep(0.3)  # 等待节点切换生效
 
         # 2. 构造带代理的请求
         proxy_handler = urllib.request.ProxyHandler({
@@ -105,7 +105,7 @@ def test_download_node(mixed_port, api_port, secret, name):
                 return name, None
             
             while True:
-                chunk = resp.read(65536)
+                chunk = resp.read(32768)  # 每次读取 32KB
                 if not chunk:
                     break
                 received += len(chunk)
@@ -146,7 +146,7 @@ def main():
     ap = argparse.ArgumentParser(description="mihomo 节点真实下载测试 + AIO 合并")
     ap.add_argument("inputs", nargs="+", help="清洗后的各来源 clash.yaml")
     ap.add_argument("-o", "--output", required=True, help="输出 AIO clash.yaml")
-    ap.add_argument("--concurrency", type=int, default=16, help="真实下载测试并发数")
+    ap.add_argument("--concurrency", type=int, default=8, help="真实下载测试并发数（建议 8 左右，避免过高被拦截）")
     args = ap.parse_args()
 
     # 1. 读取并合并所有输入源的节点
@@ -171,10 +171,10 @@ def main():
     if not proxies:
         raise SystemExit("[FAIL] 无任何节点可测")
 
-    # 2. 随机抽样限制数量（例如最多测 100 个）
+    # 2. 随机抽样限制数量（抽样 200 个）
     if len(proxies) > TEST_COUNT:
         proxies = random.sample(proxies, TEST_COUNT)
-    print(f"🎯 本轮抽样测试节点数: {len(proxies)}")
+    print(f"🎯 本轮随机抽样测试节点数: {len(proxies)}")
 
     mihomo = find_mihomo()
     api_port = find_free_port()
@@ -233,7 +233,6 @@ def main():
             for _ in range(10):
                 try:
                     group_info = api_get(api_port, secret, "/proxies/__DOWNLOAD_TEST__")
-                    # group_info["all"] 是一个包含节点名字符串的列表
                     names = [n for n in group_info.get("all", []) if n not in SKIP_NAMES]
                 except Exception:
                     names = []
