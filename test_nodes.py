@@ -15,7 +15,11 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-TEST_URL = "https://www.gstatic.com/generate_204"
+TEST_URLS = [
+    "https://www.gstatic.com/generate_204",
+    "https://www.cloudflare.com/cdn-cgi/trace",
+    "https://www.google.com/generate_204",
+]
 TIMEOUT_MS = 5000
 GROUP_TYPES = {
     "Selector", "URLTest", "Fallback", "Relay", "LoadBalance", "Compatible",
@@ -43,12 +47,19 @@ def api_get(port, secret, path):
 
 def test_node(port, secret, name):
     q = urllib.parse.quote(name, safe="")
-    url_q = urllib.parse.quote(TEST_URL, safe="")
-    try:
-        data = api_get(port, secret, f"/proxies/{q}/delay?timeout={TIMEOUT_MS}&url={url_q}")
-        return name, data.get("delay")
-    except Exception:
-        return name, None
+    delays = []
+    for test_url in TEST_URLS:
+        url_q = urllib.parse.quote(test_url, safe="")
+        try:
+            data = api_get(port, secret, f"/proxies/{q}/delay?timeout={TIMEOUT_MS}&url={url_q}")
+            delay = data.get("delay")
+            if delay is not None:
+                delays.append(delay)
+            else:
+                return name, None
+        except Exception:
+            return name, None
+    return name, int(sum(delays) / len(delays))
 
 
 def fake_proxy(name):
@@ -146,7 +157,7 @@ def main():
                 n for n, info in proxies_map.items()
                 if n not in SKIP_NAMES and info.get("type") not in GROUP_TYPES
             ]
-            print(f"[3/4] 开始测试 {len(names)} 个节点 -> {TEST_URL} (并发 {args.concurrency})")
+            print(f"[3/4] 开始测试 {len(names)} 个节点 -> 3个测试网址 (并发 {args.concurrency})")
             ok = {}
             done = 0
             total = len(names)
@@ -171,7 +182,7 @@ def main():
             now = time.strftime("%Y-%m-%d %H:%M", time.gmtime(time.time() + 8 * 3600))
             fake_names = [
                 f"说明-来源: AIO 精选(合并 {len(args.inputs)} 个来源)",
-                f"说明-测试: {len(ok)}/{len(names)} 节点通过 generate_204",
+                f"说明-测试: {len(ok)}/{len(names)} 节点通过 3个网址测试",
                 f"说明-更新时间: {now} (CST)",
                 f"说明-作者: {AUTHOR}",
                 f"说明-仓库: {REPO}",
@@ -191,7 +202,7 @@ def main():
                     {
                         "name": "♻️ 自动选择",
                         "type": "url-test",
-                        "url": TEST_URL,
+                        "url": TEST_URLS[0],
                         "interval": 300,
                         "proxies": good_names,
                     },
