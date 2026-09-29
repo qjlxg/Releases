@@ -28,7 +28,6 @@ import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from sanitize import SafeDumper
 
 TEST_URL = "https://www.gstatic.com/generate_204"
 TIMEOUT_MS = 5000
@@ -94,7 +93,6 @@ def main():
 
     import yaml
 
-    # 1) 合并各来源节点(去重)
     merged = {}
     for inp in args.inputs:
         with open(inp, encoding="utf-8") as f:
@@ -112,7 +110,6 @@ def main():
     if not proxies:
         raise SystemExit("[FAIL] 无任何节点可测")
 
-    # 2) 启动 mihomo 内核
     mihomo = find_mihomo()
     port = find_free_port()
     secret = "".join(random.choices(string.ascii_letters + string.digits, k=16))
@@ -130,7 +127,7 @@ def main():
     with tempfile.TemporaryDirectory() as td:
         cfg_path = os.path.join(td, "config.yaml")
         with open(cfg_path, "w", encoding="utf-8") as f:
-            yaml.dump(test_cfg, f, Dumper=SafeDumper, allow_unicode=False, sort_keys=False)
+            yaml.dump(test_cfg, f, Dumper=yaml.SafeDumper, allow_unicode=False, sort_keys=False)
         proc = subprocess.Popen(
             [mihomo, "-d", td, "-f", cfg_path],
             stdout=subprocess.DEVNULL,
@@ -150,9 +147,8 @@ def main():
             if not ready:
                 raise SystemExit("[FAIL] mihomo API 未就绪")
 
-            # 3) 逐节点测试 generate_204
             proxies_map = {}
-            for _ in range(10):  # 避免 mihomo 刚就绪时 /proxies 偶发空响应
+            for _ in range(10):
                 try:
                     proxies_map = api_get(port, secret, "/proxies")["proxies"]
                 except Exception:
@@ -168,7 +164,7 @@ def main():
             ok = {}
             done = 0
             total = len(names)
-            interval = max(1, total // 50)  # 最多约 50 次进度输出
+            interval = max(1, total // 50)
             with ThreadPoolExecutor(max_workers=args.concurrency) as ex:
                 futs = {ex.submit(test_node, port, secret, n): n for n in names}
                 for fut in as_completed(futs):
@@ -178,12 +174,11 @@ def main():
                         ok[name] = delay
                     if done % interval == 0 or done == total:
                         pct = done * 100 // total
-                        print(f"      进度 {done}/{total} ({pct}%) 可用 {len(ok)}", flush=True)
-            print(f"      可用节点: {len(ok)}")
+                        print(f"     进度 {done}/{total} ({pct}%) 可用 {len(ok)}", flush=True)
+            print(f"     可用节点: {len(ok)}")
             if not ok:
                 raise SystemExit("[FAIL] 全部节点测试失败(检查网络/节点质量),不生成 AIO")
 
-            # 4) 生成 AIO:可用节点按延迟排序 + 说明节点 + 分组
             good = [p for p in proxies if p["name"] in ok]
             good.sort(key=lambda p: ok[p["name"]])
             good_names = [p["name"] for p in good]
@@ -219,7 +214,7 @@ def main():
             }
             os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
             with open(args.output, "w", encoding="utf-8") as f:
-                yaml.dump(aio, f, Dumper=SafeDumper, allow_unicode=False, default_flow_style=False, sort_keys=False)
+                yaml.dump(aio, f, Dumper=yaml.SafeDumper, allow_unicode=False, default_flow_style=False, sort_keys=False)
             print(f"[4/4] AIO 已写入 {args.output}: {len(good)} 个可用节点")
         finally:
             proc.terminate()
