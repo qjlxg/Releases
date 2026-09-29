@@ -24,8 +24,8 @@ TEMPLATE_FILE: Optional[Path] = None # 例如 Path("nodes/vmess/001.txt")，Path
 
 OUTPUT_DIR = Path("generated")
 PROBE_IP_COUNT = 99000
-TEST_PORTS = [443,]
-MAX_NODES_PER_FILE = 5000
+TEST_PORTS = [80,443,]
+MAX_NODES_PER_FILE = 15000
 TEST_IP_LIMIT = 5000
 PROGRESS_EVERY = 200
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
