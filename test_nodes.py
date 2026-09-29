@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# 基于代理节点合并与真实下载测试 (GitHub Actions 专用版)
+# 基于代理节点合并与真实下载测试 (GitHub Actions 专用抽样版)
 
 import argparse
 import json
@@ -21,9 +21,12 @@ import yaml
 # 配置参数
 # ============================================================
 
+# 每次最多随机测试的节点数量（如 100 个）
+TEST_COUNT = 100
+
 # Cloudflare 实际下载测试接口
 DOWNLOAD_URL = "https://speed.cloudflare.com/__down?bytes=1048576"  # 请求 1MB
-# 每个节点实际下载接收到多少字节就算通过 (例如 512 KB 就判定可用)
+# 每个节点实际下载接收到多少字节就算通过 (512 KB)
 REQUIRED_BYTES = 512 * 1024 
 
 CONNECT_TIMEOUT = 8
@@ -78,7 +81,7 @@ def select_node(port, secret, name):
 
 
 def test_download_node(mixed_port, api_port, secret, name):
-    """核心测试：不测延迟，直接通过本地 mihomo 代理下载文件，看能否真正读到数据"""
+    """核心测试：通过本地 mihomo 代理下载文件，看能否真正读到数据"""
     try:
         # 1. 切换节点
         select_node(api_port, secret, name)
@@ -101,7 +104,6 @@ def test_download_node(mixed_port, api_port, secret, name):
             if not (200 <= resp.status < 300):
                 return name, None
             
-            # 边读边统计，达到 REQUIRED_BYTES 就认为成功，提前中断下载以节省流量
             while True:
                 chunk = resp.read(65536)
                 if not chunk:
@@ -109,7 +111,6 @@ def test_download_node(mixed_port, api_port, secret, name):
                 received += len(chunk)
                 if received >= REQUIRED_BYTES:
                     break
-                # 防止单次下载卡死超时
                 if time.time() - start_time > READ_TIMEOUT:
                     break
 
@@ -145,7 +146,7 @@ def main():
     ap = argparse.ArgumentParser(description="mihomo 节点真实下载测试 + AIO 合并")
     ap.add_argument("inputs", nargs="+", help="清洗后的各来源 clash.yaml")
     ap.add_argument("-o", "--output", required=True, help="输出 AIO clash.yaml")
-    ap.add_argument("--concurrency", type=int, default=16, help="真实下载测试并发数（建议适中，避免并发过高被cloudflare限流）")
+    ap.add_argument("--concurrency", type=int, default=16, help="真实下载测试并发数")
     args = ap.parse_args()
 
     # 1. 读取并合并所有输入源的节点
@@ -166,17 +167,21 @@ def main():
                 merged[key] = p
                 
     proxies = list(merged.values())
-    print(f"[1/4] 合并后待测节点: {len(proxies)}")
+    print(f"[1/4] 合并后去重总节点数: {len(proxies)}")
     if not proxies:
         raise SystemExit("[FAIL] 无任何节点可测")
+
+    # 2. 随机抽样限制数量（例如最多测 100 个）
+    if len(proxies) > TEST_COUNT:
+        proxies = random.sample(proxies, TEST_COUNT)
+    print(f"🎯 本轮抽样测试节点数: {len(proxies)}")
 
     mihomo = find_mihomo()
     api_port = find_free_port()
     mixed_port = api_port + 1
     secret = "".join(random.choices(string.ascii_letters + string.digits, k=16))
 
-    # 2. 构造用于真实下载测试的 Mihomo 配置
-    # 核心技巧：加入一个名为 __DOWNLOAD_TEST__ 的 select 策略组，包含所有待测节点
+    # 3. 构造用于真实下载测试的 Mihomo 配置
     test_cfg = {
         "mixed-port": mixed_port,
         "allow-lan": False,
@@ -223,37 +228,26 @@ def main():
             if not ready:
                 raise SystemExit("[FAIL] mihomo API 未就绪")
 
-            # 获取所有节点名称
-            proxies_map = {}
+            # 安全获取测速组的节点名称列表
+            names = []
             for _ in range(10):
                 try:
-                    proxies_map = api_get(api_port, secret, "/proxies")["proxies"]
+                    group_info = api_get(api_port, secret, "/proxies/__DOWNLOAD_TEST__")
+                    # group_info["all"] 是一个包含节点名字符串的列表
+                    names = [n for n in group_info.get("all", []) if n not in SKIP_NAMES]
                 except Exception:
-                    proxies_map = {}
-                if proxies_map:
+                    names = []
+                if names:
                     break
                 time.sleep(0.5)
-                
-            # 提取出实际的节点名字（排除分组和关键字）
-            names = [
-                n for n, info in proxies_map.get("__DOWNLOAD_TEST__", {}).get("all", [])
-                if n not in SKIP_NAMES and info not in GROUP_TYPES
-            ]
-            if not names:
-                # 兼容旧版本结构
-                names = [
-                    n for n, info in proxies_map.items()
-                    if n not in SKIP_NAMES and info.get("type") not in GROUP_TYPES and n != "__DOWNLOAD_TEST__"
-                ]
 
-            print(f"[3/4] 开始对 {len(names)} 个节点进行【真实下载测试】(并发 {args.concurrency})")
+            if not names:
+                raise SystemExit("[FAIL] Mihomo 中未解析到有效代理节点")
+
+            print(f"[3/4] 开始对 {len(names)} 个抽样节点进行【真实下载测试】(并发 {args.concurrency})")
             ok = {}
             done = 0
             total = len(names)
-            
-            if total == 0:
-                raise SystemExit("[FAIL] Mihomo 中未解析到有效代理节点")
-                
             interval = max(1, total // 50)
             
             # 并发执行下载测试
@@ -270,7 +264,7 @@ def main():
                         
             print(f"     真实下载通过节点: {len(ok)}")
             if not ok:
-                raise SystemExit("[FAIL] 全部节点真实下载测试失败，不生成 AIO")
+                raise SystemExit("[FAIL] 全部抽样节点真实下载测试失败，不生成 AIO")
 
             # 4. 排序并组装最终的 AIO 配置文件
             good = [p for p in proxies if p["name"] in ok]
@@ -279,7 +273,7 @@ def main():
             
             now = time.strftime("%Y-%m-%d %H:%M", time.gmtime(time.time() + 8 * 3600))
             fake_names = [
-                f"说明-来源: AIO 精选(合并 {len(args.inputs)} 个来源)",
+                f"说明-来源: AIO 精选(抽样测速 {len(names)} 个)",
                 f"说明-测试: {len(ok)}/{len(names)} 节点通过真实下载测试",
                 f"说明-更新时间: {now} (CST)",
                 f"说明-作者: {AUTHOR}",
