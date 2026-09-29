@@ -32,10 +32,10 @@ jobs:
 
       - name: Test nodes and build AIO
         run: |
-          # 自动查找 generated 目录下（排除 probe 目录自身）的所有 yaml 文件作为输入
-          INPUTS=$(find generated -name "*.yaml" ! -path 'generated/probe/*' | sort | tr '\n' ' ')
+          # 在 generated/probe 目录下查找源 YAML 文件，并自动排除最终的输出目标文件
+          INPUTS=$(find generated/probe -name "*.yaml" ! -name "cf_nest_1only_probe_01.yaml" | sort | tr '\n' ' ')
           if [ -n "$INPUTS" ]; then
-            python test_nodes.py $INPUTS -o generated/probe/cf_nest_1only_probe_01.yaml
+            python scripts/test_nodes.py $INPUTS -o generated/probe/cf_nest_1only_probe_01.yaml
           else
             echo "::error::未找到任何待测的 yaml 文件"
             exit 1
