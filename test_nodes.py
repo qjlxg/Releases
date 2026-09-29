@@ -1,73 +1,122 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import argparse
-import copy
-import glob
-import hashlib
-import json
 import os
-import shutil
-import subprocess
-import tempfile
+import sys
 import time
-import urllib.parse
-from collections import Counter
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import json
+import copy
+import random
+import shutil
+import tempfile
+import subprocess
+import signal
 from pathlib import Path
+from urllib.parse import quote
 
 import requests
 import yaml
 
 
 # ============================================================
-# 基础配置
+# 配置
 # ============================================================
 
-API_HOST = "127.0.0.1"
-API_PORT = 9097
+BASE = Path("/content/drive/MyDrive/AssetProject/scripts")
+
+INPUT_DIR = BASE / "generated" / "probe"
+OUTPUT_DIR = BASE / "data"
+
+INPUT_GLOB = "cf_nest_1only_probe_*.yaml"
+
+OUTPUT_YAML = OUTPUT_DIR / "cf_nest_download_probe_100.yaml"
+REPORT_JSON = OUTPUT_DIR / "cf_nest_download_probe_100_report.json"
+
+MIHOMO = os.environ.get(
+    "MIHOMO_BIN",
+    str(BASE / "mihomo_speed" / "mihomo")
+)
+
+# ============================================================
+# 本轮只抽样 100 个
+# ============================================================
+
+TEST_COUNT = 100
+
+# 每个节点实际下载至少 1 MB 才算通过
+DOWNLOAD_BYTES = 1024 * 1024
+
+# Cloudflare 实际下载接口
+DOWNLOAD_URL = (
+    "https://speed.cloudflare.com/__down?bytes=1048576"
+)
+
+# Mihomo
 MIXED_PORT = 7898
-SECRET = "diag-secret"
+API_PORT = 9097
 
-TIMEOUT_MS = 8000
+# 超时
+CONNECT_TIMEOUT = 8
+READ_TIMEOUT = 12
 
-# 真实数据传输测试
-DATA_BYTES = 1024 * 1024
-DATA_URL = "https://speed.cloudflare.com/__down?bytes=1048576"
+# 切换节点后等待 Mihomo 生效
+SELECT_WAIT = 0.25
+
+# None = 每次随机抽样
+# 如果以后想固定同一批节点，可以改成整数，例如 20260929
+RANDOM_SEED = None
 
 
 # ============================================================
-# 6 个严格 HTTP 测试
-#
-# 6/6 全部成功才进入真实数据测试
+# DNS
 # ============================================================
 
-TESTS = [
-    (
-        "基础1-gstatic",
-        "https://www.gstatic.com/generate_204",
-    ),
-    (
-        "基础2-cloudflare",
-        "https://www.cloudflare.com/cdn-cgi/trace",
-    ),
-    (
-        "基础3-google204",
-        "https://www.google.com/generate_204",
-    ),
-    (
-        "网站1-google",
-        "https://www.google.com/",
-    ),
-    (
-        "网站2-youtube",
-        "https://www.youtube.com/",
-    ),
-    (
-        "网站3-github",
-        "https://github.com/",
-    ),
-]
+DNS = {
+    "enable": True,
+    "ipv6": False,
+    "enhanced-mode": "fake-ip",
+    "fake-ip-range": "198.18.0.1/16",
+
+    "default-nameserver": [
+        "223.5.5.5",
+        "119.29.29.29"
+    ],
+
+    "nameserver": [
+        "https://doh.pub/dns-query",
+        "https://dns.alidns.com/dns-query"
+    ],
+
+    "fallback": [
+        "tls://1.1.1.1",
+        "tls://8.8.8.8"
+    ],
+
+    "proxy-server-nameserver": [
+        "https://doh.pub/dns-query",
+        "https://dns.alidns.com/dns-query"
+    ],
+
+    "fallback-filter": {
+        "geoip": True,
+        "geoip-code": "CN",
+        "geosite": ["gfw"],
+        "domain": [
+            "+.google.com",
+            "+.youtube.com",
+            "+.github.com"
+        ]
+    }
+}
+
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "Chrome/151 Safari/537.36"
+    )
+}
 
 
 # ============================================================
@@ -76,655 +125,426 @@ TESTS = [
 
 def log(message):
     print(
-        time.strftime(
-            "[%Y-%m-%d %H:%M:%S]"
-        ),
+        time.strftime("[%Y-%m-%d %H:%M:%S]"),
         message,
-        flush=True,
+        flush=True
     )
 
 
-# ============================================================
-# 完整节点指纹
-#
-# name 不参与指纹
-#
-# 因此同 IP/端口但不同：
-# uuid
-# password
-# path
-# sni
-# tls
-# ws-opts
-# reality-opts
-# 等配置
-#
-# 都不会被误删。
-# ============================================================
-
-def fingerprint(node):
-    data = {
-        k: v
-        for k, v in node.items()
-        if k != "name"
-    }
-
-    raw = json.dumps(
-        data,
-        ensure_ascii=False,
-        sort_keys=True,
-        separators=(",", ":"),
-    )
-
-    return hashlib.sha256(
-        raw.encode("utf-8")
-    ).hexdigest()
+def die(message):
+    log("❌ " + message)
+    raise SystemExit(1)
 
 
 # ============================================================
-# 查找输入文件
+# 读取节点
 # ============================================================
 
-def load_files(patterns):
-    result = []
-    seen = set()
+def load_nodes():
 
-    for pattern in patterns:
+    files = sorted(INPUT_DIR.glob(INPUT_GLOB))
 
-        for path in glob.glob(
-            pattern,
-            recursive=True,
-        ):
-
-            if not os.path.isfile(path):
-                continue
-
-            real = os.path.realpath(path)
-
-            if real in seen:
-                continue
-
-            seen.add(real)
-            result.append(path)
-
-    return sorted(result)
-
-
-# ============================================================
-# 合并节点
-#
-# 原节点完整复制。
-# 不重建节点。
-# ============================================================
-
-def merge_nodes(files):
-
-    result = []
-
-    seen = set()
-
-    name_counter = Counter()
-
-    for path in files:
-
-        with open(
-            path,
-            "r",
-            encoding="utf-8",
-        ) as f:
-
-            data = yaml.safe_load(f) or {}
-
-        proxies = data.get(
-            "proxies",
-            [],
+    if not files:
+        die(
+            f"找不到输入文件："
+            f"{INPUT_DIR}/{INPUT_GLOB}"
         )
 
-        if not isinstance(
-            proxies,
-            list,
-        ):
+    nodes = []
+    seen = set()
+
+    for file in files:
+
+        try:
+            data = yaml.safe_load(
+                file.read_text(encoding="utf-8")
+            ) or {}
+
+        except Exception as e:
+            log(f"⚠️ 跳过无法读取 {file}: {e}")
             continue
 
-        log(
-            f"📄 {path}: "
-            f"{len(proxies)} 个节点"
+        arr = (
+            data.get("proxies", [])
+            if isinstance(data, dict)
+            else []
         )
 
-        for raw in proxies:
+        log(
+            f"📄 {file}: {len(arr)} 个节点"
+        )
 
-            if not isinstance(
-                raw,
-                dict,
-            ):
+        for proxy in arr:
+
+            if not isinstance(proxy, dict):
                 continue
 
-            if not raw.get("type"):
+            if not proxy.get("type"):
                 continue
 
-            if not raw.get("server"):
+            if not proxy.get("server"):
                 continue
 
-            if not raw.get("port"):
-                continue
+            # 完整复制原节点
+            node = copy.deepcopy(proxy)
 
-            node = copy.deepcopy(raw)
+            # 去重：
+            # 只排除 name，其他所有配置都参与指纹
+            fingerprint_data = {
+                k: v
+                for k, v in node.items()
+                if k != "name"
+            }
 
-            fp = fingerprint(node)
-
-            if fp in seen:
-                continue
-
-            seen.add(fp)
-
-            base_name = str(
-                node.get("name")
-                or "node"
+            fingerprint = json.dumps(
+                fingerprint_data,
+                sort_keys=True,
+                ensure_ascii=False,
+                separators=(",", ":")
             )
 
-            name_counter[
-                base_name
-            ] += 1
+            if fingerprint in seen:
+                continue
 
-            count = name_counter[
-                base_name
-            ]
+            seen.add(fingerprint)
+            nodes.append(node)
 
-            if count == 1:
+    log(f"📦 去重后节点：{len(nodes)}")
 
-                node["name"] = (
-                    base_name
-                )
-
-            else:
-
-                node["name"] = (
-                    f"{base_name} #{count}"
-                )
-
-            result.append(node)
-
-    return result
+    return nodes
 
 
 # ============================================================
-# 测试用 Mihomo 配置
-#
-# 重点：
-# DNS 已加入诊断配置。
-#
-# 原节点直接放入 proxies。
-# 不改节点字段。
+# 确保 Mihomo 节点名称唯一
+# 不改变节点本身参数
 # ============================================================
 
-def write_test_config(
-    nodes,
-    path,
-):
+def unique_names(nodes):
+
+    used = {}
+
+    for node in nodes:
+
+        original = str(
+            node.get("name")
+            or (
+                f"{node.get('type', 'proxy')}-"
+                f"{node.get('server', '')}-"
+                f"{node.get('port', '')}"
+            )
+        )
+
+        if original not in used:
+
+            used[original] = 1
+            node["name"] = original
+
+        else:
+
+            used[original] += 1
+            node["name"] = (
+                f"{original} #{used[original]}"
+            )
+
+    return nodes
+
+
+# ============================================================
+# 生成 Mihomo 测试配置
+# ============================================================
+
+def make_config(nodes, path, external=True):
 
     config = {
-
         "mixed-port": MIXED_PORT,
-
         "allow-lan": False,
-
         "mode": "rule",
-
         "log-level": "warning",
-
-        # 诊断阶段先关闭 IPv6
         "ipv6": False,
 
-        "unified-delay": True,
+        "dns": DNS,
 
-        # 减少 DNS 多地址并发带来的变量
-        "tcp-concurrent": False,
-
-        "external-controller":
-            f"{API_HOST}:{API_PORT}",
-
-        "secret": SECRET,
-
-        "profile": {
-            "store-selected": True,
-            "store-fake-ip": True,
-        },
-
-        # ====================================================
-        # DNS
-        # ====================================================
-
-        "dns": {
-
-            "enable": True,
-
-            "ipv6": False,
-
-            "enhanced-mode": "fake-ip",
-
-            "fake-ip-range":
-                "198.18.0.1/16",
-
-            "default-nameserver": [
-                "223.5.5.5",
-                "119.29.29.29",
-            ],
-
-            "nameserver": [
-                "https://doh.pub/dns-query",
-                "https://dns.alidns.com/dns-query",
-            ],
-
-            "fallback": [
-                "tls://1.1.1.1",
-                "tls://8.8.8.8",
-            ],
-
-            # 专门用于解析代理节点域名
-            "proxy-server-nameserver": [
-                "https://doh.pub/dns-query",
-                "https://dns.alidns.com/dns-query",
-            ],
-
-            "fallback-filter": {
-                "geoip": True,
-                "geoip-code": "CN",
-                "domain": [
-                    "+.google.com",
-                    "+.youtube.com",
-                    "+.github.com",
-                ],
-            },
-        },
-
-        # ====================================================
-        # 原始节点
-        # ====================================================
-
+        # 原始节点完整放进去
         "proxies": nodes,
 
-        # ====================================================
-        # 单独测试选择组
-        # ====================================================
-
+        # 一个节点一个节点切换
         "proxy-groups": [
             {
-                "name": "__DIAG_SELECT__",
+                "name": "__DOWNLOAD_TEST__",
                 "type": "select",
                 "proxies": [
                     node["name"]
                     for node in nodes
-                ],
+                ]
             }
         ],
+
+        "rules": [
+            "MATCH,__DOWNLOAD_TEST__"
+        ]
     }
 
-    with open(
-        path,
-        "w",
-        encoding="utf-8",
-    ) as f:
-
-        yaml.safe_dump(
-            config,
-            f,
-            allow_unicode=True,
-            sort_keys=False,
+    if external:
+        config["external-controller"] = (
+            f"127.0.0.1:{API_PORT}"
         )
 
-
-# ============================================================
-# 等待 Mihomo API
-# ============================================================
-
-def wait_api(proc):
-
-    url = (
-        f"http://{API_HOST}:{API_PORT}"
-        "/version"
+    path.write_text(
+        yaml.safe_dump(
+            config,
+            allow_unicode=True,
+            sort_keys=False
+        ),
+        encoding="utf-8"
     )
 
-    deadline = (
-        time.time() + 20
+
+# ============================================================
+# 启动 Mihomo
+# ============================================================
+
+def start_mihomo(config_path):
+
+    if not Path(MIHOMO).exists():
+        die(f"Mihomo 不存在：{MIHOMO}")
+
+    os.chmod(MIHOMO, 0o755)
+
+    process = subprocess.Popen(
+        [
+            MIHOMO,
+            "-f",
+            str(config_path)
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        start_new_session=True
     )
 
-    while time.time() < deadline:
+    api = (
+        f"http://127.0.0.1:{API_PORT}"
+    )
 
-        if proc.poll() is not None:
+    session = requests.Session()
 
-            raise RuntimeError(
-                "Mihomo 提前退出"
-            )
+    for _ in range(60):
 
         try:
 
-            response = requests.get(
-                url,
-                headers={
-                    "Authorization":
-                    f"Bearer {SECRET}"
-                },
-                timeout=1,
+            response = session.get(
+                api + "/version",
+                timeout=1
             )
 
             if response.ok:
-                return
+                return process, session
 
-        except requests.RequestException:
+        except Exception:
             pass
 
-        time.sleep(0.25)
+        time.sleep(0.2)
 
-    raise TimeoutError(
-        "Mihomo API 启动超时"
-    )
+    try:
+        process.terminate()
+    except Exception:
+        pass
 
-
-# ============================================================
-# Mihomo API
-# ============================================================
-
-def api_request(
-    method,
-    path,
-    **kwargs,
-):
-
-    headers = kwargs.pop(
-        "headers",
-        {},
-    )
-
-    headers["Authorization"] = (
-        f"Bearer {SECRET}"
-    )
-
-    return requests.request(
-        method,
-        (
-            f"http://{API_HOST}:{API_PORT}"
-            f"{path}"
-        ),
-        headers=headers,
-        **kwargs,
-    )
+    die("Mihomo API 启动超时")
 
 
 # ============================================================
-# 单 URL delay 测试
-#
-# 注意：
-# 503 不再只显示一句 Service Unavailable。
-# 会把 Mihomo 返回内容一起记录下来。
+# 停止 Mihomo
 # ============================================================
 
-def delay_test(
-    name,
-    url,
-):
+def stop_mihomo(process):
 
-    encoded_name = (
-        urllib.parse.quote(
-            name,
-            safe="",
-        )
-    )
-
-    path = (
-        f"/proxies/{encoded_name}/delay"
-    )
-
-    response = api_request(
-        "GET",
-        path,
-        params={
-            "timeout": TIMEOUT_MS,
-            "url": url,
-            "expected": "200-299",
-        },
-        timeout=(
-            TIMEOUT_MS / 1000
-        ) + 5,
-    )
-
-    if response.status_code != 200:
-
-        body = response.text[:1000]
-
-        raise RuntimeError(
-            f"Mihomo API HTTP "
-            f"{response.status_code}: "
-            f"{body}"
-        )
+    if not process:
+        return
 
     try:
 
-        data = response.json()
+        os.killpg(
+            process.pid,
+            signal.SIGTERM
+        )
+
+        process.wait(timeout=5)
 
     except Exception:
 
-        raise RuntimeError(
-            "Mihomo 返回非 JSON: "
-            f"{response.text[:1000]}"
-        )
+        try:
+            process.kill()
+        except Exception:
+            pass
 
-    delay = data.get(
-        "delay"
+
+# ============================================================
+# 切换节点
+# ============================================================
+
+def select_node(session, name):
+
+    url = (
+        f"http://127.0.0.1:{API_PORT}"
+        f"/proxies/"
+        f"{quote('__DOWNLOAD_TEST__', safe='')}"
     )
 
-    if not isinstance(
-        delay,
-        int,
-    ):
+    response = session.put(
+        url,
+        json={"name": name},
+        timeout=5
+    )
 
-        raise RuntimeError(
-            "没有有效 delay: "
-            f"{data}"
-        )
+    response.raise_for_status()
 
-    if delay <= 0:
-
-        raise RuntimeError(
-            f"delay 无效: {delay}"
-        )
-
-    return delay
+    time.sleep(SELECT_WAIT)
 
 
 # ============================================================
-# 一个节点严格 6/6
+# 核心：
+# 只测试“实际下载”
+#
+# 不测：
+# ❌ 延迟
+# ❌ Google 204
+# ❌ YouTube
+# ❌ GitHub
+# ❌ 网站打开速度
+#
+# 只看：
+# ✅ 能不能真正收到至少 1 MB 数据
 # ============================================================
 
-def test_one(node):
+def test_download(session, node):
 
     name = node["name"]
 
-    delays = []
-
-    for label, url in TESTS:
-
-        try:
-
-            delay = delay_test(
-                name,
-                url,
-            )
-
-            delays.append(
-                delay
-            )
-
-        except Exception as e:
-
-            return {
-                "ok": False,
-                "name": name,
-                "node": node,
-                "failed": label,
-                "url": url,
-                "error": str(e),
-                "delays": delays,
-            }
-
-    if len(delays) != 6:
-
-        return {
-            "ok": False,
-            "name": name,
-            "node": node,
-            "failed": "6/6数量检查",
-            "url": "",
-            "error":
-                f"只有 {len(delays)}/6",
-            "delays": delays,
-        }
-
-    return {
-        "ok": True,
-        "name": name,
-        "node": node,
-        "avg": round(
-            sum(delays) / 6,
-            1,
-        ),
-        "delays": delays,
-    }
-
-
-# ============================================================
-# 真实数据传输测试
-#
-# 这里不再测 delay。
-#
-# 而是：
-# 1. 选择具体节点
-# 2. 通过 Mihomo mixed-port
-# 3. 真正下载数据
-# 4. 必须收到完整 1MB
-#
-# 专门筛掉：
-#
-# "延迟很低，但是没有数据"
-#
-# 的节点。
-# ============================================================
-
-def data_test(name):
-
-    group = (
-        "__DIAG_SELECT__"
-    )
-
-    encoded_group = (
-        urllib.parse.quote(
-            group,
-            safe="",
-        )
-    )
-
-    response = api_request(
-        "PUT",
-        f"/proxies/{encoded_group}",
-        json={
-            "name": name
-        },
-        timeout=5,
-    )
-
-    if response.status_code not in (
-        200,
-        204,
-    ):
-
-        return (
-            False,
-            0,
-            (
-                "选择节点失败 "
-                f"HTTP {response.status_code}: "
-                f"{response.text[:500]}"
-            ),
-        )
-
-    proxy_url = (
-        f"http://"
-        f"{API_HOST}:{MIXED_PORT}"
-    )
-
-    start = time.time()
-
-    received = 0
-
     try:
 
-        with requests.get(
-            DATA_URL,
-            proxies={
-                "http": proxy_url,
-                "https": proxy_url,
-            },
+        # 切换到当前节点
+        select_node(
+            session,
+            name
+        )
+
+        # 通过 Mihomo 本地代理实际下载
+        response = session.get(
+            DOWNLOAD_URL,
+
+            headers=HEADERS,
+
             stream=True,
+
             timeout=(
-                8,
-                20,
+                CONNECT_TIMEOUT,
+                READ_TIMEOUT
             ),
-        ) as response:
 
-            response.raise_for_status()
-
-            for chunk in response.iter_content(
-                chunk_size=65536
-            ):
-
-                if not chunk:
-                    continue
-
-                received += len(
-                    chunk
+            proxies={
+                "http": (
+                    f"http://127.0.0.1:{MIXED_PORT}"
+                ),
+                "https": (
+                    f"http://127.0.0.1:{MIXED_PORT}"
                 )
-
-                if (
-                    received
-                    >= DATA_BYTES
-                ):
-                    break
-
-        elapsed = max(
-            time.time() - start,
-            0.001,
+            }
         )
 
-        speed = (
-            received
-            / elapsed
-            / 1024
-            / 1024
-        )
+        status = response.status_code
 
-        if received < DATA_BYTES:
+        received = 0
+
+        if not (
+            200 <= status < 300
+        ):
+
+            response.close()
 
             return (
                 False,
                 received,
-                (
-                    "实际只收到 "
-                    f"{received} bytes"
-                ),
+                status,
+                f"HTTP {status}"
+            )
+
+        # 真正读取数据
+        for chunk in response.iter_content(
+            chunk_size=65536
+        ):
+
+            if not chunk:
+                continue
+
+            received += len(chunk)
+
+            # 收到 1 MB 就算通过
+            if received >= DOWNLOAD_BYTES:
+                break
+
+        response.close()
+
+        if received >= DOWNLOAD_BYTES:
+
+            return (
+                True,
+                received,
+                status,
+                "OK"
             )
 
         return (
-            True,
+            False,
             received,
-            f"{speed:.2f} MB/s",
+            status,
+            (
+                f"下载不足 "
+                f"{received}/{DOWNLOAD_BYTES} bytes"
+            )
         )
 
     except Exception as e:
 
         return (
             False,
-            received,
-            str(e),
+            0,
+            None,
+            f"{type(e).__name__}: {e}"
         )
+
+
+# ============================================================
+# YAML 最终校验
+# ============================================================
+
+def validate_yaml(path):
+
+    try:
+
+        data = yaml.safe_load(
+            path.read_text(
+                encoding="utf-8"
+            )
+        )
+
+        assert isinstance(data, dict)
+
+        assert isinstance(
+            data.get("proxies"),
+            list
+        )
+
+        return len(
+            data["proxies"]
+        )
+
+    except Exception as e:
+
+        log(
+            f"❌ YAML 校验失败：{e}"
+        )
+
+        return 0
 
 
 # ============================================================
@@ -733,555 +553,373 @@ def data_test(name):
 
 def main():
 
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument(
-        "inputs",
-        nargs="+",
+    OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True
     )
-
-    parser.add_argument(
-        "-o",
-        "--output",
-        default="diagnostic_passed.yaml",
-    )
-
-    parser.add_argument(
-        "--report",
-        default="diagnostic_report.json",
-    )
-
-    parser.add_argument(
-        "--mihomo",
-        default=os.environ.get(
-            "MIHOMO_BIN",
-            "mihomo",
-        ),
-    )
-
-    parser.add_argument(
-        "--concurrency",
-        type=int,
-        default=16,
-    )
-
-    parser.add_argument(
-        "--data-check-top",
-        type=int,
-        default=50,
-    )
-
-    args = parser.parse_args()
 
     # --------------------------------------------------------
-    # Mihomo
+    # 读取全部节点
     # --------------------------------------------------------
 
-    if (
-        not shutil.which(args.mihomo)
-        and not os.path.isfile(
-            args.mihomo
-        )
-    ):
+    nodes = load_nodes()
 
-        raise SystemExit(
-            f"❌ 找不到 Mihomo: "
-            f"{args.mihomo}"
-        )
-
-    # --------------------------------------------------------
-    # 输入文件
-    # --------------------------------------------------------
-
-    files = load_files(
-        args.inputs
-    )
-
-    if not files:
-
-        raise SystemExit(
-            "❌ 没有找到输入 YAML"
-        )
-
-    # --------------------------------------------------------
-    # 合并
-    # --------------------------------------------------------
-
-    nodes = merge_nodes(
-        files
-    )
+    nodes = unique_names(nodes)
 
     if not nodes:
+        die("没有可测试节点")
 
-        raise SystemExit(
-            "❌ 没有可测试节点"
-        )
+    # --------------------------------------------------------
+    # 随机抽样固定数量
+    # --------------------------------------------------------
+
+    test_count = min(
+        TEST_COUNT,
+        len(nodes)
+    )
+
+    rng = random.Random(
+        RANDOM_SEED
+    )
+
+    sample = rng.sample(
+        nodes,
+        test_count
+    )
 
     log(
-        f"📦 待测节点: "
-        f"{len(nodes)}"
+        f"🎯 本轮随机抽样：{test_count} 个"
+    )
+
+    log(
+        "⚠️ 这 100 个全部测试完"
+    )
+
+    log(
+        "⚠️ 不因为找到成功节点而提前停止"
+    )
+
+    log(
+        "⚠️ 最终把所有成功节点全部输出"
+    )
+
+    log(
+        "🌐 唯一测试标准："
+        f"实际下载 ≥ {DOWNLOAD_BYTES // 1024} KB"
     )
 
     # --------------------------------------------------------
-    # 启动 Mihomo
+    # 临时目录
     # --------------------------------------------------------
 
-    with tempfile.TemporaryDirectory(
-        prefix="mihomo_diag_"
-    ) as temp_dir:
+    temp_dir = Path(
+        tempfile.mkdtemp(
+            prefix="mihomo_download_probe_"
+        )
+    )
 
-        config_path = (
-            Path(temp_dir)
-            / "config.yaml"
+    config_path = (
+        temp_dir / "config.yaml"
+    )
+
+    # --------------------------------------------------------
+    # 生成测试配置
+    # --------------------------------------------------------
+
+    make_config(
+        sample,
+        config_path
+    )
+
+    process = None
+    results = []
+    passed_nodes = []
+
+    try:
+
+        # ----------------------------------------------------
+        # 启动 Mihomo
+        # ----------------------------------------------------
+
+        log("🚀 启动 Mihomo...")
+
+        process, session = start_mihomo(
+            config_path
         )
 
-        write_test_config(
-            nodes,
-            config_path,
+        # ----------------------------------------------------
+        # 100 个全部测试
+        # ----------------------------------------------------
+
+        for index, node in enumerate(
+            sample,
+            1
+        ):
+
+            ok, received, status, error = (
+                test_download(
+                    session,
+                    node
+                )
+            )
+
+            result = {
+                "index": index,
+                "name": node["name"],
+                "type": node.get("type"),
+                "server": node.get("server"),
+                "port": node.get("port"),
+                "success": ok,
+                "received_bytes": received,
+                "http_status": status,
+                "error": error
+            }
+
+            results.append(result)
+
+            if ok:
+
+                # 完整复制原始节点
+                passed_nodes.append(
+                    copy.deepcopy(node)
+                )
+
+                log(
+                    f"✅ [{index}/{test_count}] "
+                    f"{node['name']} | "
+                    f"下载 "
+                    f"{received / 1024:.1f} KB"
+                )
+
+            else:
+
+                log(
+                    f"❌ [{index}/{test_count}] "
+                    f"{node['name']} | "
+                    f"{error}"
+                )
+
+    finally:
+
+        stop_mihomo(
+            process
+        )
+
+        shutil.rmtree(
+            temp_dir,
+            ignore_errors=True
+        )
+
+    # ========================================================
+    # 输出结果
+    # ========================================================
+
+    if not passed_nodes:
+
+        log(
+            f"⚠️ {test_count} 个节点全部"
+            "未通过真实下载测试"
         )
 
         log(
-            "🚀 启动 Mihomo..."
+            "⚠️ 不生成空的节点文件"
         )
 
-        proc = subprocess.Popen(
-            [
-                args.mihomo,
-                "-d",
-                temp_dir,
-                "-f",
-                str(config_path),
-            ],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
+    else:
 
-        try:
+        # ----------------------------------------------------
+        # 最终客户端 YAML
+        # ----------------------------------------------------
 
-            wait_api(proc)
+        final_config = {
 
-            log(
-                "✅ Mihomo 已启动"
-            )
+            "mixed-port": 7890,
 
-            log(
-                "🌐 DNS 诊断配置："
-                "Fake-IP + DoH + "
-                "proxy-server-nameserver"
-            )
+            "allow-lan": True,
 
-            log(
-                "🚫 IPv6: OFF"
-            )
+            "mode": "rule",
 
-            log(
-                "🧪 第一阶段："
-                "6/6 HTTP 严格测试"
-            )
+            "log-level": "info",
+
+            "ipv6": False,
+
+            "dns": DNS,
 
             # ------------------------------------------------
-            # 第一阶段
+            # 这里直接使用测试通过的原节点
+            # 不重新拼接 VLESS / WS / TLS
             # ------------------------------------------------
+            "proxies": passed_nodes,
 
-            results = []
+            "proxy-groups": [
 
-            total = len(nodes)
+                {
+                    "name": "🚀 节点选择",
+                    "type": "select",
+                    "proxies": [
+                        node["name"]
+                        for node in passed_nodes
+                    ] + [
+                        "DIRECT"
+                    ]
+                },
 
-            with ThreadPoolExecutor(
-                max_workers=max(
-                    1,
-                    args.concurrency,
-                )
-            ) as executor:
+                {
+                    "name": "🇨🇳 国内直连",
+                    "type": "select",
+                    "proxies": [
+                        "DIRECT",
+                        "🚀 节点选择"
+                    ]
+                },
 
-                futures = [
-                    executor.submit(
-                        test_one,
-                        node,
-                    )
-                    for node in nodes
-                ]
-
-                for index, future in enumerate(
-                    as_completed(futures),
-                    1,
-                ):
-
-                    result = (
-                        future.result()
-                    )
-
-                    results.append(
-                        result
-                    )
-
-                    if result["ok"]:
-
-                        log(
-                            f"✅ "
-                            f"[{index}/{total}] "
-                            f"{result['name']} "
-                            f"| 6/6 "
-                            f"| avg="
-                            f"{result['avg']}ms"
-                        )
-
-                    else:
-
-                        log(
-                            f"❌ "
-                            f"[{index}/{total}] "
-                            f"{result['name']} "
-                            f"| "
-                            f"{result['failed']} "
-                            f"| "
-                            f"{result['error'][:300]}"
-                        )
-
-            passed = sorted(
-                [
-                    x
-                    for x in results
-                    if x["ok"]
-                ],
-                key=lambda x:
-                    x["avg"],
-            )
-
-            log(
-                "📊 第一阶段完成："
-                f"{len(passed)}/"
-                f"{len(nodes)} "
-                "通过 6/6"
-            )
-
-            # ------------------------------------------------
-            # 第二阶段
-            # ------------------------------------------------
-
-            check_count = min(
-                len(passed),
-                max(
-                    0,
-                    args.data_check_top,
-                ),
-            )
-
-            log(
-                "📥 第二阶段："
-                "真实数据传输测试"
-            )
-
-            log(
-                f"📌 本轮实际下载测试："
-                f"{check_count} 个节点"
-            )
-
-            data_results = []
-
-            for item in passed[
-                :check_count
-            ]:
-
-                ok, received, message = (
-                    data_test(
-                        item["name"]
-                    )
-                )
-
-                record = {
-                    "name":
-                        item["name"],
-                    "avg":
-                        item["avg"],
-                    "data_ok":
-                        ok,
-                    "bytes":
-                        received,
-                    "data_result":
-                        message,
-                    "delays":
-                        item["delays"],
+                {
+                    "name": "🌍 国外代理",
+                    "type": "select",
+                    "proxies": [
+                        "🚀 节点选择",
+                        "DIRECT"
+                    ]
                 }
+            ],
 
-                data_results.append(
-                    record
-                )
-
-                if ok:
-
-                    log(
-                        f"📥 ✅ "
-                        f"{item['name']} "
-                        f"| {message} "
-                        f"| bytes={received}"
-                    )
-
-                else:
-
-                    log(
-                        f"📥 ❌ "
-                        f"{item['name']} "
-                        f"| {message} "
-                        f"| bytes={received}"
-                    )
-
-            # ------------------------------------------------
-            # 最终节点
-            # ------------------------------------------------
-
-            data_good = {
-                x["name"]
-                for x in data_results
-                if x["data_ok"]
-            }
-
-            final_nodes = [
-                x["node"]
-                for x in passed
-                if x["name"]
-                in data_good
+            "rules": [
+                "DOMAIN-SUFFIX,cn,DIRECT",
+                "GEOIP,CN,DIRECT",
+                "MATCH,🌍 国外代理"
             ]
+        }
 
-            # ------------------------------------------------
-            # 报告
-            # ------------------------------------------------
+        # ----------------------------------------------------
+        # 临时输出
+        # ----------------------------------------------------
 
-            report = {
-                "input_files":
-                    files,
+        temp_output = (
+            OUTPUT_YAML.with_suffix(
+                ".tmp.yaml"
+            )
+        )
 
-                "total_nodes":
-                    len(nodes),
+        temp_output.write_text(
+            yaml.safe_dump(
+                final_config,
+                allow_unicode=True,
+                sort_keys=False
+            ),
+            encoding="utf-8"
+        )
 
-                "http_6of6":
-                    len(passed),
+        # ----------------------------------------------------
+        # 校验
+        # ----------------------------------------------------
 
-                "data_checked":
-                    len(data_results),
+        valid_count = validate_yaml(
+            temp_output
+        )
 
-                "data_passed":
-                    len(final_nodes),
+        if valid_count != len(
+            passed_nodes
+        ):
 
-                "results":
-                    results,
-
-                "data_results":
-                    data_results,
-            }
-
-            with open(
-                args.report,
-                "w",
-                encoding="utf-8",
-            ) as f:
-
-                json.dump(
-                    report,
-                    f,
-                    ensure_ascii=False,
-                    indent=2,
-                )
-
-            log(
-                f"📄 诊断报告: "
-                f"{args.report}"
+            die(
+                "最终 YAML 校验数量异常，"
+                "拒绝覆盖正式输出"
             )
 
-            # ------------------------------------------------
-            # 最终 YAML
-            # ------------------------------------------------
+        os.replace(
+            temp_output,
+            OUTPUT_YAML
+        )
 
-            if not final_nodes:
+        log(
+            f"📤 成功节点已输出："
+            f"{OUTPUT_YAML}"
+        )
 
-                log(
-                    "⚠️ 没有节点通过真实数据测试"
-                )
+    # ========================================================
+    # 保存详细测试报告
+    # ========================================================
 
-                log(
-                    "⚠️ 不覆盖原输出文件"
-                )
+    report = {
 
-                return 2
+        "test_count": test_count,
 
-            names = [
-                node["name"]
-                for node in final_nodes
-            ]
+        "success_count": len(
+            passed_nodes
+        ),
 
-            final_config = {
+        "failed_count": (
+            test_count -
+            len(passed_nodes)
+        ),
 
-                "mixed-port": 7890,
+        "download_url": DOWNLOAD_URL,
 
-                "allow-lan": False,
+        "required_bytes": DOWNLOAD_BYTES,
 
-                "mode": "rule",
+        "results": results,
 
-                "log-level": "info",
+        "passed_names": [
+            node["name"]
+            for node in passed_nodes
+        ]
+    }
 
-                "ipv6": False,
+    REPORT_JSON.write_text(
+        json.dumps(
+            report,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
 
-                "unified-delay": True,
+    # ========================================================
+    # 最终统计
+    # ========================================================
 
-                "tcp-concurrent": False,
+    log("=" * 60)
 
-                "profile": {
-                    "store-selected": True,
-                    "store-fake-ip": True,
-                },
+    log(
+        f"🏁 本轮测试完成"
+    )
 
-                "dns": {
+    log(
+        f"📦 实际测试：{test_count}"
+    )
 
-                    "enable": True,
+    log(
+        f"✅ 真实下载成功："
+        f"{len(passed_nodes)}"
+    )
 
-                    "ipv6": False,
+    log(
+        f"❌ 真实下载失败："
+        f"{test_count - len(passed_nodes)}"
+    )
 
-                    "enhanced-mode":
-                        "fake-ip",
+    log(
+        f"📄 测试报告："
+        f"{REPORT_JSON}"
+    )
 
-                    "fake-ip-range":
-                        "198.18.0.1/16",
+    if passed_nodes:
 
-                    "default-nameserver": [
-                        "223.5.5.5",
-                        "119.29.29.29",
-                    ],
+        log(
+            f"📱 客户端测试文件："
+            f"{OUTPUT_YAML}"
+        )
 
-                    "nameserver": [
-                        "https://doh.pub/dns-query",
-                        "https://dns.alidns.com/dns-query",
-                    ],
+    log(
+        "📌 注意：GitHub 测试环境与手机客户端环境不同，"
+        "本轮只负责筛掉明显无法实际传输数据的节点；"
+        "最终可用性以客户端实测为准。"
+    )
 
-                    "fallback": [
-                        "tls://1.1.1.1",
-                        "tls://8.8.8.8",
-                    ],
 
-                    "proxy-server-nameserver": [
-                        "https://doh.pub/dns-query",
-                        "https://dns.alidns.com/dns-query",
-                    ],
-                },
-
-                # 原节点完整保留
-                "proxies":
-                    final_nodes,
-
-                "proxy-groups": [
-
-                    {
-                        "name":
-                            "🚀 节点选择",
-                        "type":
-                            "select",
-                        "proxies":
-                            names,
-                    },
-
-                    {
-                        "name":
-                            "♻️ 自动选择",
-                        "type":
-                            "url-test",
-                        "proxies":
-                            names,
-                        "url":
-                            "https://www.gstatic.com/generate_204",
-                        "interval":
-                            300,
-                        "timeout":
-                            8000,
-                        "expected-status":
-                            "200-299",
-                    },
-
-                    {
-                        "name":
-                            "🌍 国外代理",
-                        "type":
-                            "select",
-                        "proxies": [
-                            "🚀 节点选择",
-                            "♻️ 自动选择",
-                            "DIRECT",
-                        ],
-                    },
-                ],
-
-                "rules": [
-                    "DOMAIN-SUFFIX,cn,DIRECT",
-                    "GEOIP,CN,DIRECT",
-                    "MATCH,🌍 国外代理",
-                ],
-            }
-
-            temp_output = (
-                str(args.output)
-                + ".tmp"
-            )
-
-            with open(
-                temp_output,
-                "w",
-                encoding="utf-8",
-            ) as f:
-
-                yaml.safe_dump(
-                    final_config,
-                    f,
-                    allow_unicode=True,
-                    sort_keys=False,
-                )
-
-            os.replace(
-                temp_output,
-                args.output,
-            )
-
-            log(
-                "================================"
-            )
-
-            log(
-                f"🎯 第一阶段 6/6: "
-                f"{len(passed)}"
-            )
-
-            log(
-                f"🎯 第二阶段真实数据: "
-                f"{len(final_nodes)}"
-            )
-
-            log(
-                f"💾 最终输出: "
-                f"{args.output}"
-            )
-
-            log(
-                "================================"
-            )
-
-        finally:
-
-            if proc.poll() is None:
-
-                proc.terminate()
-
-                try:
-
-                    proc.wait(
-                        timeout=5
-                    )
-
-                except subprocess.TimeoutExpired:
-
-                    proc.kill()
-
-    return 0
-
+# ============================================================
+# 入口
+# ============================================================
 
 if __name__ == "__main__":
-    raise SystemExit(
-        main()
-    )
+    main()
