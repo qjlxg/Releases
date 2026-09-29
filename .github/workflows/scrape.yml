@@ -34,7 +34,7 @@ jobs:
         run: |
           INPUTS=$(find output -mindepth 2 -maxdepth 2 -name clash.yaml ! -path 'output/aio/*' | sort | tr '\n' ' ')
           if [ -n "$INPUTS" ]; then
-            python test_nodes.py $INPUTS -o output/aio/clash.yaml
+            python test_nodes.py output/source1/clash.yaml output/source2/clash.yaml -o generated/probe/cf_nest_1only_probe_01.yaml
           else
             echo "::error::未找到任何待测的 clash.yaml 文件"
             exit 1
