@@ -15,10 +15,8 @@ import requests
 import yaml
 
 IP_SOURCES = {
-    "1only": "https://raw.githubusercontent.com/qjlxg/sfaaff/refs/heads/main/ips_1only.txt",
-   # "2only": "https://raw.githubusercontent.com/qjlxg/sfaaff/refs/heads/main/ips_2only.txt",
-    "4only": "https://raw.githubusercontent.com/qjlxg/Program/refs/heads/main/ips_4only.txt",
-    "5plus": "https://raw.githubusercontent.com/qjlxg/Program/refs/heads/main/ips_5plus.txt",
+    "1only": "https://raw.githubusercontent.com/qjlxg/sfaaff/refs/heads/main/104.19.87.14344.txt",
+  
 }
 
 NODES_DIR = Path("nodes_update")
