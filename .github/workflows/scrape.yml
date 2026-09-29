@@ -9,7 +9,8 @@ on:
       - main                      # 当推送到 main 分支时触发
     paths:
       - '.github/workflows/scrape.yml'  # 工作流文件变动时触发
-      - 'test_nodes.py'         # 测试脚本变动时触发
+      - 'test_nodes.py'                 # 测试脚本变动时触发
+      - 'sanitize.py'                   # 依赖的 sanitize 脚本变动时触发
       - 'generated/probe/cf_nest_1only_probe_01.yaml' # 输入源文件变动时触发
 
 jobs:
@@ -39,7 +40,8 @@ jobs:
 
       - name: Test nodes and build AIO
         run: |
-          # 直接使用 cf_nest_1only_probe_01.yaml 作为唯一的输入源进行测速，并原地覆盖更新
+          # 设置 PYTHONPATH 确保 Python 能在根目录下顺利找到 sanitize.py
+          export PYTHONPATH="$PWD:$PYTHONPATH"
           INPUT_FILE="generated/probe/cf_nest_1only_probe_01.yaml"
           if [ -f "$INPUT_FILE" ]; then
             python test_nodes.py "$INPUT_FILE" -o "$INPUT_FILE"
