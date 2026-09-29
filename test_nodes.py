@@ -1,19 +1,5 @@
 #!/usr/bin/env python3
-"""用 Clash.Meta (mihomo) 内核逐节点测试可用性,合并生成 AIO 精选订阅。
-
-用法:
-  python scripts/test_nodes.py <cleaned1.yaml> [<cleaned2.yaml> ...] -o <out.yaml>
-
-流程:
-  1. 合并各来源清洗后的节点(按 type+server+port 去重);
-  2. 生成临时测试配置并启动 mihomo 内核;
-  3. 通过 RESTful API 对每个节点请求
-     GET /proxies/{name}/delay?url=https://www.gstatic.com/generate_204
-     测试代理可用性与延迟;
-  4. 保留可用的节点,按延迟升序排序,注入说明节点,写出 AIO 精选订阅。
-
-mihomo 二进制:环境变量 MIHOMO_BIN,否则自动探测 /usr/local/bin/mihomo、/tmp/mihomo。
-"""
+#来源于https://github.com/wzmwayne/proxy-node
 import argparse
 import json
 import os
