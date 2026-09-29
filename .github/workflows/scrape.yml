@@ -1,5 +1,5 @@
 name: 节点测速与 AIO 生成
-
+# 来源于https://github.com/wzmwayne/proxy-node
 on:
   schedule:
     - cron: '0 */4 * * *'        # 每 4 小时执行一次
