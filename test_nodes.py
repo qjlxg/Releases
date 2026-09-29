@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Mihomo AIO 节点合并 / 测速 / 国内分流 / 客户端去广告 V1
+Mihomo AIO 节点合并 / 测速 / 国内分流 / 客户端去广告 V1 (严格 3 网址全部通过版)
 
 核心流程：
 1. 合并多个 Clash/Mihomo YAML
 2. 按完整节点配置指纹去重
 3. 启动 Mihomo
-4. 对真实节点进行 3 URL 延迟测试
+4. 对真实节点进行 3 个严选 URL 延迟测试（必须全部通过）
 5. 筛选可用节点
-6. 按延迟排序
+6. 按平均延迟排序
 7. 生成可直接导入 Mihomo/Clash Meta 类客户端的完整配置
 8. 加入国内 DNS / 国内直连 / GFW 代理 / 广告拦截
 9. 用 Mihomo 再次加载最终 YAML 做配置校验
 10. 校验通过后才安全替换输出文件
-
-来源：
-https://github.com/wzmwayne/proxy-node
 """
 
 import argparse
@@ -36,16 +33,16 @@ from pathlib import Path
 
 
 # ============================================================
-# 基础配置
+# 基础配置 (针对 GitHub Actions 环境优化的 3 个严选稳定测速网址)
 # ============================================================
 
 TEST_URLS = [
-    "https://www.gstatic.com/generate_204",
     "https://www.cloudflare.com/cdn-cgi/trace",
-    "https://www.google.com/generate_204",
+    "https://cp.cloudflare.com/generate_204",
+    "https://www.gstatic.com/generate_204",
 ]
 
-TIMEOUT_MS = 5000
+TIMEOUT_MS = 6000
 
 GROUP_TYPES = {
     "Selector",
@@ -67,45 +64,39 @@ SKIP_NAMES = {
     "PASS",
 }
 
-AUTHOR = "wzmwayne"
-REPO = "https://github.com/wzmwayne/proxy-node"
+AUTHOR = "wzmwayne & 老前辈定制"
+REPO = "https://github.com/qjlxg/Releases"
 
 
 # ============================================================
 # 国内 / 广告规则
 # ============================================================
 
-# 中国域名
 CN_DOMAIN_URL = (
     "https://raw.githubusercontent.com/"
     "MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
 )
 
-# 中国 IP
 CN_IP_URL = (
     "https://raw.githubusercontent.com/"
     "MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
 )
 
-# 私有域名
 PRIVATE_DOMAIN_URL = (
     "https://raw.githubusercontent.com/"
     "MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
 )
 
-# 私有 IP
 PRIVATE_IP_URL = (
     "https://raw.githubusercontent.com/"
     "MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"
 )
 
-# GFW
 GFW_DOMAIN_URL = (
     "https://raw.githubusercontent.com/"
     "wwqgtxx/clash-rules/release/gfw.mrs"
 )
 
-# Mihomo 广告规则
 ADS_URL = (
     "https://testingcf.jsdelivr.net/gh/"
     "gogyt/Mihomo@main/geo/geosite/category-ads-all.mrs"
@@ -160,7 +151,6 @@ def find_mihomo():
         if os.path.isfile(p):
             return p
 
-        # PATH 中的 mihomo
         if p == "mihomo":
             try:
                 result = subprocess.run(
@@ -176,9 +166,7 @@ def find_mihomo():
                 pass
 
     raise SystemExit(
-        "[FAIL] 未找到 mihomo 内核。\n"
-        "请设置环境变量 MIHOMO_BIN，或将 mihomo 放到 "
-        "/usr/local/bin/mihomo、/usr/bin/mihomo、/tmp/mihomo"
+        "[FAIL] 未找到 mihomo 内核。"
     )
 
 
@@ -213,7 +201,7 @@ def dump_yaml(data, path):
 
 
 # ============================================================
-# 节点完整指纹
+# 节点指纹与清洗
 # ============================================================
 
 def normalize_value(v):
@@ -233,36 +221,11 @@ def normalize_value(v):
 
 
 def node_fingerprint(proxy):
-    """
-    不再使用：
-        type + server + port
-
-    而是对节点完整配置做指纹。
-
-    这样可以避免：
-
-    同 server/port
-    不同 password
-    不同 uuid
-    不同 ws-path
-    不同 sni
-    不同 servername
-    不同 reality
-    不同 grpc-service-name
-
-    被错误合并。
-    """
-
-    ignore_keys = {
-        "name",
-    }
-
+    ignore_keys = {"name"}
     clean = {}
-
     for k, v in proxy.items():
         if k in ignore_keys:
             continue
-
         clean[str(k)] = normalize_value(v)
 
     raw = json.dumps(
@@ -271,43 +234,28 @@ def node_fingerprint(proxy):
         sort_keys=True,
         separators=(",", ":"),
     )
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
-    return hashlib.sha256(
-        raw.encode("utf-8")
-    ).hexdigest()
-
-
-# ============================================================
-# 节点清洗
-# ============================================================
 
 def valid_proxy(proxy):
     if not isinstance(proxy, dict):
         return False, "不是对象"
-
     if not proxy.get("name"):
         return False, "缺少 name"
-
     if not proxy.get("type"):
         return False, "缺少 type"
-
     return True, ""
 
 
 def collect_proxies(inputs):
     merged = {}
     stats = {
-        "files": 0,
-        "raw": 0,
-        "valid": 0,
-        "duplicate": 0,
-        "invalid": 0,
-        "skipped": 0,
+        "files": 0, "raw": 0, "valid": 0,
+        "duplicate": 0, "invalid": 0, "skipped": 0,
     }
 
     for inp in inputs:
         stats["files"] += 1
-
         try:
             data = load_yaml(inp)
         except Exception as e:
@@ -315,31 +263,22 @@ def collect_proxies(inputs):
             continue
 
         proxies = data.get("proxies", [])
-
         if not isinstance(proxies, list):
-            print(f"[WARN] {inp} 的 proxies 不是列表")
             continue
 
         for p in proxies:
             stats["raw"] += 1
-
-            ok, reason = valid_proxy(p)
-
+            ok, _ = valid_proxy(p)
             if not ok:
                 stats["invalid"] += 1
                 continue
 
             name = str(p.get("name", ""))
-
-            if (
-                name.startswith("说明-")
-                or name in SKIP_NAMES
-            ):
+            if name.startswith("说明-") or name in SKIP_NAMES:
                 stats["skipped"] += 1
                 continue
 
             fp = node_fingerprint(p)
-
             if fp in merged:
                 stats["duplicate"] += 1
                 continue
@@ -351,296 +290,138 @@ def collect_proxies(inputs):
 
 
 # ============================================================
-# Mihomo API 测速
+# 严格 3 个网址全部通过的测速逻辑
 # ============================================================
 
 def test_node(port, secret, name):
-    q = urllib.parse.quote(
-        name,
-        safe="",
-    )
-
+    q = urllib.parse.quote(name, safe="")
     delays = []
 
     for test_url in TEST_URLS:
-        url_q = urllib.parse.quote(
-            test_url,
-            safe="",
-        )
-
+        url_q = urllib.parse.quote(test_url, safe="")
         try:
             data = api_get(
                 port,
                 secret,
-                f"/proxies/{q}/delay"
-                f"?timeout={TIMEOUT_MS}"
-                f"&url={url_q}",
-                timeout=TIMEOUT_MS / 1000 + 8,
+                f"/proxies/{q}/delay?timeout={TIMEOUT_MS}&url={url_q}",
+                timeout=TIMEOUT_MS / 1000 + 4,
             )
-
             delay = data.get("delay")
-
             if delay is None:
                 return name, None
-
+            
             delay = int(delay)
-
             if delay <= 0:
                 return name, None
-
+            
             delays.append(delay)
-
         except Exception:
+            # 只要其中一个报错或超时，直接判定该节点不合格
             return name, None
 
-    if not delays:
+    # 必须所有测试网址都成功返回延迟
+    if len(delays) != len(TEST_URLS):
         return name, None
 
-    return (
-        name,
-        int(sum(delays) / len(delays)),
-    )
+    return name, int(sum(delays) / len(delays))
 
 
 # ============================================================
-# 临时 Mihomo 测试配置
+# Mihomo 运行及配置生成
 # ============================================================
 
-def build_test_config(
-    port,
-    secret,
-    proxies,
-):
+def build_test_config(port, secret, proxies):
     return {
         "mixed-port": port + 1,
         "allow-lan": False,
         "mode": "rule",
         "log-level": "silent",
         "ipv6": False,
-
-        "external-controller":
-            f"127.0.0.1:{port}",
-
+        "external-controller": f"127.0.0.1:{port}",
         "secret": secret,
-
         "proxies": proxies,
-
-        "rules": [
-            "MATCH,DIRECT",
-        ],
+        "rules": ["MATCH,DIRECT"],
     }
 
 
-# ============================================================
-# 启动 Mihomo
-# ============================================================
-
-def start_mihomo(
-    mihomo,
-    config_path,
-    workdir,
-):
-    proc = subprocess.Popen(
-        [
-            mihomo,
-            "-d",
-            workdir,
-            "-f",
-            config_path,
-        ],
+def start_mihomo(mihomo, config_path, workdir):
+    return subprocess.Popen(
+        [mihomo, "-d", workdir, "-f", config_path],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
 
-    return proc
 
-
-def wait_mihomo(
-    proc,
-    port,
-    secret,
-    timeout_seconds=60,
-):
+def wait_mihomo(proc, port, secret, timeout_seconds=60):
     end = time.time() + timeout_seconds
-
     while time.time() < end:
         try:
-            api_get(
-                port,
-                secret,
-                "/version",
-                timeout=3,
-            )
+            api_get(port, secret, "/version", timeout=3)
             return True
-
         except Exception:
             if proc.poll() is not None:
                 return False
-
             time.sleep(0.5)
-
     return False
 
 
-# ============================================================
-# 获取真实代理
-# ============================================================
-
-def get_testable_names(
-    port,
-    secret,
-):
+def get_testable_names(port, secret):
     proxies_map = {}
-
     for _ in range(10):
         try:
-            proxies_map = api_get(
-                port,
-                secret,
-                "/proxies",
-            ).get("proxies", {})
-
+            proxies_map = api_get(port, secret, "/proxies").get("proxies", {})
             if proxies_map:
                 break
-
         except Exception:
             proxies_map = {}
-
         time.sleep(0.5)
 
     names = []
-
     for name, info in proxies_map.items():
         if name in SKIP_NAMES:
             continue
-
         if not isinstance(info, dict):
             continue
-
-        ptype = info.get("type")
-
-        if ptype in GROUP_TYPES:
+        if info.get("type") in GROUP_TYPES:
             continue
-
         names.append(name)
-
     return names
 
 
-# ============================================================
-# 客户端配置生成
-# ============================================================
-
-def build_client_config(
-    good,
-    test_count,
-    input_count,
-):
-    """
-    生成真正的客户端配置。
-
-    不生成 fake Trojan。
-    不把说明文字塞进 proxies。
-    不暴露 external-controller。
-    """
-
-    good_names = [
-        p["name"]
-        for p in good
-    ]
-
+def build_client_config(good, test_count, input_count):
+    good_names = [p["name"] for p in good]
     cfg = {
-        # ----------------------------------------------------
-        # 基础
-        # ----------------------------------------------------
         "mixed-port": 7890,
-
         "allow-lan": False,
-
         "mode": "rule",
-
         "log-level": "info",
-
         "ipv6": False,
-
-        # ----------------------------------------------------
-        # 连接优化
-        # ----------------------------------------------------
         "unified-delay": True,
-
         "tcp-concurrent": True,
-
         "keep-alive-idle": 600,
-
         "keep-alive-interval": 15,
-
-        # ----------------------------------------------------
-        # 配置持久化
-        # ----------------------------------------------------
         "profile": {
             "store-selected": True,
             "store-fake-ip": True,
         },
-
-        # ----------------------------------------------------
-        # DNS
-        # ----------------------------------------------------
         "dns": {
             "enable": True,
-
             "ipv6": False,
-
             "enhanced-mode": "fake-ip",
-
             "fake-ip-range": "198.18.0.1/16",
-
-            "default-nameserver": [
-                "223.5.5.5",
-                "119.29.29.29",
-            ],
-
-            "nameserver": [
-                "https://doh.pub/dns-query",
-                "https://dns.alidns.com/dns-query",
-            ],
-
-            "fallback": [
-                "https://1.1.1.1/dns-query",
-                "https://8.8.8.8/dns-query",
-            ],
-
-            "fallback-filter": {
-                "geoip": True,
-                "geoip-code": "CN",
-            },
-
-            "fake-ip-filter": [
-                "+.lan",
-                "+.local",
-                "+.localhost",
-                "+.home.arpa",
-                "+.internal",
-            ],
+            "default-nameserver": ["223.5.5.5", "119.29.29.29"],
+            "nameserver": ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"],
+            "fallback": ["https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query"],
+            "fallback-filter": {"geoip": True, "geoip-code": "CN"},
+            "fake-ip-filter": ["+.lan", "+.local", "+.localhost", "+.home.arpa", "+.internal"],
         },
-
-        # ----------------------------------------------------
-        # 真实节点
-        # ----------------------------------------------------
         "proxies": good,
-
-        # ----------------------------------------------------
-        # 策略组
-        # ----------------------------------------------------
         "proxy-groups": [
             {
                 "name": "🚀 节点选择",
                 "type": "select",
-                "proxies": [
-                    "♻️ 自动选择",
-                    "🔰 故障转移",
-                ] + good_names,
+                "proxies": ["♻️ 自动选择", "🔰 故障转移"] + good_names,
             },
-
             {
                 "name": "♻️ 自动选择",
                 "type": "url-test",
@@ -650,7 +431,6 @@ def build_client_config(
                 "lazy": False,
                 "proxies": good_names,
             },
-
             {
                 "name": "🔰 故障转移",
                 "type": "fallback",
@@ -659,123 +439,40 @@ def build_client_config(
                 "lazy": False,
                 "proxies": good_names,
             },
-
             {
                 "name": "🛑 广告拦截",
                 "type": "select",
-                "proxies": [
-                    "REJECT",
-                    "DIRECT",
-                ],
+                "proxies": ["REJECT", "DIRECT"],
             },
-
             {
                 "name": "🇨🇳 国内直连",
                 "type": "select",
-                "proxies": [
-                    "DIRECT",
-                    "🚀 节点选择",
-                ],
+                "proxies": ["DIRECT", "🚀 节点选择"],
             },
-
             {
                 "name": "🌍 国外代理",
                 "type": "select",
-                "proxies": [
-                    "🚀 节点选择",
-                    "DIRECT",
-                ],
+                "proxies": ["🚀 节点选择", "DIRECT"],
             },
         ],
-
-        # ----------------------------------------------------
-        # Rule Providers
-        # ----------------------------------------------------
         "rule-providers": {
-            "广告": {
-                "type": "http",
-                "behavior": "domain",
-                "format": "mrs",
-                "url": ADS_URL,
-                "path": "./rule-providers/ads.mrs",
-                "interval": 86400,
-            },
-
-            "国内域名": {
-                "type": "http",
-                "behavior": "domain",
-                "format": "mrs",
-                "url": CN_DOMAIN_URL,
-                "path": "./rule-providers/cn.mrs",
-                "interval": 86400,
-            },
-
-            "国内IP": {
-                "type": "http",
-                "behavior": "ipcidr",
-                "format": "mrs",
-                "url": CN_IP_URL,
-                "path": "./rule-providers/cn_ip.mrs",
-                "interval": 86400,
-            },
-
-            "私有域名": {
-                "type": "http",
-                "behavior": "domain",
-                "format": "mrs",
-                "url": PRIVATE_DOMAIN_URL,
-                "path": "./rule-providers/private.mrs",
-                "interval": 86400,
-            },
-
-            "私有IP": {
-                "type": "http",
-                "behavior": "ipcidr",
-                "format": "mrs",
-                "url": PRIVATE_IP_URL,
-                "path": "./rule-providers/private_ip.mrs",
-                "interval": 86400,
-            },
-
-            "GFW": {
-                "type": "http",
-                "behavior": "domain",
-                "format": "mrs",
-                "url": GFW_DOMAIN_URL,
-                "path": "./rule-providers/gfw.mrs",
-                "interval": 86400,
-            },
+            "广告": {"type": "http", "behavior": "domain", "format": "mrs", "url": ADS_URL, "path": "./rule-providers/ads.mrs", "interval": 86400},
+            "国内域名": {"type": "http", "behavior": "domain", "format": "mrs", "url": CN_DOMAIN_URL, "path": "./rule-providers/cn.mrs", "interval": 86400},
+            "国内IP": {"type": "http", "behavior": "ipcidr", "format": "mrs", "url": CN_IP_URL, "path": "./rule-providers/cn_ip.mrs", "interval": 86400},
+            "私有域名": {"type": "http", "behavior": "domain", "format": "mrs", "url": PRIVATE_DOMAIN_URL, "path": "./rule-providers/private.mrs", "interval": 86400},
+            "私有IP": {"type": "http", "behavior": "ipcidr", "format": "mrs", "url": PRIVATE_IP_URL, "path": "./rule-providers/private_ip.mrs", "interval": 86400},
+            "GFW": {"type": "http", "behavior": "domain", "format": "mrs", "url": GFW_DOMAIN_URL, "path": "./rule-providers/gfw.mrs", "interval": 86400},
         },
-
-        # ----------------------------------------------------
-        # 分流规则
-        #
-        # 顺序非常重要：
-        # 广告 → 私有 → 国内 → GFW → 其他
-        # ----------------------------------------------------
         "rules": [
-            # 广告
             "RULE-SET,广告,🛑 广告拦截",
-
-            # 私有网络
             "RULE-SET,私有域名,DIRECT",
             "RULE-SET,私有IP,DIRECT,no-resolve",
-
-            # 中国大陆
             "RULE-SET,国内域名,🇨🇳 国内直连",
             "RULE-SET,国内IP,🇨🇳 国内直连,no-resolve",
-
-            # GFW
             "RULE-SET,GFW,🌍 国外代理",
-
-            # 最终兜底
             "MATCH,🚀 节点选择",
         ],
     }
-
-    # --------------------------------------------------------
-    # metadata 放在配置里，而不是伪装成 proxy
-    # --------------------------------------------------------
     cfg["# AIO_INFO"] = {
         "source": AUTHOR,
         "repository": REPO,
@@ -785,628 +482,146 @@ def build_client_config(
         "available_nodes": len(good),
         "test_urls": TEST_URLS,
     }
-
     return cfg
 
 
-# ============================================================
-# Mihomo 最终配置校验
-# ============================================================
-
-def validate_final_config(
-    mihomo,
-    config_path,
-):
-    """
-    最终 YAML 不直接相信 Python 写出来就是正确的。
-
-    重新启动 Mihomo 加载它。
-    能启动并读取 /version 才算通过。
-    """
-
-    with tempfile.TemporaryDirectory(
-        prefix="mihomo_validate_"
-    ) as td:
-
-        cfg_copy = os.path.join(
-            td,
-            "config.yaml",
-        )
-
+def validate_final_config(mihomo, config_path):
+    with tempfile.TemporaryDirectory(prefix="mihomo_validate_") as td:
+        cfg_copy = os.path.join(td, "config.yaml")
         import shutil
-
-        shutil.copy2(
-            config_path,
-            cfg_copy,
-        )
-
+        shutil.copy2(config_path, cfg_copy)
         port = find_free_port()
+        secret = "".join(random.choices("abcdefghijklmnopqrstuvwxyz0123456789", k=24))
 
-        secret = "".join(
-            random.choices(
-                "abcdefghijklmnopqrstuvwxyz"
-                "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                "0123456789",
-                k=24,
-            )
-        )
-
-        # 注意：
-        # 为了校验，我们动态插入 controller。
-        # 不修改最终文件。
         data = load_yaml(cfg_copy)
-
-        data["external-controller"] = (
-            f"127.0.0.1:{port}"
-        )
-
+        data["external-controller"] = f"127.0.0.1:{port}"
         data["secret"] = secret
-
-        dump_yaml(
-            data,
-            cfg_copy,
-        )
+        dump_yaml(data, cfg_copy)
 
         proc = None
-
         try:
-            proc = start_mihomo(
-                mihomo,
-                cfg_copy,
-                td,
-            )
-
-            if not wait_mihomo(
-                proc,
-                port,
-                secret,
-                timeout_seconds=30,
-            ):
+            proc = start_mihomo(mihomo, cfg_copy, td)
+            if not wait_mihomo(proc, port, secret, timeout_seconds=30):
                 return False, "Mihomo 无法加载最终配置"
-
             try:
-                version = api_get(
-                    port,
-                    secret,
-                    "/version",
-                    timeout=5,
-                )
-
+                version = api_get(port, secret, "/version", timeout=5)
                 if not isinstance(version, dict):
                     return False, "Mihomo API 返回异常"
-
             except Exception as e:
                 return False, f"最终配置 API 校验失败: {e}"
-
             return True, "Mihomo 配置加载验证成功"
-
         finally:
             if proc is not None:
                 proc.terminate()
-
                 try:
                     proc.wait(timeout=5)
                 except subprocess.TimeoutExpired:
                     proc.kill()
 
 
-# ============================================================
-# 安全输出
-# ============================================================
-
-def safe_write_yaml(
-    data,
-    output,
-):
+def safe_write_yaml(data, output):
     output = os.path.abspath(output)
-
     out_dir = os.path.dirname(output)
-
-    os.makedirs(
-        out_dir,
-        exist_ok=True,
-    )
-
-    fd, tmp_path = tempfile.mkstemp(
-        dir=out_dir,
-        suffix=".yaml",
-    )
-
+    os.makedirs(out_dir, exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(dir=out_dir, suffix=".yaml")
     try:
-        with os.fdopen(
-            fd,
-            "w",
-            encoding="utf-8",
-        ) as f:
-
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
             import yaml
-
-            yaml.dump(
-                data,
-                f,
-                Dumper=yaml.SafeDumper,
-                allow_unicode=True,
-                default_flow_style=False,
-                sort_keys=False,
-            )
-
+            yaml.dump(data, f, Dumper=yaml.SafeDumper, allow_unicode=True, default_flow_style=False, sort_keys=False)
         return tmp_path
-
     except Exception:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
-
         raise
 
 
-# ============================================================
-# 主程序
-# ============================================================
-
 def main():
-    ap = argparse.ArgumentParser(
-        description=(
-            "Mihomo AIO 节点合并 + 测速 + "
-            "国内分流 + 客户端广告拦截"
-        )
-    )
-
-    ap.add_argument(
-        "inputs",
-        nargs="+",
-        help="输入的 Clash/Mihomo YAML",
-    )
-
-    ap.add_argument(
-        "-o",
-        "--output",
-        required=True,
-        help="输出 AIO YAML",
-    )
-
-    ap.add_argument(
-        "--concurrency",
-        type=int,
-        default=32,
-        help="测速并发，默认 32",
-    )
-
-    ap.add_argument(
-        "--top",
-        type=int,
-        default=0,
-        help=(
-            "只输出前 N 个节点；"
-            "0 表示全部可用节点"
-        ),
-    )
-
+    ap = argparse.ArgumentParser(description="Mihomo AIO 节点合并 + 测速 + 校验")
+    ap.add_argument("inputs", nargs="+", help="输入的 Clash/Mihomo YAML")
+    ap.add_argument("-o", "--output", required=True, help="输出 AIO YAML")
+    ap.add_argument("--concurrency", type=int, default=32, help="测速并发")
+    ap.add_argument("--top", type=int, default=0, help="只输出前 N 个节点；0 表示全部可用")
     args = ap.parse_args()
 
-    if args.concurrency < 1:
-        raise SystemExit(
-            "[FAIL] --concurrency 必须 >= 1"
-        )
-
-    if args.top < 0:
-        raise SystemExit(
-            "[FAIL] --top 必须 >= 0"
-        )
-
-    # --------------------------------------------------------
-    # 检查 PyYAML
-    # --------------------------------------------------------
-    try:
-        import yaml
-    except ImportError:
-        raise SystemExit(
-            "[FAIL] 缺少 PyYAML，请执行：pip install pyyaml"
-        )
-
-    print()
     print("=" * 70)
-    print(" Mihomo AIO 节点合并 / 测速 / 国内分流 / 客户端去广告 V1")
+    print(" Mihomo AIO 严格 3 网址全部通过版")
     print("=" * 70)
-    print()
 
-    # --------------------------------------------------------
-    # 1. 合并
-    # --------------------------------------------------------
-    print("[1/6] 正在读取并合并节点...")
-
-    proxies, stats = collect_proxies(
-        args.inputs
-    )
-
-    print(
-        f"      输入文件: {stats['files']}"
-    )
-
-    print(
-        f"      原始节点: {stats['raw']}"
-    )
-
-    print(
-        f"      有效节点: {stats['valid']}"
-    )
-
-    print(
-        f"      重复节点: {stats['duplicate']}"
-    )
-
-    print(
-        f"      无效节点: {stats['invalid']}"
-    )
-
-    print(
-        f"      跳过节点: {stats['skipped']}"
-    )
-
-    print(
-        f"      最终待测: {len(proxies)}"
-    )
-
+    proxies, stats = collect_proxies(args.inputs)
+    print(f"[1/6] 合并完成：有效节点 {stats['valid']} 个")
     if not proxies:
-        raise SystemExit(
-            "[FAIL] 没有任何可测试节点"
-        )
+        raise SystemExit("[FAIL] 没有任何可测试节点")
 
-    # --------------------------------------------------------
-    # 2. 找 Mihomo
-    # --------------------------------------------------------
     mihomo = find_mihomo()
-
-    print()
-    print(
-        f"[2/6] Mihomo 内核: {mihomo}"
-    )
-
-    # --------------------------------------------------------
-    # 3. 启动临时 Mihomo
-    # --------------------------------------------------------
     port = find_free_port()
+    secret = "".join(random.choices("abcdefghijklmnopqrstuvwxyz0123456789", k=24))
+    test_cfg = build_test_config(port, secret, proxies)
 
-    secret = "".join(
-        random.choices(
-            "abcdefghijklmnopqrstuvwxyz"
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            "0123456789",
-            k=24,
-        )
-    )
+    with tempfile.TemporaryDirectory(prefix="mihomo_aio_test_") as td:
+        cfg_path = os.path.join(td, "config.yaml")
+        dump_yaml(test_cfg, cfg_path)
 
-    test_cfg = build_test_config(
-        port,
-        secret,
-        proxies,
-    )
-
-    with tempfile.TemporaryDirectory(
-        prefix="mihomo_aio_test_"
-    ) as td:
-
-        cfg_path = os.path.join(
-            td,
-            "config.yaml",
-        )
-
-        dump_yaml(
-            test_cfg,
-            cfg_path,
-        )
-
-        print(
-            f"[3/6] 启动 Mihomo 测速内核 "
-            f"(127.0.0.1:{port})..."
-        )
-
-        proc = start_mihomo(
-            mihomo,
-            cfg_path,
-            td,
-        )
-
+        print(f"[2/6] 启动测速内核 (127.0.0.1:{port})...")
+        proc = start_mihomo(mihomo, cfg_path, td)
         try:
-            if not wait_mihomo(
-                proc,
-                port,
-                secret,
-                timeout_seconds=60,
-            ):
-                raise SystemExit(
-                    "[FAIL] Mihomo API 未就绪，"
-                    "请检查内核或节点配置"
-                )
+            if not wait_mihomo(proc, port, secret, timeout_seconds=60):
+                raise SystemExit("[FAIL] Mihomo API 未就绪")
 
-            # ------------------------------------------------
-            # 获取可测试节点
-            # ------------------------------------------------
-            names = get_testable_names(
-                port,
-                secret,
-            )
+            names = get_testable_names(port, secret)
+            print(f"[3/6] 识别到待测节点: {len(names)} 个")
 
-            print(
-                f"      Mihomo 实际识别节点: {len(names)}"
-            )
-
-            if not names:
-                raise SystemExit(
-                    "[FAIL] Mihomo 没有识别到可测试节点"
-                )
-
-            # ------------------------------------------------
-            # 测速
-            # ------------------------------------------------
-            print()
-            print(
-                f"[4/6] 开始测试 {len(names)} 个节点"
-            )
-
-            print(
-                f"      测试网址: {len(TEST_URLS)} 个"
-            )
-
-            for u in TEST_URLS:
-                print(
-                    f"      - {u}"
-                )
-
-            print(
-                f"      并发: {args.concurrency}"
-            )
-
+            print(f"[4/6] 开始严格 3 网址并发测速 (并发 {args.concurrency})...")
             ok = {}
-
             done = 0
             total = len(names)
+            interval = max(1, total // 50)
 
-            interval = max(
-                1,
-                total // 50,
-            )
-
-            with ThreadPoolExecutor(
-                max_workers=args.concurrency
-            ) as ex:
-
-                futs = {
-                    ex.submit(
-                        test_node,
-                        port,
-                        secret,
-                        name,
-                    ): name
-                    for name in names
-                }
-
+            with ThreadPoolExecutor(max_workers=args.concurrency) as ex:
+                futs = {ex.submit(test_node, port, secret, name): name for name in names}
                 for fut in as_completed(futs):
                     try:
                         name, delay = fut.result()
-
                     except Exception:
                         name = futs[fut]
                         delay = None
 
                     done += 1
-
                     if delay is not None:
                         ok[name] = delay
 
-                    if (
-                        done % interval == 0
-                        or done == total
-                    ):
-                        pct = (
-                            done * 100 // total
-                        )
-
-                        print(
-                            f"      进度 "
-                            f"{done}/{total} "
-                            f"({pct}%) "
-                            f"可用 {len(ok)}",
-                            flush=True,
-                        )
-
-            print()
-            print(
-                f"      三网址全部通过: {len(ok)}"
-            )
+                    if done % interval == 0 or done == total:
+                        pct = done * 100 // total
+                        print(f"      进度 {done}/{total} ({pct}%) 3网全通可用: {len(ok)}", flush=True)
 
             if not ok:
-                raise SystemExit(
-                    "[FAIL] 全部节点测试失败，"
-                    "不生成 AIO"
-                )
+                raise SystemExit("[FAIL] 没有节点通过全部 3 个测速网址")
 
-            # ------------------------------------------------
-            # 按平均延迟排序
-            # ------------------------------------------------
-            good = [
-                p
-                for p in proxies
-                if p.get("name") in ok
-            ]
-
-            good.sort(
-                key=lambda p: ok[p["name"]]
-            )
-
-            # ------------------------------------------------
-            # top
-            # ------------------------------------------------
+            good = [p for p in proxies if p.get("name") in ok]
+            good.sort(key=lambda p: ok[p["name"]])
             if args.top > 0:
                 good = good[:args.top]
 
-            print()
-            print(
-                f"      最终输出节点: {len(good)}"
-            )
+            print(f"[5/6] 正在生成并校验最终客户端配置...")
+            aio = build_client_config(good=good, test_count=len(names), input_count=len(args.inputs))
+            tmp_output = safe_write_yaml(aio, args.output)
 
-            # ------------------------------------------------
-            # 打印前 20
-            # ------------------------------------------------
-            print()
-            print(
-                "      延迟最快节点:"
-            )
-
-            for i, p in enumerate(
-                good[:20],
-                1,
-            ):
-                print(
-                    f"      {i:>2}. "
-                    f"{p['name']} "
-                    f"{ok.get(p['name'], '-')} ms"
-                )
-
-            # ------------------------------------------------
-            # 5. 生成客户端配置
-            # ------------------------------------------------
-            print()
-            print(
-                "[5/6] 正在生成最终客户端配置..."
-            )
-
-            aio = build_client_config(
-                good=good,
-                test_count=len(names),
-                input_count=len(args.inputs),
-            )
-
-            # ------------------------------------------------
-            # 临时生成
-            # ------------------------------------------------
-            tmp_output = safe_write_yaml(
-                aio,
-                args.output,
-            )
-
-            print(
-                "      YAML 已生成，开始 Mihomo "
-                "二次加载校验..."
-            )
-
-            # ------------------------------------------------
-            # 6. 校验
-            # ------------------------------------------------
-            valid, message = validate_final_config(
-                mihomo,
-                tmp_output,
-            )
-
+            valid, message = validate_final_config(mihomo, tmp_output)
             if not valid:
                 if os.path.exists(tmp_output):
                     os.remove(tmp_output)
+                raise SystemExit(f"[FAIL] 最终配置校验失败: {message}")
 
-                raise SystemExit(
-                    "[FAIL] 最终配置校验失败："
-                    + message
-                )
-
-            print(
-                f"      ✓ {message}"
-            )
-
-            # ------------------------------------------------
-            # 原子替换
-            # ------------------------------------------------
-            os.makedirs(
-                os.path.dirname(
-                    os.path.abspath(
-                        args.output
-                    )
-                ) or ".",
-                exist_ok=True,
-            )
-
-            os.replace(
-                tmp_output,
-                args.output,
-            )
-
-            print()
-            print("[6/6] AIO 配置生成完成")
-            print()
+            os.replace(tmp_output, args.output)
+            print(f"[6/6] 生成完毕！可用节点: {len(good)}/{len(names)}")
             print("=" * 70)
-            print(
-                f"输出文件: {args.output}"
-            )
-            print(
-                f"最终节点: {len(good)}"
-            )
-            print(
-                f"测速通过: {len(ok)}/{len(names)}"
-            )
-            print(
-                f"更新时间: {now_beijing()} (北京时间)"
-            )
-            print("=" * 70)
-            print()
-            print(
-                "配置内容："
-            )
-            print(
-                "  ✓ 真实节点"
-            )
-            print(
-                "  ✓ 完整节点参数保留"
-            )
-            print(
-                "  ✓ 国内 DNS"
-            )
-            print(
-                "  ✓ 国内域名/IP 直连"
-            )
-            print(
-                "  ✓ GFW 域名代理"
-            )
-            print(
-                "  ✓ 客户端广告域名拦截"
-            )
-            print(
-                "  ✓ 自动选择"
-            )
-            print(
-                "  ✓ 故障转移"
-            )
-            print(
-                "  ✓ Mihomo 二次配置校验"
-            )
-            print()
 
         finally:
             proc.terminate()
-
             try:
-                proc.wait(
-                    timeout=5
-                )
+                proc.wait(timeout=5)
             except subprocess.TimeoutExpired:
                 proc.kill()
 
 
-# ============================================================
-# Entry
-# ============================================================
-
 if __name__ == "__main__":
-    try:
-        main()
-
-    except KeyboardInterrupt:
-        print(
-            "\n[STOP] 用户中断"
-        )
-
-    except SystemExit:
-        raise
-
-    except Exception as e:
-        print()
-        print(
-            f"[FAIL] {type(e).__name__}: {e}"
-        )
-        raise
+    main()
