@@ -11,7 +11,7 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 500  # 🔑 缩小单批次节点数至 500，防止几十万节点压垮 Mihomo 内存
+BATCH_SIZE = 5000
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
 TIMEOUT_MS, CONCURRENCY = 8000, 16
@@ -44,10 +44,60 @@ def parse_share_link(line):
         return None
     
     try:
-        # 1. 专门解析 vmess:// 链接
-        if line.startswith("vmess://"):
+        # 1. Shadowsocks (ss://) 解析
+        if line.startswith("ss://"):
+            main_part = line[5:]
+            fragment = ""
+            if "#" in main_part:
+                main_part, fragment = main_part.split("#", 1)
+                fragment = urllib.parse.unquote(fragment)
+            
+            # 尝试标准 SIP002 / base64 解析
+            if "@" not in main_part:
+                missing_padding = len(main_part) % 4
+                if missing_padding:
+                    main_part += "=" * (4 - missing_padding)
+                try:
+                    decoded = base64.b64decode(main_part).decode("utf-8", errors="ignore")
+                    if "@" in decoded:
+                        main_part = decoded
+                except Exception:
+                    pass
+            
+            if "@" in main_part:
+                userinfo, hostport = main_part.rsplit("@", 1)
+                # 解析密码和加密方式
+                if ":" in userinfo:
+                    method, password = userinfo.split(":", 1)
+                else:
+                    try:
+                        missing_padding = len(userinfo) % 4
+                        if missing_padding:
+                            userinfo += "=" * (4 - missing_padding)
+                        decoded_user = base64.b64decode(userinfo).decode("utf-8", errors="ignore")
+                        method, password = decoded_user.split(":", 1)
+                    except Exception:
+                        return None
+                
+                if ":" in hostport:
+                    server, port_str = hostport.rsplit(":", 1)
+                    port = int(port_str)
+                else:
+                    return None
+                
+                node = {
+                    "name": fragment or f"SS-{server}",
+                    "type": "ss",
+                    "server": server,
+                    "port": port,
+                    "cipher": method,
+                    "password": password
+                }
+                return node
+
+        # 2. VMess (vmess://) 解析
+        elif line.startswith("vmess://"):
             raw_b64 = line[8:]
-            # 补齐 base64 padding
             missing_padding = len(raw_b64) % 4
             if missing_padding:
                 raw_b64 += "=" * (4 - missing_padding)
