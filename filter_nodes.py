@@ -8,16 +8,15 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 400
+BATCH_SIZE = 300  # 锁死在 300-400 之间，保护 Mihomo 内存
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
-TIMEOUT_MS, CONCURRENCY = 4000, 32
+TIMEOUT_MS, CONCURRENCY = 3000, 32
 
 TEST_GROUPS = [
     ("基础连通性", [("Cloudflare trace", "https://www.cloudflare.com/cdn-cgi/trace"), ("Google 204", "https://www.google.com/generate_204")]),
     ("实际网站", [("Google 首页", "https://www.google.com/"), ("Telegram", "https://t.me/telegram/")])
 ]
-ALL_TESTS = [(stage, label, url) for stage, tests in TEST_GROUPS for label, url in tests]
 
 def log(msg):
     print(time.strftime("[%Y-%m-%d %H:%M:%S]"), msg, flush=True)
@@ -26,12 +25,8 @@ def safe_name(name):
     return str(name or "node").strip() or "node"
 
 def fingerprint(proxy):
+    # 严格使用完整指纹，禁止剔除 server/port 产生模板连坐误判
     obj = {k: v for k, v in proxy.items() if k != "name"}
-    raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
-
-def core_fingerprint(proxy):
-    obj = {k: v for k, v in proxy.items() if k not in ("name", "server", "port")}
     raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
@@ -207,33 +202,48 @@ def parse_share_link(line):
         pass
     return None
 
-def load_nodes_from_file(path):
-    nodes = []
+def stream_load_nodes_from_file(path, invalid_pool, valid_pool, tested_fps, seen_fps):
     path_str = str(path)
     if path_str.endswith((".yaml", ".yml")):
-        with open(path, "r", encoding="utf-8") as f:
-            data = yaml.safe_load(f) or {}
-        if isinstance(data, dict):
-            p_list = data.get("proxies", [])
-            if isinstance(p_list, list):
-                nodes.extend(p_list)
-    else:
-        with open(path, "r", encoding="utf-8", errors="ignore") as f:
-            content = f.read().strip()
-
         try:
-            if not content.startswith("http") and len(content) > 20:
-                decoded = base64.b64decode(content + "==").decode("utf-8", errors="ignore")
-                if "://" in decoded or "add" in decoded:
-                    content = decoded
-        except Exception:
-            pass
+            with open(path, "r", encoding="utf-8") as f:
+                data = yaml.safe_load(f) or {}
+            if isinstance(data, dict):
+                for node in data.get("proxies", []):
+                    yield from process_single_node(node, invalid_pool, valid_pool, tested_fps, seen_fps)
+        except Exception as e:
+            log(f"❌ YAML 文件读取失败: {path}: {e}")
+    else:
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    node = parse_share_link(line)
+                    if node:
+                        yield from process_single_node(node, invalid_pool, valid_pool, tested_fps, seen_fps)
+        except Exception as e:
+            log(f"❌ 文本文件读取失败: {path}: {e}")
 
-        for line in content.splitlines():
-            node = parse_share_link(line)
-            if node:
-                nodes.append(node)
-    return nodes
+def process_single_node(node, invalid_pool, valid_pool, tested_fps, seen_fps):
+    if not isinstance(node, dict) or not node.get("type") or not node.get("server") or not node.get("port"):
+        return
+
+    fp = fingerprint(node)
+
+    if fp in invalid_pool:
+        return
+    if fp in seen_fps:
+        return
+    seen_fps.add(fp)
+
+    if fp in valid_pool:
+        node["_inherited_valid"] = True
+        yield node
+        return
+
+    if fp in tested_fps:
+        return
+
+    yield node
 
 def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="gem.yaml"):
     files = set()
@@ -250,93 +260,63 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="
                 files.add(path_obj.resolve())
     return sorted([str(f) for f in files])
 
-def quick_tcp_check(server, port, timeout=0.8):
+def quick_tcp_check(server, port, timeout=0.6):
     try:
         with socket.create_connection((str(server), int(port)), timeout=timeout):
             return True
     except Exception:
         return False
 
-def merge_nodes(files):
-    result, seen_fp, name_count = [], set(), {}
-    stats = {"files": 0, "raw": 0, "invalid": 0, "tcp_filtered": 0, "duplicate": 0, "kept": 0}
-
-    raw_nodes = []
-    for path in files:
-        stats["files"] += 1
-        try:
-            nodes = load_nodes_from_file(path)
-        except Exception as e:
-            log(f"❌ 文件读取失败: {path}: {e}")
-            continue
-        log(f"📄 {path}: 解析出 {len(nodes)} 个节点")
-        for node in nodes:
-            stats["raw"] += 1
-            if not isinstance(node, dict) or not node.get("type") or not node.get("server") or not node.get("port"):
-                stats["invalid"] += 1
-                continue
-            raw_nodes.append(node)
-
-    total_raw_valid = len(raw_nodes)
-    log(f"🔍 准备开始多线程极速 TCP 端口预检，有效候选节点总数: {total_raw_valid} (UDP/QUIC 洗衣机节点自动豁免)...")
+def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
+    seen_fps = set()
+    stats = {"files": len(files), "raw_valid": 0, "tcp_filtered": 0, "inherited": 0, "passed_tcp": 0}
 
     def check_node_tcp(node):
+        if node.get("_inherited_valid"):
+            return node
         protocol = node.get("type", "").lower()
         if protocol in ("hysteria2", "hy2", "tuic", "warp"):
             return node
-
-        server = node.get("server")
-        port = node.get("port")
-        if quick_tcp_check(server, port):
+        if quick_tcp_check(node.get("server"), node.get("port")):
             return node
         return None
 
-    passed_tcp_nodes = []
     chunk_size = 5000
-    max_workers = 128
+    current_chunk = []
 
-    for i in range(0, total_raw_valid, chunk_size):
-        chunk = raw_nodes[i:i + chunk_size]
-        chunk_num = i // chunk_size + 1
-        total_chunks = (total_raw_valid + chunk_size - 1) // chunk_size
-        log(f"⚡ 正在进行 TCP 预检分块 [{chunk_num}/{total_chunks}] (当前组节点数: {len(chunk)})...")
+    for path in files:
+        log(f"📄 正在流式扫描文件: {path}")
+        for node in stream_load_nodes_from_file(path, invalid_pool, valid_pool, tested_fps, seen_fps):
+            stats["raw_valid"] += 1
+            if node.get("_inherited_valid"):
+                stats["inherited"] += 1
+                stats["passed_tcp"] += 1
+                yield node
+                continue
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(check_node_tcp, node): node for node in chunk}
-            for future in as_completed(futures):
-                res = future.result()
-                if res:
-                    passed_tcp_nodes.append(res)
-                else:
-                    stats["tcp_filtered"] += 1
+            current_chunk.append(node)
+            if len(current_chunk) >= chunk_size:
+                yield from flush_tcp_chunk(current_chunk, check_node_tcp, stats)
+                current_chunk = []
 
-    log(f"⚡ 预检全部完成：剔除离线死节点 {stats['tcp_filtered']} 个，剩余存活及豁免候选节点 {len(passed_tcp_nodes)} 个")
+    if current_chunk:
+        yield from flush_tcp_chunk(current_chunk, check_node_tcp, stats)
 
-    for node in passed_tcp_nodes:
-        node = copy.deepcopy(node)
-        fp = fingerprint(node)
-        if fp in seen_fp:
-            stats["duplicate"] += 1
-            continue
-        seen_fp.add(fp)
-        base = safe_name(node.get("name"))
-        count = name_count.get(base, 0)
-        if count:
-            new_name = f"{base} #{count + 1}"
-            while new_name in name_count:
-                count += 1
-                new_name = f"{base} #{count + 1}"
-            node["name"] = new_name
-            name_count[new_name] = 1
-            name_count[base] = count + 1
-        else:
-            node["name"] = base
-            name_count[base] = 1
-        result.append(node)
-        stats["kept"] += 1
+    log(f"📦 预检漏斗摘要 -> 有效输入: {stats['raw_valid']} | 白名单继承: {stats['inherited']} | TCP离线剔除: {stats['tcp_filtered']} | 存活候选总数: {stats['passed_tcp']}")
 
-    log(f"📦 统计摘要 -> 原始总数: {stats['raw']} | 格式错误: {stats['invalid']} | TCP离线剔除: {stats['tcp_filtered']} | 重复剔除: {stats['duplicate']} | 最终进入测速池总数: {len(result)}")
-    return result, stats
+def flush_tcp_chunk(chunk, check_func, stats):
+    passed = []
+    with ThreadPoolExecutor(max_workers=128) as executor:
+        futures = {executor.submit(check_func, node): node for node in chunk}
+        for future in as_completed(futures):
+            res = future.result()
+            if res:
+                passed.append(res)
+                stats["passed_tcp"] += 1
+            else:
+                stats["tcp_filtered"] += 1
+    for p in passed:
+        yield p
 
 def write_test_config(nodes, path):
     config = {
@@ -352,8 +332,7 @@ def wait_api(proc):
     end_time = time.time() + 25
     while time.time() < end_time:
         if proc.poll() is not None:
-            stderr_output = proc.stderr.read() if proc.stderr else "无详细错误输出"
-            raise RuntimeError(f"Mihomo 提前退出，returncode={proc.returncode}, 错误信息: {stderr_output}")
+            raise RuntimeError(f"Mihomo 提前退出，returncode={proc.returncode}")
         try:
             if requests.get(url, headers={"Authorization": f"Bearer {API_SECRET}"}, timeout=1.5).ok:
                 return
@@ -366,7 +345,7 @@ def api_delay(name, url):
     encoded_name = urllib.parse.quote(name, safe="")
     api_url = f"http://{API_HOST}:{API_PORT}/proxies/{encoded_name}/delay"
     params = {"timeout": TIMEOUT_MS, "url": url, "expected": "200-299"}
-    response = requests.get(api_url, params=params, headers={"Authorization": f"Bearer {API_SECRET}"}, timeout=TIMEOUT_MS / 1000 + 5)
+    response = requests.get(api_url, params=params, headers={"Authorization": f"Bearer {API_SECRET}"}, timeout=TIMEOUT_MS / 1000 + 4)
     response.raise_for_status()
     data = response.json()
     delay = data.get("delay")
@@ -381,14 +360,14 @@ def test_one(node):
             try:
                 delays.append(api_delay(name, url))
             except Exception as e:
-                return {"name": name, "node": node, "ok": False, "stage": stage, "label": label, "url": url, "error": str(e), "delays": delays}
+                return {"name": name, "node": node, "ok": False, "error": str(e)}
 
     expected_total_tests = sum(len(tests) for _, tests in TEST_GROUPS)
     if len(delays) != expected_total_tests:
-        return {"name": name, "node": node, "ok": False, "stage": "最终检查", "label": "数量不足", "url": "", "error": f"实际成功 {len(delays)}/{expected_total_tests}", "delays": delays}
+        return {"name": name, "node": node, "ok": False, "error": "测试数量不全"}
 
     avg_delay = round(sum(delays) / len(delays), 1)
-    return {"name": name, "node": node, "ok": True, "avg": avg_delay, "delays": delays}
+    return {"name": name, "node": node, "ok": True, "avg": avg_delay}
 
 def save_batch_yaml(good_nodes, batch_idx):
     out_dir = Path("generated/batches")
@@ -396,30 +375,13 @@ def save_batch_yaml(good_nodes, batch_idx):
     filepath = out_dir / f"filtered_batch_{batch_idx:03d}.yaml"
     data = {
         "proxies": good_nodes,
-        "proxy-groups": [{
-            "name": "CF-Nest-Batch",
-            "type": "select",
-            "proxies": [p["name"] for p in good_nodes] or ["DIRECT"],
-        }],
+        "proxy-groups": [{"name": "CF-Nest-Batch", "type": "select", "proxies": [p["name"] for p in good_nodes] or ["DIRECT"]}],
         "rules": ["MATCH,CF-Nest-Batch"],
     }
     with open(filepath, "w", encoding="utf-8") as f:
         yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-    log(f"💾 第 {batch_idx} 批次合格节点已单独保存到: {filepath}（共 {len(good_nodes)} 个）")
+    log(f"💾 合格批次已保存: {filepath} (共 {len(good_nodes)} 个)")
     return filepath
-
-def load_checkpoint():
-    if os.path.exists(CHECKPOINT_FILE):
-        try:
-            with open(CHECKPOINT_FILE, "r", encoding="utf-8") as f:
-                return set(json.load(f))
-        except Exception:
-            pass
-    return set()
-
-def save_checkpoint(tested_fps):
-    with open(CHECKPOINT_FILE, "w", encoding="utf-8") as f:
-        json.dump(list(tested_fps), f)
 
 def load_pool(path):
     if os.path.exists(path):
@@ -434,32 +396,108 @@ def save_pool(path, pool_set):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(list(pool_set), f)
 
-def build_final_aio(all_good_nodes, output_path):
-    names = [node["name"] for node in all_good_nodes]
-    config = {
+def build_final_aio_streamed(output_path):
+    output = Path(output_path).resolve()
+    temp_output = str(output) + ".tmp"
+    
+    log("📦 正在以流式方式合并所有批次生成最终 AIO 配置...")
+    
+    all_names = []
+    for bfile in sorted(glob.glob("generated/batches/filtered_batch_*.yaml")):
+        with open(bfile, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+            if isinstance(data, dict):
+                for p in data.get("proxies", []):
+                    if "name" in p:
+                        all_names.append(p["name"])
+
+    config_skeleton = {
         "mixed-port": 7890, "allow-lan": False, "mode": "rule", "log-level": "info",
-        "ipv6": False, "unified-delay": True, "tcp-concurrent": True, "find-process-mode": "strict",
-        "profile": {"store-selected": True, "store-fake-ip": True},
-        "dns": {
-            "enable": True, "ipv6": False, "enhanced-mode": "fake-ip", "fake-ip-range": "198.18.0.1/16",
-            "nameserver": ["223.5.5.5", "119.29.29.29", "https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"],
-            "fallback": ["1.1.1.1", "8.8.8.8"],
-            "fallback-filter": {"geoip": True, "geoip-code": "CN", "geosite": ["gfw"]}
-        },
-        "proxies": all_good_nodes,
+        "ipv6": False, "unified-delay": True, "tcp-concurrent": True,
         "proxy-groups": [
-            {"name": "🚀 节点选择", "type": "select", "proxies": names},
-            {"name": "♻️ 自动选择", "type": "url-test", "proxies": names, "url": "https://www.gstatic.com/generate_204", "interval": 300, "timeout": 5000, "expected-status": "200-299", "tolerance": 50},
-            {"name": "🔰 故障转移", "type": "fallback", "proxies": names, "url": "https://www.gstatic.com/generate_204", "interval": 300, "timeout": 5000, "expected-status": "200-299"},
+            {"name": "🚀 节点选择", "type": "select", "proxies": all_names if all_names else ["DIRECT"]},
+            {"name": "♻️ 自动选择", "type": "url-test", "proxies": all_names if all_names else ["DIRECT"], "url": "https://www.gstatic.com/generate_204", "interval": 300, "timeout": 5000},
             {"name": "🇨🇳 国内直连", "type": "select", "proxies": ["DIRECT", "🚀 节点选择"]},
-            {"name": "🌍 国外代理", "type": "select", "proxies": ["🚀 节点选择", "♻️ 自动选择", "🔰 故障转移", "DIRECT"]}
+            {"name": "🌍 国外代理", "type": "select", "proxies": ["🚀 节点选择", "♻️ 自动选择", "DIRECT"]}
         ],
         "rules": ["DOMAIN-SUFFIX,cn,DIRECT", "GEOIP,CN,DIRECT", "MATCH,🌍 国外代理"]
     }
-    temp_output = str(output_path) + ".tmp"
-    with open(temp_output, "w", encoding="utf-8") as f:
-        yaml.safe_dump(config, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-    return temp_output
+
+    with open(temp_output, "w", encoding="utf-8") as out_f:
+        header_data = {k: v for k, v in config_skeleton.items() if k != "proxies"}
+        yaml.safe_dump(header_data, out_f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+        
+        out_f.write("proxies:\n")
+        total_proxies = 0
+        for bfile in sorted(glob.glob("generated/batches/filtered_batch_*.yaml")):
+            with open(bfile, "r", encoding="utf-8") as f:
+                data = yaml.safe_load(f) or {}
+                if isinstance(data, dict):
+                    for p in data.get("proxies", []):
+                        p_str = yaml.safe_dump([p], allow_unicode=True, sort_keys=False, default_flow_style=False)
+                        for line in p_str.strip().splitlines():
+                            out_f.write(f"  {line}\n")
+                        total_proxies += 1
+
+    os.replace(temp_output, output)
+    log(f"🏁 最终聚合 YAML 已生成: {output}\n✅ 累计保留优质节点总数: {total_proxies}")
+    return total_proxies
+
+def process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool):
+    # 【已修复】彻底移除内部重复 load_pool()，直接共享内存中的主流程状态池
+    good_nodes = []
+    
+    # 局部名称去重计数，防止历史全局 name_count 无限膨胀
+    batch_name_count = {}
+    for node in batch_slice:
+        base = safe_name(node.get("name"))
+        count = batch_name_count.get(base, 0)
+        if count:
+            new_name = f"{base} #{count + 1}"
+            while new_name in batch_name_count:
+                count += 1
+                new_name = f"{base} #{count + 1}"
+            node["name"] = new_name
+            batch_name_count[new_name] = 1
+            batch_name_count[base] = count + 1
+        else:
+            node["name"] = base
+            batch_name_count[base] = 1
+
+    log(f"\n🚀 启动 Mihomo 实例测试当前批次，节点数: {len(batch_slice)}")
+    with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
+        config_path = Path(temp_dir) / "config.yaml"
+        write_test_config(batch_slice, config_path)
+        proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
+        try:
+            wait_api(proc)
+            with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
+                futures = [executor.submit(test_one, node) for node in batch_slice]
+                for index, future in enumerate(as_completed(futures), 1):
+                    res = future.result()
+                    node = res["node"]
+                    node_fp = fingerprint(node)
+                    
+                    # 实时写入内存共享池
+                    tested_fps.add(node_fp)
+
+                    if res["ok"]:
+                        log(f"✅ [{index}/{len(futures)}] {res['name']} | avg={res['avg']}ms")
+                        valid_pool.add(node_fp)
+                        good_nodes.append(node)
+                    else:
+                        invalid_pool.add(node_fp)
+        finally:
+            if proc.poll() is None:
+                proc.terminate()
+                try: proc.wait(timeout=5)
+                except subprocess.TimeoutExpired: proc.kill()
+
+    # 每批测试完成后统一落盘保存一次，确保断点续跑可靠
+    save_pool(CHECKPOINT_FILE, tested_fps)
+    save_pool(VALID_POOL_FILE, valid_pool)
+    save_pool(INVALID_POOL_FILE, invalid_pool)
+    return good_nodes
 
 def main():
     parser = argparse.ArgumentParser()
@@ -474,110 +512,51 @@ def main():
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
-    nodes, stats = merge_nodes(files)
-    if not nodes: raise SystemExit("❌ 没有可测试节点")
-
-    tested_fps = load_checkpoint()
+    # 主流程统一加载状态池
+    tested_fps = load_pool(CHECKPOINT_FILE)
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
 
-    untested_nodes = []
-    white_inherited_nodes = []
+    log("🚀 启动 V2 终极流式漏斗清洗引擎（状态内存强同步版）...")
 
-    for node in nodes:
-        fp = fingerprint(node)
-        cfp = core_fingerprint(node)
-        if fp in invalid_pool or cfp in invalid_pool:
-            continue
-        if fp in valid_pool or cfp in valid_pool:
-            white_inherited_nodes.append(node)
-            tested_fps.add(fp)
-            continue
-        if fp in tested_fps:
-            continue
-        untested_nodes.append(node)
-
-    log(f"⏳ 本次需测速节点数: {len(untested_nodes)} (白名单继承: {len(white_inherited_nodes)} 个)")
-
-    if not untested_nodes and not white_inherited_nodes:
-        log("🎉 所有节点都已经处理完毕！")
-        return 0
-
-    new_tested_good_nodes = []
+    batch_slice = []
+    batch_idx = len(glob.glob("generated/batches/filtered_batch_*.yaml")) + 1
 
     try:
-        if untested_nodes:
-            batch_idx = 1
-            existing_batch_files = glob.glob("generated/batches/filtered_batch_*.yaml")
-            if existing_batch_files: batch_idx = len(existing_batch_files) + 1
+        for node in stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
+            node = copy.deepcopy(node)
+            node.pop("_inherited_valid", None)
 
-            for i in range(0, len(untested_nodes), BATCH_SIZE):
-                batch_slice = untested_nodes[i:i + BATCH_SIZE]
-                current_batch_num = batch_idx
-                batch_idx += 1
+            batch_slice.append(node)
 
-                log(f"\n🚀 处理测速批次 [{current_batch_num}]，节点数: {len(batch_slice)}")
-                with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
-                    config_path = Path(temp_dir) / "config.yaml"
-                    write_test_config(batch_slice, config_path)
-                    proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
-                    try:
-                        wait_api(proc)
-                        results = []
-                        with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
-                            futures = [executor.submit(test_one, node) for node in batch_slice]
-                            for index, future in enumerate(as_completed(futures), 1):
-                                res = future.result()
-                                results.append(res)
-                                node_fp = fingerprint(res["node"])
-                                tested_fps.add(node_fp)
-                                if res["ok"]:
-                                    log(f"✅ [{index}/{len(futures)}] {res['name']} | avg={res['avg']}ms")
+            if len(batch_slice) >= BATCH_SIZE:
+                processed_good = process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool)
+                if processed_good:
+                    save_batch_yaml(processed_good, batch_idx)
+                    batch_idx += 1
+                batch_slice = []
 
-                        for res in results:
-                            node = res["node"]
-                            node_fp = fingerprint(node)
-                            cfp = core_fingerprint(node)
-                            if res["ok"]:
-                                valid_pool.add(node_fp)
-                                valid_pool.add(cfp)
-                                new_tested_good_nodes.append(node)
-                            else:
-                                invalid_pool.add(node_fp)
-                                invalid_pool.add(cfp)
-                    finally:
-                        if proc.poll() is None:
-                            proc.terminate()
-                            try: proc.wait(timeout=5)
-                            except subprocess.TimeoutExpired: proc.kill()
+        if batch_slice:
+            processed_good = process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool)
+            if processed_good:
+                save_batch_yaml(processed_good, batch_idx)
 
-                save_checkpoint(tested_fps)
-                save_pool(VALID_POOL_FILE, valid_pool)
-                save_pool(INVALID_POOL_FILE, invalid_pool)
     finally:
-        save_checkpoint(tested_fps)
+        # 收尾强制落盘
+        save_pool(CHECKPOINT_FILE, tested_fps)
         save_pool(VALID_POOL_FILE, valid_pool)
         save_pool(INVALID_POOL_FILE, invalid_pool)
 
-    all_good_nodes = []
-    existing_batch_files = glob.glob("generated/batches/filtered_batch_*.yaml")
-    for bfile in existing_batch_files:
-        all_good_nodes.extend(load_nodes_from_file(bfile))
-
-    combined_new_nodes = white_inherited_nodes + new_tested_good_nodes
-    if combined_new_nodes:
-        current_batch_num = len(existing_batch_files) + 1 if existing_batch_files else 1
-        save_batch_yaml(combined_new_nodes, current_batch_num)
-        all_good_nodes.extend(combined_new_nodes)
-
-    if not all_good_nodes:
+    batches = glob.glob("generated/batches/filtered_batch_*.yaml")
+    if not batches:
         log("⚠ 没有任何节点通过测试。")
         return 2
 
-    output = Path(args.output).resolve()
-    temp_output = build_final_aio(all_good_nodes, output)
-    os.replace(temp_output, output)
-    log(f"🏁 最终聚合 YAML 已生成推送到根目录: {output}\n✅ 累计保留优质节点: {len(all_good_nodes)}")
+    total_good = build_final_aio_streamed(args.output)
+    if total_good == 0:
+        log("⚠ 没有任何节点通过测试。")
+        return 2
+
     return 0
 
 if __name__ == "__main__":
