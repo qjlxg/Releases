@@ -30,11 +30,60 @@ def fingerprint(proxy):
     raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
+def validate_node_by_official_standard(node):
+    """
+    严格按照各大协议官方标准对节点进行硬性质检：
+    不符合标准的直接返回 False，在入库第一关被拦截，绝不污染后续测试。
+    """
+    if not isinstance(node, dict):
+        return False
+    
+    ptype = str(node.get("type", "")).lower().strip()
+    server = str(node.get("server", "")).strip()
+    port = node.get("port")
+
+    # 1. 基础公共硬性指标
+    if not ptype or not server:
+        return False
+    
+    try:
+        port_num = int(port)
+        if not (1 <= port_num <= 65535):
+            return False
+    except (TypeError, ValueError):
+        return False
+
+    # 2. 协议专属官方标准校验
+    if ptype == "ss":
+        if not node.get("cipher") or not node.get("password"):
+            return False
+    elif ptype == "vmess":
+        if not node.get("uuid"):
+            return False
+    elif ptype == "vless":
+        if not node.get("uuid"):
+            return False
+    elif ptype == "trojan":
+        if not node.get("password"):
+            return False
+    elif ptype in ("hysteria2", "hy2"):
+        if not node.get("password"):
+            return False
+    elif ptype == "tuic":
+        if not node.get("uuid") and not node.get("password"):
+            return False
+    else:
+        # 遇到未知或冷门协议，直接按标准不通过处理，避免未知风险
+        return False
+
+    return True
+
 def parse_share_link(line):
     line = line.strip()
     if not line or line.startswith("#") or line.startswith("//"):
         return None
 
+    node = None
     try:
         if line.startswith("ss://"):
             main_part = line[5:]
@@ -74,7 +123,7 @@ def parse_share_link(line):
                 else:
                     return None
 
-                return {
+                node = {
                     "name": fragment or f"SS-{server}",
                     "type": "ss",
                     "server": server,
@@ -111,95 +160,95 @@ def parse_share_link(line):
                 if config.get("path"): ws_opts["path"] = config["path"]
                 if config.get("host"): ws_opts["headers"] = {"Host": config["host"]}
                 if ws_opts: node["ws-opts"] = ws_opts
-            return node
 
-        parsed = urllib.parse.urlparse(line)
-        scheme = parsed.scheme.lower()
+        else:
+            parsed = urllib.parse.urlparse(line)
+            scheme = parsed.scheme.lower()
 
-        if scheme in ("hysteria2", "hy2"):
-            server = parsed.hostname
-            port = parsed.port or 443
-            password = parsed.username or ""
-            query = urllib.parse.parse_qs(parsed.query)
+            if scheme in ("hysteria2", "hy2"):
+                server = parsed.hostname
+                port = parsed.port or 443
+                password = parsed.username or ""
+                query = urllib.parse.parse_qs(parsed.query)
 
-            node = {
-                "name": urllib.parse.unquote(parsed.fragment) or f"Hy2-{server}",
-                "type": "hysteria2",
-                "server": server,
-                "port": port,
-                "password": password,
-                "skip-cert-verify": True
-            }
-            if "sni" in query: node["sni"] = query["sni"][0]
-            if "insecure" in query and query["insecure"][0] == "0": node["skip-cert-verify"] = False
-            if "obfs" in query: node["obfs"] = query["obfs"][0]
-            if "obfs-password" in query: node["obfs-password"] = query["obfs-password"][0]
-            return node
+                node = {
+                    "name": urllib.parse.unquote(parsed.fragment) or f"Hy2-{server}",
+                    "type": "hysteria2",
+                    "server": server,
+                    "port": port,
+                    "password": password,
+                    "skip-cert-verify": True
+                }
+                if "sni" in query: node["sni"] = query["sni"][0]
+                if "insecure" in query and query["insecure"][0] == "0": node["skip-cert-verify"] = False
+                if "obfs" in query: node["obfs"] = query["obfs"][0]
+                if "obfs-password" in query: node["obfs-password"] = query["obfs-password"][0]
 
-        elif scheme == "vless":
-            server = parsed.hostname
-            port = parsed.port or 443
-            uuid = parsed.username or ""
-            query = urllib.parse.parse_qs(parsed.query)
+            elif scheme == "vless":
+                server = parsed.hostname
+                port = parsed.port or 443
+                uuid = parsed.username or ""
+                query = urllib.parse.parse_qs(parsed.query)
 
-            node = {
-                "name": urllib.parse.unquote(parsed.fragment) or f"Vless-{server}",
-                "type": "vless",
-                "server": server,
-                "port": port,
-                "uuid": uuid,
-                "client-fingerprint": query.get("fp", ["chrome"])[0],
-                "skip-cert-verify": True
-            }
-            if query.get("security", [""])[0] == "tls" or "encryption" in query:
-                node["tls"] = True
-                if "sni" in query: node["servername"] = query["sni"][0]
-            if query.get("type", [""])[0] == "ws":
-                node["network"] = "ws"
-                ws_opts = {}
-                if "path" in query: ws_opts["path"] = query["path"][0]
-                if "host" in query: ws_opts["headers"] = {"Host": query["host"][0]}
-                if ws_opts: node["ws-opts"] = ws_opts
-            return node
+                node = {
+                    "name": urllib.parse.unquote(parsed.fragment) or f"Vless-{server}",
+                    "type": "vless",
+                    "server": server,
+                    "port": port,
+                    "uuid": uuid,
+                    "client-fingerprint": query.get("fp", ["chrome"])[0],
+                    "skip-cert-verify": True
+                }
+                if query.get("security", [""])[0] == "tls" or "encryption" in query:
+                    node["tls"] = True
+                    if "sni" in query: node["servername"] = query["sni"][0]
+                if query.get("type", [""])[0] == "ws":
+                    node["network"] = "ws"
+                    ws_opts = {}
+                    if "path" in query: ws_opts["path"] = query["path"][0]
+                    if "host" in query: ws_opts["headers"] = {"Host": query["host"][0]}
+                    if ws_opts: node["ws-opts"] = ws_opts
 
-        elif scheme == "trojan":
-            server = parsed.hostname
-            port = parsed.port or 443
-            password = parsed.username or ""
-            query = urllib.parse.parse_qs(parsed.query)
+            elif scheme == "trojan":
+                server = parsed.hostname
+                port = parsed.port or 443
+                password = parsed.username or ""
+                query = urllib.parse.parse_qs(parsed.query)
 
-            node = {
-                "name": urllib.parse.unquote(parsed.fragment) or f"Trojan-{server}",
-                "type": "trojan",
-                "server": server,
-                "port": port,
-                "password": password,
-                "skip-cert-verify": True
-            }
-            if "sni" in query: node["sni"] = query["sni"][0]
-            return node
+                node = {
+                    "name": urllib.parse.unquote(parsed.fragment) or f"Trojan-{server}",
+                    "type": "trojan",
+                    "server": server,
+                    "port": port,
+                    "password": password,
+                    "skip-cert-verify": True
+                }
+                if "sni" in query: node["sni"] = query["sni"][0]
 
-        elif scheme == "tuic":
-            server = parsed.hostname
-            port = parsed.port or 443
-            uuid = parsed.username or ""
-            password = parsed.password or ""
-            query = urllib.parse.parse_qs(parsed.query)
+            elif scheme == "tuic":
+                server = parsed.hostname
+                port = parsed.port or 443
+                uuid = parsed.username or ""
+                password = parsed.password or ""
+                query = urllib.parse.parse_qs(parsed.query)
 
-            node = {
-                "name": urllib.parse.unquote(parsed.fragment) or f"Tuic-{server}",
-                "type": "tuic",
-                "server": server,
-                "port": port,
-                "uuid": uuid,
-                "password": password,
-                "skip-cert-verify": True
-            }
-            if "congestion_control" in query: node["congestion-control"] = query["congestion_control"][0]
-            if "sni" in query: node["sni"] = query["sni"][0]
-            return node
+                node = {
+                    "name": urllib.parse.unquote(parsed.fragment) or f"Tuic-{server}",
+                    "type": "tuic",
+                    "server": server,
+                    "port": port,
+                    "uuid": uuid,
+                    "password": password,
+                    "skip-cert-verify": True
+                }
+                if "congestion_control" in query: node["congestion-control"] = query["congestion_control"][0]
+                if "sni" in query: node["sni"] = query["sni"][0]
     except Exception:
-        pass
+        return None
+
+    # 必须通过官方硬性标准检验
+    if node and validate_node_by_official_standard(node):
+        return node
     return None
 
 def stream_load_nodes_from_file(path, invalid_pool, valid_pool, tested_fps, seen_fps):
@@ -210,7 +259,8 @@ def stream_load_nodes_from_file(path, invalid_pool, valid_pool, tested_fps, seen
                 data = yaml.safe_load(f) or {}
             if isinstance(data, dict):
                 for node in data.get("proxies", []):
-                    yield from process_single_node(node, invalid_pool, valid_pool, tested_fps, seen_fps)
+                    if validate_node_by_official_standard(node):
+                        yield from process_single_node(node, invalid_pool, valid_pool, tested_fps, seen_fps)
         except Exception as e:
             log(f"❌ YAML 文件读取失败: {path}: {e}")
     else:
@@ -224,9 +274,6 @@ def stream_load_nodes_from_file(path, invalid_pool, valid_pool, tested_fps, seen
             log(f"❌ 文本文件读取失败: {path}: {e}")
 
 def process_single_node(node, invalid_pool, valid_pool, tested_fps, seen_fps):
-    if not isinstance(node, dict) or not node.get("type") or not node.get("server") or not node.get("port"):
-        return
-
     fp = fingerprint(node)
 
     if fp in invalid_pool:
@@ -285,7 +332,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
     current_chunk = []
 
     for path in files:
-        log(f"📄 正在流式扫描文件: {path}")
+        log(f"📄 正在扫描源文件: {path}")
         for node in stream_load_nodes_from_file(path, invalid_pool, valid_pool, tested_fps, seen_fps):
             stats["raw_valid"] += 1
             if node.get("_inherited_valid"):
@@ -302,7 +349,15 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
     if current_chunk:
         yield from flush_tcp_chunk(current_chunk, check_node_tcp, stats)
 
-    log(f"📦 预检漏斗摘要 -> 有效输入: {stats['raw_valid']} | 白名单继承: {stats['inherited']} | TCP离线剔除: {stats['tcp_filtered']} | 存活候选总数: {stats['passed_tcp']}")
+    log(f"\n==================== 📊 物料盘点与官方标准质检报表 ====================")
+    log(f"📁 扫描输入源文件总数: {stats['files']} 个")
+    log(f"🔍 通过官方标准质检的合规节点: {stats['raw_valid']} 条")
+    log(f"♻️ 白名单直接继承命中: {stats['inherited']} 条")
+    log(f"⚡ TCP 离线预检剔除: {stats['tcp_filtered']} 条")
+    log(f"🎯 最终进入 Mihomo 测速池总数: {stats['passed_tcp']} 条")
+    expected_batches = (stats['passed_tcp'] + BATCH_SIZE - 1) // BATCH_SIZE if stats['passed_tcp'] > 0 else 0
+    log(f"📦 按每批 {BATCH_SIZE} 条计算，预计总测试批次数: {expected_batches} 批")
+    log(f"=================================================================\n")
 
 def flush_tcp_chunk(chunk, check_func, stats):
     passed = []
@@ -380,7 +435,7 @@ def save_batch_yaml(good_nodes, batch_idx):
     }
     with open(filepath, "w", encoding="utf-8") as f:
         yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-    log(f"💾 合格批次已保存: {filepath} (共 {len(good_nodes)} 个)")
+    log(f"💾 合格批次已保存: {filepath} (共留存 {len(good_nodes)} 个优质节点)")
     return filepath
 
 def load_pool(path):
@@ -443,11 +498,10 @@ def build_final_aio_streamed(output_path):
     log(f"🏁 最终聚合 YAML 已生成: {output}\n✅ 累计保留优质节点总数: {total_proxies}")
     return total_proxies
 
-def process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool):
-    # 【已修复】彻底移除内部重复 load_pool()，直接共享内存中的主流程状态池
+def process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool, batch_idx):
     good_nodes = []
     
-    # 局部名称去重计数，防止历史全局 name_count 无限膨胀
+    # 局部名称去重
     batch_name_count = {}
     for node in batch_slice:
         base = safe_name(node.get("name"))
@@ -464,12 +518,12 @@ def process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid
             node["name"] = base
             batch_name_count[base] = 1
 
-    log(f"\n🚀 启动 Mihomo 实例测试当前批次，节点数: {len(batch_slice)}")
+    log(f"\n🚀 [第 {batch_idx} 批] 启动 Mihomo 实例测试，当前批次节点数: {len(batch_slice)}")
     with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
         config_path = Path(temp_dir) / "config.yaml"
-        write_test_config(batch_slice, config_path)
-        proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
         try:
+            write_test_config(batch_slice, config_path)
+            proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
             wait_api(proc)
             with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
                 futures = [executor.submit(test_one, node) for node in batch_slice]
@@ -478,7 +532,6 @@ def process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid
                     node = res["node"]
                     node_fp = fingerprint(node)
                     
-                    # 实时写入内存共享池
                     tested_fps.add(node_fp)
 
                     if res["ok"]:
@@ -487,13 +540,18 @@ def process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid
                         good_nodes.append(node)
                     else:
                         invalid_pool.add(node_fp)
+        except Exception as e:
+            log(f"❌ [第 {batch_idx} 批] Mihomo 运行异常崩溃或配置解析失败: {e}")
+            log(f"🛡️ 已启用容错保护：自动将当前批次全部标记为无效并安全跳过，防止流水线中断。")
+            for node in batch_slice:
+                invalid_pool.add(fingerprint(node))
+            good_nodes = []
         finally:
-            if proc.poll() is None:
+            if 'proc' in locals() and proc and proc.poll() is None:
                 proc.terminate()
                 try: proc.wait(timeout=5)
                 except subprocess.TimeoutExpired: proc.kill()
 
-    # 每批测试完成后统一落盘保存一次，确保断点续跑可靠
     save_pool(CHECKPOINT_FILE, tested_fps)
     save_pool(VALID_POOL_FILE, valid_pool)
     save_pool(INVALID_POOL_FILE, invalid_pool)
@@ -512,12 +570,11 @@ def main():
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
-    # 主流程统一加载状态池
     tested_fps = load_pool(CHECKPOINT_FILE)
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
 
-    log("🚀 启动 V2 终极流式漏斗清洗引擎（状态内存强同步版）...")
+    log("🚀 启动 V2 终极流式漏斗清洗引擎（官方标准质检 + 统计看板 + 防崩版）...")
 
     batch_slice = []
     batch_idx = len(glob.glob("generated/batches/filtered_batch_*.yaml")) + 1
@@ -530,19 +587,19 @@ def main():
             batch_slice.append(node)
 
             if len(batch_slice) >= BATCH_SIZE:
-                processed_good = process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool)
+                processed_good = process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool, batch_idx)
                 if processed_good:
                     save_batch_yaml(processed_good, batch_idx)
-                    batch_idx += 1
+                batch_idx += 1
                 batch_slice = []
 
         if batch_slice:
-            processed_good = process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool)
+            processed_good = process_batch_with_mihomo(batch_slice, args, tested_fps, valid_pool, invalid_pool, batch_idx)
             if processed_good:
                 save_batch_yaml(processed_good, batch_idx)
+            batch_idx += 1
 
     finally:
-        # 收尾强制落盘
         save_pool(CHECKPOINT_FILE, tested_fps)
         save_pool(VALID_POOL_FILE, valid_pool)
         save_pool(INVALID_POOL_FILE, invalid_pool)
