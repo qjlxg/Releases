@@ -1,0 +1,57 @@
+name: filter_nodes
+
+on:
+  # 1. 允许北京时间手动运行（支持选择分支）
+  workflow_dispatch:
+    
+  # 2. 当脚本本身或协议目录下的 txt 节点文件发生变动时自动运行
+  push:
+    branches:
+      - main
+    paths:
+      - 'filter_nodes.py'
+      - '.github/workflows/filter_nodes.yml'
+      - 'hysteria2/**'
+      - 'ss/**'
+      - 'trojan/**'
+      - 'tuic/**'
+      - 'vless/**'
+      - 'vmess/**'
+
+jobs:
+  test-and-filter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyyaml
+
+      - name: 下载并安装 Mihomo 内核
+        run: |
+          MIHOMO_VERSION="v1.18.3" # 可根据需要调整版本
+          wget -O mihomo.gz "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+          gunzip mihomo.gz
+          chmod +x mihomo
+          sudo mv mihomo /usr/local/bin/mihomo
+          mihomo -v
+
+      - name: 运行节点聚合与测速过滤脚本
+        run: |
+          python filter_nodes.py -o filtered_nodes.yaml
+
+      - name: 自动提交并推送到仓库根目录
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-update filtered nodes [skip ci]"
+          file_pattern: "filtered_nodes.yaml .tested_progress.json .valid_pool.json .invalid_pool.json generated/"
+          branch: main
