@@ -11,6 +11,7 @@ on:
       - '.github/workflows/scrape.yml'
       - 'test_nodes.py'
       - 'generated/probe/*.yaml'
+      - 'generated/batches/*.yaml'
 
 jobs:
   test-and-build:
@@ -39,7 +40,7 @@ jobs:
 
       - name: Test nodes and build AIO
         run: |
-          # 直接把整个 probe 目录传给脚本，它会自动扫描里面所有的 yaml 文件并完成合并测速
+          # 直接把整个 probe 目录传给脚本，它会自动扫描里面所有的 yaml 文件并完成分批测速与保存
           python test_nodes.py "generated/probe/*.yaml" -o "filtered_nodes.yaml"
 
       - name: Commit and push
@@ -49,6 +50,9 @@ jobs:
           git stash
           git pull --rebase || true
           git stash pop || true
-          git add filtered_nodes.yaml
-          git diff --cached --quiet || git commit -m "update: $(TZ=Asia/Shanghai date +%Y-%m-%d %H:%M) AIO 节点测速更新"
+          
+          # 🔑 同时将最终结果以及分批缓存目录全部纳入版本控制
+          git add filtered_nodes.yaml generated/batches/
+          
+          git diff --cached --quiet || git commit -m "update: $(TZ=Asia/Shanghai date +%Y-%m-%d %H:%M) AIO 节点测速与分批缓存更新"
           git push
