@@ -15,7 +15,7 @@ TIMEOUT_MS, CONCURRENCY = 8000, 16
 
 TEST_GROUPS = [
     ("基础连通性", [("Google gstatic", "https://www.gstatic.com/generate_204"), ("Cloudflare trace", "https://www.cloudflare.com/cdn-cgi/trace"), ("Google 204", "https://www.google.com/generate_204")]),
-    ("实际网站", [("Google 首页", "https://www.google.com/"), ("YouTube", "https://www.youtube.com/"), ("GitHub", "https://github.com/")])
+    ("实际网站", [("Google 首页", "https://www.google.com/"), ("YouTube", "https://www.youtube.com/"), ("GitHub", "https://t.me/telegram/")])
 ]
 ALL_TESTS = [(stage, label, url) for stage, tests in TEST_GROUPS for label, url in tests]
 
@@ -222,8 +222,6 @@ def main():
                     results.append(res)
                     if res["ok"]:
                         log(f"✅ [{index}/{total}] {res['name']} | 6/6 | avg={res['avg']}ms")
-                    else:
-                        log(f"❌ [{index}/{total}] {res['name']} | {res['stage']} / {res['label']} | {res['error'][:180]}")
             good = [res["node"] for res in results if res["ok"]]
         finally:
             if proc.poll() is None:
