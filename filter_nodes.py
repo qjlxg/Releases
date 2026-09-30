@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse, base64, socket
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -11,7 +8,7 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 400  # 🔑 锁死在 300，绝对防止 Mihomo 崩溃
+BATCH_SIZE = 400
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
 TIMEOUT_MS, CONCURRENCY = 4000, 32
@@ -42,7 +39,7 @@ def parse_share_link(line):
     line = line.strip()
     if not line or line.startswith("#") or line.startswith("//"):
         return None
-    
+
     try:
         if line.startswith("ss://"):
             main_part = line[5:]
@@ -50,7 +47,7 @@ def parse_share_link(line):
             if "#" in main_part:
                 main_part, fragment = main_part.split("#", 1)
                 fragment = urllib.parse.unquote(fragment)
-            
+
             if "@" not in main_part:
                 missing_padding = len(main_part) % 4
                 if missing_padding:
@@ -61,7 +58,7 @@ def parse_share_link(line):
                         main_part = decoded
                 except Exception:
                     pass
-            
+
             if "@" in main_part:
                 userinfo, hostport = main_part.rsplit("@", 1)
                 if ":" in userinfo:
@@ -75,13 +72,13 @@ def parse_share_link(line):
                         method, password = decoded_user.split(":", 1)
                     except Exception:
                         return None
-                
+
                 if ":" in hostport:
                     server, port_str = hostport.rsplit(":", 1)
                     port = int(port_str)
                 else:
                     return None
-                
+
                 return {
                     "name": fragment or f"SS-{server}",
                     "type": "ss",
@@ -98,7 +95,7 @@ def parse_share_link(line):
                 raw_b64 += "=" * (4 - missing_padding)
             decoded_bytes = base64.b64decode(raw_b64)
             config = json.loads(decoded_bytes.decode("utf-8", errors="ignore"))
-            
+
             node = {
                 "name": config.get("ps") or f"Vmess-{config.get('add', 'node')}",
                 "type": "vmess",
@@ -123,13 +120,13 @@ def parse_share_link(line):
 
         parsed = urllib.parse.urlparse(line)
         scheme = parsed.scheme.lower()
-        
+
         if scheme in ("hysteria2", "hy2"):
             server = parsed.hostname
             port = parsed.port or 443
             password = parsed.username or ""
             query = urllib.parse.parse_qs(parsed.query)
-            
+
             node = {
                 "name": urllib.parse.unquote(parsed.fragment) or f"Hy2-{server}",
                 "type": "hysteria2",
@@ -149,7 +146,7 @@ def parse_share_link(line):
             port = parsed.port or 443
             uuid = parsed.username or ""
             query = urllib.parse.parse_qs(parsed.query)
-            
+
             node = {
                 "name": urllib.parse.unquote(parsed.fragment) or f"Vless-{server}",
                 "type": "vless",
@@ -175,7 +172,7 @@ def parse_share_link(line):
             port = parsed.port or 443
             password = parsed.username or ""
             query = urllib.parse.parse_qs(parsed.query)
-            
+
             node = {
                 "name": urllib.parse.unquote(parsed.fragment) or f"Trojan-{server}",
                 "type": "trojan",
@@ -193,7 +190,7 @@ def parse_share_link(line):
             uuid = parsed.username or ""
             password = parsed.password or ""
             query = urllib.parse.parse_qs(parsed.query)
-            
+
             node = {
                 "name": urllib.parse.unquote(parsed.fragment) or f"Tuic-{server}",
                 "type": "tuic",
@@ -223,7 +220,7 @@ def load_nodes_from_file(path):
     else:
         with open(path, "r", encoding="utf-8", errors="ignore") as f:
             content = f.read().strip()
-        
+
         try:
             if not content.startswith("http") and len(content) > 20:
                 decoded = base64.b64decode(content + "==").decode("utf-8", errors="ignore")
@@ -253,7 +250,7 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="
                 files.add(path_obj.resolve())
     return sorted([str(f) for f in files])
 
-def quick_tcp_check(server, port, timeout=1.2):
+def quick_tcp_check(server, port, timeout=0.8):
     try:
         with socket.create_connection((str(server), int(port)), timeout=timeout):
             return True
@@ -263,7 +260,7 @@ def quick_tcp_check(server, port, timeout=1.2):
 def merge_nodes(files):
     result, seen_fp, name_count = [], set(), {}
     stats = {"files": 0, "raw": 0, "invalid": 0, "tcp_filtered": 0, "duplicate": 0, "kept": 0}
-    
+
     raw_nodes = []
     for path in files:
         stats["files"] += 1
@@ -280,14 +277,14 @@ def merge_nodes(files):
                 continue
             raw_nodes.append(node)
 
-    log(f"🔍 正在进行多线程极速 TCP 端口预检（UDP/QUIC 洗衣机节点自动豁免）...")
-    
+    total_raw_valid = len(raw_nodes)
+    log(f"🔍 准备开始多线程极速 TCP 端口预检，有效候选节点总数: {total_raw_valid} (UDP/QUIC 洗衣机节点自动豁免)...")
+
     def check_node_tcp(node):
         protocol = node.get("type", "").lower()
-        # 🔑 洗衣机节点（UDP/QUIC 类）直接放行，绝不误杀
         if protocol in ("hysteria2", "hy2", "tuic", "warp"):
             return node
-            
+
         server = node.get("server")
         port = node.get("port")
         if quick_tcp_check(server, port):
@@ -295,16 +292,25 @@ def merge_nodes(files):
         return None
 
     passed_tcp_nodes = []
-    with ThreadPoolExecutor(max_workers=64) as executor:
-        futures = {executor.submit(check_node_tcp, node): node for node in raw_nodes}
-        for future in as_completed(futures):
-            res = future.result()
-            if res:
-                passed_tcp_nodes.append(res)
-            else:
-                stats["tcp_filtered"] += 1
+    chunk_size = 5000
+    max_workers = 128
 
-    log(f"⚡ 预检完成：剔除离线死节点 {stats['tcp_filtered']} 个，剩余存活及豁免候选节点 {len(passed_tcp_nodes)} 个")
+    for i in range(0, total_raw_valid, chunk_size):
+        chunk = raw_nodes[i:i + chunk_size]
+        chunk_num = i // chunk_size + 1
+        total_chunks = (total_raw_valid + chunk_size - 1) // chunk_size
+        log(f"⚡ 正在进行 TCP 预检分块 [{chunk_num}/{total_chunks}] (当前组节点数: {len(chunk)})...")
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {executor.submit(check_node_tcp, node): node for node in chunk}
+            for future in as_completed(futures):
+                res = future.result()
+                if res:
+                    passed_tcp_nodes.append(res)
+                else:
+                    stats["tcp_filtered"] += 1
+
+    log(f"⚡ 预检全部完成：剔除离线死节点 {stats['tcp_filtered']} 个，剩余存活及豁免候选节点 {len(passed_tcp_nodes)} 个")
 
     for node in passed_tcp_nodes:
         node = copy.deepcopy(node)
