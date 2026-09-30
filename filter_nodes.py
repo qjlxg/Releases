@@ -11,7 +11,7 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 10000
+BATCH_SIZE = 500  # 🔑 缩小单批次节点数至 500，防止几十万节点压垮 Mihomo 内存
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
 TIMEOUT_MS, CONCURRENCY = 8000, 16
@@ -44,6 +44,38 @@ def parse_share_link(line):
         return None
     
     try:
+        # 1. 专门解析 vmess:// 链接
+        if line.startswith("vmess://"):
+            raw_b64 = line[8:]
+            # 补齐 base64 padding
+            missing_padding = len(raw_b64) % 4
+            if missing_padding:
+                raw_b64 += "=" * (4 - missing_padding)
+            decoded_bytes = base64.b64decode(raw_b64)
+            config = json.loads(decoded_bytes.decode("utf-8", errors="ignore"))
+            
+            node = {
+                "name": config.get("ps") or f"Vmess-{config.get('add', 'node')}",
+                "type": "vmess",
+                "server": config.get("add"),
+                "port": int(config.get("port", 443)),
+                "uuid": config.get("id"),
+                "alterId": int(config.get("aid", 0)),
+                "cipher": "auto",
+                "skip-cert-verify": True
+            }
+            net = config.get("net", "tcp")
+            if net: node["network"] = net
+            if config.get("tls") == "tls" or config.get("tls") == "1":
+                node["tls"] = True
+                if config.get("sni"): node["servername"] = config["sni"]
+            if net == "ws":
+                ws_opts = {}
+                if config.get("path"): ws_opts["path"] = config["path"]
+                if config.get("host"): ws_opts["headers"] = {"Host": config["host"]}
+                if ws_opts: node["ws-opts"] = ws_opts
+            return node
+
         parsed = urllib.parse.urlparse(line)
         scheme = parsed.scheme.lower()
         
@@ -150,7 +182,7 @@ def load_nodes_from_file(path):
         try:
             if not content.startswith("http") and len(content) > 20:
                 decoded = base64.b64decode(content + "==").decode("utf-8", errors="ignore")
-                if "://" in decoded:
+                if "://" in decoded or "add" in decoded:
                     content = decoded
         except Exception:
             pass
@@ -226,7 +258,7 @@ def write_test_config(nodes, path):
 
 def wait_api(proc):
     url = f"http://{API_HOST}:{API_PORT}/version"
-    end_time = time.time() + 20
+    end_time = time.time() + 25
     while time.time() < end_time:
         if proc.poll() is not None:
             raise RuntimeError(f"Mihomo 提前退出，returncode={proc.returncode}")
