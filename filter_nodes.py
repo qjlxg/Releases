@@ -6,13 +6,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests, yaml
 
-# 默认扫描目录（覆盖截图中的所有协议子目录及根目录 YAML）
-DEFAULT_INPUT_PATTERNS = ["hysteria2", "ss", "trojan", "tuic", "vless", "vmess", "*.yaml", "*.yml"]
+DEFAULT_INPUT_PATTERNS = ["."]
 DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 10000  # 每批测试的节点数，防止内存爆炸
+BATCH_SIZE = 10000
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
 TIMEOUT_MS, CONCURRENCY = 8000, 16
@@ -30,19 +29,16 @@ def safe_name(name):
     return str(name or "node").strip() or "node"
 
 def fingerprint(proxy):
-    """🔑 完整特征指纹（包含 server, port），用于识别绝对唯一的节点实例"""
     obj = {k: v for k, v in proxy.items() if k != "name"}
     raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def core_fingerprint(proxy):
-    """🔑 核心配置特征（剔除 server, port, name），用于判断配置模板是否同构"""
     obj = {k: v for k, v in proxy.items() if k not in ("name", "server", "port")}
     raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def parse_share_link(line):
-    """解析各类分享链接（hysteria2, vless, vmess, trojan, tuic, ss 等）转为 Mihomo 字典"""
     line = line.strip()
     if not line or line.startswith("#") or line.startswith("//"):
         return None
@@ -51,8 +47,7 @@ def parse_share_link(line):
         parsed = urllib.parse.urlparse(line)
         scheme = parsed.scheme.lower()
         
-        # 1. Hysteria2
-        if scheme == "hysteria2" or scheme == "hy2":
+        if scheme in ("hysteria2", "hy2"):
             server = parsed.hostname
             port = parsed.port or 443
             password = parsed.username or ""
@@ -72,7 +67,6 @@ def parse_share_link(line):
             if "obfs-password" in query: node["obfs-password"] = query["obfs-password"][0]
             return node
 
-        # 2. VLESS
         elif scheme == "vless":
             server = parsed.hostname
             port = parsed.port or 443
@@ -99,7 +93,6 @@ def parse_share_link(line):
                 if ws_opts: node["ws-opts"] = ws_opts
             return node
 
-        # 3. Trojan
         elif scheme == "trojan":
             server = parsed.hostname
             port = parsed.port or 443
@@ -117,7 +110,6 @@ def parse_share_link(line):
             if "sni" in query: node["sni"] = query["sni"][0]
             return node
 
-        # 4. Tuic
         elif scheme == "tuic":
             server = parsed.hostname
             port = parsed.port or 443
@@ -155,7 +147,6 @@ def load_nodes_from_file(path):
         with open(path, "r", encoding="utf-8", errors="ignore") as f:
             content = f.read().strip()
         
-        # 尝试 Base64 解码（兼容某些 base64 订阅文本文件）
         try:
             if not content.startswith("http") and len(content) > 20:
                 decoded = base64.b64decode(content + "==").decode("utf-8", errors="ignore")
@@ -170,27 +161,19 @@ def load_nodes_from_file(path):
                 nodes.append(node)
     return nodes
 
-def collect_files(inputs, output_filename="filtered_nodes.yaml"):
-    """递归搜集所有协议目录及匹配项下的 txt 和 yaml 文件，严格排除输出文件"""
+def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="gem.yaml"):
     files = set()
     for item in inputs:
         p = Path(item)
         if p.is_dir():
             for ext in ("*.txt", "*.yaml", "*.yml"):
                 for f in p.rglob(ext):
-                    if f.name != output_filename:
+                    if f.name != output_filename and f.name != skip_filename:
                         files.add(f.resolve())
         else:
-            for f in glob.glob(item, recursive=True):
-                path_obj = Path(f)
-                if path_obj.name != output_filename:
-                    if path_obj.is_dir():
-                        for ext in ("*.txt", "*.yaml", "*.yml"):
-                            for sub_f in path_obj.rglob(ext):
-                                if sub_f.name != output_filename:
-                                    files.add(sub_f.resolve())
-                    else:
-                        files.add(path_obj.resolve())
+            path_obj = Path(item)
+            if path_obj.name != output_filename and path_obj.name != skip_filename:
+                files.add(path_obj.resolve())
     return sorted([str(f) for f in files])
 
 def merge_nodes(files):
@@ -355,13 +338,13 @@ def build_final_aio(all_good_nodes, output_path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("inputs", nargs="*", help="目录、TXT/YAML 文件或 glob")
+    parser.add_argument("inputs", nargs="*", help="目录或文件路径")
     parser.add_argument("-o", "--output", default=DEFAULT_OUTPUT)
     parser.add_argument("-c", "--concurrency", type=int, default=CONCURRENCY)
     parser.add_argument("--mihomo", default=MIHOMO_BIN)
     args = parser.parse_args()
 
-    files = collect_files(args.inputs or DEFAULT_INPUT_PATTERNS, args.output)
+    files = collect_files(args.inputs or DEFAULT_INPUT_PATTERNS, args.output, "gem.yaml")
     if not files: raise SystemExit("❌ 没有找到输入节点文件")
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
@@ -380,23 +363,17 @@ def main():
     for node in nodes:
         fp = fingerprint(node)
         cfp = core_fingerprint(node)
-        
-        # 1. 严格检查：如果该具体 IP+端口 或其核心配置命中黑名单，直接丢弃
         if fp in invalid_pool or cfp in invalid_pool:
             continue
-            
-        # 2. 严格检查：必须是完全相同的完整指纹（server + port + 配置）命中白名单才继承
         if fp in valid_pool:
             white_inherited_nodes.append(node)
             tested_fps.add(fp)
             continue
-            
         if fp in tested_fps:
             continue
-            
         untested_nodes.append(node)
 
-    log(f"⏳ 本次需测速全新/变更节点数: {len(untested_nodes)} (精准白名单直接继承: {len(white_inherited_nodes)} 个)")
+    log(f"⏳ 本次需测速节点数: {len(untested_nodes)} (白名单继承: {len(white_inherited_nodes)} 个)")
 
     if not untested_nodes and not white_inherited_nodes:
         log("🎉 所有节点都已经处理完毕！")
@@ -415,34 +392,31 @@ def main():
                 current_batch_num = batch_idx
                 batch_idx += 1
 
-                log(f"\n🚀 正在处理测速批次 [{current_batch_num}]，包含节点数: {len(batch_slice)}")
+                log(f"\n🚀 处理测速批次 [{current_batch_num}]，节点数: {len(batch_slice)}")
                 with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
                     config_path = Path(temp_dir) / "config.yaml"
                     write_test_config(batch_slice, config_path)
-                    log("🚀 启动 Mihomo 测试实例...")
                     proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
                     try:
                         wait_api(proc)
-                        log("🧪 执行 6 项连通性测试...")
                         results = []
                         with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
                             futures = [executor.submit(test_one, node) for node in batch_slice]
-                            total_f = len(futures)
                             for index, future in enumerate(as_completed(futures), 1):
                                 res = future.result()
                                 results.append(res)
                                 node_fp = fingerprint(res["node"])
                                 tested_fps.add(node_fp)
                                 if res["ok"]:
-                                    log(f"✅ [{index}/{total_f}] {res['name']} | avg={res['avg']}ms")
+                                    log(f"✅ [{index}/{len(futures)}] {res['name']} | avg={res['avg']}ms")
 
                         for res in results:
                             node = res["node"]
                             node_fp = fingerprint(node)
                             cfp = core_fingerprint(node)
                             if res["ok"]:
-                                valid_pool.add(node_fp)  # 严格记录该具体 IP+端口的实例
-                                valid_pool.add(cfp)      # 同时记录核心配置
+                                valid_pool.add(node_fp)
+                                valid_pool.add(cfp)
                                 new_tested_good_nodes.append(node)
                             else:
                                 invalid_pool.add(node_fp)
@@ -479,7 +453,7 @@ def main():
     output = Path(args.output).resolve()
     temp_output = build_final_aio(all_good_nodes, output)
     os.replace(temp_output, output)
-    log(f"🏁 全部流程完毕！最终聚合 YAML 已生成推送到根目录: {output}\n✅ 累计保留优质节点: {len(all_good_nodes)}")
+    log(f"🏁 最终聚合 YAML 已生成推送到根目录: {output}\n✅ 累计保留优质节点: {len(all_good_nodes)}")
     return 0
 
 if __name__ == "__main__":
