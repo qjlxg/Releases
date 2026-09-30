@@ -46,7 +46,7 @@ HASH_FILE = NODES_DIR / "source_hashes.json"
 FP_FILE = NODES_DIR / "seen_fingerprints.json"
 
 MAX_WORKERS = 12
-NODES_PER_FILE = 18000
+NODES_PER_FILE = 9808000
 REQUEST_TIMEOUT = 25
 
 TG_MAX_PAGES = 5
