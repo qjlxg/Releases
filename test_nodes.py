@@ -1,627 +1,262 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Mihomo AIO 节点合并 / 测速 / 国内分流 / 客户端去广告 V1 (严格 3 网址全部通过版)
 
-核心流程：
-1. 合并多个 Clash/Mihomo YAML
-2. 按完整节点配置指纹去重
-3. 启动 Mihomo
-4. 对真实节点进行 3 个严选 URL 延迟测试（必须全部通过）
-5. 筛选可用节点
-6. 按平均延迟排序
-7. 生成可直接导入 Mihomo/Clash Meta 类客户端的完整配置
-8. 加入国内 DNS / 国内直连 / GFW 代理 / 广告拦截
-9. 用 Mihomo 再次加载最终 YAML 做配置校验
-10. 校验通过后才安全替换输出文件
-"""
-
-import argparse
-import hashlib
-import json
-import os
-import random
-import socket
-import subprocess
-import sys
-import tempfile
-import time
-import urllib.parse
-import urllib.request
+import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+import requests, yaml
 
+DEFAULT_INPUT_PATTERNS = ["*.yaml", "*.yml"]
+DEFAULT_OUTPUT = "filtered_nodes.yaml"
+MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
+API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
+TIMEOUT_MS, CONCURRENCY = 8000, 16
 
-# ============================================================
-# 基础配置 (针对 GitHub Actions 环境优化的 3 个严选稳定测速网址)
-# ============================================================
-
-TEST_URLS = [
-    "https://www.cloudflare.com/cdn-cgi/trace",
-    "https://cp.cloudflare.com/generate_204",
-    "https://www.gstatic.com/generate_204",
+TEST_GROUPS = [
+    ("基础连通性", [("Google gstatic", "https://www.gstatic.com/generate_204"), ("Cloudflare trace", "https://www.cloudflare.com/cdn-cgi/trace"), ("Google 204", "https://www.google.com/generate_204")]),
+    ("实际网站", [("Google 首页", "https://www.google.com/"), ("YouTube", "https://www.youtube.com/"), ("GitHub", "https://github.com/")])
 ]
+ALL_TESTS = [(stage, label, url) for stage, tests in TEST_GROUPS for label, url in tests]
 
-TIMEOUT_MS = 6000
+def log(msg):
+    print(time.strftime("[%Y-%m-%d %H:%M:%S]"), msg, flush=True)
 
-GROUP_TYPES = {
-    "Selector",
-    "URLTest",
-    "Fallback",
-    "Relay",
-    "LoadBalance",
-    "Compatible",
-    "Pass",
-    "ShadowTLS",
-    "Reject",
-    "Direct",
-}
+def safe_name(name):
+    return str(name or "node").strip() or "node"
 
-SKIP_NAMES = {
-    "GLOBAL",
-    "DIRECT",
-    "REJECT",
-    "PASS",
-}
-
-AUTHOR = "wzmwayne & 老前辈定制"
-REPO = "https://github.com/qjlxg/Releases"
-
-
-# ============================================================
-# 国内 / 广告规则
-# ============================================================
-
-CN_DOMAIN_URL = (
-    "https://raw.githubusercontent.com/"
-    "MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
-)
-
-CN_IP_URL = (
-    "https://raw.githubusercontent.com/"
-    "MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
-)
-
-PRIVATE_DOMAIN_URL = (
-    "https://raw.githubusercontent.com/"
-    "MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
-)
-
-PRIVATE_IP_URL = (
-    "https://raw.githubusercontent.com/"
-    "MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"
-)
-
-GFW_DOMAIN_URL = (
-    "https://raw.githubusercontent.com/"
-    "wwqgtxx/clash-rules/release/gfw.mrs"
-)
-
-ADS_URL = (
-    "https://testingcf.jsdelivr.net/gh/"
-    "gogyt/Mihomo@main/geo/geosite/category-ads-all.mrs"
-)
-
-
-# ============================================================
-# 工具
-# ============================================================
-
-def now_beijing():
-    return time.strftime(
-        "%Y-%m-%d %H:%M:%S",
-        time.gmtime(time.time() + 8 * 3600),
-    )
-
-
-def find_free_port():
-    s = socket.socket()
-    s.bind(("127.0.0.1", 0))
-    port = s.getsockname()[1]
-    s.close()
-    return port
-
-
-def api_get(port, secret, path, timeout=10):
-    req = urllib.request.Request(
-        f"http://127.0.0.1:{port}{path}"
-    )
-    req.add_header(
-        "Authorization",
-        f"Bearer {secret}",
-    )
-
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read())
-
-
-def find_mihomo():
-    candidates = [
-        os.environ.get("MIHOMO_BIN"),
-        "/usr/local/bin/mihomo",
-        "/usr/bin/mihomo",
-        "/tmp/mihomo",
-        "mihomo",
-    ]
-
-    for p in candidates:
-        if not p:
-            continue
-
-        if os.path.isfile(p):
-            return p
-
-        if p == "mihomo":
-            try:
-                result = subprocess.run(
-                    ["mihomo", "-v"],
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    timeout=5,
-                    text=True,
-                )
-                if result.returncode == 0:
-                    return "mihomo"
-            except Exception:
-                pass
-
-    raise SystemExit(
-        "[FAIL] 未找到 mihomo 内核。"
-    )
-
-
-# ============================================================
-# YAML
-# ============================================================
-
-def load_yaml(path):
-    import yaml
-
-    with open(path, "r", encoding="utf-8") as f:
-        data = yaml.safe_load(f)
-
-    if not isinstance(data, dict):
-        raise ValueError(f"不是有效的 YAML 配置: {path}")
-
-    return data
-
-
-def dump_yaml(data, path):
-    import yaml
-
-    with open(path, "w", encoding="utf-8") as f:
-        yaml.dump(
-            data,
-            f,
-            Dumper=yaml.SafeDumper,
-            allow_unicode=True,
-            default_flow_style=False,
-            sort_keys=False,
-        )
-
-
-# ============================================================
-# 节点指纹与清洗
-# ============================================================
-
-def normalize_value(v):
-    if isinstance(v, dict):
-        return {
-            str(k): normalize_value(v[k])
-            for k in sorted(v.keys(), key=str)
-        }
-
-    if isinstance(v, list):
-        return [
-            normalize_value(x)
-            for x in v
-        ]
-
-    return v
-
-
-def node_fingerprint(proxy):
-    ignore_keys = {"name"}
-    clean = {}
-    for k, v in proxy.items():
-        if k in ignore_keys:
-            continue
-        clean[str(k)] = normalize_value(v)
-
-    raw = json.dumps(
-        clean,
-        ensure_ascii=False,
-        sort_keys=True,
-        separators=(",", ":"),
-    )
+def fingerprint(proxy):
+    obj = {k: v for k, v in proxy.items() if k != "name"}
+    raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
+def load_yaml_file(path):
+    with open(path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f) or {}
+    if not isinstance(data, dict): return []
+    proxies = data.get("proxies", [])
+    return proxies if isinstance(proxies, list) else []
 
-def valid_proxy(proxy):
-    if not isinstance(proxy, dict):
-        return False, "不是对象"
-    if not proxy.get("name"):
-        return False, "缺少 name"
-    if not proxy.get("type"):
-        return False, "缺少 type"
-    return True, ""
+def collect_files(inputs):
+    files = []
+    for item in inputs:
+        matches = glob.glob(item, recursive=True)
+        if matches: files.extend(matches)
+        elif os.path.isfile(item): files.append(item)
+    seen, result = set(), []
+    for path in files:
+        real = os.path.realpath(path)
+        if real not in seen:
+            seen.add(real)
+            result.append(path)
+    return sorted(result)
 
-
-def collect_proxies(inputs):
-    merged = {}
-    stats = {
-        "files": 0, "raw": 0, "valid": 0,
-        "duplicate": 0, "invalid": 0, "skipped": 0,
-    }
-
-    for inp in inputs:
+def merge_nodes(files):
+    result, seen_fp, name_count = [], set(), {}
+    stats = {"files": 0, "raw": 0, "invalid": 0, "duplicate": 0, "kept": 0}
+    for path in files:
         stats["files"] += 1
         try:
-            data = load_yaml(inp)
+            nodes = load_yaml_file(path)
         except Exception as e:
-            print(f"[WARN] 无法读取 {inp}: {e}")
+            log(f"❌ YAML 读取失败: {path}: {e}")
             continue
-
-        proxies = data.get("proxies", [])
-        if not isinstance(proxies, list):
-            continue
-
-        for p in proxies:
+        log(f"📄 {path}: {len(nodes)} 个节点")
+        for node in nodes:
             stats["raw"] += 1
-            ok, _ = valid_proxy(p)
-            if not ok:
+            if not isinstance(node, dict) or not node.get("type") or not node.get("server") or not node.get("port"):
                 stats["invalid"] += 1
                 continue
-
-            name = str(p.get("name", ""))
-            if name.startswith("说明-") or name in SKIP_NAMES:
-                stats["skipped"] += 1
-                continue
-
-            fp = node_fingerprint(p)
-            if fp in merged:
+            node = copy.deepcopy(node)
+            fp = fingerprint(node)
+            if fp in seen_fp:
                 stats["duplicate"] += 1
                 continue
+            seen_fp.add(fp)
+            base = safe_name(node.get("name"))
+            count = name_count.get(base, 0)
+            if count:
+                new_name = f"{base} #{count + 1}"
+                while new_name in name_count:
+                    count += 1
+                    new_name = f"{base} #{count + 1}"
+                node["name"] = new_name
+                name_count[new_name] = 1
+                name_count[base] = count + 1
+            else:
+                node["name"] = base
+                name_count[base] = 1
+            result.append(node)
+            stats["kept"] += 1
+    return result, stats
 
-            merged[fp] = p
-            stats["valid"] += 1
-
-    return list(merged.values()), stats
-
-
-# ============================================================
-# 严格 3 个网址全部通过的测速逻辑
-# ============================================================
-
-def test_node(port, secret, name):
-    q = urllib.parse.quote(name, safe="")
-    delays = []
-
-    for test_url in TEST_URLS:
-        url_q = urllib.parse.quote(test_url, safe="")
-        try:
-            data = api_get(
-                port,
-                secret,
-                f"/proxies/{q}/delay?timeout={TIMEOUT_MS}&url={url_q}",
-                timeout=TIMEOUT_MS / 1000 + 4,
-            )
-            delay = data.get("delay")
-            if delay is None:
-                return name, None
-            
-            delay = int(delay)
-            if delay <= 0:
-                return name, None
-            
-            delays.append(delay)
-        except Exception:
-            # 只要其中一个报错或超时，直接判定该节点不合格
-            return name, None
-
-    # 必须所有测试网址都成功返回延迟
-    if len(delays) != len(TEST_URLS):
-        return name, None
-
-    return name, int(sum(delays) / len(delays))
-
-
-# ============================================================
-# Mihomo 运行及配置生成
-# ============================================================
-
-def build_test_config(port, secret, proxies):
-    return {
-        "mixed-port": port + 1,
-        "allow-lan": False,
-        "mode": "rule",
-        "log-level": "silent",
-        "ipv6": False,
-        "external-controller": f"127.0.0.1:{port}",
-        "secret": secret,
-        "proxies": proxies,
-        "rules": ["MATCH,DIRECT"],
+def write_test_config(nodes, path):
+    config = {
+        "mixed-port": 7898, "allow-lan": False, "mode": "rule", "log-level": "error",
+        "ipv6": False, "unified-delay": True, "tcp-concurrent": True,
+        "external-controller": f"{API_HOST}:{API_PORT}", "secret": API_SECRET, "proxies": nodes
     }
+    with open(path, "w", encoding="utf-8") as f:
+        yaml.safe_dump(config, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
-
-def start_mihomo(mihomo, config_path, workdir):
-    return subprocess.Popen(
-        [mihomo, "-d", workdir, "-f", config_path],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-
-
-def wait_mihomo(proc, port, secret, timeout_seconds=60):
-    end = time.time() + timeout_seconds
-    while time.time() < end:
+def wait_api(proc):
+    url = f"http://{API_HOST}:{API_PORT}/version"
+    end_time = time.time() + 20
+    while time.time() < end_time:
+        if proc.poll() is not None:
+            raise RuntimeError(f"Mihomo 提前退出，returncode={proc.returncode}")
         try:
-            api_get(port, secret, "/version", timeout=3)
-            return True
-        except Exception:
+            if requests.get(url, headers={"Authorization": f"Bearer {API_SECRET}"}, timeout=1.5).ok:
+                return
+        except requests.RequestException:
+            pass
+        time.sleep(0.25)
+    raise TimeoutError("等待 Mihomo API 超时")
+
+def api_delay(name, url):
+    encoded_name = urllib.parse.quote(name, safe="")
+    api_url = f"http://{API_HOST}:{API_PORT}/proxies/{encoded_name}/delay"
+    params = {"timeout": TIMEOUT_MS, "url": url, "expected": "200-299"}
+    response = requests.get(api_url, params=params, headers={"Authorization": f"Bearer {API_SECRET}"}, timeout=TIMEOUT_MS / 1000 + 5)
+    response.raise_for_status()
+    data = response.json()
+    delay = data.get("delay")
+    if not isinstance(delay, int) or delay <= 0:
+        raise RuntimeError(f"无效 delay: {data}")
+    return delay
+
+def test_one(node):
+    name, delays = node["name"], []
+    for stage, tests in TEST_GROUPS:
+        for label, url in tests:
+            try:
+                delays.append(api_delay(name, url))
+            except Exception as e:
+                return {"name": name, "node": node, "ok": False, "stage": stage, "label": label, "url": url, "error": str(e), "delays": delays}
+    if len(delays) != 6:
+        return {"name": name, "node": node, "ok": False, "stage": "最终检查", "label": "6/6 数量不足", "url": "", "error": f"实际成功 {len(delays)}/6", "delays": delays}
+    return {"name": name, "node": node, "ok": True, "avg": round(sum(delays) / len(delays), 1), "delays": delays}
+
+def validate_final_config(path, mihomo_bin):
+    with tempfile.TemporaryDirectory(prefix="mihomo_validate_") as temp_dir:
+        test_config = Path(temp_dir) / "config.yaml"
+        shutil.copy2(path, test_config)
+        proc = subprocess.Popen([mihomo_bin, "-d", temp_dir, "-f", str(test_config)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        try:
+            time.sleep(2.5)
             if proc.poll() is not None:
-                return False
-            time.sleep(0.5)
-    return False
+                _, stderr = proc.communicate(timeout=2)
+                raise RuntimeError((stderr or "mihomo exited").strip()[-4000:])
+        finally:
+            if proc.poll() is None:
+                proc.terminate()
+                try: proc.wait(timeout=3)
+                except subprocess.TimeoutExpired: proc.kill()
+        return True
 
-
-def get_testable_names(port, secret):
-    proxies_map = {}
-    for _ in range(10):
-        try:
-            proxies_map = api_get(port, secret, "/proxies").get("proxies", {})
-            if proxies_map:
-                break
-        except Exception:
-            proxies_map = {}
-        time.sleep(0.5)
-
-    names = []
-    for name, info in proxies_map.items():
-        if name in SKIP_NAMES:
-            continue
-        if not isinstance(info, dict):
-            continue
-        if info.get("type") in GROUP_TYPES:
-            continue
-        names.append(name)
-    return names
-
-
-def build_client_config(good, test_count, input_count):
-    good_names = [p["name"] for p in good]
-    cfg = {
-        "mixed-port": 7890,
-        "allow-lan": False,
-        "mode": "rule",
-        "log-level": "info",
-        "ipv6": False,
-        "unified-delay": True,
-        "tcp-concurrent": True,
-        "keep-alive-idle": 600,
-        "keep-alive-interval": 15,
-        "profile": {
-            "store-selected": True,
-            "store-fake-ip": True,
-        },
+def build_output(good, output):
+    names = [node["name"] for node in good]
+    config = {
+        "mixed-port": 7890, "allow-lan": False, "mode": "rule", "log-level": "info",
+        "ipv6": False, "unified-delay": True, "tcp-concurrent": True, "find-process-mode": "strict",
+        "profile": {"store-selected": True, "store-fake-ip": True},
         "dns": {
-            "enable": True,
-            "ipv6": False,
-            "enhanced-mode": "fake-ip",
-            "fake-ip-range": "198.18.0.1/16",
-            "default-nameserver": ["223.5.5.5", "119.29.29.29"],
-            "nameserver": ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"],
-            "fallback": ["https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query"],
-            "fallback-filter": {"geoip": True, "geoip-code": "CN"},
-            "fake-ip-filter": ["+.lan", "+.local", "+.localhost", "+.home.arpa", "+.internal"],
+            "enable": True, "ipv6": False, "enhanced-mode": "fake-ip", "fake-ip-range": "198.18.0.1/16",
+            "nameserver": ["223.5.5.5", "119.29.29.29", "https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"],
+            "fallback": ["1.1.1.1", "8.8.8.8"],
+            "fallback-filter": {"geoip": True, "geoip-code": "CN", "geosite": ["gfw"]}
         },
         "proxies": good,
         "proxy-groups": [
-            {
-                "name": "🚀 节点选择",
-                "type": "select",
-                "proxies": ["♻️ 自动选择", "🔰 故障转移"] + good_names,
-            },
-            {
-                "name": "♻️ 自动选择",
-                "type": "url-test",
-                "url": TEST_URLS[0],
-                "interval": 300,
-                "tolerance": 50,
-                "lazy": False,
-                "proxies": good_names,
-            },
-            {
-                "name": "🔰 故障转移",
-                "type": "fallback",
-                "url": TEST_URLS[0],
-                "interval": 300,
-                "lazy": False,
-                "proxies": good_names,
-            },
-            {
-                "name": "🛑 广告拦截",
-                "type": "select",
-                "proxies": ["REJECT", "DIRECT"],
-            },
-            {
-                "name": "🇨🇳 国内直连",
-                "type": "select",
-                "proxies": ["DIRECT", "🚀 节点选择"],
-            },
-            {
-                "name": "🌍 国外代理",
-                "type": "select",
-                "proxies": ["🚀 节点选择", "DIRECT"],
-            },
+            {"name": "🚀 节点选择", "type": "select", "proxies": names},
+            {"name": "♻️ 自动选择", "type": "url-test", "proxies": names, "url": "https://www.gstatic.com/generate_204", "interval": 300, "timeout": 5000, "expected-status": "200-299", "tolerance": 50},
+            {"name": "🔰 故障转移", "type": "fallback", "proxies": names, "url": "https://www.gstatic.com/generate_204", "interval": 300, "timeout": 5000, "expected-status": "200-299"},
+            {"name": "🇨🇳 国内直连", "type": "select", "proxies": ["DIRECT", "🚀 节点选择"]},
+            {"name": "🌍 国外代理", "type": "select", "proxies": ["🚀 节点选择", "♻️ 自动选择", "🔰 故障转移", "DIRECT"]}
         ],
         "rule-providers": {
-            "广告": {"type": "http", "behavior": "domain", "format": "mrs", "url": ADS_URL, "path": "./rule-providers/ads.mrs", "interval": 86400},
-            "国内域名": {"type": "http", "behavior": "domain", "format": "mrs", "url": CN_DOMAIN_URL, "path": "./rule-providers/cn.mrs", "interval": 86400},
-            "国内IP": {"type": "http", "behavior": "ipcidr", "format": "mrs", "url": CN_IP_URL, "path": "./rule-providers/cn_ip.mrs", "interval": 86400},
-            "私有域名": {"type": "http", "behavior": "domain", "format": "mrs", "url": PRIVATE_DOMAIN_URL, "path": "./rule-providers/private.mrs", "interval": 86400},
-            "私有IP": {"type": "http", "behavior": "ipcidr", "format": "mrs", "url": PRIVATE_IP_URL, "path": "./rule-providers/private_ip.mrs", "interval": 86400},
-            "GFW": {"type": "http", "behavior": "domain", "format": "mrs", "url": GFW_DOMAIN_URL, "path": "./rule-providers/gfw.mrs", "interval": 86400},
+            "广告": {
+                "type": "http", "behavior": "domain", "format": "mrs",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs",
+                "path": "./rules/ads.mrs", "interval": 86400
+            }
         },
-        "rules": [
-            "RULE-SET,广告,🛑 广告拦截",
-            "RULE-SET,私有域名,DIRECT",
-            "RULE-SET,私有IP,DIRECT,no-resolve",
-            "RULE-SET,国内域名,🇨🇳 国内直连",
-            "RULE-SET,国内IP,🇨🇳 国内直连,no-resolve",
-            "RULE-SET,GFW,🌍 国外代理",
-            "MATCH,🚀 节点选择",
-        ],
+        "rules": ["RULE-SET,广告,REJECT", "DOMAIN-SUFFIX,cn,DIRECT", "GEOIP,CN,DIRECT", "MATCH,🌍 国外代理"]
     }
-    cfg["# AIO_INFO"] = {
-        "source": AUTHOR,
-        "repository": REPO,
-        "generated_at_beijing": now_beijing(),
-        "input_files": input_count,
-        "tested_nodes": test_count,
-        "available_nodes": len(good),
-        "test_urls": TEST_URLS,
-    }
-    return cfg
-
-
-def validate_final_config(mihomo, config_path):
-    with tempfile.TemporaryDirectory(prefix="mihomo_validate_") as td:
-        cfg_copy = os.path.join(td, "config.yaml")
-        import shutil
-        shutil.copy2(config_path, cfg_copy)
-        port = find_free_port()
-        secret = "".join(random.choices("abcdefghijklmnopqrstuvwxyz0123456789", k=24))
-
-        data = load_yaml(cfg_copy)
-        data["external-controller"] = f"127.0.0.1:{port}"
-        data["secret"] = secret
-        dump_yaml(data, cfg_copy)
-
-        proc = None
-        try:
-            proc = start_mihomo(mihomo, cfg_copy, td)
-            if not wait_mihomo(proc, port, secret, timeout_seconds=30):
-                return False, "Mihomo 无法加载最终配置"
-            try:
-                version = api_get(port, secret, "/version", timeout=5)
-                if not isinstance(version, dict):
-                    return False, "Mihomo API 返回异常"
-            except Exception as e:
-                return False, f"最终配置 API 校验失败: {e}"
-            return True, "Mihomo 配置加载验证成功"
-        finally:
-            if proc is not None:
-                proc.terminate()
-                try:
-                    proc.wait(timeout=5)
-                except subprocess.TimeoutExpired:
-                    proc.kill()
-
-
-def safe_write_yaml(data, output):
-    output = os.path.abspath(output)
-    out_dir = os.path.dirname(output)
-    os.makedirs(out_dir, exist_ok=True)
-    fd, tmp_path = tempfile.mkstemp(dir=out_dir, suffix=".yaml")
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            import yaml
-            yaml.dump(data, f, Dumper=yaml.SafeDumper, allow_unicode=True, default_flow_style=False, sort_keys=False)
-        return tmp_path
-    except Exception:
-        if os.path.exists(tmp_path):
-            os.remove(tmp_path)
-        raise
-
+    temp_output = str(output) + ".tmp"
+    with open(temp_output, "w", encoding="utf-8") as f:
+        yaml.safe_dump(config, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+    return temp_output
 
 def main():
-    ap = argparse.ArgumentParser(description="Mihomo AIO 节点合并 + 测速 + 校验")
-    ap.add_argument("inputs", nargs="+", help="输入的 Clash/Mihomo YAML")
-    ap.add_argument("-o", "--output", required=True, help="输出 AIO YAML")
-    ap.add_argument("--concurrency", type=int, default=32, help="测速并发")
-    ap.add_argument("--top", type=int, default=0, help="只输出前 N 个节点；0 表示全部可用")
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("inputs", nargs="*", help="YAML 文件或 glob")
+    parser.add_argument("-o", "--output", default=DEFAULT_OUTPUT)
+    parser.add_argument("-c", "--concurrency", type=int, default=CONCURRENCY)
+    parser.add_argument("--mihomo", default=MIHOMO_BIN)
+    args = parser.parse_args()
 
-    print("=" * 70)
-    print(" Mihomo AIO 严格 3 网址全部通过版")
-    print("=" * 70)
+    files = collect_files(args.inputs or DEFAULT_INPUT_PATTERNS)
+    if not files: raise SystemExit("❌ 没有找到输入 YAML")
+    if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
+        raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
-    proxies, stats = collect_proxies(args.inputs)
-    print(f"[1/6] 合并完成：有效节点 {stats['valid']} 个")
-    if not proxies:
-        raise SystemExit("[FAIL] 没有任何可测试节点")
+    nodes, stats = merge_nodes(files)
+    if not nodes: raise SystemExit("❌ 没有可测试节点")
+    log(f"📦 原始节点: {stats['raw']} | 无效: {stats['invalid']} | 完全重复: {stats['duplicate']} | 待测: {len(nodes)}")
 
-    mihomo = find_mihomo()
-    port = find_free_port()
-    secret = "".join(random.choices("abcdefghijklmnopqrstuvwxyz0123456789", k=24))
-    test_cfg = build_test_config(port, secret, proxies)
-
-    with tempfile.TemporaryDirectory(prefix="mihomo_aio_test_") as td:
-        cfg_path = os.path.join(td, "config.yaml")
-        dump_yaml(test_cfg, cfg_path)
-
-        print(f"[2/6] 启动测速内核 (127.0.0.1:{port})...")
-        proc = start_mihomo(mihomo, cfg_path, td)
+    with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
+        config_path = Path(temp_dir) / "config.yaml"
+        write_test_config(nodes, config_path)
+        log("🚀 启动 Mihomo 测试实例...")
+        proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
         try:
-            if not wait_mihomo(proc, port, secret, timeout_seconds=60):
-                raise SystemExit("[FAIL] Mihomo API 未就绪")
-
-            names = get_testable_names(port, secret)
-            print(f"[3/6] 识别到待测节点: {len(names)} 个")
-
-            print(f"[4/6] 开始严格 3 网址并发测速 (并发 {args.concurrency})...")
-            ok = {}
-            done = 0
-            total = len(names)
-            interval = max(1, total // 50)
-
-            with ThreadPoolExecutor(max_workers=args.concurrency) as ex:
-                futs = {ex.submit(test_node, port, secret, name): name for name in names}
-                for fut in as_completed(futs):
-                    try:
-                        name, delay = fut.result()
-                    except Exception:
-                        name = futs[fut]
-                        delay = None
-
-                    done += 1
-                    if delay is not None:
-                        ok[name] = delay
-
-                    if done % interval == 0 or done == total:
-                        pct = done * 100 // total
-                        print(f"      进度 {done}/{total} ({pct}%) 3网全通可用: {len(ok)}", flush=True)
-
-            if not ok:
-                raise SystemExit("[FAIL] 没有节点通过全部 3 个测速网址")
-
-            good = [p for p in proxies if p.get("name") in ok]
-            good.sort(key=lambda p: ok[p["name"]])
-            if args.top > 0:
-                good = good[:args.top]
-
-            print(f"[5/6] 正在生成并校验最终客户端配置...")
-            aio = build_client_config(good=good, test_count=len(names), input_count=len(args.inputs))
-            tmp_output = safe_write_yaml(aio, args.output)
-
-            valid, message = validate_final_config(mihomo, tmp_output)
-            if not valid:
-                if os.path.exists(tmp_output):
-                    os.remove(tmp_output)
-                raise SystemExit(f"[FAIL] 最终配置校验失败: {message}")
-
-            os.replace(tmp_output, args.output)
-            print(f"[6/6] 生成完毕！可用节点: {len(good)}/{len(names)}")
-            print("=" * 70)
-
+            wait_api(proc)
+            log("🧪 严格测试模式：6/6 全部通过才保留")
+            results = []
+            with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
+                futures = [executor.submit(test_one, node) for node in nodes]
+                total = len(futures)
+                for index, future in enumerate(as_completed(futures), 1):
+                    res = future.result()
+                    results.append(res)
+                    if res["ok"]:
+                        log(f"✅ [{index}/{total}] {res['name']} | 6/6 | avg={res['avg']}ms")
+                    else:
+                        log(f"❌ [{index}/{total}] {res['name']} | {res['stage']} / {res['label']} | {res['error'][:180]}")
+            good = [res["node"] for res in results if res["ok"]]
         finally:
-            proc.terminate()
-            try:
-                proc.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                proc.kill()
+            if proc.poll() is None:
+                proc.terminate()
+                try: proc.wait(timeout=5)
+                except subprocess.TimeoutExpired: proc.kill()
 
+    failed = [res for res in results if not res["ok"]]
+    log(f"🏁 测试结束: {len(good)}/{len(nodes)} 个节点通过 6/6")
+    if failed:
+        counter = Counter((res["stage"], res["label"]) for res in failed)
+        log("📊 淘汰原因统计:")
+        for (stage, label), count in counter.most_common():
+            log(f"    ❌ {count} 个: {stage} / {label}")
+
+    if not good:
+        log("⚠️ 没有任何节点通过 6/6。\n⚠️ 不生成、不覆盖最终 YAML。")
+        return 2
+
+    output = Path(args.output).resolve()
+    temp_output = build_output(good, output)
+    try:
+        log("🔍 正在进行最终 Mihomo 配置启动校验...")
+        validate_final_config(temp_output, args.mihomo)
+        os.replace(temp_output, output)
+    except Exception as e:
+        try: os.remove(temp_output)
+        except OSError: pass
+        log(f"❌ 最终配置校验失败：{e}\n❌ 不覆盖原来的输出文件。")
+        return 3
+
+    log(f"✅ 最终 YAML 已生成: {output}\n✅ 最终保留节点: {len(good)}")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
