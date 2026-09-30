@@ -1,5 +1,5 @@
 name: 节点测速与 AIO 生成
-# 来源于https://github.com/wzmwayne/proxy-node
+
 on:
   schedule:
     - cron: '0 */4 * * *'
@@ -10,7 +10,7 @@ on:
     paths:
       - '.github/workflows/scrape.yml'
       - 'test_nodes.py'
-      - 'generated/probe/cf_nest_1only_probe_01.yaml'
+      - 'generated/probe/*.yaml'
 
 jobs:
   test-and-build:
@@ -39,13 +39,8 @@ jobs:
 
       - name: Test nodes and build AIO
         run: |
-          INPUT_FILE="generated/probe/cf_nest_1only_probe_01.yaml"
-          if [ -f "$INPUT_FILE" ]; then
-            python test_nodes.py "$INPUT_FILE" -o "filtered_nodes.yaml"
-          else
-            echo "::error::未找到指定的输入文件: $INPUT_FILE"
-            exit 1
-          fi
+          # 直接把整个 probe 目录传给脚本，它会自动扫描里面所有的 yaml 文件并完成合并测速
+          python test_nodes.py "generated/probe/*.yaml" -o "filtered_nodes.yaml"
 
       - name: Commit and push
         run: |
