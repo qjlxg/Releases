@@ -283,73 +283,79 @@ def main():
         return 0
 
     # 🔑 步骤二：智能短路测速（针对全新节点按核心配置分组）
-    # 将同构配置（套娃 IP）归类到同一个分组里：{ core_fp: [node1, node2, ...] }
     groups_by_core = {}
     for node in untested_nodes:
         cfp = core_fingerprint(node)
         groups_by_core.setdefault(cfp, []).append(node)
 
     batch_test_nodes = []
-    # 策略：每个同构配置只挑选 1 个代表 IP 参加测速
     for cfp, group_nodes in groups_by_core.items():
         batch_test_nodes.append(group_nodes[0])
 
     new_tested_good_nodes = []
-    if batch_test_nodes:
-        total_batches = (len(batch_test_nodes) + BATCH_SIZE - 1) // BATCH_SIZE
-        batch_idx = 1
-        existing_batch_files = glob.glob("generated/batches/filtered_batch_*.yaml")
-        if existing_batch_files:
-            batch_idx = len(existing_batch_files) + 1
+    
+    # 🛡️ 异常兜底：无论中途是否报错或中断，退出前强制落盘黑白名单与断点进度
+    try:
+        if batch_test_nodes:
+            total_batches = (len(batch_test_nodes) + BATCH_SIZE - 1) // BATCH_SIZE
+            batch_idx = 1
+            existing_batch_files = glob.glob("generated/batches/filtered_batch_*.yaml")
+            if existing_batch_files:
+                batch_idx = len(existing_batch_files) + 1
 
-        for i in range(0, len(batch_test_nodes), BATCH_SIZE):
-            batch_slice = batch_test_nodes[i:i + BATCH_SIZE]
-            current_batch_num = batch_idx
-            batch_idx += 1
+            for i in range(0, len(batch_test_nodes), BATCH_SIZE):
+                batch_slice = batch_test_nodes[i:i + BATCH_SIZE]
+                current_batch_num = batch_idx
+                batch_idx += 1
 
-            log(f"\n🚀 正在处理第 [{current_batch_num} 分区] 测速批次，代表节点数: {len(batch_slice)}")
+                log(f"\n🚀 正在处理第 [{current_batch_num} 分区] 测速批次，代表节点数: {len(batch_slice)}")
 
-            with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
-                config_path = Path(temp_dir) / "config.yaml"
-                write_test_config(batch_slice, config_path)
-                log("🚀 启动 Mihomo 测试实例...")
-                proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
-                try:
-                    wait_api(proc)
-                    log("🧪 连通性测试（代表 IP 验证：6/6 全部通过即判定该配置有效）")
-                    results = []
-                    with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
-                        futures = [executor.submit(test_one, node) for node in batch_slice]
-                        total_f = len(futures)
-                        for index, future in enumerate(as_completed(futures), 1):
-                            res = future.result()
-                            results.append(res)
-                            tested_fps.add(fingerprint(res["node"]))
+                with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
+                    config_path = Path(temp_dir) / "config.yaml"
+                    write_test_config(batch_slice, config_path)
+                    log("🚀 启动 Mihomo 测试实例...")
+                    proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
+                    try:
+                        wait_api(proc)
+                        log("🧪 连通性测试（代表 IP 验证：6/6 全部通过即判定该配置有效）")
+                        results = []
+                        with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
+                            futures = [executor.submit(test_one, node) for node in batch_slice]
+                            total_f = len(futures)
+                            for index, future in enumerate(as_completed(futures), 1):
+                                res = future.result()
+                                results.append(res)
+                                tested_fps.add(fingerprint(res["node"]))
+                                if res["ok"]:
+                                    log(f"✅ [{index}/{total_f}] {res['name']} | 6/6 | avg={res['avg']}ms")
+                        
+                        # 🔑 修复后的正确缩进与黑白名单归类逻辑
+                        for res in results:
+                            node = res["node"]
+                            cfp = core_fingerprint(node)
                             if res["ok"]:
-                                log(f"✅ [{index}/{total_f}] {res['name']} | 6/6 | avg={res['avg']}ms")
-                    
-                    # 遍历测速结果，实现短路逻辑并全量保留套娃 IP
-                    for res in results:
-                        node = res["node"]
-                        cfp = core_fingerprint(node)
-                        if res["ok"]:
-                            # 1. 测通：将该核心配置加入白名单
-                            valid_pool.add(cfp)
-                            # 2. 核心：把该配置对应的【全部套娃 IP 节点】全部捞出来放入合格列表！
-                            if cfp in groups_by_core:
-                                new_tested_good_nodes.extend(groups_by_core[cfp])
-                        else:
-                            # 不通：将该核心配置加入黑名单
-                            invalid_pool.add(cfp)
-                finally:
-                    if proc.poll() is None:
-                        proc.terminate()
-                        try: proc.wait(timeout=5)
-                        except subprocess.TimeoutExpired: proc.kill()
+                                # 1. 测通：将该核心配置加入白名单
+                                valid_pool.add(cfp)
+                                # 2. 核心：把该配置对应的【全部套娃 IP 节点】全部捞出来放入合格列表！
+                                if cfp in groups_by_core:
+                                    new_tested_good_nodes.extend(groups_by_core[cfp])
+                            else:
+                                # 3. 不通：将该核心配置加入黑名单
+                                invalid_pool.add(cfp)
+                    finally:
+                        if proc.poll() is None:
+                            proc.terminate()
+                            try: proc.wait(timeout=5)
+                            except subprocess.TimeoutExpired: proc.kill()
 
-            save_checkpoint(tested_fps)
-            save_pool(VALID_POOL_FILE, valid_pool)
-            save_pool(INVALID_POOL_FILE, invalid_pool)
+                save_checkpoint(tested_fps)
+                save_pool(VALID_POOL_FILE, valid_pool)
+                save_pool(INVALID_POOL_FILE, invalid_pool)
+    finally:
+        # 确保即使触发异常退出，也能最后强制同步一次黑白名单与断点
+        save_checkpoint(tested_fps)
+        save_pool(VALID_POOL_FILE, valid_pool)
+        save_pool(INVALID_POOL_FILE, invalid_pool)
 
     # 🔑 步骤三：结果合并输出
     all_good_nodes = []
