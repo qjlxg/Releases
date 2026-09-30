@@ -11,14 +11,14 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 300  # 🔑 严格压减到 300，绝对防止 Mihomo 内存过载或崩溃
+BATCH_SIZE = 500  # 🔑 提升到 500 批次，加快整体吞吐
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
-TIMEOUT_MS, CONCURRENCY = 8000, 16
+TIMEOUT_MS, CONCURRENCY = 4000, 32  # 🔑 缩短超时到 4 秒，并发拉到 32，快速淘汰死节点
 
 TEST_GROUPS = [
-    ("基础连通性", [("Google gstatic", "https://www.gstatic.com/generate_204"), ("Cloudflare trace", "https://www.cloudflare.com/cdn-cgi/trace"), ("Google 204", "https://www.google.com/generate_204")]),
-    ("实际网站", [("Google 首页", "https://www.google.com/"), ("YouTube", "https://www.youtube.com/"), ("Telegram", "https://t.me/telegram/")])
+    ("基础连通性", [("Cloudflare trace", "https://www.cloudflare.com/cdn-cgi/trace"), ("Google 204", "https://www.google.com/generate_204")]),
+    ("实际网站", [("Google 首页", "https://www.google.com/"), ("Telegram", "https://t.me/telegram/")])
 ]
 ALL_TESTS = [(stage, label, url) for stage, tests in TEST_GROUPS for label, url in tests]
 
@@ -82,7 +82,7 @@ def parse_share_link(line):
                 else:
                     return None
                 
-                node = {
+                return {
                     "name": fragment or f"SS-{server}",
                     "type": "ss",
                     "server": server,
@@ -90,7 +90,6 @@ def parse_share_link(line):
                     "cipher": method,
                     "password": password
                 }
-                return node
 
         elif line.startswith("vmess://"):
             raw_b64 = line[8:]
@@ -338,8 +337,9 @@ def test_one(node):
             except Exception as e:
                 return {"name": name, "node": node, "ok": False, "stage": stage, "label": label, "url": url, "error": str(e), "delays": delays}
 
-    if len(delays) != 6:
-        return {"name": name, "node": node, "ok": False, "stage": "最终检查", "label": "6/6 数量不足", "url": "", "error": f"实际成功 {len(delays)}/6", "delays": delays}
+    expected_total_tests = sum(len(tests) for _, tests in TEST_GROUPS)
+    if len(delays) != expected_total_tests:
+        return {"name": name, "node": node, "ok": False, "stage": "最终检查", "label": "数量不足", "url": "", "error": f"实际成功 {len(delays)}/{expected_total_tests}", "delays": delays}
 
     avg_delay = round(sum(delays) / len(delays), 1)
     return {"name": name, "node": node, "ok": True, "avg": avg_delay, "delays": delays}
@@ -444,7 +444,7 @@ def main():
         cfp = core_fingerprint(node)
         if fp in invalid_pool or cfp in invalid_pool:
             continue
-        if fp in valid_pool:
+        if fp in valid_pool or cfp in valid_pool:  # 🔑 核心指纹命中白名单，直接继承秒过！
             white_inherited_nodes.append(node)
             tested_fps.add(fp)
             continue
