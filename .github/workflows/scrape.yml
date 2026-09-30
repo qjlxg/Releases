@@ -2,7 +2,7 @@ name: 节点测速与 AIO 生成
 
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */23 * * *'
   workflow_dispatch:
   push:
     branches:
@@ -51,8 +51,8 @@ jobs:
           git pull --rebase || true
           git stash pop || true
           
-          # 🔑 同时将最终结果以及分批缓存目录全部纳入版本控制
-          git add filtered_nodes.yaml generated/batches/
+          # 🔑 同时将最终结果、分批缓存目录以及白黑名单历史库纳入版本控制
+          git add filtered_nodes.yaml generated/batches/ .valid_pool.json .invalid_pool.json
           
-          git diff --cached --quiet || git commit -m "update: $(TZ=Asia/Shanghai date +%Y-%m-%d %H:%M) AIO 节点测速与分批缓存更新"
+          git diff --cached --quiet || git commit -m "update: $(TZ=Asia/Shanghai date +%Y-%m-%d %H:%M) AIO 节点测速与双重黑白名单缓存更新"
           git push
