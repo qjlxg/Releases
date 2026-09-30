@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse
-from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests, yaml
@@ -135,9 +134,13 @@ def test_one(node):
                 delays.append(api_delay(name, url))
             except Exception as e:
                 return {"name": name, "node": node, "ok": False, "stage": stage, "label": label, "url": url, "error": str(e), "delays": delays}
+    
+    # 只要 6 个测试点全部成功通过，不论延迟高低，一律判定为可用（绝不因延迟误判）
     if len(delays) != 6:
         return {"name": name, "node": node, "ok": False, "stage": "最终检查", "label": "6/6 数量不足", "url": "", "error": f"实际成功 {len(delays)}/6", "delays": delays}
-    return {"name": name, "node": node, "ok": True, "avg": round(sum(delays) / len(delays), 1), "delays": delays}
+    
+    avg_delay = round(sum(delays) / len(delays), 1)
+    return {"name": name, "node": node, "ok": True, "avg": avg_delay, "delays": delays}
 
 def save_batch_yaml(good_nodes, batch_idx):
     out_dir = Path("generated/batches")
@@ -221,11 +224,9 @@ def main():
     if not nodes: raise SystemExit("❌ 没有可测试节点")
     log(f"📦 原始节点: {stats['raw']} | 去重后待测总数: {len(nodes)}")
 
-    # 加载断点记录（已测过的节点指纹）
     tested_fps = load_checkpoint()
     log(f"🔄 断点续传加载完成：历史已测过 {len(tested_fps)} 个节点")
 
-    # 过滤掉已经测过的节点
     remaining_nodes = [n for n in nodes if fingerprint(n) not in tested_fps]
     log(f"⏳ 本次实际需要测试的节点数: {len(remaining_nodes)}")
 
@@ -234,15 +235,12 @@ def main():
         return 0
 
     all_good_nodes = []
-    # 如果之前有生成过批次文件，可以把它们加载进来合并到最终输出中
     existing_batch_files = glob.glob("generated/batches/filtered_batch_*.yaml")
     for bfile in existing_batch_files:
         all_good_nodes.extend(load_yaml_file(bfile))
 
-    # 按 BATCH_SIZE 分批循环
     total_batches = (len(remaining_nodes) + BATCH_SIZE - 1) // BATCH_SIZE
     batch_idx = 1
-    # 根据已有的批次文件名自动推断当前批次编号
     if existing_batch_files:
         batch_idx = len(existing_batch_files) + 1
 
@@ -251,7 +249,7 @@ def main():
         current_batch_num = batch_idx
         batch_idx += 1
 
-        log(f"\n🚀 正在处理第 [{current_batch_num}/{total_batches + (current_batch_num - 1)}] 批次，本批节点数: {len(batch_slice)}")
+        log(f"\n🚀 正在处理第 [{current_batch_num} 分区] 批次，本批节点数: {len(batch_slice)}")
 
         with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
             config_path = Path(temp_dir) / "config.yaml"
@@ -260,7 +258,7 @@ def main():
             proc = subprocess.Popen([args.mihomo, "-d", temp_dir, "-f", str(config_path)], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
             try:
                 wait_api(proc)
-                log("🧪 严格测试模式：6/6 全部通过才保留")
+                log("🧪 连通性测试（6/6 全部通过即保留，不限制延迟）")
                 results = []
                 with ThreadPoolExecutor(max_workers=max(1, args.concurrency)) as executor:
                     futures = [executor.submit(test_one, node) for node in batch_slice]
@@ -268,7 +266,6 @@ def main():
                     for index, future in enumerate(as_completed(futures), 1):
                         res = future.result()
                         results.append(res)
-                        # 顺便记录该节点的指纹，无论成功失败均算已测过，避免死循环
                         tested_fps.add(fingerprint(res["node"]))
                         if res["ok"]:
                             log(f"✅ [{index}/{total_f}] {res['name']} | 6/6 | avg={res['avg']}ms")
@@ -280,10 +277,8 @@ def main():
                     try: proc.wait(timeout=5)
                     except subprocess.TimeoutExpired: proc.kill()
 
-        # 每跑完一批，立刻保存断点状态（防止中途中断丢进度）
         save_checkpoint(tested_fps)
 
-        # 每跑完一批，立刻把合格节点单独存为一个批次文件
         if batch_good:
             save_batch_yaml(batch_good, current_batch_num)
             all_good_nodes.extend(batch_good)
@@ -291,10 +286,9 @@ def main():
             log(f"⚠️ 第 {current_batch_num} 批次没有节点通过 6/6 测试。")
 
     if not all_good_nodes:
-        log("⚠️️ 没有任何节点通过 6/6 测试，不生成最终 AIO 文件。")
+        log("⚠ 没有任何节点通过 6/6 测试，不生成最终 AIO 文件。")
         return 2
 
-    # 生成最终总合集
     output = Path(args.output).resolve()
     temp_output = build_final_aio(all_good_nodes, output)
     try:
