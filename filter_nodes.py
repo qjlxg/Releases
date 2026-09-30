@@ -11,7 +11,7 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 1000
+BATCH_SIZE = 300  # 🔑 严格压减到 300，绝对防止 Mihomo 内存过载或崩溃
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
 TIMEOUT_MS, CONCURRENCY = 8000, 16
@@ -44,7 +44,6 @@ def parse_share_link(line):
         return None
     
     try:
-        # 1. Shadowsocks (ss://) 解析
         if line.startswith("ss://"):
             main_part = line[5:]
             fragment = ""
@@ -52,7 +51,6 @@ def parse_share_link(line):
                 main_part, fragment = main_part.split("#", 1)
                 fragment = urllib.parse.unquote(fragment)
             
-            # 尝试标准 SIP002 / base64 解析
             if "@" not in main_part:
                 missing_padding = len(main_part) % 4
                 if missing_padding:
@@ -66,7 +64,6 @@ def parse_share_link(line):
             
             if "@" in main_part:
                 userinfo, hostport = main_part.rsplit("@", 1)
-                # 解析密码和加密方式
                 if ":" in userinfo:
                     method, password = userinfo.split(":", 1)
                 else:
@@ -95,7 +92,6 @@ def parse_share_link(line):
                 }
                 return node
 
-        # 2. VMess (vmess://) 解析
         elif line.startswith("vmess://"):
             raw_b64 = line[8:]
             missing_padding = len(raw_b64) % 4
@@ -311,7 +307,8 @@ def wait_api(proc):
     end_time = time.time() + 25
     while time.time() < end_time:
         if proc.poll() is not None:
-            raise RuntimeError(f"Mihomo 提前退出，returncode={proc.returncode}")
+            stderr_output = proc.stderr.read() if proc.stderr else "无详细错误输出"
+            raise RuntimeError(f"Mihomo 提前退出，returncode={proc.returncode}, 错误信息: {stderr_output}")
         try:
             if requests.get(url, headers={"Authorization": f"Bearer {API_SECRET}"}, timeout=1.5).ok:
                 return
