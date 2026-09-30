@@ -15,7 +15,7 @@ import requests
 import yaml
 
 IP_SOURCES = {
-    "1only": "https://raw.githubusercontent.com/qjlxg/sfaaff/refs/heads/main/104.19.87.14344.txt",
+    "1only": "https://raw.githubusercontent.com/qjlxg/Releases/refs/heads/main/104.19.87.14344.txt",
   
 }
 
