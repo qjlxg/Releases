@@ -153,6 +153,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
     total_inherited = 0
     total_tcp_filtered = 0
     total_passed_tcp = 0
+    total_already_tested = 0
 
     def check_node_tcp(node):
         if node.get("_inherited_valid"): return node
@@ -184,11 +185,13 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
             except Exception as e:
                 log(f"❌ 文本文件读取失败: {path}: {e}")
 
-        # 处理当前文件的节点
         file_passed_list = []
         for node in file_nodes:
             fp = fingerprint(node)
-            if fp in invalid_pool or fp in seen_fps:
+            # 【铁闸1】如果在历史已测池或失效池中，或者本轮已经重复，直接在源头彻底过滤！
+            if fp in tested_fps or fp in invalid_pool or fp in seen_fps:
+                if fp in tested_fps or fp in invalid_pool:
+                    total_already_tested += 1
                 continue
             seen_fps.add(fp)
             total_raw_valid += 1
@@ -200,14 +203,11 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
                 total_passed_tcp += 1
                 file_passed_list.append(node)
                 continue
-            if fp in tested_fps:
-                continue
             file_passed_list.append(node)
 
         file_stats[path_key] = file_valid_count
-        log(f"📄 [源文件入库] {path_key} -> 有效合规节点: {file_valid_count} 条")
+        log(f"📄 [源文件入库] {path_key} -> 新增合规未测节点: {file_valid_count} 条")
 
-        # 对当前文件的未测节点分块做 TCP 检查
         chunk = []
         for node in file_passed_list:
             if node.get("_inherited_valid"):
@@ -231,16 +231,17 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
                     total_tcp_filtered += 1
 
     expected_batches = (total_passed_tcp + BATCH_SIZE - 1) // BATCH_SIZE if total_passed_tcp > 0 else 0
-    log(f"\n==================== 📊 物料盘点与全景统计报表 ====================")
+    log(f"\n==================== 📊 物料盘点与防暴走统计报表 ====================")
     log(f"📁 扫描输入源文件总数: {len(files)} 个")
     for p, cnt in file_stats.items():
-        log(f"   - 📂 {Path(p).name}: 贡献有效节点 {cnt} 条")
+        log(f"   - 📂 {Path(p).name}: 贡献合规未测节点 {cnt} 条")
     log(f"-----------------------------------------------------------------")
-    log(f"🔍 官方标准质检合格总数: {total_raw_valid} 条")
+    log(f"🛑 历史缓存已测/失效拦截(跳过): {total_already_tested} 条")
+    log(f"🔍 本轮官方标准质检新增: {total_raw_valid} 条")
     log(f"♻️ 历史白名单继承命中: {total_inherited} 条")
     log(f"⚡ TCP 离线预检剔除死节点: {total_tcp_filtered} 条")
-    log(f"🎯 最终进入 Mihomo 测速总池: {total_passed_tcp} 条")
-    log(f"📦 按照每批 {BATCH_SIZE} 条拆分，总共需要进行: {expected_batches} 批测试")
+    log(f"🎯 最终进入本轮 Mihomo 测速总池: {total_passed_tcp} 条")
+    log(f"📦 严格限制本轮总共只需进行测速批次: {expected_batches} 批")
     log(f"=================================================================\n")
 
 def flush_tcp_chunk(chunk, check_func):
@@ -438,10 +439,15 @@ def main():
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
 
-    log("🚀 启动 V3 全景账目审计与清洗引擎...")
+    log("🚀 启动 V4 防暴走全景审计与清洗引擎...")
 
     batch_slice = []
-    batch_idx = len(glob.glob("generated/batches/filtered_batch_*.yaml")) + 1
+    # 【铁闸2】每次执行前安全清空旧的单批次缓存，防止批次号无限往上加乱飞
+    for old_b in glob.glob("generated/batches/filtered_batch_*.yaml"):
+        try: os.remove(old_b)
+        except Exception: pass
+
+    batch_idx = 1
 
     try:
         for node in stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
