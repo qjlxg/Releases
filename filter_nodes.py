@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse, base64
+import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse, base64, socket
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests, yaml
@@ -11,10 +11,10 @@ DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
 INVALID_POOL_FILE = ".invalid_pool.json"
-BATCH_SIZE = 300  # 🔑 提升到 500 批次，加快整体吞吐
+BATCH_SIZE = 400  # 🔑 锁死在 300，绝对防止 Mihomo 崩溃
 MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
 API_HOST, API_PORT, API_SECRET = "127.0.0.1", 9097, "test-only-secret"
-TIMEOUT_MS, CONCURRENCY = 4000, 32  # 🔑 缩短超时到 4 秒，并发拉到 32，快速淘汰死节点
+TIMEOUT_MS, CONCURRENCY = 4000, 32
 
 TEST_GROUPS = [
     ("基础连通性", [("Cloudflare trace", "https://www.cloudflare.com/cdn-cgi/trace"), ("Google 204", "https://www.google.com/generate_204")]),
@@ -253,9 +253,18 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="
                 files.add(path_obj.resolve())
     return sorted([str(f) for f in files])
 
+def quick_tcp_check(server, port, timeout=1.2):
+    try:
+        with socket.create_connection((str(server), int(port)), timeout=timeout):
+            return True
+    except Exception:
+        return False
+
 def merge_nodes(files):
     result, seen_fp, name_count = [], set(), {}
-    stats = {"files": 0, "raw": 0, "invalid": 0, "duplicate": 0, "kept": 0}
+    stats = {"files": 0, "raw": 0, "invalid": 0, "tcp_filtered": 0, "duplicate": 0, "kept": 0}
+    
+    raw_nodes = []
     for path in files:
         stats["files"] += 1
         try:
@@ -269,27 +278,58 @@ def merge_nodes(files):
             if not isinstance(node, dict) or not node.get("type") or not node.get("server") or not node.get("port"):
                 stats["invalid"] += 1
                 continue
-            node = copy.deepcopy(node)
-            fp = fingerprint(node)
-            if fp in seen_fp:
-                stats["duplicate"] += 1
-                continue
-            seen_fp.add(fp)
-            base = safe_name(node.get("name"))
-            count = name_count.get(base, 0)
-            if count:
-                new_name = f"{base} #{count + 1}"
-                while new_name in name_count:
-                    count += 1
-                    new_name = f"{base} #{count + 1}"
-                node["name"] = new_name
-                name_count[new_name] = 1
-                name_count[base] = count + 1
+            raw_nodes.append(node)
+
+    log(f"🔍 正在进行多线程极速 TCP 端口预检（UDP/QUIC 洗衣机节点自动豁免）...")
+    
+    def check_node_tcp(node):
+        protocol = node.get("type", "").lower()
+        # 🔑 洗衣机节点（UDP/QUIC 类）直接放行，绝不误杀
+        if protocol in ("hysteria2", "hy2", "tuic", "warp"):
+            return node
+            
+        server = node.get("server")
+        port = node.get("port")
+        if quick_tcp_check(server, port):
+            return node
+        return None
+
+    passed_tcp_nodes = []
+    with ThreadPoolExecutor(max_workers=64) as executor:
+        futures = {executor.submit(check_node_tcp, node): node for node in raw_nodes}
+        for future in as_completed(futures):
+            res = future.result()
+            if res:
+                passed_tcp_nodes.append(res)
             else:
-                node["name"] = base
-                name_count[base] = 1
-            result.append(node)
-            stats["kept"] += 1
+                stats["tcp_filtered"] += 1
+
+    log(f"⚡ 预检完成：剔除离线死节点 {stats['tcp_filtered']} 个，剩余存活及豁免候选节点 {len(passed_tcp_nodes)} 个")
+
+    for node in passed_tcp_nodes:
+        node = copy.deepcopy(node)
+        fp = fingerprint(node)
+        if fp in seen_fp:
+            stats["duplicate"] += 1
+            continue
+        seen_fp.add(fp)
+        base = safe_name(node.get("name"))
+        count = name_count.get(base, 0)
+        if count:
+            new_name = f"{base} #{count + 1}"
+            while new_name in name_count:
+                count += 1
+                new_name = f"{base} #{count + 1}"
+            node["name"] = new_name
+            name_count[new_name] = 1
+            name_count[base] = count + 1
+        else:
+            node["name"] = base
+            name_count[base] = 1
+        result.append(node)
+        stats["kept"] += 1
+
+    log(f"📦 统计摘要 -> 原始总数: {stats['raw']} | 格式错误: {stats['invalid']} | TCP离线剔除: {stats['tcp_filtered']} | 重复剔除: {stats['duplicate']} | 最终进入测速池总数: {len(result)}")
     return result, stats
 
 def write_test_config(nodes, path):
@@ -430,7 +470,6 @@ def main():
 
     nodes, stats = merge_nodes(files)
     if not nodes: raise SystemExit("❌ 没有可测试节点")
-    log(f"📦 扫描文件数: {stats['files']} | 原始节点: {stats['raw']} | 有效去重后总数: {len(nodes)}")
 
     tested_fps = load_checkpoint()
     valid_pool = load_pool(VALID_POOL_FILE)
@@ -444,7 +483,7 @@ def main():
         cfp = core_fingerprint(node)
         if fp in invalid_pool or cfp in invalid_pool:
             continue
-        if fp in valid_pool or cfp in valid_pool:  # 🔑 核心指纹命中白名单，直接继承秒过！
+        if fp in valid_pool or cfp in valid_pool:
             white_inherited_nodes.append(node)
             tested_fps.add(fp)
             continue
