@@ -34,6 +34,9 @@ API_PORT = 9097
 API_SECRET = "test-only-secret"
 TIMEOUT_MS = 3000
 CONCURRENCY = 32
+TCP_WORKERS = 64
+TCP_CHUNK = 2000
+TCP_TIMEOUT = 0.6
 
 CORE_FINGERPRINT_KEYS = (
     "type",
@@ -602,7 +605,7 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="
     return sorted_files
 
 
-def quick_tcp_check(server, port, timeout=0.6):
+def quick_tcp_check(server, port, timeout=TCP_TIMEOUT):
     try:
         with socket.create_connection((str(server), int(port)), timeout=timeout):
             return True
@@ -611,7 +614,7 @@ def quick_tcp_check(server, port, timeout=0.6):
 
 
 def flush_tcp_chunk(chunk, check_func):
-    with ThreadPoolExecutor(max_workers=64) as executor:
+    with ThreadPoolExecutor(max_workers=TCP_WORKERS) as executor:
         futures = {executor.submit(check_func, node): node for node in chunk}
         for future in as_completed(futures):
             yield future.result()
@@ -622,10 +625,12 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
     file_stats = {}
     total_raw_scanned = 0
     total_raw_valid = 0
+    total_rejected_standard = 0
     total_inherited = 0
     total_tcp_filtered = 0
     total_passed_tcp = 0
     total_already_tested = 0
+    total_skip_tcp_type = 0
 
     def check_node_tcp(node):
         if node.get("_inherited_valid"):
@@ -642,6 +647,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
         path_key = str(path)
         file_scanned_count = 0
         file_valid_count = 0
+        file_reject_count = 0
         file_nodes = []
         ext = Path(path_key).suffix.lower()
 
@@ -656,12 +662,16 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
                         node = normalize_yaml_node(raw)
                         if node:
                             file_nodes.append(node)
+                        else:
+                            file_reject_count += 1
                 elif isinstance(data, list):
                     file_scanned_count = len(data)
                     for raw in data:
                         node = normalize_yaml_node(raw)
                         if node:
                             file_nodes.append(node)
+                        else:
+                            file_reject_count += 1
             except Exception as e:
                 log(f"YAML 文件读取失败: {path}: {e}")
         else:
@@ -669,13 +679,19 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
                 with open(path, "r", encoding="utf-8", errors="ignore") as f:
                     for line in f:
                         file_scanned_count += 1
+                        stripped = line.strip()
+                        if not stripped or stripped.startswith("#") or stripped.startswith("//"):
+                            continue
                         node = parse_share_link(line)
                         if node:
                             file_nodes.append(node)
+                        else:
+                            file_reject_count += 1
             except Exception as e:
                 log(f"文本文件读取失败: {path}: {e}")
 
         total_raw_scanned += file_scanned_count
+        total_rejected_standard += file_reject_count
         file_passed_list = []
         for node in file_nodes:
             fp = fingerprint(node)
@@ -697,14 +713,16 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
         file_stats[path_key] = {
             "scanned": file_scanned_count,
             "valid": file_valid_count,
+            "reject": file_reject_count,
         }
         try:
             rel = Path(path_key).relative_to(Path.cwd())
         except ValueError:
             rel = path_key
         log(
-            f"[源文件扫描] {rel} -> 原始行数/条目: {file_scanned_count} "
-            f"| 提取合规未测: {file_valid_count}"
+            f"[源文件扫描] {rel} -> 原始: {file_scanned_count} "
+            f"| 官方标准合规: {file_valid_count} "
+            f"| 标准剔除: {file_reject_count}"
         )
 
         chunk = []
@@ -712,8 +730,14 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
             if node.get("_inherited_valid"):
                 yield node
                 continue
+            ptype = str(node.get("type", "")).lower()
+            if ptype in SKIP_TCP_TYPES:
+                total_skip_tcp_type += 1
+                total_passed_tcp += 1
+                yield node
+                continue
             chunk.append(node)
-            if len(chunk) >= 2000:
+            if len(chunk) >= TCP_CHUNK:
                 for res in flush_tcp_chunk(chunk, check_node_tcp):
                     if res:
                         total_passed_tcp += 1
@@ -737,17 +761,19 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
     log(f"扫描输入源文件总数: {len(files)} 个")
     for p, st in file_stats.items():
         log(
-            f"   - [{Path(p).name}] 原始扫描: {st['scanned']} 条 "
-            f"| 有效提取: {st['valid']} 条"
+            f"   - [{Path(p).name}] 原始: {st['scanned']} "
+            f"| 合规: {st['valid']} | 标准剔除: {st['reject']}"
         )
     log("-----------------------------------------------------------------")
-    log(f"累计全网检索原始总条目数: {total_raw_scanned} 条")
-    log(f"历史缓存已测/失效拦截(跳过): {total_already_tested} 条")
-    log(f"本轮合规标准质检总新增: {total_raw_valid} 条")
+    log(f"累计原始总条目数: {total_raw_scanned} 条")
+    log(f"官方标准不合规直接排除: {total_rejected_standard} 条")
+    log(f"历史已测/黑名单拦截(跳过): {total_already_tested} 条")
+    log(f"本轮合规新增(去重后): {total_raw_valid} 条")
     log(f"历史白名单继承命中: {total_inherited} 条")
-    log(f"TCP 离线预检剔除死节点: {total_tcp_filtered} 条")
-    log(f"最终进入本轮 Mihomo 测速总池: {total_passed_tcp} 条")
-    log(f"本轮动态划分测速总批次: {expected_batches} 批 (每批 {batch_size} 条)")
+    log(f"跳过TCP预检的协议节点: {total_skip_tcp_type} 条")
+    log(f"TCP预检剔除死节点: {total_tcp_filtered} 条")
+    log(f"最终进入 Mihomo 测速总池: {total_passed_tcp} 条")
+    log(f"本轮测速总批次: {expected_batches} 批 (每批 {batch_size} 条)")
     log("=================================================================")
     log("")
 
@@ -947,14 +973,16 @@ def process_batch_with_mihomo(
                         good_nodes.append(node)
                     else:
                         invalid_pool.add(node_fp)
+                    if index % 50 == 0:
+                        save_pool(CHECKPOINT_FILE, tested_fps)
+                        save_pool(VALID_POOL_FILE, valid_pool)
+                        save_pool(INVALID_POOL_FILE, invalid_pool)
         except Exception as e:
             log(
                 f"[第 {batch_idx} 批] Mihomo 异常: {e} "
-                f"-> 本批跳过（不写入 invalid 永久黑名单）"
+                f"-> 已完成结果已落盘，未测完的节点下次可重试"
             )
-            for node in batch_slice:
-                tested_fps.add(fingerprint(node))
-            good_nodes = []
+            good_nodes = list(good_nodes)
         finally:
             if proc is not None and proc.poll() is None:
                 proc.terminate()
@@ -1062,7 +1090,7 @@ def build_final_aio_streamed(output_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="V6 节点审计清洗引擎（递归扫描协议子目录）"
+        description="V6 节点审计清洗引擎（官方标准过滤 + TCP预检 + 断点续跑）"
     )
     parser.add_argument("inputs", nargs="*", help="目录或文件路径，默认 nodes")
     parser.add_argument("-o", "--output", default=DEFAULT_OUTPUT)
@@ -1084,10 +1112,13 @@ def main():
     invalid_pool = load_pool(INVALID_POOL_FILE)
     log("启动 V6 全目录海量物料审计与清洗引擎...")
     log(
+        f"历史池加载: tested={len(tested_fps)} valid={len(valid_pool)} "
+        f"invalid={len(invalid_pool)}"
+    )
+    log(
         "支持协议: ss / ssr / vmess / vless / trojan / "
         "hysteria2 / tuic / anytls / mieru / wireguard"
     )
-    log("传输层: ws / grpc / h2 / http / xhttp + ShadowTLS(plugin)")
     for old_b in glob.glob("generated/batches/filtered_batch_*.yaml"):
         try:
             os.remove(old_b)
