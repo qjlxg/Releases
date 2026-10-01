@@ -621,17 +621,16 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml"):
                 files.add(p.resolve())
             continue
         if p.is_dir():
-            patterns = ("**/*.txt", "**/*.yaml", "**/*.yml", "**/*.list", "**/*.conf")
             found = []
-            for pattern in patterns:
-                for fp in p.glob(pattern):
-                    if not fp.is_file():
-                        continue
-                    if is_skip_file(fp.name) or fp.name in skip_names:
-                        continue
+            for fp in p.rglob("*"):
+                if not fp.is_file():
+                    continue
+                if is_skip_file(fp.name) or fp.name in skip_names:
+                    continue
+                if is_node_source_file(fp):
                     files.add(fp.resolve())
                     found.append(fp)
-            log(f"[收集] 目录 {p} 通过 ** 递归命中 {len(found)} 个源文件")
+            log(f"[收集] 目录 {p} 通过递归遍历命中 {len(found)} 个源文件")
             for fp in sorted(found, key=lambda x: str(x))[:50]:
                 try:
                     rel = fp.relative_to(Path.cwd())
