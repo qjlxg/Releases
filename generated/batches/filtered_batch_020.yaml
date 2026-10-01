@@ -1,0 +1,18 @@
+proxies:
+- name: 🇹🇼TW-61.223.98.107-0604
+  type: trojan
+  server: zhilegelian1.bpca2026.top
+  port: 443
+  password: 9efd3f19-c7cb-4fa9-8d66-0598043597dc
+  skip-cert-verify: true
+  sni: zhilegelian1.bpca2026.top
+  network: ws
+  ws-opts:
+    path: /images
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇹🇼TW-61.223.98.107-0604
+rules:
+- MATCH,CF-Nest-Batch

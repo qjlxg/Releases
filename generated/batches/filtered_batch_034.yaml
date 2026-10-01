@@ -1,0 +1,69 @@
+proxies:
+- name: 🇺🇳 未知地区 | VLESS | 001
+  type: vless
+  server: 162.159.48.32
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇯🇵 日本 | VLESS | 005
+  type: vless
+  server: 162.159.39.218
+  port: 8080
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇺🇳 未知地区 | VLESS | 037
+  type: vless
+  server: trackydev.site
+  port: 443
+  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: trackydev.site
+  network: ws
+  ws-opts:
+    path: /
+- name: vless-1603588403
+  type: vless
+  server: 140.245.120.16
+  port: 443
+  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: trackydev.site
+  network: ws
+- name: vless-1603588404
+  type: vless
+  server: trackydev.site
+  port: 443
+  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: trackydev.site
+  network: ws
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇳 未知地区 | VLESS | 001
+  - 🇯🇵 日本 | VLESS | 005
+  - 🇺🇳 未知地区 | VLESS | 037
+  - vless-1603588403
+  - vless-1603588404
+rules:
+- MATCH,CF-Nest-Batch

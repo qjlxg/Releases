@@ -1,0 +1,178 @@
+proxies:
+- name: '@networld_vpn'
+  type: vless
+  server: 188.255.156.218
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '@networld_vpn #1'
+  type: vless
+  server: 64.186.247.122
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '0193 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 15.204.97.195
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: fuck.rkn
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '0168 | 🇫🇮 Finland | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 45.149.147.97
+  port: 443
+  uuid: f28e0ce1-ed75-4e90-b069-5215a80dfb4a
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: google.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: AcuvO982QLzf76fVydfSuJIiF5520rmj7AxpaxyRwUg
+    short-id: d345ad4657adeef9
+- name: '0202 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 198.251.78.29
+  port: 2053
+  uuid: c423cc1b-f88e-421c-9a16-c480d84da20f
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: Uk5b-Wh_uxeCc7R8NS9iWE40xc0h9wWC04rSB9yhgAw
+    short-id: b5d625695ec82c7e
+- name: '0157 | 🇷🇺 Russia | VLESS | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 176.108.246.110
+  port: 9830
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: dl.google.com
+  reality-opts:
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: '0160 | 🇮🇩 Indonesia | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 103.172.197.2
+  port: 29172
+  uuid: 3977434d-6a9b-4858-8ced-80326ba5e367
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: aws.amazon.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: pff94OJwuKXnF7_3SJ8KKJuAN4GJtInBlR-kg-4mwzQ
+- name: '0191 | 🇵🇱 Poland | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 2.59.253.251
+  port: 443
+  uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: nvidia.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+    short-id: db04ce8bdb8900f1
+- name: 🇮🇪
+  type: vless
+  server: 45.141.234.138
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '0173 | 🇮🇳 India | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 194.61.31.126
+  port: 2053
+  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: www.apple.com
+  reality-opts:
+    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
+    short-id: 9980e0609b0d3891
+  network: raw
+- name: '0082 | 🇫🇮 Finland | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 107.181.151.39
+  port: 443
+  uuid: 4d017db2-7655-4276-9557-e2ec25b04ee7
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: www.tradingview.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk
+    short-id: ee1716767f9b
+- name: '0102 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: staging.lastilhame.monster
+  port: 443
+  uuid: 106d20f6-d70a-40e2-b69b-8e82baf8d117
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: www.microsoft.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: FjcEZNQ8t5E4R04_11T6ghsOutdqwKKrelkuadakoQg
+    short-id: 60500a63ad12
+  network: raw
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@networld_vpn'
+  - '@networld_vpn #1'
+  - '0193 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0168 | 🇫🇮 Finland | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '0202 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0157 | 🇷🇺 Russia | VLESS | TG: @YoutubeUnBlockRu'
+  - '0160 | 🇮🇩 Indonesia | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '0191 | 🇵🇱 Poland | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - 🇮🇪
+  - '0173 | 🇮🇳 India | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '0082 | 🇫🇮 Finland | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '0102 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+rules:
+- MATCH,CF-Nest-Batch

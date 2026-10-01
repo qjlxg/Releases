@@ -1,0 +1,70 @@
+proxies:
+- name: 🌐 Cloudflare | 104.16.154.133
+  type: vless
+  server: 104.16.154.133
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    headers:
+      Host: shephe.dpdns.org
+- name: '0144'
+  type: vless
+  server: 50.7.210.86
+  port: 443
+  uuid: e37b223d-c602-4be9-8ce0-eca27841ec8b
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: nl-ded.gamma-kvn.com
+  flow: xtls-rprx-vision
+- name: '0147'
+  type: vless
+  server: 89.125.112.15
+  port: 443
+  uuid: e0c43b23-5032-4a6b-ab43-02f4ffa64b9c
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: de-7480fb3b.sishka.network
+  flow: xtls-rprx-vision
+- name: '🇮🇳[www.v2nodes.com] vless-IN-3... #1'
+  type: vless
+  server: 20.219.46.208
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: www.youneed.win
+  type: vmess
+  server: 152.67.8.205
+  port: 80
+  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🌐 Cloudflare | 104.16.154.133
+  - '0144'
+  - '0147'
+  - '🇮🇳[www.v2nodes.com] vless-IN-3... #1'
+  - www.youneed.win
+rules:
+- MATCH,CF-Nest-Batch

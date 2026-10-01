@@ -1,22 +1,385 @@
 proxies:
-- name: '[OpenRay] 🇺🇸 US-27957'
+- name: Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET#vless-1605481373
   type: vless
-  server: 154.17.228.81
-  port: 59686
-  uuid: 88ee0e1e-a2a2-477e-88ce-4875c058aeba
+  server: 104.21.201.219
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
   client-fingerprint: chrome
   skip-cert-verify: true
   tls: true
-  servername: 123.714541.xyz
+  servername: edgetunnel-4uw.pages.dev
   network: ws
   ws-opts:
-    path: /Ra-vl
+    path: ?ed
     headers:
-      Host: 123.714541.xyz
+      Host: edgetunnel-4uw.pages.dev
+- name: vless-1575994468
+  type: vless
+  server: 172.64.53.55
+  port: 80
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: GB
+  type: vless
+  server: 45.88.12.122
+  port: 2083
+  uuid: 3fde8314-1e32-45c1-a88b-0c58a93a3538
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: crt.dodopanel.biz
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: '[🇨🇦]t.me/ConfigsHub'
+  type: vless
+  server: 104.21.91.244
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--V2ray_confiig?ed=512
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: SG
+  type: vless
+  server: 5.223.41.125
+  port: 80
+  uuid: 3b821031-d7d4-4368-918b-15f2312dba2b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+- name: '4320'
+  type: vless
+  server: 109.230.196.66
+  port: 208
+  uuid: 8d89622f-3150-424e-8446-06866a3d6b66
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET#[🏁]t.me/ConfigsHub
+  type: vless
+  server: 199.232.78.159
+  port: 443
+  uuid: 284dde63-5d87-4df2-a6bb-438f48765b1d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: ?ed
+    headers:
+      Host: pokerrr.global.ssl.fastly.net
+- name: '4208'
+  type: vless
+  server: 0cf703b86ea5a239.ravenlo.ir
+  port: 8080
+  uuid: 50d10e6c-37e1-4512-b35a-2d4e0adfd079
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: play.google.com
+- name: '4758'
+  type: vless
+  server: 132.243.238.192
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    headers:
+      Host: shephe.dpdns.org
+- name: '🇳🇱 Нидерланды [#РКП] #1'
+  type: vless
+  server: nl9.meshbeat.online
+  port: 8444
+  uuid: c2f5e996-9fe3-4c98-8d42-69cdef945d72
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: nl9.meshbeat.online
+  network: ws
+  ws-opts:
+    path: /api/v1/devices/8d0495e3e8/telemetry
+    headers:
+      Host: nl9.meshbeat.online
+- name: '🇺🇸 United States/San Francisco [TG] #8'
+  type: vless
+  server: 104.21.5.115
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '🇳🇱 Нидерланды [#РКП] #3'
+  type: vless
+  server: 188.137.249.99
+  port: 8444
+  uuid: c2f5e996-9fe3-4c98-8d42-69cdef945d72
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: nl8.meshbeat.online
+  network: ws
+  ws-opts:
+    path: /api/v1/devices/90eef09ee0/telemetry
+    headers:
+      Host: nl8.meshbeat.online
+- name: '🇳🇱 Нидерланды [#РКП] #4'
+  type: vless
+  server: 46.30.43.46
+  port: 8444
+  uuid: c2f5e996-9fe3-4c98-8d42-69cdef945d72
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: nl9.meshbeat.online
+  network: ws
+  ws-opts:
+    path: /api/v1/devices/8d0495e3e8/telemetry
+    headers:
+      Host: nl9.meshbeat.online
+- name: '🇳🇱 Нидерланды [#РКП] #5'
+  type: vless
+  server: nl8.meshbeat.online
+  port: 8444
+  uuid: c2f5e996-9fe3-4c98-8d42-69cdef945d72
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: nl8.meshbeat.online
+  network: ws
+  ws-opts:
+    path: /api/v1/devices/90eef09ee0/telemetry
+    headers:
+      Host: nl8.meshbeat.online
+- name: 🇺🇸US_565|545KB/s|M002-260618
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 566e98ad-4a56-4c1d-9dbc-83987079731b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: vless-1603588403
+  type: vless
+  server: 140.245.120.16
+  port: 443
+  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: trackydev.site
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇩🇪 Германия [#РКП]
+  type: vless
+  server: 45.88.12.111
+  port: 2083
+  uuid: 3fde8314-1e32-45c1-a88b-0c58a93a3538
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: crt.dodopanel.biz
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: 🇺🇸US_408|459KB/s|M002-260618
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 566e98ad-4a56-4c1d-9dbc-83987079731b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+- name: vless-0cf703b86ea5a239.ravenlo.ir
+  type: vless
+  server: 0cf703b86ea5a239.ravenlo.ir
+  port: 8080
+  uuid: 50d10e6c-37e1-4512-b35a-2d4e0adfd079
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 0cf703b86ea5a239.RaVEnlO.iR
+- name: 🏴 Неизвестный [#РКП]
+  type: vless
+  server: 124.156.208.160
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: '🇸🇬 Сингапур | 🔗 Каскад [#РКП] #1'
+  type: vless
+  server: 103.213.4.57
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: 🇸🇬 Сингапур | 🔗 Каскад [#РКП]
+  type: vless
+  server: 207.57.131.117
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: 🇯🇵 Япония | 🔗 Каскад [#РКП]
+  type: vless
+  server: 152.69.229.110
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: '🇸🇬 Сингапур | 🔗 Каскад [#РКП] #2'
+  type: vless
+  server: 175.29.23.179
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: '🏴 Неизвестный [#РКП] #4'
+  type: vless
+  server: 152.67.198.36
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: '🇸🇬 Сингапур | 🔗 Каскад [#РКП] #3'
+  type: vless
+  server: 175.29.23.114
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+- name: '🏴 Неизвестный [#РКП] #5'
+  type: vless
+  server: 175.29.23.138
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ju88t.ce8d.q6g.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: ju88t.ce8d.q6g.hh.ov0.kdns.fr
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - '[OpenRay] 🇺🇸 US-27957'
+  - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET#vless-1605481373
+  - vless-1575994468
+  - GB
+  - '[🇨🇦]t.me/ConfigsHub'
+  - SG
+  - '4320'
+  - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET#[🏁]t.me/ConfigsHub
+  - '4208'
+  - '4758'
+  - '🇳🇱 Нидерланды [#РКП] #1'
+  - '🇺🇸 United States/San Francisco [TG] #8'
+  - '🇳🇱 Нидерланды [#РКП] #3'
+  - '🇳🇱 Нидерланды [#РКП] #4'
+  - '🇳🇱 Нидерланды [#РКП] #5'
+  - 🇺🇸US_565|545KB/s|M002-260618
+  - vless-1603588403
+  - 🇩🇪 Германия [#РКП]
+  - 🇺🇸US_408|459KB/s|M002-260618
+  - vless-0cf703b86ea5a239.ravenlo.ir
+  - 🏴 Неизвестный [#РКП]
+  - '🇸🇬 Сингапур | 🔗 Каскад [#РКП] #1'
+  - 🇸🇬 Сингапур | 🔗 Каскад [#РКП]
+  - 🇯🇵 Япония | 🔗 Каскад [#РКП]
+  - '🇸🇬 Сингапур | 🔗 Каскад [#РКП] #2'
+  - '🏴 Неизвестный [#РКП] #4'
+  - '🇸🇬 Сингапур | 🔗 Каскад [#РКП] #3'
+  - '🏴 Неизвестный [#РКП] #5'
 rules:
 - MATCH,CF-Nest-Batch
