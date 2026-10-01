@@ -22,22 +22,24 @@ from pathlib import Path
 import requests
 import yaml
 
-DEFAULT_INPUT_PATTERNS = ["nodes"]
-DEFAULT_OUTPUT = "filtered_nodes.yaml"
-CHECKPOINT_FILE = ".tested_progress.json"
-VALID_POOL_FILE = ".valid_pool.json"
-INVALID_POOL_FILE = ".invalid_pool.json"
-DEFAULT_BATCH_SIZE = 300
-MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")
+# ==================== 全局常量与配置定义 ====================
+DEFAULT_INPUT_PATTERNS = ["nodes"]  # 默认扫描的输入根目录
+DEFAULT_OUTPUT = "filtered_nodes.yaml"  # 最终生成的聚合配置文件名称
+CHECKPOINT_FILE = ".tested_progress.json"  # 已测指纹检查点（断点续测用）
+VALID_POOL_FILE = ".valid_pool.json"  # 历史有效节点白名单池
+INVALID_POOL_FILE = ".invalid_pool.json"  # 历史无效节点黑名单池
+DEFAULT_BATCH_SIZE = 300  # 每批次送入 Mihomo 测速的节点数量
+MIHOMO_BIN = os.environ.get("MIHOMO_BIN", "mihomo")  # Mihomo 核心可执行文件路径
 API_HOST = "127.0.0.1"
 API_PORT = 9097
 API_SECRET = "test-only-secret"
-TIMEOUT_MS = 3000
-CONCURRENCY = 32
-TCP_WORKERS = 64
-TCP_CHUNK = 2000
-TCP_TIMEOUT = 0.6
+TIMEOUT_MS = 3000  # 测速超时毫秒数
+CONCURRENCY = 32  # 测速并发数
+TCP_WORKERS = 64  # TCP 快速预检线程池大小
+TCP_CHUNK = 2000  # TCP 预检分块大小
+TCP_TIMEOUT = 0.6  # TCP 快速探测超时时间（秒）
 
+# 核心指纹键：用于生成唯一节点指纹，防止重复测试
 CORE_FINGERPRINT_KEYS = (
     "type",
     "server",
@@ -57,6 +59,7 @@ CORE_FINGERPRINT_KEYS = (
     "psk",
 )
 
+# 测速分组：包含连通性测试和实际网站测试
 TEST_GROUPS = [
     (
         "基础连通性",
@@ -74,12 +77,15 @@ TEST_GROUPS = [
     ),
 ]
 
+# 某些类型的节点由于协议特性跳过 TCP 预检
 SKIP_TCP_TYPES = frozenset(
     {"hysteria2", "hy2", "tuic", "wireguard", "mieru", "warp"}
 )
 
+# 允许作为节点数据源的文件后缀
 NODE_FILE_EXTS = {".txt", ".list", ".conf", ".yaml", ".yml"}
 
+# 应当跳过扫描的文件名清单（防止误读输出结果或缓存文件）
 SKIP_FILENAMES = frozenset(
     {
         "filtered_nodes.yaml",
@@ -99,14 +105,17 @@ SKIP_FILENAMES = frozenset(
 
 
 def log(msg):
+    """统一日志输出函数，带时间戳和强制刷新"""
     print(time.strftime("[%Y-%m-%d %H:%M:%S]"), msg, flush=True)
 
 
 def safe_name(name):
+    """确保节点名称安全非空"""
     return str(name or "node").strip() or "node"
 
 
 def b64decode_pad(s):
+    """安全的 Base64 解码（自动补全 Padding 并兼容 URL 安全字符）"""
     s = (s or "").strip().replace("-", "+").replace("_", "/")
     pad = (-len(s)) % 4
     if pad:
@@ -115,6 +124,7 @@ def b64decode_pad(s):
 
 
 def fingerprint(proxy):
+    """计算节点的唯一 SHA256 指纹，用于去重和历史状态缓存"""
     obj = {}
     for k in CORE_FINGERPRINT_KEYS:
         if k in proxy and proxy[k] is not None:
@@ -135,6 +145,7 @@ def fingerprint(proxy):
 
 
 def validate_node_by_official_standard(node):
+    """严格按照 Mihomo 官方标准校验节点核心字段的合法性"""
     if not isinstance(node, dict):
         return False
     ptype = str(node.get("type", "")).lower().strip()
@@ -189,6 +200,7 @@ def validate_node_by_official_standard(node):
 
 
 def _qget(query, *keys, default=None):
+    """从 URL 查询参数中获取对应键的值"""
     for k in keys:
         v = query.get(k)
         if v:
@@ -197,6 +209,7 @@ def _qget(query, *keys, default=None):
 
 
 def _apply_transport_opts(node, network, query):
+    """为代理节点解析并装配传输层选项（ws, gRPC, h2, http, xhttp 等）"""
     network = (network or "tcp").lower()
     if network and network != "tcp":
         node["network"] = network
@@ -254,6 +267,7 @@ def _apply_transport_opts(node, network, query):
 
 
 def parse_ssr_link(line):
+    """解析 ssr:// 类型的分享链接"""
     raw = line[6:].strip()
     if "#" in raw:
         raw = raw.split("#", 1)[0]
@@ -314,6 +328,7 @@ def parse_ssr_link(line):
 
 
 def parse_share_link(line):
+    """总分享链接解析器：支持 ss, ssr, vmess, vless, trojan, hysteria2, tuic, anytls, mieru 等"""
     line = (line or "").strip()
     if not line or line.startswith("#") or line.startswith("//"):
         return None
@@ -553,6 +568,7 @@ def parse_share_link(line):
 
 
 def normalize_yaml_node(raw):
+    """规范化并校验 YAML 格式的代理节点"""
     if not isinstance(raw, dict):
         return None
     ptype = str(raw.get("type", "")).lower().strip()
@@ -584,6 +600,7 @@ def normalize_yaml_node(raw):
 
 
 def is_skip_file(name):
+    """判断文件名是否应当跳过"""
     lower = name.lower()
     if lower in SKIP_FILENAMES:
         return True
@@ -593,6 +610,7 @@ def is_skip_file(name):
 
 
 def is_node_source_file(fp):
+    """判断文件后缀是否为允许的节点源文件"""
     ext = fp.suffix.lower()
     if ext in NODE_FILE_EXTS:
         return True
@@ -600,6 +618,7 @@ def is_node_source_file(fp):
 
 
 def collect_files(inputs, output_filename="filtered_nodes.yaml"):
+    """递归收集所有输入路径下的有效源文件，确保不漏掉任何子目录"""
     skip_names = set(SKIP_FILENAMES)
     skip_names.add(output_filename)
     files = set()
@@ -622,6 +641,7 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml"):
             continue
         if p.is_dir():
             found = []
+            # 使用 rglob("*") 递归遍历子目录下的所有文件
             for fp in p.rglob("*"):
                 if not fp.is_file():
                     continue
@@ -640,7 +660,7 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml"):
             if len(found) > 50:
                 log(f"         -> ... 另有 {len(found) - 50} 个文件")
     sorted_files = sorted(str(f) for f in files)
-    log(f"[收集] 最终源文件 {len(sorted_files)} 个")
+    log(f"[收集] 最终源文件共计 {len(sorted_files)} 个")
     for i, fpath in enumerate(sorted_files, 1):
         try:
             rel = Path(fpath).relative_to(Path.cwd())
@@ -651,6 +671,7 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml"):
 
 
 def quick_tcp_check(server, port, timeout=TCP_TIMEOUT):
+    """快速 TCP 连通性预检，过滤明显死节点"""
     try:
         with socket.create_connection((str(server), int(port)), timeout=timeout):
             return True
@@ -659,6 +680,7 @@ def quick_tcp_check(server, port, timeout=TCP_TIMEOUT):
 
 
 def flush_tcp_chunk(chunk, check_func):
+    """并发执行 TCP 预检分块"""
     with ThreadPoolExecutor(max_workers=TCP_WORKERS) as executor:
         futures = {executor.submit(check_func, node): node for node in chunk}
         for future in as_completed(futures):
@@ -666,6 +688,7 @@ def flush_tcp_chunk(chunk, check_func):
 
 
 def load_nodes_line_by_line(path):
+    """逐行或按 YAML 解析单个源文件中的节点"""
     nodes = []
     reject = 0
     scanned = 0
@@ -715,6 +738,7 @@ def load_nodes_line_by_line(path):
 
 
 def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, batch_size):
+    """流式合并文件、去重、命中历史缓存、并执行 TCP 预检，按生成器逐个产出待测节点"""
     seen_fps = set()
     file_stats = {}
     total_raw_scanned = 0
@@ -771,6 +795,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
             rel = Path(path_key).relative_to(Path.cwd())
         except ValueError:
             rel = path_key
+        # 实时打印每个文件的扫描与提取数量统计
         log(
             f"[源文件扫描] {rel} -> 总行数: {file_scanned_count} "
             f"| 逐行解析合规: {file_valid_count} "
@@ -803,6 +828,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
                     yield res
                 else:
                     total_tcp_filtered += 1
+
     expected_batches = (
         (total_passed_tcp + batch_size - 1) // batch_size if total_passed_tcp > 0 else 0
     )
@@ -810,8 +836,12 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
     log("==================== 全库物料盘点与总账统计报告 ====================")
     log(f"扫描输入源文件总数: {len(files)} 个")
     for p, st in file_stats.items():
+        try:
+            r_name = Path(p).relative_to(Path.cwd())
+        except ValueError:
+            r_name = Path(p).name
         log(
-            f"   - [{Path(p).name}] 总行数: {st['scanned']} "
+            f"   - [{r_name}] 总行数: {st['scanned']} "
             f"| 合规: {st['valid']} | 标准剔除: {st['reject']}"
         )
     log("-----------------------------------------------------------------")
@@ -829,6 +859,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
 
 
 def write_test_config(nodes, path):
+    """动态生成用于 Mihomo 测速的临时配置文件"""
     config = {
         "mixed-port": 7898,
         "allow-lan": False,
@@ -852,6 +883,7 @@ def write_test_config(nodes, path):
 
 
 def wait_api(proc):
+    """等待 Mihomo 核心外部控制 API 启动就绪"""
     url = f"http://{API_HOST}:{API_PORT}/version"
     end_time = time.time() + 25
     while time.time() < end_time:
@@ -872,6 +904,7 @@ def wait_api(proc):
 
 
 def api_delay(name, url):
+    """通过 Mihomo REST API 对指定节点执行测速请求"""
     encoded_name = urllib.parse.quote(name, safe="")
     api_url = f"http://{API_HOST}:{API_PORT}/proxies/{encoded_name}/delay"
     params = {"timeout": TIMEOUT_MS, "url": url, "expected": "200-299"}
@@ -890,6 +923,7 @@ def api_delay(name, url):
 
 
 def test_one(node):
+    """测试单个节点在各测试组中的延迟表现"""
     name = node["name"]
     delays = []
     for _stage, tests in TEST_GROUPS:
@@ -920,6 +954,7 @@ def test_one(node):
 
 
 def unique_names(nodes):
+    """确保批次内节点名称唯一，重名时自动添加序号后缀"""
     used = set()
     counters = {}
     for node in nodes:
@@ -942,6 +977,7 @@ def unique_names(nodes):
 
 
 def save_batch_yaml(good_nodes, batch_idx):
+    """将通过测速的优质节点按批次保存到独立文件"""
     out_dir = Path("generated/batches")
     out_dir.mkdir(parents=True, exist_ok=True)
     filepath = out_dir / f"filtered_batch_{batch_idx:03d}.yaml"
@@ -969,6 +1005,7 @@ def save_batch_yaml(good_nodes, batch_idx):
 
 
 def load_pool(path):
+    """加载历史状态检查点或白黑名单池"""
     if os.path.exists(path):
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -979,6 +1016,7 @@ def load_pool(path):
 
 
 def save_pool(path, pool_set):
+    """持久化保存历史状态检查点或白黑名单池"""
     with open(path, "w", encoding="utf-8") as f:
         json.dump(list(pool_set), f)
 
@@ -986,6 +1024,7 @@ def save_pool(path, pool_set):
 def process_batch_with_mihomo(
     batch_slice, args, tested_fps, valid_pool, invalid_pool, batch_idx
 ):
+    """启动独立 Mihomo 进程并并发测试当前批次的节点"""
     good_nodes = []
     unique_names(batch_slice)
     log(
@@ -1047,6 +1086,7 @@ def process_batch_with_mihomo(
 
 
 def build_final_aio_streamed(output_path):
+    """流式合并所有批次的优质节点，生成最终的高性能 AIO 聚合配置文件"""
     output = Path(output_path).resolve()
     temp_output = str(output) + ".tmp"
     log("正在以流式方式合并所有批次生成最终 AIO 配置...")
@@ -1139,6 +1179,7 @@ def build_final_aio_streamed(output_path):
 
 
 def main():
+    """主程序入口"""
     parser = argparse.ArgumentParser(
         description="V6 节点审计清洗引擎（递归子目录 + 逐行明文解析）"
     )
@@ -1148,20 +1189,27 @@ def main():
     parser.add_argument("--mihomo", default=MIHOMO_BIN)
     parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
     args = parser.parse_args()
+
     batch_size = max(1, int(args.batch_size))
     inputs = args.inputs if args.inputs else DEFAULT_INPUT_PATTERNS
     log(f"工作目录 cwd={Path.cwd()}")
     log(f"输入参数 inputs={inputs}")
+
+    # 1. 递归收集所有输入源文件
     files = collect_files(inputs, args.output)
     if not files:
         raise SystemExit(
-            "没有找到任何输入节点文件。请确认 nodes 下各协议子目录内有 .txt 文件。"
+            "没有找到任何输入节点文件。请确认 nodes 下各协议子目录内有源文件。"
         )
+
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"找不到 Mihomo: {args.mihomo}")
+
+    # 2. 加载历史断点及缓存池
     tested_fps = load_pool(CHECKPOINT_FILE)
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
+
     log("启动 V6 全目录海量物料审计与清洗引擎...")
     log(
         f"历史池加载: tested={len(tested_fps)} valid={len(valid_pool)} "
@@ -1171,14 +1219,18 @@ def main():
         "支持协议: ss / ssr / vmess / vless / trojan / "
         "hysteria2 / tuic / anytls / mieru / wireguard"
     )
+
+    # 清理旧的批次缓存文件
     for old_b in glob.glob("generated/batches/filtered_batch_*.yaml"):
         try:
             os.remove(old_b)
         except Exception:
             pass
+
     batch_idx = 1
     batch_slice = []
     try:
+        # 3. 流式遍历所有文件并进行预检与测速
         for node in stream_merge_and_tcp_filter(
             files, invalid_pool, valid_pool, tested_fps, batch_size
         ):
@@ -1210,12 +1262,16 @@ def main():
             if processed_good:
                 save_batch_yaml(processed_good, batch_idx)
     finally:
+        # 4. 确保程序退出前持久化所有缓存池状态
         save_pool(CHECKPOINT_FILE, tested_fps)
         save_pool(VALID_POOL_FILE, valid_pool)
         save_pool(INVALID_POOL_FILE, invalid_pool)
+
     if not glob.glob("generated/batches/filtered_batch_*.yaml"):
         log("没有任何节点通过测试。")
         return 2
+
+    # 5. 生成最终的聚合 AIO 配置
     if build_final_aio_streamed(args.output) == 0:
         log("没有任何节点通过测试。")
         return 2
