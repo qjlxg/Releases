@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-V6 全目录海量节点审计与清洗引擎
-支持协议: ss / ssr / vmess / vless / trojan / hysteria2 / tuic / anytls / mieru / wireguard
-传输层: ws / grpc / h2 / http / xhttp；ShadowTLS 作为 SS plugin
-"""
 
 from __future__ import annotations
 
@@ -27,9 +22,6 @@ from pathlib import Path
 import requests
 import yaml
 
-# ---------------------------------------------------------------------------
-# 常量
-# ---------------------------------------------------------------------------
 DEFAULT_INPUT_PATTERNS = ["nodes"]
 DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
@@ -83,19 +75,19 @@ SKIP_TCP_TYPES = frozenset(
     {"hysteria2", "hy2", "tuic", "wireguard", "mieru", "warp"}
 )
 
+TEXT_EXTS = {".txt", ".list", ".conf", ".csv"}
+YAML_EXTS = {".yaml", ".yml"}
 
-# ---------------------------------------------------------------------------
-# 工具函数
-# ---------------------------------------------------------------------------
-def log(msg: str) -> None:
+
+def log(msg):
     print(time.strftime("[%Y-%m-%d %H:%M:%S]"), msg, flush=True)
 
 
-def safe_name(name) -> str:
+def safe_name(name):
     return str(name or "node").strip() or "node"
 
 
-def b64decode_pad(s: str) -> bytes:
+def b64decode_pad(s):
     s = (s or "").strip().replace("-", "+").replace("_", "/")
     pad = (-len(s)) % 4
     if pad:
@@ -103,7 +95,7 @@ def b64decode_pad(s: str) -> bytes:
     return base64.b64decode(s)
 
 
-def fingerprint(proxy: dict) -> str:
+def fingerprint(proxy):
     obj = {}
     for k in CORE_FINGERPRINT_KEYS:
         if k in proxy and proxy[k] is not None:
@@ -123,16 +115,14 @@ def fingerprint(proxy: dict) -> str:
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 
-def validate_node_by_official_standard(node) -> bool:
+def validate_node_by_official_standard(node):
     if not isinstance(node, dict):
         return False
     ptype = str(node.get("type", "")).lower().strip()
     server = str(node.get("server", "") or "").strip()
     port = node.get("port")
-
     if not ptype:
         return False
-
     if ptype == "wireguard":
         if not node.get("private-key"):
             return False
@@ -141,7 +131,6 @@ def validate_node_by_official_standard(node) -> bool:
         if not server or not node.get("public-key"):
             return False
         return True
-
     if ptype == "mieru":
         if not server:
             return False
@@ -150,7 +139,6 @@ def validate_node_by_official_standard(node) -> bool:
         if not port and not node.get("port-range"):
             return False
         return True
-
     if not server:
         return False
     try:
@@ -159,7 +147,6 @@ def validate_node_by_official_standard(node) -> bool:
             return False
     except (TypeError, ValueError):
         return False
-
     if ptype == "ss":
         return bool(node.get("cipher") and node.get("password"))
     if ptype == "ssr":
@@ -182,7 +169,7 @@ def validate_node_by_official_standard(node) -> bool:
     return False
 
 
-def _qget(query: dict, *keys, default=None):
+def _qget(query, *keys, default=None):
     for k in keys:
         v = query.get(k)
         if v:
@@ -190,11 +177,10 @@ def _qget(query: dict, *keys, default=None):
     return default
 
 
-def _apply_transport_opts(node: dict, network: str, query: dict) -> None:
+def _apply_transport_opts(node, network, query):
     network = (network or "tcp").lower()
     if network and network != "tcp":
         node["network"] = network
-
     if network == "ws":
         opts = {}
         path = _qget(query, "path", "ws-path")
@@ -248,10 +234,7 @@ def _apply_transport_opts(node: dict, network: str, query: dict) -> None:
             node["xhttp-opts"] = opts
 
 
-# ---------------------------------------------------------------------------
-# 分享链接解析
-# ---------------------------------------------------------------------------
-def parse_ssr_link(line: str):
+def parse_ssr_link(line):
     raw = line[6:].strip()
     if "#" in raw:
         raw = raw.split("#", 1)[0]
@@ -259,12 +242,10 @@ def parse_ssr_link(line: str):
         decoded = b64decode_pad(raw).decode("utf-8", errors="ignore")
     except Exception:
         return None
-
     main, _, query_str = decoded.partition("/?")
     parts = main.split(":")
     if len(parts) < 6:
         return None
-
     server = parts[0]
     port_s = parts[1]
     protocol = parts[2]
@@ -275,12 +256,10 @@ def parse_ssr_link(line: str):
         password = b64decode_pad(password_b64).decode("utf-8", errors="ignore")
     except Exception:
         password = password_b64
-
     try:
         port = int(port_s)
     except ValueError:
         return None
-
     node = {
         "name": f"SSR-{server}",
         "type": "ssr",
@@ -291,7 +270,6 @@ def parse_ssr_link(line: str):
         "protocol": protocol,
         "obfs": obfs,
     }
-
     if query_str:
         qs = urllib.parse.parse_qs(query_str)
 
@@ -313,11 +291,10 @@ def parse_ssr_link(line: str):
         protoparam = _b64_param("protoparam")
         if protoparam:
             node["protocol-param"] = protoparam
-
     return node
 
 
-def parse_share_link(line: str):
+def parse_share_link(line):
     line = (line or "").strip()
     if not line or line.startswith("#") or line.startswith("//"):
         return None
@@ -364,10 +341,8 @@ def parse_share_link(line: str):
                         "cipher": method,
                         "password": password,
                     }
-
         elif line.startswith("ssr://"):
             node = parse_ssr_link(line)
-
         elif line.startswith("vmess://"):
             raw_b64 = line[8:]
             config = json.loads(
@@ -426,7 +401,6 @@ def parse_share_link(line: str):
                     opts["headers"] = {"Host": [host]}
                 if opts:
                     node["http-opts"] = opts
-
         else:
             parsed = urllib.parse.urlparse(line)
             scheme = (parsed.scheme or "").lower()
@@ -438,7 +412,6 @@ def parse_share_link(line: str):
             fragment = (
                 urllib.parse.unquote(parsed.fragment) if parsed.fragment else ""
             )
-
             if scheme in ("hysteria2", "hy2"):
                 node = {
                     "name": fragment or f"Hy2-{server}",
@@ -457,7 +430,6 @@ def parse_share_link(line: str):
                 obfs_pw = _qget(query, "obfs-password")
                 if obfs_pw:
                     node["obfs-password"] = obfs_pw
-
             elif scheme == "vless":
                 node = {
                     "name": fragment or f"Vless-{server}",
@@ -489,7 +461,6 @@ def parse_share_link(line: str):
                         node["reality-opts"] = ropts
                 net = _qget(query, "type", "network", default="tcp")
                 _apply_transport_opts(node, net, query)
-
             elif scheme == "trojan":
                 node = {
                     "name": fragment or f"Trojan-{server}",
@@ -504,7 +475,6 @@ def parse_share_link(line: str):
                     node["sni"] = sni
                 net = _qget(query, "type", "network", default="tcp")
                 _apply_transport_opts(node, net, query)
-
             elif scheme == "tuic":
                 node = {
                     "name": fragment or f"Tuic-{server}",
@@ -521,7 +491,6 @@ def parse_share_link(line: str):
                 cc = _qget(query, "congestion_control", "congestion-controller")
                 if cc:
                     node["congestion-controller"] = cc
-
             elif scheme == "anytls":
                 node = {
                     "name": fragment or f"AnyTLS-{server}",
@@ -538,7 +507,6 @@ def parse_share_link(line: str):
                 fp = _qget(query, "fp")
                 if fp:
                     node["client-fingerprint"] = fp
-
             elif scheme == "mieru":
                 node = {
                     "name": fragment or f"Mieru-{server}",
@@ -558,10 +526,8 @@ def parse_share_link(line: str):
                     node["port-range"] = pr
                 else:
                     node["port"] = port
-
     except Exception:
         return None
-
     if node and validate_node_by_official_standard(node):
         return node
     return None
@@ -575,11 +541,9 @@ def normalize_yaml_node(raw):
         return None
     node = dict(raw)
     node["type"] = ptype
-
     if ptype == "hy2":
         node["type"] = "hysteria2"
         ptype = "hysteria2"
-
     if ptype in ("vmess", "vless", "trojan"):
         net = (node.get("network") or "tcp").lower()
         if net == "ws" and "ws-opts" not in node and node.get("ws-path"):
@@ -595,31 +559,50 @@ def normalize_yaml_node(raw):
             node["grpc-opts"] = {
                 "grpc-service-name": node.pop("grpc-service-name")
             }
-
     if not validate_node_by_official_standard(node):
         return None
     return node
 
 
-# ---------------------------------------------------------------------------
-# 文件收集 / TCP 预检 / 流式合并
-# ---------------------------------------------------------------------------
 def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="gem.yaml"):
+    skip_names = {
+        output_filename,
+        skip_filename,
+        CHECKPOINT_FILE,
+        VALID_POOL_FILE,
+        INVALID_POOL_FILE,
+    }
     files = set()
     for item in inputs:
-        p = Path(item)
+        p = Path(item).expanduser().resolve()
+        if not p.exists():
+            log(f"输入路径不存在，跳过: {p}")
+            continue
+        if p.is_file():
+            if p.name not in skip_names:
+                files.add(p)
+            continue
         if p.is_dir():
-            for ext in ("*.txt", "*.yaml", "*.yml", "*.conf", "*.list"):
-                for f in p.rglob(ext):
-                    if f.name not in (output_filename, skip_filename):
-                        files.add(f.resolve())
-        else:
-            if p.exists() and p.name not in (output_filename, skip_filename):
-                files.add(p.resolve())
-    return sorted(str(f) for f in files)
+            for root, _dirs, filenames in os.walk(str(p)):
+                for name in filenames:
+                    if name in skip_names:
+                        continue
+                    fp = Path(root) / name
+                    ext = fp.suffix.lower()
+                    if ext in TEXT_EXTS or ext in YAML_EXTS:
+                        files.add(fp.resolve())
+    sorted_files = sorted(str(f) for f in files)
+    log(f"递归扫描完成，共发现 {len(sorted_files)} 个节点源文件")
+    for i, fpath in enumerate(sorted_files, 1):
+        try:
+            rel = Path(fpath).relative_to(Path.cwd())
+        except ValueError:
+            rel = fpath
+        log(f"   [{i:04d}] {rel}")
+    return sorted_files
 
 
-def quick_tcp_check(server, port, timeout=0.6) -> bool:
+def quick_tcp_check(server, port, timeout=0.6):
     try:
         with socket.create_connection((str(server), int(port)), timeout=timeout):
             return True
@@ -660,8 +643,9 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
         file_scanned_count = 0
         file_valid_count = 0
         file_nodes = []
+        ext = Path(path_key).suffix.lower()
 
-        if path_key.endswith((".yaml", ".yml")):
+        if ext in YAML_EXTS:
             try:
                 with open(path, "r", encoding="utf-8") as f:
                     data = yaml.safe_load(f) or {}
@@ -672,8 +656,14 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
                         node = normalize_yaml_node(raw)
                         if node:
                             file_nodes.append(node)
+                elif isinstance(data, list):
+                    file_scanned_count = len(data)
+                    for raw in data:
+                        node = normalize_yaml_node(raw)
+                        if node:
+                            file_nodes.append(node)
             except Exception as e:
-                log(f"❌ YAML 文件读取失败: {path}: {e}")
+                log(f"YAML 文件读取失败: {path}: {e}")
         else:
             try:
                 with open(path, "r", encoding="utf-8", errors="ignore") as f:
@@ -683,7 +673,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
                         if node:
                             file_nodes.append(node)
             except Exception as e:
-                log(f"❌ 文本文件读取失败: {path}: {e}")
+                log(f"文本文件读取失败: {path}: {e}")
 
         total_raw_scanned += file_scanned_count
         file_passed_list = []
@@ -696,7 +686,6 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
             seen_fps.add(fp)
             total_raw_valid += 1
             file_valid_count += 1
-
             if fp in valid_pool:
                 node["_inherited_valid"] = True
                 total_inherited += 1
@@ -714,7 +703,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
         except ValueError:
             rel = path_key
         log(
-            f"📂 [源文件扫描] {rel} -> 原始行数/条目: {file_scanned_count} "
+            f"[源文件扫描] {rel} -> 原始行数/条目: {file_scanned_count} "
             f"| 提取合规未测: {file_valid_count}"
         )
 
@@ -743,28 +732,27 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
     expected_batches = (
         (total_passed_tcp + batch_size - 1) // batch_size if total_passed_tcp > 0 else 0
     )
-    log("\n==================== 📊 全库物料盘点与总账统计报告 ====================")
-    log(f"📁 扫描输入源文件总数: {len(files)} 个")
+    log("")
+    log("==================== 全库物料盘点与总账统计报告 ====================")
+    log(f"扫描输入源文件总数: {len(files)} 个")
     for p, st in file_stats.items():
         log(
-            f"   - 📄 [{Path(p).name}] 原始扫描: {st['scanned']} 条 "
+            f"   - [{Path(p).name}] 原始扫描: {st['scanned']} 条 "
             f"| 有效提取: {st['valid']} 条"
         )
     log("-----------------------------------------------------------------")
-    log(f"📦 累计全网检索原始总条目数: {total_raw_scanned} 条")
-    log(f"🛑 历史缓存已测/失效拦截(跳过): {total_already_tested} 条")
-    log(f"🔍 本轮合规标准质检总新增: {total_raw_valid} 条")
-    log(f"♻️ 历史白名单继承命中: {total_inherited} 条")
-    log(f"⚡ TCP 离线预检剔除死节点: {total_tcp_filtered} 条")
-    log(f"🎯 最终进入本轮 Mihomo 测速总池: {total_passed_tcp} 条")
-    log(f"📦 本轮动态划分测速总批次: {expected_batches} 批 (每批 {batch_size} 条)")
-    log("=================================================================\n")
+    log(f"累计全网检索原始总条目数: {total_raw_scanned} 条")
+    log(f"历史缓存已测/失效拦截(跳过): {total_already_tested} 条")
+    log(f"本轮合规标准质检总新增: {total_raw_valid} 条")
+    log(f"历史白名单继承命中: {total_inherited} 条")
+    log(f"TCP 离线预检剔除死节点: {total_tcp_filtered} 条")
+    log(f"最终进入本轮 Mihomo 测速总池: {total_passed_tcp} 条")
+    log(f"本轮动态划分测速总批次: {expected_batches} 批 (每批 {batch_size} 条)")
+    log("=================================================================")
+    log("")
 
 
-# ---------------------------------------------------------------------------
-# Mihomo 测速
-# ---------------------------------------------------------------------------
-def write_test_config(nodes, path) -> None:
+def write_test_config(nodes, path):
     config = {
         "mixed-port": 7898,
         "allow-lan": False,
@@ -787,7 +775,7 @@ def write_test_config(nodes, path) -> None:
         )
 
 
-def wait_api(proc) -> None:
+def wait_api(proc):
     url = f"http://{API_HOST}:{API_PORT}/version"
     end_time = time.time() + 25
     while time.time() < end_time:
@@ -807,7 +795,7 @@ def wait_api(proc) -> None:
     raise TimeoutError("等待 Mihomo API 超时")
 
 
-def api_delay(name: str, url: str) -> int:
+def api_delay(name, url):
     encoded_name = urllib.parse.quote(name, safe="")
     api_url = f"http://{API_HOST}:{API_PORT}/proxies/{encoded_name}/delay"
     params = {"timeout": TIMEOUT_MS, "url": url, "expected": "200-299"}
@@ -825,7 +813,7 @@ def api_delay(name: str, url: str) -> int:
     return delay
 
 
-def test_one(node: dict) -> dict:
+def test_one(node):
     name = node["name"]
     delays = []
     for _stage, tests in TEST_GROUPS:
@@ -855,7 +843,7 @@ def test_one(node: dict) -> dict:
     }
 
 
-def unique_names(nodes) -> list:
+def unique_names(nodes):
     used = set()
     counters = {}
     for node in nodes:
@@ -877,7 +865,7 @@ def unique_names(nodes) -> list:
     return nodes
 
 
-def save_batch_yaml(good_nodes, batch_idx) -> Path:
+def save_batch_yaml(good_nodes, batch_idx):
     out_dir = Path("generated/batches")
     out_dir.mkdir(parents=True, exist_ok=True)
     filepath = out_dir / f"filtered_batch_{batch_idx:03d}.yaml"
@@ -900,11 +888,11 @@ def save_batch_yaml(good_nodes, batch_idx) -> Path:
             sort_keys=False,
             default_flow_style=False,
         )
-    log(f"💾 合格批次已保存: {filepath} (共留存 {len(good_nodes)} 个优质节点)")
+    log(f"合格批次已保存: {filepath} (共留存 {len(good_nodes)} 个优质节点)")
     return filepath
 
 
-def load_pool(path: str) -> set:
+def load_pool(path):
     if os.path.exists(path):
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -914,7 +902,7 @@ def load_pool(path: str) -> set:
     return set()
 
 
-def save_pool(path: str, pool_set: set) -> None:
+def save_pool(path, pool_set):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(list(pool_set), f)
 
@@ -924,9 +912,8 @@ def process_batch_with_mihomo(
 ):
     good_nodes = []
     unique_names(batch_slice)
-
     log(
-        f"\n🚀 [第 {batch_idx} 批] 启动 Mihomo 实例测试，"
+        f"[第 {batch_idx} 批] 启动 Mihomo 实例测试，"
         f"当前批次节点数: {len(batch_slice)}"
     )
     with tempfile.TemporaryDirectory(prefix="mihomo_test_") as temp_dir:
@@ -953,7 +940,7 @@ def process_batch_with_mihomo(
                     tested_fps.add(node_fp)
                     if res["ok"]:
                         log(
-                            f"✅ [{index}/{len(futures)}] {res['name']} "
+                            f"[{index}/{len(futures)}] {res['name']} "
                             f"| avg={res['avg']}ms"
                         )
                         valid_pool.add(node_fp)
@@ -962,7 +949,7 @@ def process_batch_with_mihomo(
                         invalid_pool.add(node_fp)
         except Exception as e:
             log(
-                f"❌ [第 {batch_idx} 批] Mihomo 异常: {e} "
+                f"[第 {batch_idx} 批] Mihomo 异常: {e} "
                 f"-> 本批跳过（不写入 invalid 永久黑名单）"
             )
             for node in batch_slice:
@@ -975,18 +962,16 @@ def process_batch_with_mihomo(
                     proc.wait(timeout=5)
                 except subprocess.TimeoutExpired:
                     proc.kill()
-
     save_pool(CHECKPOINT_FILE, tested_fps)
     save_pool(VALID_POOL_FILE, valid_pool)
     save_pool(INVALID_POOL_FILE, invalid_pool)
     return good_nodes
 
 
-def build_final_aio_streamed(output_path) -> int:
+def build_final_aio_streamed(output_path):
     output = Path(output_path).resolve()
     temp_output = str(output) + ".tmp"
-    log("📦 正在以流式方式合并所有批次生成最终 AIO 配置...")
-
+    log("正在以流式方式合并所有批次生成最终 AIO 配置...")
     all_names = []
     seen_name = set()
     batch_files = sorted(glob.glob("generated/batches/filtered_batch_*.yaml"))
@@ -999,7 +984,6 @@ def build_final_aio_streamed(output_path) -> int:
                 if n and n not in seen_name:
                     all_names.append(n)
                     seen_name.add(n)
-
     config_skeleton = {
         "mixed-port": 7890,
         "allow-lan": False,
@@ -1010,12 +994,12 @@ def build_final_aio_streamed(output_path) -> int:
         "tcp-concurrent": True,
         "proxy-groups": [
             {
-                "name": "🚀 节点选择",
+                "name": "节点选择",
                 "type": "select",
                 "proxies": all_names if all_names else ["DIRECT"],
             },
             {
-                "name": "♻️ 自动选择",
+                "name": "自动选择",
                 "type": "url-test",
                 "proxies": all_names if all_names else ["DIRECT"],
                 "url": "https://www.gstatic.com/generate_204",
@@ -1023,23 +1007,22 @@ def build_final_aio_streamed(output_path) -> int:
                 "timeout": 5000,
             },
             {
-                "name": "🇨🇳 国内直连",
+                "name": "国内直连",
                 "type": "select",
-                "proxies": ["DIRECT", "🚀 节点选择"],
+                "proxies": ["DIRECT", "节点选择"],
             },
             {
-                "name": "🌍 国外代理",
+                "name": "国外代理",
                 "type": "select",
-                "proxies": ["🚀 节点选择", "♻️ 自动选择", "DIRECT"],
+                "proxies": ["节点选择", "自动选择", "DIRECT"],
             },
         ],
         "rules": [
             "DOMAIN-SUFFIX,cn,DIRECT",
             "GEOIP,CN,DIRECT",
-            "MATCH,🌍 国外代理",
+            "MATCH,国外代理",
         ],
     }
-
     with open(temp_output, "w", encoding="utf-8") as out_f:
         header_data = {k: v for k, v in config_skeleton.items() if k != "proxies"}
         yaml.safe_dump(
@@ -1071,55 +1054,47 @@ def build_final_aio_streamed(output_path) -> int:
                 for line in p_str.strip().splitlines():
                     out_f.write(f"  {line}\n")
                 total_proxies += 1
-
     os.replace(temp_output, output)
-    log(f"🏁 最终聚合 YAML 已生成: {output}\n✅ 累计保留优质节点总数: {total_proxies}")
+    log(f"最终聚合 YAML 已生成: {output}")
+    log(f"累计保留优质节点总数: {total_proxies}")
     return total_proxies
 
 
-# ---------------------------------------------------------------------------
-# 入口
-# ---------------------------------------------------------------------------
-def main() -> int:
+def main():
     parser = argparse.ArgumentParser(
-        description="V6 节点审计清洗引擎（扩展协议 + 传输层）"
+        description="V6 节点审计清洗引擎（递归扫描协议子目录）"
     )
-    parser.add_argument("inputs", nargs="*", help="目录或文件路径")
+    parser.add_argument("inputs", nargs="*", help="目录或文件路径，默认 nodes")
     parser.add_argument("-o", "--output", default=DEFAULT_OUTPUT)
     parser.add_argument("-c", "--concurrency", type=int, default=CONCURRENCY)
     parser.add_argument("--mihomo", default=MIHOMO_BIN)
     parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
     args = parser.parse_args()
-
     batch_size = max(1, int(args.batch_size))
-
     inputs = args.inputs if args.inputs else DEFAULT_INPUT_PATTERNS
     files = collect_files(inputs, args.output, "gem.yaml")
     if not files:
-        raise SystemExit("❌ 没有找到任何输入节点文件")
+        raise SystemExit(
+            "没有找到任何输入节点文件（请确认 nodes 下各协议子目录存在 .txt/.yaml）"
+        )
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
-        raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
-
+        raise SystemExit(f"找不到 Mihomo: {args.mihomo}")
     tested_fps = load_pool(CHECKPOINT_FILE)
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
-
-    log("🚀 启动 V6 全目录海量物料审计与清洗引擎...")
+    log("启动 V6 全目录海量物料审计与清洗引擎...")
     log(
-        "📋 支持协议: ss / ssr / vmess / vless / trojan / "
+        "支持协议: ss / ssr / vmess / vless / trojan / "
         "hysteria2 / tuic / anytls / mieru / wireguard"
     )
-    log("📋 传输层: ws / grpc / h2 / http / xhttp + ShadowTLS(plugin)")
-
+    log("传输层: ws / grpc / h2 / http / xhttp + ShadowTLS(plugin)")
     for old_b in glob.glob("generated/batches/filtered_batch_*.yaml"):
         try:
             os.remove(old_b)
         except Exception:
             pass
-
     batch_idx = 1
     batch_slice = []
-
     try:
         for node in stream_merge_and_tcp_filter(
             files, invalid_pool, valid_pool, tested_fps, batch_size
@@ -1127,7 +1102,6 @@ def main() -> int:
             node = copy.deepcopy(node)
             node.pop("_inherited_valid", None)
             batch_slice.append(node)
-
             if len(batch_slice) >= batch_size:
                 processed_good = process_batch_with_mihomo(
                     batch_slice,
@@ -1141,7 +1115,6 @@ def main() -> int:
                     save_batch_yaml(processed_good, batch_idx)
                 batch_idx += 1
                 batch_slice = []
-
         if batch_slice:
             processed_good = process_batch_with_mihomo(
                 batch_slice,
@@ -1157,15 +1130,12 @@ def main() -> int:
         save_pool(CHECKPOINT_FILE, tested_fps)
         save_pool(VALID_POOL_FILE, valid_pool)
         save_pool(INVALID_POOL_FILE, invalid_pool)
-
     if not glob.glob("generated/batches/filtered_batch_*.yaml"):
-        log("⚠ 没有任何节点通过测试。")
+        log("没有任何节点通过测试。")
         return 2
-
     if build_final_aio_streamed(args.output) == 0:
-        log("⚠ 没有任何节点通过测试。")
+        log("没有任何节点通过测试。")
         return 2
-
     return 0
 
 
