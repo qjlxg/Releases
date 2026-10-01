@@ -1,0 +1,22 @@
+proxies:
+- name: '@DeltaKroneckerGithub #233'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 13d2a3d9-2148-4946-be61-b7550a5d0b1d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@DeltaKroneckerGithub #233'
+rules:
+- MATCH,CF-Nest-Batch

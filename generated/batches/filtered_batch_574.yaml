@@ -1,0 +1,116 @@
+proxies:
+- name: '🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵 #1'
+  type: vmess
+  server: 168.138.43.75
+  port: 80
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+    headers:
+      Host: 168.138.43.75
+- name: 🏁 未知-A9C8C724
+  type: vmess
+  server: 132.145.80.230
+  port: 80
+  uuid: 5155860e-d07d-46c3-9128-3afbd84626c7
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+    headers:
+      Host: kr02.a0a.xyz
+- name: 🏁 未知-01E5A486
+  type: vmess
+  server: 141.95.65.9
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: aes-128-gcm
+  skip-cert-verify: true
+  tls: true
+- name: '🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰 #5'
+  type: vmess
+  server: lcv8v9l7oyamxxfz.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /ws-vmess
+- name: 🏁 未知-67C1FE41
+  type: vmess
+  server: 45.90.106.24
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: aes-128-gcm
+  skip-cert-verify: true
+  tls: true
+- name: '🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰 #1'
+  type: vmess
+  server: vah4urdzl3jdx5r2.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /ws-vmess
+- name: 未知 VMESS-1104 | free-nodes
+  type: vmess
+  server: 159.223.13.109
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: aes-128-gcm
+  skip-cert-verify: true
+  tls: true
+  servername: supervpn.super.com
+- name: 未知 VMESS-1107 | free-nodes
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  tls: true
+  servername: supervpn.super.com
+- name: '🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰 #4'
+  type: vmess
+  server: ex1ogt73nzpqkac2.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /ws-vmess
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵 #1'
+  - 🏁 未知-A9C8C724
+  - 🏁 未知-01E5A486
+  - '🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰 #5'
+  - 🏁 未知-67C1FE41
+  - '🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰 #1'
+  - 未知 VMESS-1104 | free-nodes
+  - 未知 VMESS-1107 | free-nodes
+  - '🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰 #4'
+rules:
+- MATCH,CF-Nest-Batch

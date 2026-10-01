@@ -1,0 +1,33 @@
+proxies:
+- name: CF中转_0920104768
+  type: vless
+  server: 104.16.101.215
+  port: 8880
+  uuid: 7a2df38b-2d8b-486b-9b43-641c81e11f40
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: shiny-mud-d9fa.466.workers.dev
+- name: CF中转_0920102481
+  type: vless
+  server: 104.17.26.45
+  port: 8880
+  uuid: 565326ee-c588-4843-9472-a051578ab1ae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: lucky-cell-e8c5.490-f12.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CF中转_0920104768
+  - CF中转_0920102481
+rules:
+- MATCH,CF-Nest-Batch

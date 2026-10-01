@@ -1,0 +1,34 @@
+proxies:
+- name: '🔒 #1'
+  type: vless
+  server: 151.101.65.242
+  port: 443
+  uuid: 254e661b-77ef-454a-8e2d-832bcdfc7470
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: '🔒 #37'
+  type: vless
+  server: 88.216.67.50
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: vms.lifetime05.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🔒 #1'
+  - '🔒 #37'
+rules:
+- MATCH,CF-Nest-Batch

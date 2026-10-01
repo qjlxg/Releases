@@ -1,0 +1,2397 @@
+proxies:
+- name: 'CA #7'
+  type: vless
+  server: 104.16.8.66
+  port: 8880
+  uuid: 1560c0b2-3cb8-45a3-988b-7103b031a815
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/pyip=ProxyIP.JP.CMLiussss.net '
+    headers:
+      Host: delicate-wood-49a8.214-451.workers.dev
+- name: 'CA #6'
+  type: vless
+  server: 172.66.132.196
+  port: 8880
+  uuid: 0787cfdb-9930-4abb-8419-c1b96c3ef628
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: red-snowflake-c399.12-ee1.workers.dev
+- name: 'CA #21'
+  type: vless
+  server: 104.16.98.215
+  port: 8880
+  uuid: 3aaabf99-32c6-4032-8695-c9f0eb28be6f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: divine-sound-9e93.22-be2.workers.dev
+- name: 'US #4'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 0e8371c0-0287-4805-a882-42a7b482a9de
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'CA #10'
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: 1742863c-ce4b-4bb7-b807-80da29cbec86
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=proxyip.ΓÇª
+    headers:
+      Host: icy-fog-9a41.70-a39.workers.dev
+- name: 'US #11'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 2a289186-9593-4e59-83e9-822efb2ab5d3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 'US #6'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 1979e7c9-9bf1-4a07-b610-7fbfb038bdae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: US
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 'US #1'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 02073765-76e0-46d0-9109-82ccb48d3c6f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'US #5'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 12ad647b-fa22-4bad-b27f-f54cb92f962b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 'US #3'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 09dfe01f-db37-4de2-82e3-bc6692192512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 'US #12'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 3caf4eee-9cb0-4e56-ae65-d4bfca663ad5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'US #8'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 1eb148ad-8549-4d07-858f-253a8f5c33c4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'US #14'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 48de1831-a4a2-4eba-8723-8e0bb7a9da0d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'GB #1'
+  type: vless
+  server: 186.190.211.188
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 186.190.211.188
+- name: 'US #13'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 423d9455-09ce-471c-8cee-cec0366a2c7a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: 'CA #25'
+  type: vless
+  server: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+  port: 443
+  uuid: 527451fe-ee1f-4e6f-94ca-808f055f7c9b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/ERYN0G44hia16zhR?ed=2560
+    headers:
+      Host: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+- name: 'JP #1'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 10fd5cba-3daa-432b-aa47-8143820656a3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: JP
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 0c4f2fbc-df76-4320-bc6d-52e1df96ae25
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'US #17'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 5855c0b7-0109-4460-aca3-bbd7f0471c08
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'JP #2'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 17bbed5c-059a-463f-a348-8111ec899a3a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 'US #18'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 572b2f63-62b5-4e79-a6c8-d2211bf33576
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'US #19'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 5b7bee63-8460-496d-bc47-9b2677a0bf73
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'US #15'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 4e4e2992-00ae-4663-9355-56c312df863f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'US #20'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 629e78f1-8ccf-4e0d-9a9e-8442bfd48de5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'GB #2'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 04d2aebd-246f-4348-805f-a8e6840365fc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'GB #3'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 031581a4-401e-4562-92a0-d22c2fddc7b1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'DE #2'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 1075489f-c53e-4f72-a836-3a6cd6e3198a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'DE #3'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 13e954cf-8948-4f02-947a-eb4fe97f290d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 'DE #1'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 041e1ba9-5d17-4e7c-baac-c5aa877da29b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'JP #5'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 29f4303a-8f46-473f-9280-2fb45e74a362
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 'JP #7'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 2b4165ba-4571-44fb-89c0-eefe68211c1f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'JP #6'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 2a731bb4-6c55-40ef-8c8d-80969db19e08
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: KR
+  type: vless
+  server: 220.71.172.2
+  port: 16034
+  uuid: 169f3aa8-6b52-4f3e-83d2-f96bac71e503
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'DE #4'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 1dc80bcf-b9f6-49ca-b506-0c7efdee49fc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'US #21'
+  type: vless
+  server: 128.241.25.72
+  port: 30021
+  uuid: 65f26a08-9a5e-4b28-9004-f98676cc1e49
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: '/@Marisa_kristi '
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'US #22'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 6a27d8d2-9746-4a12-88b1-83b44510450e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'JP #9'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 3ad284d0-bca3-4efc-953c-06e93657c69f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'DE #6'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 20d44edd-fccd-4b52-926b-956b693c6aa3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'JP #8'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 37d1f5ab-e83b-4a84-90bf-712a0b114a87
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'SG #1'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 095e81b0-8e36-441d-974e-2230cfd16c5a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'JP #10'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 3dfebf67-f76b-4901-9c00-f4e19fd444c8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'CA #37'
+  type: vless
+  server: 6crihfknlqjdu3yuzco9phspq86dbp6q.christanmoccasin.workers.dev
+  port: 443
+  uuid: 7201b2cd-0675-4c1a-9c76-07ca14ffcf08
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicHV2Z0VMNllZQmtoZEMiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: 6crihfknlqjdu3yuzco9phspq86dbp6q.christanmoccasin.workers.dev
+- name: 'US #23'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 6c7c10f8-2387-4756-ab4b-64c9c6981f0e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+- name: 'GB #4'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 2c190197-fdb7-41c3-9bd6-76476cfcaa5d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'SG #2'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 202dcea4-fc7c-4ce0-8c0c-6f705b9c5379
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'JP #12'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 4738dcaa-80c4-4d8b-9006-832692887bbb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'US #24'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 769458ee-3f6a-42d2-9776-9cbe93078d87
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'DE #7'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 2f146d09-a953-4bc2-bbef-503a1c0e6b70
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'GB #5'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 2a718774-8df1-459e-a652-37c472d203ef
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: 'JP #13'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 4818208b-d98b-4d4f-a9fd-ab8180c23f44
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'US #26'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 7e899f17-ea29-4f11-a7b8-6c5739870d1b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'US #25'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 795afc16-eac7-44b1-8f3e-29488d73cf3a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'GB #6'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 3ab412c8-fe1a-44a2-a1c3-8b6d916cbc29
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'US #28'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 83467060-5460-4fb7-8f46-c29f52f4582c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'GB #7'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 3fecd61b-bc7b-4f43-bdca-cf0fa7fae3a5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'JP #14'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 4be85c94-2fa7-4a85-a1e4-d2f992cd95f9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'JP #15'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 554757ea-7269-448f-805d-5fdf87451807
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'CA #44'
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 86d998bc-a5a2-45d5-8169-b906259110a6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: muddy-art-8cda.197-0c6.workers.dev
+- name: IT
+  type: vless
+  server: 116.204.164.5
+  port: 7443
+  uuid: 32404bf4-fdba-4c77-b6be-e29b8ed54808
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'IT #1'
+  type: vless
+  server: 116.204.164.60
+  port: 7443
+  uuid: 33509502-dd58-46bf-b574-985ca9a53964
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'JP #16'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 58fa2e87-8528-41a6-ab7d-d9dad94cacd4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'CA #46'
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 87a5d3eb-afd4-4193-9787-c54ef7c26c8c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/ '
+    headers:
+      Host: patient-cake-39c7.44-e7a.workers.dev
+- name: 'GB #8'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 439e5caa-5122-4215-bd6a-0d226af6496e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'SG #3'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 35325935-2cd2-4c62-aee1-4797dde0fae3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'CA #42'
+  type: vless
+  server: 172.67.184.45
+  port: 443
+  uuid: 82b279c6-5cba-3a96-f8bd-780a00000045
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: pi7ews-woj41w-7wx0gk.ho3ein13-3af.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: pi7ews-woj41w-7wx0gk.ho3ein13-3af.workers.dev
+- name: 'US #30'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 886208c2-2a07-4d8a-8f4e-cb51208f02c1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'US #31'
+  type: vless
+  server: 192.241.229.131
+  port: 74
+  uuid: 8fd85405-c28b-42ce-87a8-646cbe38ced4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'GB #9'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 5ce4c0b0-0fed-406c-b0f9-c71e76bebc2a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'JP #19'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 73fd7403-7286-4839-97ad-257ab536054c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: 'JP #18'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 72a672a7-ad57-4083-a79a-66a856cecd12
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'US #32'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 8c5e6c32-b048-47df-a268-4832d64ee201
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: 'JP #20'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 7567dad8-bac4-4d79-ad01-560ac5f92693
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'CA #51'
+  type: vless
+  server: 104.17.21.137
+  port: 8880
+  uuid: 9e648bb6-25f7-4b16-9949-55ac0952d66b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/pyip=ProxyIP.US.CMLiussss.net '
+    headers:
+      Host: lingering-grass-6728.131-a78.workers.dev
+- name: 'CA #48'
+  type: vless
+  server: 188.114.97.6
+  port: 2053
+  uuid: 934f2038-17f8-4ec5-9204-8381e19fc6e3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: TIGHT-busH-0Bb4.BSHXYyXhDJdGGb.wOrkERS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiVXFEMlhKZVY4dzNoTUtpZCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: tight-bush-0bb4.bshxyyxhdjdggb.workers.dev
+- name: 'JP #21'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 76f22519-4f01-450a-88b3-731c11c724e5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'US #34'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 9b3382ec-3207-414b-9711-6ede64ac56a6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'DE #9'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 63de82fa-3517-46f9-8a6a-c70a4e0cb4f8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: SE
+  type: vless
+  server: 89.22.224.146
+  port: 43788
+  uuid: 49a6eeaf-7dbf-4aa5-ba21-b36cd47e724e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'GB #12'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 6329b7f9-4774-425d-be6b-592213917c65
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'JP #23'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 79c351da-fdeb-4761-b514-46e1f4914d00
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'JP #22'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 78c438e1-417d-49a9-a883-f89e06737887
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: 'US #37'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: a0c96587-38e2-48e8-a728-22c1faf6b209
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 'GB #13'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 7459f61c-00f6-459f-8f36-989674e55d5c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'CA #63'
+  type: vless
+  server: 5xgovtcyqgoh5tedrlj6sg--sn9pbh.mahsapodcst.workers.dev
+  port: 443
+  uuid: a4ec0cdd-a71d-4093-b8e1-aa9bfbcd75eb
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: 5xgovtCYqgoh5tEDRLJ6Sg--sn9PbH.mAHsApOdCSt.WOrKers.deV
+  network: ws
+  ws-opts:
+    path: /vl/P7l2zlifeGb5UNmfWMkoVakVd?ed=2560
+- name: 'DE #10'
+  type: vless
+  server: 37.120.222.70
+  port: 8082
+  uuid: 726263e7-3176-4efb-a519-fe9f4ea87f7d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'GB #14'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 73f96511-d245-4334-a34f-9d7a8551e656
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'SG #5'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 636c1136-e339-43b1-8f77-5de65742a20b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: 'US #39'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: a354431b-ff71-4f37-af8e-8b3b2a5369d2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'SG #6'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 66b076d4-519d-4b05-872e-d0366d15bace
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: 'CA #68'
+  type: vless
+  server: dl2uf-ivdezilz3e86rk18.hhvt37tjm2xbosql5hxogn-y.workers.dev
+  port: 443
+  uuid: af0db32b-2cb0-48c7-b04e-96003f8c2369
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: dl2uF-iVdeZILZ3E86rK18.Hhvt37tjm2XBOsQL5HXogN-Y.woRKERS.dEv
+  network: ws
+  ws-opts:
+    path: /vl/ZONyHuyg0cpDAFQTzm3u?ed=2560
+    headers:
+      Host: dl2uf-ivdezilz3e86rk18.hhvt37tjm2xbosql5hxogn-y.workers.dev
+- name: 'US #40'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: ae9b512d-32f3-4a22-b396-bf334bd1b87c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'NL #2'
+  type: vless
+  server: 79.137.199.52
+  port: 21
+  uuid: 763e2ddd-c830-4f4f-801c-f6f2c3418d4f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'JP #24'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 8e6709d7-5e17-4f9c-87db-afa184f513cf
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: 'US #41'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: b2c12c84-c5b2-44c0-be00-55aff9fd2973
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'CA #74'
+  type: vless
+  server: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  port: 443
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+- name: 'DE #11'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 79b5d6d8-cabb-49c3-b4aa-9116932bc870
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'CA #75'
+  type: vless
+  server: 188.114.98.134
+  port: 443
+  uuid: ba49d874-fe02-465d-82d3-ed981dc7694f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o94yv7LiF0-AnxIsd9EFehVvs7mXn6bh.z-UlE-ikA-d-e-nE-k-E.WorkeRs.dEv
+  network: ws
+  ws-opts:
+    path: /yraL4HRbwB8cMc0F?ed=2560
+    headers:
+      Host: o94yv7lif0-anxisd9efehvvs7mxn6bh.z-ule-ika-d-e-ne-k-e.workers.dev
+- name: 'JP #25'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 90899e26-6c8d-46df-954d-14a86c0a1813
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'IT #2'
+  type: vless
+  server: 116.204.164.27
+  port: 7443
+  uuid: 7d4f5f0d-293f-4612-98d6-01fa0c1954b4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: 'SG #10'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 7e622534-4a90-40ba-bb30-5cb5403be121
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+- name: 'DE #13'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 81f042b3-13d9-4686-9d92-5350f19d909c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'SG #8'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 75f440b2-2cf8-45e7-9565-af7fde5bacc2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'US #43'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: bf30b487-858c-4166-8216-370ae1ef9591
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'SG #9'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 7cf16c7c-f5e8-401f-8d0e-7542c447bf58
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'GB #16'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 89076457-ac52-44d0-b8ef-35f9947d13f4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+- name: 'US #42'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: ba617d96-0837-4159-ab7f-99205bae020b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: 'CA #76'
+  type: vless
+  server: 162.159.140.78
+  port: 8880
+  uuid: c18fd69e-92ba-446e-981b-213dbb551593
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: billowing-wind-5b29.133-323.workers.dev
+- name: 'JP #26'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 91cf01c5-62c1-44cd-80e0-df6310025dab
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 'JP #27'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 980df025-74b9-4853-93e8-fb813006d7e5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+- name: 'JP #28'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 9c4306d6-3232-4b01-96df-4dc7dd90be77
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'JP #29'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 9d81ab94-494c-4507-bc63-334db46e80d9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'SG #12'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 8a9dff00-0705-4c1b-9126-8c1bdc8b5d0a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 'US #45'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: d0130b90-7d09-4484-9809-426bfb6ebd6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'SG #11'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 873eb281-00d2-45cb-a7ca-81b71d035d92
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'JP #30'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 9dc0aa1f-8df6-4d80-b17c-7b92cdfc514d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: d-l28t5-65-b.pbe40wmcujaw726h7cpqernzmawz4stwtrnqve0n1s5reht.workers.dev
+- name: 'CA #82'
+  type: vless
+  server: 172.67.152.71
+  port: 8880
+  uuid: d6d0ba7b-fa88-4b2c-9915-530ae4a81035
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /Join---PLANB_NET---Join---PLANB_NET---Join---PLANB_NET
+    headers:
+      Host: aged-mud-9b4c.202-2dc.workers.dev
+- name: 'JP #31'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: a2336cca-3fd0-45cb-8ac5-1de6d17692b2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: 'SG #13'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 8b19a6cb-a86c-41ef-a06b-747f2595574e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'GB #18'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 9b71c9bd-6418-462b-82b4-4a30690e0d47
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'DE #15'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 974310c9-0800-4be0-8585-b32939876af4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'SG #14'
+  type: vless
+  server: 175.41.179.37
+  port: 51262
+  uuid: 903fed13-8e78-4fa2-a83e-b392b289741f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'JP #33'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: af42cdf8-701e-4a51-b196-a80281dcbe24
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'DE #16'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 9ec8e0c8-f05a-40c6-b81b-3654fb542b2b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'IT #3'
+  type: vless
+  server: 116.204.164.17
+  port: 7443
+  uuid: 9dd5bcab-4a60-4f97-a7a4-77e98eabf9c4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 'CA #83'
+  type: vless
+  server: 104.21.94.230
+  port: 443
+  uuid: de78c0b1-c5c8-412a-bd92-430d1f2e2642
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: FroSTy-PonD-7436.SHHabbYAt914.woRkErS.dEv
+  network: ws
+  ws-opts:
+    path: /NmrU9ImDG7jA7oFEem
+    headers:
+      Host: frosty-pond-7436.shhabbyat914.workers.dev
+- name: 'JP #34'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: c609a3fb-9201-4446-aac1-129360b73fa1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 'DE #17'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: a56a5bae-45e5-4f0d-9e31-40af97733fd9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+- name: 'GB #19'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: a351220c-f8dc-4c52-8a2d-f4470f886a53
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 'GB #23'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: afc0b2cb-164a-4311-99c6-2379fa5aab04
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'US #48'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: decf97d5-3867-45e7-a6ac-9314561c26d0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'GB #22'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: ac4f0d22-8032-4932-9d75-3df629d57f42
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'SG #16'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: a0d9dbcb-e1dc-473b-9e01-9805304ad756
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'GB #21'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: aa285da7-ec58-4ca5-a97a-6ab9cfe5ee08
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'GB #25'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: b30c54d5-315f-428c-80d0-83b4f423abb2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'US #47'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: e09dd424-6706-43eb-8901-f8e07d3aec0c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 'CA #86'
+  type: vless
+  server: 188.114.97.8
+  port: 443
+  uuid: eb24c3b4-7936-45e2-a253-e54fd1955a7f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: C0yR9j09Y2l9G0tD8wa5.2wHBRirhjGslM43zJCqEi.worKeRs.DEV
+  network: ws
+  ws-opts:
+    path: /vl/6NGHNFKsvK41KeQo?ed=2560
+    headers:
+      Host: c0yr9j09y2l9g0td8wa5.2whbrirhjgslm43zjcqei.workers.dev
+- name: 'JP #35'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: c8a5a295-ecec-4079-8d1a-72ea9540ea8b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 'GB #24'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: aef1baec-9f54-4f2b-9120-46bbd850bf63
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'DE #20'
+  type: vless
+  server: 46.101.253.244
+  port: 2083
+  uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edge.yzkvm.top
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edge.yzkvm.top
+- name: 'GB #27'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: c290d7f3-8399-43c9-9a1b-4977f380d65b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 'DE #18'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: bec56743-98e0-4bbd-8466-2f8213c8d92d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'IT #4'
+  type: vless
+  server: 116.204.164.5
+  port: 7443
+  uuid: b303691b-d577-4465-93c8-dd6a33dc8c85
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 'SE #1'
+  type: vless
+  server: 89.22.224.146
+  port: 43788
+  uuid: acc10ba5-a222-44b3-8a1a-4f247ffc6466
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 'DE #19'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: bc9045a6-f12f-4a16-8b92-14ee33fa1e6f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'SG #17'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: b9024b95-9128-4e39-a4ec-1025088ed9f7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'US #50'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: ed3619c2-7067-496a-88cd-12215dcd5650
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+- name: AT
+  type: vless
+  server: 50.7.184.122
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: at3.moritech.net
+  flow: xtls-rprx-vision
+- name: 'JP #36'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: ceeab8e5-554a-4a62-af84-a398c73fbfd2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'AT #1'
+  type: vless
+  server: 50.7.36.28
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: at-new-ded.failspace.top
+  flow: xtls-rprx-vision-udp443
+- name: 'AT #2'
+  type: vless
+  server: 50.7.36.27
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: at-new-ded2.moritech.net
+  flow: xtls-rprx-vision
+- name: PL
+  type: vless
+  server: 50.7.248.234
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: viper-22.moriarty-web.com
+  flow: xtls-rprx-vision
+- name: 'AT #3'
+  type: vless
+  server: 50.7.36.29
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: at-dedic-2.failspace.top
+  flow: xtls-rprx-vision
+- name: 'CA #87'
+  type: vless
+  server: 172.67.209.13
+  port: 443
+  uuid: fa45096d-bed0-ad80-c773-23c30000001b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: xo3ubk-c97eql-n2d4a9.shoameni17.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: xo3ubk-c97eql-n2d4a9.shoameni17.workers.dev
+- name: 'US #51'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: f9819b5b-3231-4b04-b1ca-f1134b25a212
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'SG #18'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: bc9b7d03-eeae-46f6-a0da-9af799c0c747
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 'SG #19'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: c6e09f95-bf02-4854-bcba-7a977a0f8ecd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'IT #5'
+  type: vless
+  server: 116.204.164.60
+  port: 7443
+  uuid: cd099367-1052-42f4-8961-4d1e09144cf9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 'JP #39'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: d52e6720-3eb3-44c3-a476-c780e3137599
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'JP #38'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: d3fca73d-7967-46c6-ab35-fb86d3c8f293
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+- name: 'GB #28'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: d27917cf-f769-4002-82c3-c9c115644df0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 'JP #40'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: dbed24c3-4d22-48b2-8ccb-8e168d7f8b40
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 'GB #29'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: d29a700e-ebec-4a3b-af43-eff3c1aaf377
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'CA #7'
+  - 'CA #6'
+  - 'CA #21'
+  - 'US #4'
+  - 'CA #10'
+  - 'US #11'
+  - 'US #6'
+  - US
+  - 'US #1'
+  - 'US #5'
+  - 'US #3'
+  - 'US #12'
+  - 'US #8'
+  - 'US #14'
+  - 'GB #1'
+  - 'US #13'
+  - 'CA #25'
+  - 'JP #1'
+  - JP
+  - 'US #17'
+  - 'JP #2'
+  - 'US #18'
+  - 'US #19'
+  - 'US #15'
+  - 'US #20'
+  - 'GB #2'
+  - 'GB #3'
+  - 'DE #2'
+  - 'DE #3'
+  - 'DE #1'
+  - 'JP #5'
+  - 'JP #7'
+  - 'JP #6'
+  - KR
+  - 'DE #4'
+  - 'US #21'
+  - 'US #22'
+  - 'JP #9'
+  - 'DE #6'
+  - 'JP #8'
+  - 'SG #1'
+  - 'JP #10'
+  - 'CA #37'
+  - 'US #23'
+  - 'GB #4'
+  - 'SG #2'
+  - 'JP #12'
+  - 'US #24'
+  - 'DE #7'
+  - 'GB #5'
+  - 'JP #13'
+  - 'US #26'
+  - 'US #25'
+  - 'GB #6'
+  - 'US #28'
+  - 'GB #7'
+  - 'JP #14'
+  - 'JP #15'
+  - 'CA #44'
+  - IT
+  - 'IT #1'
+  - 'JP #16'
+  - 'CA #46'
+  - 'GB #8'
+  - 'SG #3'
+  - 'CA #42'
+  - 'US #30'
+  - 'US #31'
+  - 'GB #9'
+  - 'JP #19'
+  - 'JP #18'
+  - 'US #32'
+  - 'JP #20'
+  - 'CA #51'
+  - 'CA #48'
+  - 'JP #21'
+  - 'US #34'
+  - 'DE #9'
+  - SE
+  - 'GB #12'
+  - 'JP #23'
+  - 'JP #22'
+  - 'US #37'
+  - 'GB #13'
+  - 'CA #63'
+  - 'DE #10'
+  - 'GB #14'
+  - 'SG #5'
+  - 'US #39'
+  - 'SG #6'
+  - 'CA #68'
+  - 'US #40'
+  - 'NL #2'
+  - 'JP #24'
+  - 'US #41'
+  - 'CA #74'
+  - 'DE #11'
+  - 'CA #75'
+  - 'JP #25'
+  - 'IT #2'
+  - 'SG #10'
+  - 'DE #13'
+  - 'SG #8'
+  - 'US #43'
+  - 'SG #9'
+  - 'GB #16'
+  - 'US #42'
+  - 'CA #76'
+  - 'JP #26'
+  - 'JP #27'
+  - 'JP #28'
+  - 'JP #29'
+  - 'SG #12'
+  - 'US #45'
+  - 'SG #11'
+  - 'JP #30'
+  - 'CA #82'
+  - 'JP #31'
+  - 'SG #13'
+  - 'GB #18'
+  - 'DE #15'
+  - 'SG #14'
+  - 'JP #33'
+  - 'DE #16'
+  - 'IT #3'
+  - 'CA #83'
+  - 'JP #34'
+  - 'DE #17'
+  - 'GB #19'
+  - 'GB #23'
+  - 'US #48'
+  - 'GB #22'
+  - 'SG #16'
+  - 'GB #21'
+  - 'GB #25'
+  - 'US #47'
+  - 'CA #86'
+  - 'JP #35'
+  - 'GB #24'
+  - 'DE #20'
+  - 'GB #27'
+  - 'DE #18'
+  - 'IT #4'
+  - 'SE #1'
+  - 'DE #19'
+  - 'SG #17'
+  - 'US #50'
+  - AT
+  - 'JP #36'
+  - 'AT #1'
+  - 'AT #2'
+  - PL
+  - 'AT #3'
+  - 'CA #87'
+  - 'US #51'
+  - 'SG #18'
+  - 'SG #19'
+  - 'IT #5'
+  - 'JP #39'
+  - 'JP #38'
+  - 'GB #28'
+  - 'JP #40'
+  - 'GB #29'
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,87 @@
+proxies:
+- name: '[20997][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: 81b3fa7e-12b0-4c2b-9866-324edd26ef7f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: falling-lake-0b5a.192-3e2.workers.dev
+- name: '[7043][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.56.202
+  port: 8880
+  uuid: 2b5753cf-4d0a-4746-b63d-cd67a3de2ccc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: crimson-hill-8061.166-dcf.workers.dev
+- name: '[1735][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: 0787cfdb-9930-4abb-8419-c1b96c3ef628
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: red-snowflake-c399.12-ee1.workers.dev
+- name: '[43223][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.66.158.115
+  port: 8880
+  uuid: f6e14309-5cff-4f5d-bce1-06a260159bbe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: steep-bread-32f0.92-d12.workers.dev
+- name: '[36320][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: cgxgqcheiamna-jks01fidlsnqojwf-s.aliama.workers.dev
+  port: 443
+  uuid: d8c14c5c-a80a-4f6f-a5fb-52071849c443
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: CgxGqchEiAMnA-jkS01FiDlsnqOjwF-S.ALIAmA.WOrKErS.DeV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiZTFWRGJFS0NUd2F2NkRmIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==
+    headers:
+      Host: CgxGqchEiAMnA-jkS01FiDlsnqOjwF-S.ALIAmA.WOrKErS.DeV
+- name: '[1835][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: d2127A49-flAT-wooD-C4B5.mILia-AkbARpOor.WorkERs.dEV
+  network: ws
+  ws-opts:
+    path: /8eaZJhRwB5zzDy81
+    headers:
+      Host: d2127A49-flAT-wooD-C4B5.mILia-AkbARpOor.WorkERs.dEV
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[20997][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[7043][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[1735][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[43223][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[36320][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[1835][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+rules:
+- MATCH,CF-Nest-Batch

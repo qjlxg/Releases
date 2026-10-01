@@ -1,0 +1,19 @@
+proxies:
+- name: 'Join+Telegram:@Farah_VPN #18'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: ecbc4229-e8d3-4607-8f02-fd592c9a0743
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'Join+Telegram:@Farah_VPN #18'
+rules:
+- MATCH,CF-Nest-Batch

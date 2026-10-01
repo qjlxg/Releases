@@ -1,0 +1,91 @@
+proxies:
+- name: '🇺🇸 美国 | USA #1'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 5db320bf-0092-4871-9062-83f5cd00cbe4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '🇺🇸 美国 | USA #3'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: a3108d14-1f45-4f82-bb36-e2c41bdab527
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 🇺🇸 美国 | USA
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 5db320bf-0092-4871-9062-83f5cd00cbe4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '🇺🇸 美国 | USA #2'
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 5db320bf-0092-4871-9062-83f5cd00cbe4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 'vless-912240274 #1'
+  type: vless
+  server: 104.18.36.122
+  port: 8880
+  uuid: 6d73dc1e-1627-4b16-b471-53e63aa16c78
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: sweet-truth-ccdb.134-7e9.workers.dev
+- name: vless-760327455
+  type: vless
+  server: 104.26.6.214
+  port: 8880
+  uuid: 05e7abc2-46e1-4a23-9cdc-173ce17eb0d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: round-term-947c.41-332.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🇺🇸 美国 | USA #1'
+  - '🇺🇸 美国 | USA #3'
+  - 🇺🇸 美国 | USA
+  - '🇺🇸 美国 | USA #2'
+  - 'vless-912240274 #1'
+  - vless-760327455
+rules:
+- MATCH,CF-Nest-Batch

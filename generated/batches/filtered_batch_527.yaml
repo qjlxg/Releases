@@ -1,0 +1,187 @@
+proxies:
+- name: a_07768
+  type: vless
+  server: 8.39.125.213
+  port: 443
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: whitecreeper.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: whitecreeper.pages.dev
+- name: a_08017
+  type: vless
+  server: 91.193.58.21
+  port: 2087
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: whitecreeper.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: whitecreeper.pages.dev
+- name: a_07777
+  type: vless
+  server: 8.47.69.6
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: newwk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: newwk1.f1w.de5.net
+- name: a_08295
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 4f46eb95-a57f-457f-895f-f50e6ad9f164
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: a_08442
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 9d50fde6-7e89-4dee-9fee-17a77046604c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: a_09034
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: f80cfcb4-9bd1-4a0d-a50b-28e3eea107d8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: a_09031
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 9d50fde6-7e89-4dee-9fee-17a77046604c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: a_09026
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 11e6c528-434f-4b15-83b3-40a46237ea13
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: a_09005
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 9819d5c6-bc6e-4e31-8af7-c023ecff6022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: a_09029
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 7d7c2c1a-5220-431e-afb0-3b588baffb83
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: a_06068
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: e113a561-c9bc-43c6-92da-fd9513f06a00
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: a_06924
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: c65d2504-f68e-4948-841d-0a2dc5d66fbe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - a_07768
+  - a_08017
+  - a_07777
+  - a_08295
+  - a_08442
+  - a_09034
+  - a_09031
+  - a_09026
+  - a_09005
+  - a_09029
+  - a_06068
+  - a_06924
+rules:
+- MATCH,CF-Nest-Batch

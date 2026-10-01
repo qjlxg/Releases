@@ -1,0 +1,51 @@
+proxies:
+- name: Vless-104.18.34.21
+  type: vless
+  server: 104.18.34.21
+  port: 8443
+  uuid: 656bb400-3b7a-47e3-94b0-0362f3865072
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: socks5.revil-time3.workers.dev
+  network: ws
+  ws-opts:
+    headers:
+      Host: socks5.revil-time3.workers.dev
+- name: 'Vless-104.18.34.21 #1'
+  type: vless
+  server: 104.18.34.21
+  port: 8443
+  uuid: 656bb400-3b7a-47e3-94b0-0362f3865072
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: socks5.revil-time3.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: socks5.revil-time3.workers.dev
+- name: Vless-172.64.153.235
+  type: vless
+  server: 172.64.153.235
+  port: 8443
+  uuid: 656bb400-3b7a-47e3-94b0-0362f3865072
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: socks5.revil-time3.workers.dev
+  network: ws
+  ws-opts:
+    path: /socks5://128.140.46.169:13482@NebulaVPNx
+    headers:
+      Host: socks5.revil-time3.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-104.18.34.21
+  - 'Vless-104.18.34.21 #1'
+  - Vless-172.64.153.235
+rules:
+- MATCH,CF-Nest-Batch

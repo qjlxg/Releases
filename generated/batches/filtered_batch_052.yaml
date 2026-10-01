@@ -1,0 +1,15 @@
+proxies:
+- name: Trojan-qfdfsg.wsone.icu
+  type: trojan
+  server: qfdfsg.wsone.icu
+  port: 443
+  password: M7v%w11Se*
+  skip-cert-verify: true
+  sni: qfdfsg.wsone.icu
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Trojan-qfdfsg.wsone.icu
+rules:
+- MATCH,CF-Nest-Batch

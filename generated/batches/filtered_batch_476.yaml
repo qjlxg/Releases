@@ -1,0 +1,37 @@
+proxies:
+- name: 'US🇺🇸 #22'
+  type: vless
+  server: 172.66.47.132
+  port: 443
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: StF839DVVYoG9d2Qa4-B8z6AhgN7b7qI.PAGeS.dEV
+  network: ws
+  ws-opts:
+    path: /KOStF9fnx9sJgNib?ed=2560
+    headers:
+      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+- name: 'US🇺🇸 #173'
+  type: vless
+  server: 172.66.44.124
+  port: 2083
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: StF839dVvYog9d2QA4-b8Z6AHgn7B7Qi.PaGeS.Dev
+  network: ws
+  ws-opts:
+    path: /h0YSHTzENqjQOIfS?ed=2560
+    headers:
+      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'US🇺🇸 #22'
+  - 'US🇺🇸 #173'
+rules:
+- MATCH,CF-Nest-Batch

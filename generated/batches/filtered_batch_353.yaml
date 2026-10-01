@@ -1,0 +1,35 @@
+proxies:
+- name: vless-anydesk.com
+  type: vless
+  server: anydesk.com
+  port: 8880
+  uuid: 2d212f81-7ea2-4d0b-884c-a6497ab41143
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: hidden-union-a4b2.436.workers.dev
+- name: 'vless-www.speedtest.net #7'
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 2db92da9-8ffb-491b-81d6-6e8d50876020
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bpB-01c11365.HJdBcvDbKV.WORKErS.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiWlFRWlMwRDdLakVqMyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: bpb-01c11365.hjdbcvdbkv.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-anydesk.com
+  - 'vless-www.speedtest.net #7'
+rules:
+- MATCH,CF-Nest-Batch

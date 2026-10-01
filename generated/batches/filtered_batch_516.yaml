@@ -1,0 +1,22 @@
+proxies:
+- name: '@DeltaKroneckerGithub #211'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 4f46eb95-a57f-457f-895f-f50e6ad9f164
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@DeltaKroneckerGithub #211'
+rules:
+- MATCH,CF-Nest-Batch

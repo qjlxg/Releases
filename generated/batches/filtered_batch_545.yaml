@@ -1,0 +1,172 @@
+proxies:
+- name: CF 联通优选 | 104.26.14.248
+  type: vless
+  server: 104.26.14.248
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: CM随机优选 | 09-27 19:45:05 | BestCF.pages.dev
+  type: vless
+  server: saas.sin.fan
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 战争贩子 | US | 143.198.100.0:443
+  type: vless
+  server: 143.198.100.0
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 日本 JP | NRT | 103.85.25.226:8443
+  type: vless
+  server: 103.85.25.226
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 小日本儿 | JP | 138.3.209.71:2053
+  type: vless
+  server: 138.3.209.71
+  port: 2053
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 小日本儿 | JP | 126.78.133.130:443
+  type: vless
+  server: 126.78.133.130
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 香港 HK | HKG | 2.27.132.160:8443
+  type: vless
+  server: 2.27.132.160
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 港岛茶记 | HK | 103.143.81.178:443
+  type: vless
+  server: 103.143.81.178
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 港岛茶记 | HK | 103.143.81.222:2053
+  type: vless
+  server: 103.143.81.222
+  port: 2053
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 港岛茶记 | HK | 156.224.77.87:443
+  type: vless
+  server: 156.224.77.87
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 香港 HK | HKG | 167.148.203.107:443
+  type: vless
+  server: 167.148.203.107
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CF 联通优选 | 104.26.14.248
+  - CM随机优选 | 09-27 19:45:05 | BestCF.pages.dev
+  - zhuhai.uk | 战争贩子 | US | 143.198.100.0:443
+  - zhuhai.uk | 日本 JP | NRT | 103.85.25.226:8443
+  - zhuhai.uk | 小日本儿 | JP | 138.3.209.71:2053
+  - zhuhai.uk | 小日本儿 | JP | 126.78.133.130:443
+  - zhuhai.uk | 香港 HK | HKG | 2.27.132.160:8443
+  - zhuhai.uk | 港岛茶记 | HK | 103.143.81.178:443
+  - zhuhai.uk | 港岛茶记 | HK | 103.143.81.222:2053
+  - zhuhai.uk | 港岛茶记 | HK | 156.224.77.87:443
+  - zhuhai.uk | 香港 HK | HKG | 167.148.203.107:443
+rules:
+- MATCH,CF-Nest-Batch

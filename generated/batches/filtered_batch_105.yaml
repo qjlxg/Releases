@@ -1,15 +1,20 @@
 proxies:
-- name: '1774'
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
   type: trojan
-  server: 38.180.35.145
+  server: russia.com
   port: 443
-  password: 600421cf-11d7-429f-a65b-c30397f1bc03
+  password: bpb-trojan
   skip-cert-verify: true
-  sni: bu2.freeguard.org
+  sni: 6982410.xyz
+  network: ws
+  ws-opts:
+    path: /tr?ed=2560
+    headers:
+      Host: 6982410.xyz
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - '1774'
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
 rules:
 - MATCH,CF-Nest-Batch

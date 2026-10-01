@@ -1,0 +1,43 @@
+proxies:
+- name: '@DeltaKroneckerGithub #35'
+  type: vless
+  server: 172.67.68.240
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: '🔒 #60'
+  type: vless
+  server: 104.18.128.226
+  port: 8880
+  uuid: b92380e2-e03f-4861-856e-7c2373b04728
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: dry-thunder-7f57.57-1a3.workers.dev
+- name: '0275'
+  type: vless
+  server: 104.26.12.23
+  port: 8880
+  uuid: d33cc776-9c57-4ea3-8c5a-6d85043029d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: shiny-flower-c72d.105-161.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@DeltaKroneckerGithub #35'
+  - '🔒 #60'
+  - '0275'
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,22 @@
+proxies:
+- name: 🌐 Norway | WebSocket | @anonymouskeys
+  type: vless
+  server: 104.19.32.132
+  port: 8443
+  uuid: 2b181a3a-c001-4145-845a-5d43a43837d5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vpn-1fj.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vpn-1fj.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🌐 Norway | WebSocket | @anonymouskeys
+rules:
+- MATCH,CF-Nest-Batch

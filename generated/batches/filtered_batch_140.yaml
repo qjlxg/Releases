@@ -1,0 +1,297 @@
+proxies:
+- name: 美国_0919101131
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: fadcfc37-376a-42e6-a5cd-cb65988663d3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_0919101075
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 62cd6e5a-f41a-462a-8df9-31ab0ef75e46
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 美国_0919101271
+  type: vless
+  server: 151.101.193.242
+  port: 443
+  uuid: b0cf4078-96b8-4e11-80a8-0f9352565a16
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_0919101144
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: e262a993-a3be-4f36-95ba-81dc1e32d78c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 美国_0919101061
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 62cd6e5a-f41a-462a-8df9-31ab0ef75e46
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_0919101089
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 62cd6e5a-f41a-462a-8df9-31ab0ef75e46
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_0919101124
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: d1ae5c78-3b70-40e6-899d-9f3650208368
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 美国_0919101321
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 81a12262-81a7-45dc-8157-a6abc0c0cda3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_0919101360
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: b2aa6d03-4d3e-478d-98aa-2447f09d4cb1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+- name: 美国_0919101101
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 8a9b898d-5658-4f77-9fe9-5ff5b61fa107
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_0919101330
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 018a6ab7-f54c-4a1c-bfc5-d6b04e6545d1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 美国_091910138
+  type: vless
+  server: 151.101.161.242
+  port: 443
+  uuid: f80cfcb4-9bd1-4a0d-a50b-28e3eea107d8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_0919101443
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 476bdb75-0d9b-49f2-a492-4cd68f594d32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 爱尔兰_091910004
+  type: vless
+  server: 50.7.5.164
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: ir.failspace.top
+  flow: xtls-rprx-vision
+- name: 爱尔兰_091910016
+  type: vless
+  server: 50.7.5.163
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: ir-viper.failspace.top
+  flow: xtls-rprx-vision
+- name: 美国_0919101521
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: c7f0b683-61ea-48c5-93f1-783459ba2124
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 美国_0919101203
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: e262a993-a3be-4f36-95ba-81dc1e32d78c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 美国_0919101588
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: b0cf4078-96b8-4e11-80a8-0f9352565a16
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_0919101474
+  type: vless
+  server: 146.75.29.242
+  port: 443
+  uuid: abd924f4-132d-4ad3-ac2a-3aa01b8e5923
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_0919101217
+  type: vless
+  server: 141.193.213.20
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula
+    headers:
+      Host: speed.dulacloud.store
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 美国_0919101131
+  - 美国_0919101075
+  - 美国_0919101271
+  - 美国_0919101144
+  - 美国_0919101061
+  - 美国_0919101089
+  - 美国_0919101124
+  - 美国_0919101321
+  - 美国_0919101360
+  - 美国_0919101101
+  - 美国_0919101330
+  - 美国_091910138
+  - 美国_0919101443
+  - 爱尔兰_091910004
+  - 爱尔兰_091910016
+  - 美国_0919101521
+  - 美国_0919101203
+  - 美国_0919101588
+  - 美国_0919101474
+  - 美国_0919101217
+rules:
+- MATCH,CF-Nest-Batch

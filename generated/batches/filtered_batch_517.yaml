@@ -1,0 +1,200 @@
+proxies:
+- name: CF中转_0930074779
+  type: vless
+  server: 172.67.216.233
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: CF中转_0930073218
+  type: vless
+  server: 104.21.70.21
+  port: 8080
+  uuid: 30a88c40-581e-4952-aa4c-8af95686ede0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rapid-lab-95ef.173-74c.workers.dev
+- name: 美国_0930071204
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 9819d5c6-bc6e-4e31-8af7-c023ecff6022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 美国_0930071212
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: e12bb1dc-d315-47e3-9184-cb655afe6421
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 未知_093007909
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: fa9ec1a9-6c24-4be2-9472-d1e2592b45b4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: G84-nee38RYD6hElYZ6Z9qW1rm1BdL1.FornEwirAn-1056.WorkerS.dEv
+  network: ws
+  ws-opts:
+    path: /vl/pmsM6vhny85OmnvYbXIpf1l?ed=2560
+    headers:
+      Host: g84-nee38ryd6helyz6z9qw1rm1bdl1.fornewiran-1056.workers.dev
+- name: 美国_0930071187
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: e12bb1dc-d315-47e3-9184-cb655afe6421
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 德国_093007045
+  type: vless
+  server: 5.10.215.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+- name: 印度_093007003
+  type: vless
+  server: 154.198.173.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+- name: 德国_093007277
+  type: vless
+  server: 209.38.238.229
+  port: 20202
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HUlZXSwcZUQABSgMNQRoaSVhfRhoOChkDDUs=
+    headers:
+      Host: wzs.echo.net.eu.org
+- name: CF中转_0930072925
+  type: vless
+  server: 172.65.90.41
+  port: 2053
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HUlNSSwUEURwBVwcWUQYJGxsPQldGTQ8OBgJWFUU=
+    headers:
+      Host: wzs.echo.net.eu.org
+- name: 爱沙尼亚_093007004
+  type: vless
+  server: 45.80.108.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_093007008
+  type: vless
+  server: 89.116.250.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_0930071735
+  type: vless
+  server: 199.34.228.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CF中转_0930074779
+  - CF中转_0930073218
+  - 美国_0930071204
+  - 美国_0930071212
+  - 未知_093007909
+  - 美国_0930071187
+  - 德国_093007045
+  - 印度_093007003
+  - 德国_093007277
+  - CF中转_0930072925
+  - 爱沙尼亚_093007004
+  - 立陶宛_093007008
+  - 美国_0930071735
+rules:
+- MATCH,CF-Nest-Batch

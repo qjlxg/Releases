@@ -1,31 +1,288 @@
 proxies:
-- name: '[🇵🇱]t.me/ConfigsHub'
+- name: ✅
   type: trojan
-  server: cheerful-swan.rooster465.autos
+  server: 167.82.76.7
   port: 443
-  password: UX82473651
+  password: mitivpn
   skip-cert-verify: true
-  sni: cheerful-swan.rooster465.autos
-- name: 🇲🇾MY_3|852KB/s|A004-260618
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSs---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: '[58773'
   type: trojan
-  server: 47.250.84.25
+  server: 167.82.76.7
   port: 443
-  password: 5931134d1cde66bf83a54acdfebe7ab2
+  password: mitivpn
   skip-cert-verify: true
-  sni: 47.250.84.25\u0026allowInsecure=1\u0026type=tcp\u0026fp=chrome
-- name: 🇲🇾MY_2|399KB/s|A004-260618
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@bored_vpn'
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: '@bored_vpn'
   type: trojan
-  server: 47.250.84.25
+  server: 199.232.78.160
   port: 443
-  password: 5931134d1cde66bf83a54acdfebe7ab2
+  password: mitivpn
   skip-cert-verify: true
-  sni: moltbot.doctoroyy.net\u0026allowInsecure=1\u0026type=tcp\u0026fp=chrome
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@bored_vpn'
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: 🇺🇳 未知地区 | TROJAN | 009
+  type: trojan
+  server: 199.232.78.160
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@mehrosaboran'
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: 🇺🇳 未知地区 | TROJAN | 004
+  type: trojan
+  server: 199.232.78.170
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@VPNine1'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: '@mehrosaboran'
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@mehrosabiran'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: 🇺🇳 未知地区 | TROJAN | 008
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/NLSus---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: 🇫🇷FR_416|348KB/s|B007-260618 01
+  type: trojan
+  server: 104.21.24.95
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 1V95V6TjywCyTbAHl7f7Lx8b27G.L4495eYcqmsE9he0yVoEMJFc4IBYf-4.wORkERS.DeV
+  network: ws
+  ws-opts:
+    path: /tr/zJi4ccv7FeEo780U?ed=2560
+- name: 🇫🇷FR_2571|603KB/s|M003-260806 01
+  type: trojan
+  server: 104.21.87.130
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: z6y-daOX0hyhDtdy.r720kPByx2l3i406.wOrKErS.DEv
+  network: ws
+  ws-opts:
+    path: /tr/UOAg5ubCk87OTaiIAxc0O?ed=2560
+- name: 𝗝𝗼𝗶𝗻 ➠ @vpnplusee_free | 🇺🇸
+  type: trojan
+  server: 199.232.78.170
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: 🇺🇳 未知地区 | TROJAN | 005
+  type: trojan
+  server: 167.82.76.7
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/NLSs---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: 🇫🇷FR_1224|934KB/s|B007-260618 01
+  type: trojan
+  server: 104.21.64.165
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 3w2hk6Zj92orJcJedMI77HzC.Ny49NuZ6g33rYkoWaZQUNl-B9GuN5T.wOrkERs.DEv
+  network: ws
+  ws-opts:
+    path: /tr/owxywx7VjYMLyGu2JOQYjHwV67l?ed=2560
+- name: 🇫🇷FR_2572|478KB/s|M003-260806 01
+  type: trojan
+  server: 172.67.143.94
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: Z6Y-dAOx0HYhdTdy.R720KPbYX2L3i406.woRKers.DEV
+  network: ws
+  ws-opts:
+    path: /tr/P9UvWEJwKNGrOjrb1ICnWGhH8iQGDcG?ed=2560
+- name: 🇫🇷FR_1181|357KB/s|M003-260806 01
+  type: trojan
+  server: 188.114.96.8
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: y9p34JPJmQJazaYpf.pIIwDDIlxJcQEHr17af22U7XK-yu.workeRS.Dev
+  network: ws
+  ws-opts:
+    path: /tr/1nWXnOaq1ajP7PKxbRS7Sdck48oy?ed=2560
+- name: 🇫🇷FR_2191|348KB/s|V002-260618 01
+  type: trojan
+  server: 5.78.92.27
+  port: 8443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇫🇷FR_2179|1.2MB/s|M003-260806 01
+  type: trojan
+  server: 166.1.36.83
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇳🇱NL_201|154KB/s|M003-260806 01
+  type: trojan
+  server: 78.47.146.151
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇫🇷FR_2114|942KB/s|M003-260806 01
+  type: trojan
+  server: 88.99.189.60
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: ❓Other_58|229KB/s|M003-260806 01
+  type: trojan
+  server: 91.245.225.79
+  port: 2053
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇫🇷FR_2113|1.0MB/s|T001-260618 01
+  type: trojan
+  server: 185.255.179.166
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇮🇩ID_4|381KB/s|M003-260806 01
+  type: trojan
+  server: 104.21.70.21
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+- name: 🇮🇩ID_6|563KB/s|M002-260618 01
+  type: trojan
+  server: 104.21.33.59
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+- name: 🇮🇩ID_1|186KB/s|B007-260618 01
+  type: trojan
+  server: edu.ruangguru.com
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+- name: 🇮🇩ID_5|377KB/s|M003-260806 01
+  type: trojan
+  server: 172.67.217.240
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - '[🇵🇱]t.me/ConfigsHub'
-  - 🇲🇾MY_3|852KB/s|A004-260618
-  - 🇲🇾MY_2|399KB/s|A004-260618
+  - ✅
+  - '[58773'
+  - '@bored_vpn'
+  - 🇺🇳 未知地区 | TROJAN | 009
+  - 🇺🇳 未知地区 | TROJAN | 004
+  - '@mehrosaboran'
+  - 🇺🇳 未知地区 | TROJAN | 008
+  - 🇫🇷FR_416|348KB/s|B007-260618 01
+  - 🇫🇷FR_2571|603KB/s|M003-260806 01
+  - 𝗝𝗼𝗶𝗻 ➠ @vpnplusee_free | 🇺🇸
+  - 🇺🇳 未知地区 | TROJAN | 005
+  - 🇫🇷FR_1224|934KB/s|B007-260618 01
+  - 🇫🇷FR_2572|478KB/s|M003-260806 01
+  - 🇫🇷FR_1181|357KB/s|M003-260806 01
+  - 🇫🇷FR_2191|348KB/s|V002-260618 01
+  - 🇫🇷FR_2179|1.2MB/s|M003-260806 01
+  - 🇳🇱NL_201|154KB/s|M003-260806 01
+  - 🇫🇷FR_2114|942KB/s|M003-260806 01
+  - ❓Other_58|229KB/s|M003-260806 01
+  - 🇫🇷FR_2113|1.0MB/s|T001-260618 01
+  - 🇮🇩ID_4|381KB/s|M003-260806 01
+  - 🇮🇩ID_6|563KB/s|M002-260618 01
+  - 🇮🇩ID_1|186KB/s|B007-260618 01
+  - 🇮🇩ID_5|377KB/s|M003-260806 01
 rules:
 - MATCH,CF-Nest-Batch

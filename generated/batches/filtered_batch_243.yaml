@@ -1,0 +1,34 @@
+proxies:
+- name: Vless-172.66.44.211
+  type: vless
+  server: 172.66.44.211
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    headers:
+      Host: wk1.f1w.de5.net
+- name: Vless-104.16.106.213
+  type: vless
+  server: 104.16.106.213
+  port: 8880
+  uuid: d503ca85-91c2-426d-98ce-7a6f44666be1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: winter-hall-a0a2.74-532.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-172.66.44.211
+  - Vless-104.16.106.213
+rules:
+- MATCH,CF-Nest-Batch

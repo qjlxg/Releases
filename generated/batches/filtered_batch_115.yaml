@@ -1,0 +1,91 @@
+proxies:
+- name: 🇺🇸 Elk Grove Village, US · HostPapa | 198.46.215.223 :4444
+  type: tuic
+  server: 198.46.215.223
+  port: 4444
+  uuid: 6346ee2b-aefa-4a58-963a-bb851ed08f41
+  password: 0b628b17
+  skip-cert-verify: true
+  sni: proxy.bingtao.xyz
+- name: 🇭🇰 Hong Kong · HKT Limited | 1fd0c4d5-tk7400-tlbcwm-1rfon.pccw3.hyhuawei.com
+  type: tuic
+  server: 1fd0c4d5-tk7400-tlbcwm-1rfon.pccw3.hyhuawei.com
+  port: 443
+  uuid: aed1cc24-351d-11ef-ba52-f23c9164ca5d
+  password: aed1cc24-351d-11ef-ba52-f23c9164ca5d
+  skip-cert-verify: true
+- name: 🇭🇰 Hong Kong · HKT Limited | 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
+  type: tuic
+  server: 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
+  port: 443
+  uuid: f02ee2b4-d760-11ec-bd7c-f23c913c8d2b
+  password: f02ee2b4-d760-11ec-bd7c-f23c913c8d2b
+  skip-cert-verify: true
+  sni: 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
+  congestion-controller: bbr
+- name: 🇭🇰 Hong Kong · HKT Limited | 54fb07dd-tk7400-toh6wi-jx5r.pccw3.hyhuawei.com
+  type: tuic
+  server: 54fb07dd-tk7400-toh6wi-jx5r.pccw3.hyhuawei.com
+  port: 443
+  uuid: 73bfcc1c-5814-5f2a-b43a-3ef6af011db8
+  password: 73bfcc1c-5814-5f2a-b43a-3ef6af011db8
+  skip-cert-verify: true
+  congestion-controller: bbr
+- name: 🇭🇰 Hong Kong · HKT Limited | 8c09515a-tk7400-tlvq5w-1jcwu.pccw3.hyhuawei.com
+  type: tuic
+  server: 8c09515a-tk7400-tlvq5w-1jcwu.pccw3.hyhuawei.com
+  port: 443
+  uuid: f93486ce-cc84-11ed-9e98-f23c913c8d2b
+  password: f93486ce-cc84-11ed-9e98-f23c913c8d2b
+  skip-cert-verify: true
+- name: 🇺🇸 Salt Lake City, US · FiberState | us01.uzifan.monster
+  type: tuic
+  server: us01.uzifan.monster
+  port: 8443
+  uuid: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  password: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  skip-cert-verify: true
+  sni: azure.microsoft.com
+  congestion-controller: bbr
+- name: 🇭🇰 Hong Kong · Bitsflowcloud | jp01.uzifan.monster
+  type: tuic
+  server: jp01.uzifan.monster
+  port: 8443
+  uuid: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  password: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  skip-cert-verify: true
+  sni: www.bing.com
+  congestion-controller: bbr
+- name: 🇺🇸 Salt Lake City, US · FiberState | us02.uzifan.monster
+  type: tuic
+  server: us02.uzifan.monster
+  port: 8443
+  uuid: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  password: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  skip-cert-verify: true
+  sni: www.bing.com
+  congestion-controller: bbr
+- name: 🇸🇬 Singapore · Alibaba (US) Technology… | sg01.uzifan.monster
+  type: tuic
+  server: sg01.uzifan.monster
+  port: 8443
+  uuid: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  password: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  skip-cert-verify: true
+  sni: www.bing.com
+  congestion-controller: bbr
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇸 Elk Grove Village, US · HostPapa | 198.46.215.223 :4444
+  - 🇭🇰 Hong Kong · HKT Limited | 1fd0c4d5-tk7400-tlbcwm-1rfon.pccw3.hyhuawei.com
+  - 🇭🇰 Hong Kong · HKT Limited | 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
+  - 🇭🇰 Hong Kong · HKT Limited | 54fb07dd-tk7400-toh6wi-jx5r.pccw3.hyhuawei.com
+  - 🇭🇰 Hong Kong · HKT Limited | 8c09515a-tk7400-tlvq5w-1jcwu.pccw3.hyhuawei.com
+  - 🇺🇸 Salt Lake City, US · FiberState | us01.uzifan.monster
+  - 🇭🇰 Hong Kong · Bitsflowcloud | jp01.uzifan.monster
+  - 🇺🇸 Salt Lake City, US · FiberState | us02.uzifan.monster
+  - 🇸🇬 Singapore · Alibaba (US) Technology… | sg01.uzifan.monster
+rules:
+- MATCH,CF-Nest-Batch

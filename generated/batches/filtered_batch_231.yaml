@@ -1,0 +1,240 @@
+proxies:
+- name: Vless-www.ipget.net
+  type: vless
+  server: www.ipget.net
+  port: 8880
+  uuid: 2b2ed3be-36bd-486d-9d04-ebf5b4be7ae9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net≡ƒç║≡ƒç╕
+    headers:
+      Host: twilight-heart-dbd6.220-2bd.workers.dev
+- name: Vless-minimize-evenness.cdn-content.com
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 476bdb75-0d9b-49f2-a492-4cd68f594d32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: Vless-piracy-android.video-streams.org
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 476bdb75-0d9b-49f2-a492-4cd68f594d32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: Vless-bounded-crammed.video-streams.org
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 476bdb75-0d9b-49f2-a492-4cd68f594d32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: Vless-104.17.21.137
+  type: vless
+  server: 104.17.21.137
+  port: 8880
+  uuid: 9e648bb6-25f7-4b16-9949-55ac0952d66b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: lingering-grass-6728.131-a78.workers.dev
+- name: Vless-grimness-backlogs.cdn-content.com
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 476bdb75-0d9b-49f2-a492-4cd68f594d32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 'Vless-minimize-evenness.cdn-content.com #1'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: c7f0b683-61ea-48c5-93f1-783459ba2124
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: Vless-adheres-scruple.quick-cdn.net
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: c7f0b683-61ea-48c5-93f1-783459ba2124
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 'Vless-grimness-backlogs.cdn-content.com #1'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: c7f0b683-61ea-48c5-93f1-783459ba2124
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: Vless-log.bpminecraft.com
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 8cc8bedd-5103-4d22-a79c-a88f1160055a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net≡ƒç║≡ƒç╕
+    headers:
+      Host: red-unit-60bc.165-1dd.workers.dev
+- name: 'Vless-bounded-crammed.video-streams.org #1'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: c7f0b683-61ea-48c5-93f1-783459ba2124
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 'Vless-grimness-backlogs.cdn-content.com #2'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 018a6ab7-f54c-4a1c-bfc5-d6b04e6545d1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 'Vless-bounded-crammed.video-streams.org #2'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 018a6ab7-f54c-4a1c-bfc5-d6b04e6545d1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '@Vip_Security #54'
+  type: vless
+  server: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  port: 443
+  uuid: cc08d2d0-8a7a-4469-81d2-c43704451271
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/6871nrbnl9WsdAiOUInt
+    headers:
+      Host: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+- name: '@Vip_Security #59'
+  type: vless
+  server: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  port: 443
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  network: ws
+  ws-opts:
+    path: /pRXE5ot0RZaQSr7B
+    headers:
+      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+- name: Vless-203.137.165.164
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 9c7501fb-4e23-44d8-9a9e-973807ae4f35
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  network: ws
+  ws-opts:
+    path: '/@Marisa_kristi '
+    headers:
+      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-www.ipget.net
+  - Vless-minimize-evenness.cdn-content.com
+  - Vless-piracy-android.video-streams.org
+  - Vless-bounded-crammed.video-streams.org
+  - Vless-104.17.21.137
+  - Vless-grimness-backlogs.cdn-content.com
+  - 'Vless-minimize-evenness.cdn-content.com #1'
+  - Vless-adheres-scruple.quick-cdn.net
+  - 'Vless-grimness-backlogs.cdn-content.com #1'
+  - Vless-log.bpminecraft.com
+  - 'Vless-bounded-crammed.video-streams.org #1'
+  - 'Vless-grimness-backlogs.cdn-content.com #2'
+  - 'Vless-bounded-crammed.video-streams.org #2'
+  - '@Vip_Security #54'
+  - '@Vip_Security #59'
+  - Vless-203.137.165.164
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,14 +1,124 @@
 proxies:
-- name: 🇸🇨SC_4|487KB/s|A004-260618 01
+- name: 🇫🇷FR_720|590KB/s|M003-260806 01
   type: trojan
-  server: 154.90.62.70
-  port: 56127
-  password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+  server: 104.21.83.220
+  port: 443
+  password: Telegram_healer_config
   skip-cert-verify: true
+  sni: 6m1rGyIEclMRx9HeF1.Z6-0hlNUbJIBwZPa85.wOrKerS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/GaQvfFwT5sWgVxHig8YaXjtiuQPZNI?ed=2560
+- name: 🇫🇷FR_564|310KB/s|S004-260618 01
+  type: trojan
+  server: soskeynets.z6-0hlnubjibwzpa85.workers.dev
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 6m1rGyIEclMRx9HeF1.Z6-0hlNUbJIBwZPa85.wOrKerS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/GaQvfFwT5sWgVxHig8YaXjtiuQPZNI?ed=2560
+- name: 🇫🇷FR_1828|506KB/s|T001-260618 01
+  type: trojan
+  server: 104.21.70.21
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: bjsa2ygfitzjtho8ucze29xf2m2q9c.g3fiajpf0erm9k3x6ww-yegzl2.workers.dev
+  network: ws
+  ws-opts:
+    path: /tr/J6IJuAAWkqyiEt8UkeRnVdLlkLIGukLr?ed=2560
+- name: 🇫🇷FR_1487|404KB/s|M003-260806 01
+  type: trojan
+  server: 104.21.70.21
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 47hr9isj-655383snd63hjap38q6t.k-f3vpqaltfsxbtaxe.workers.dev
+  network: ws
+  ws-opts:
+    path: /tr/kp0IOvZwWV0X35ln0vIh?ed=2560
+- name: CA
+  type: trojan
+  server: 172.67.177.105
+  port: 443
+  password: 0b5fa773-6f37-4134-87d4-0c349742b6f6
+  skip-cert-verify: true
+  sni: app-538961.user-y0o4gm.workers.dev
+  network: ws
+  ws-opts:
+    path: /cmh
+- name: 'trojan-www.calmlunch.com #1'
+  type: trojan
+  server: www.calmlunch.com
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: '[OpenRay] 🇨🇦 CA-18413'
+  type: trojan
+  server: 104.16.122.175
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: '[OpenRay] 🇨🇦 CA-28718'
+  type: trojan
+  server: 188.114.97.6
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: '[OpenRay] 🇨🇦 CA-17305'
+  type: trojan
+  server: 104.20.6.134
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: '[OpenRay] 🇨🇦 CA-29153'
+  type: trojan
+  server: 104.17.148.22
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - 🇸🇨SC_4|487KB/s|A004-260618 01
+  - 🇫🇷FR_720|590KB/s|M003-260806 01
+  - 🇫🇷FR_564|310KB/s|S004-260618 01
+  - 🇫🇷FR_1828|506KB/s|T001-260618 01
+  - 🇫🇷FR_1487|404KB/s|M003-260806 01
+  - CA
+  - 'trojan-www.calmlunch.com #1'
+  - '[OpenRay] 🇨🇦 CA-18413'
+  - '[OpenRay] 🇨🇦 CA-28718'
+  - '[OpenRay] 🇨🇦 CA-17305'
+  - '[OpenRay] 🇨🇦 CA-29153'
 rules:
 - MATCH,CF-Nest-Batch

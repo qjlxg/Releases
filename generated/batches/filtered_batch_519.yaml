@@ -1,0 +1,49 @@
+proxies:
+- name: 🇫🇷FR_106|208KB/s|A004-260618
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: 8cc8bedd-5103-4d22-a79c-a88f1160055a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: red-unit-60bc.165-1dd.workers.dev
+- name: '🚀 t.me/iProxyChannel #8'
+  type: vless
+  server: 188.255.156.213
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    headers:
+      Host: shephe.dpdns.org
+- name: '🚀 t.me/iProxyChannel #10'
+  type: vless
+  server: 94.130.178.194
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: shephe.dpdns.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_106|208KB/s|A004-260618
+  - '🚀 t.me/iProxyChannel #8'
+  - '🚀 t.me/iProxyChannel #10'
+rules:
+- MATCH,CF-Nest-Batch

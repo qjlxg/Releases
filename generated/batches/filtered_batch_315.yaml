@@ -1,16 +1,19 @@
 proxies:
-- name: vless-186.190.211.188
+- name: 245-🇮🇹 IT ws-tls ✂️@GheychiAmoozesh
   type: vless
-  server: 186.190.211.188
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  server: milan.adaspoloandco.com
+  port: 8443
+  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
   client-fingerprint: chrome
   skip-cert-verify: true
   tls: true
+  network: ws
+  ws-opts:
+    path: /RoBeRt
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - vless-186.190.211.188
+  - 245-🇮🇹 IT ws-tls ✂️@GheychiAmoozesh
 rules:
 - MATCH,CF-Nest-Batch

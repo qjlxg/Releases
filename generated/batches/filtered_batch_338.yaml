@@ -1,0 +1,48 @@
+proxies:
+- name: '1895'
+  type: vless
+  server: 104.25.3.165
+  port: 443
+  uuid: 737678dc-cc15-4643-85a4-ca9359df1aa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: patient-moon-c61f.ggfsa55.workers.dev
+- name: '4080'
+  type: vless
+  server: 104.25.220.68
+  port: 443
+  uuid: 9952b71a-6c86-4522-888f-ff9ea9b93536
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: 1.hshs8227shhshs.workers.dev
+- name: 🌐 Anycast-IP | 🇧🇬 🇸🇪 | [BL]
+  type: vless
+  server: 154.83.2.110
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-4beea30ea96c
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: 4cz9gseouyns.2iz1ile4upks.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/4beea30ea96c/loc-0
+    headers:
+      Host: 4cz9gseouyns.2iz1ile4upks.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '1895'
+  - '4080'
+  - 🌐 Anycast-IP | 🇧🇬 🇸🇪 | [BL]
+rules:
+- MATCH,CF-Nest-Batch

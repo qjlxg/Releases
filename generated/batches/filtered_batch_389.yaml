@@ -1,0 +1,228 @@
+proxies:
+- name: '🌐 Неизвестно [#РКП] #289'
+  type: vless
+  server: 172.67.179.98
+  port: 8880
+  uuid: ef770523-8eb5-403f-9e95-06b328719c87
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    headers:
+      Host: lucky-sunset-d12e.201-98c.workers.dev
+- name: '🌐 Неизвестно [#РКП] #321'
+  type: vless
+  server: upwork.com
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: '🌐 Неизвестно [#РКП] #283'
+  type: vless
+  server: 104.21.74.214
+  port: 8880
+  uuid: 142d1453-9cfe-4045-8e54-f3fb33342185
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: lively-scene-744f.107-47a.workers.dev
+- name: '🌐 Неизвестно [#РКП] #355'
+  type: vless
+  server: 104.18.188.234
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: '🌐 Неизвестно [#РКП] #368'
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: d8a7b463-dc98-474d-a87e-8781476aef32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: ancient-tree-7dc9.336-5f9.workers.dev
+- name: '🌐 Неизвестно [#РКП] #369'
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: d8a7b463-dc98-474d-a87e-8781476aef32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: ancient-tree-7dc9.336-5f9.workers.dev
+- name: '🌐 Неизвестно [#РКП] #367'
+  type: vless
+  server: 104.21.55.229
+  port: 8880
+  uuid: d8a7b463-dc98-474d-a87e-8781476aef32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: ancient-tree-7dc9.336-5f9.workers.dev
+- name: '🌐 Неизвестно [#РКП] #290'
+  type: vless
+  server: 172.67.207.26
+  port: 8880
+  uuid: 2b2ed3be-36bd-486d-9d04-ebf5b4be7ae9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    headers:
+      Host: twilight-heart-dbd6.220-2bd.workers.dev
+- name: '🌐 Неизвестно [#РКП] #366'
+  type: vless
+  server: 172.66.140.62
+  port: 8880
+  uuid: a8985e6a-f338-4b44-9a41-f94495603a96
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: dawn-cell-346f.238-df6.workers.dev
+- name: '🌐 Неизвестно [#РКП] #357'
+  type: vless
+  server: 104.21.12.116
+  port: 8880
+  uuid: bd3eb105-b048-47fa-9a1d-63a66f9830a2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: misty-flower-4d15.372-912.workers.dev
+- name: '🌐 Неизвестно [#РКП] #296'
+  type: vless
+  server: 172.65.90.53
+  port: 8880
+  uuid: a5c7e18f-1701-46ed-8f42-00eb078d9445
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=proxyip.kr.cmliussss.net
+    headers:
+      Host: weathered-snow-b87b.292-455.workers.dev
+- name: '🌐 Неизвестно [#РКП] #297'
+  type: vless
+  server: 104.21.15.212
+  port: 8880
+  uuid: e06b6255-1c90-4db0-bd8c-7704df82b27c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: silent-cherry-7112.257.workers.dev
+- name: '🌐 Неизвестно [#РКП] #370'
+  type: vless
+  server: 172.67.190.141
+  port: 8880
+  uuid: d8a7b463-dc98-474d-a87e-8781476aef32
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: ancient-tree-7dc9.336-5f9.workers.dev
+- name: '🌐 Неизвестно [#РКП] #316'
+  type: vless
+  server: www.zsu.gov.ua
+  port: 8880
+  uuid: b92380e2-e03f-4861-856e-7c2373b04728
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: dry-thunder-7f57.57-1a3.workers.dev
+- name: '🌐 Неизвестно [#РКП] #307'
+  type: vless
+  server: 104.21.88.129
+  port: 8880
+  uuid: 2b2ed3be-36bd-486d-9d04-ebf5b4be7ae9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    headers:
+      Host: twilight-heart-dbd6.220-2bd.workers.dev
+- name: '🌐 Неизвестно [#РКП] #281'
+  type: vless
+  server: 104.21.12.116
+  port: 8880
+  uuid: 6b504c50-8535-44cf-8e4e-f8ee674a922e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  flow: xtls-rprx-vision
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: old-moon-16d0.156-a25.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🌐 Неизвестно [#РКП] #289'
+  - '🌐 Неизвестно [#РКП] #321'
+  - '🌐 Неизвестно [#РКП] #283'
+  - '🌐 Неизвестно [#РКП] #355'
+  - '🌐 Неизвестно [#РКП] #368'
+  - '🌐 Неизвестно [#РКП] #369'
+  - '🌐 Неизвестно [#РКП] #367'
+  - '🌐 Неизвестно [#РКП] #290'
+  - '🌐 Неизвестно [#РКП] #366'
+  - '🌐 Неизвестно [#РКП] #357'
+  - '🌐 Неизвестно [#РКП] #296'
+  - '🌐 Неизвестно [#РКП] #297'
+  - '🌐 Неизвестно [#РКП] #370'
+  - '🌐 Неизвестно [#РКП] #316'
+  - '🌐 Неизвестно [#РКП] #307'
+  - '🌐 Неизвестно [#РКП] #281'
+rules:
+- MATCH,CF-Nest-Batch

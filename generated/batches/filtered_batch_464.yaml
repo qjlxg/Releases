@@ -1,0 +1,502 @@
+proxies:
+- name: '💦 42 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.234
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsAntraIDeR.HIDJ51piMU26iaL1AbMzYf.woRkeRs.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiakE2QjdFZVNyYnpVQ00iLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 72 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.207
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsANTRaIDeR.hidJ51PImu26ial1AbMzYf.WORKerS.Dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiWG5JbHlrdW93eWZwMEJBIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 29 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.243
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: haSaNTrAIdER.Hidj51pImU26IAL1ABMZyf.WORkeRs.DeV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiYnY4aVk1Vm1LS0VPdEgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 3 - VLESS - IPv4 : 443 #1'
+  type: vless
+  server: 104.21.28.166
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsANTraIDER.hiDJ51PIMU26IAl1ABMZyF.WorKERS.Dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiSERVQnQ0cmJ0T2FUM1EiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 40 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.255
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HasaNTRaidEr.HIdJ51PImu26iaL1AbMzYf.wORKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiTHVaWXhVSlIyUGoiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 34 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.137
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hasANTRaIDer.HIDJ51PImu26iAL1aBMzYf.WORkerS.DeV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiRzNPaDVZTTJhWWJKcVdoIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 26 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.176
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HaSantRAidER.HiDj51pImu26Ial1aBMzYF.WorkErS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicktUU1BnOGVmOE82eiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 9 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.116
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: haSantRaIdeR.Hidj51pImu26iAl1AbmzYF.WorKERS.Dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiS3hNeVFhcVJ0SVVnMk5DIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 37 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.117
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hasAnTrAIdER.HiDj51PIMU26IAL1aBmZyf.worKeRS.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiTkY3Ymd1SmdHa1FUVTM3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 22 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.212
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HasaNtRaiDEr.Hidj51pimu26IAl1aBMZYF.workeRS.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoic1Bna05YeTRLaVg4Z2oiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 66 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.36
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HaSAnTRAider.hIDj51PIMU26iAL1aBmZYf.wORkErS.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiMXpUMUJnbW9uNiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 12 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.198
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsAntraideR.HIdj51pImU26IAL1abmzYf.wOrKErs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoib2R1d3h4SGZhIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 30 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.125
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsAntRaiDEr.hIdJ51PImU26ial1aBmzYf.wOrKeRs.Dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiSGNuRmZtMjJQIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 45 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.143
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: haSANtraIDeR.HIDJ51piMu26Ial1aBMZYF.WORkers.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoibDJTckxZdVR5cDR2TiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 48 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.222
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsanTrAIdeR.hiDj51pIMU26iaL1abmZyF.WoRkERS.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiTVNIaDVZdE9uaXV4d2l5IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 58 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.153
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HaSAnTrAider.HiDj51piMu26iAL1aBmzYf.WORkeRs.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiM2dCUk9jb0V1SyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 35 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.209
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HASantRAIdEr.HiDj51piMu26iAL1ABMzyf.WORKErs.Dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiZTZIR09CZzI5TVQyWSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 67 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.20
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsanTrAIdER.hidj51pimu26ial1AbmZyf.WoRKeRs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoibm5NcFNjcjNLIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 57 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.92
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsanTraIdER.hidj51PIMU26iaL1abMZyF.wORKERS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQ0hmbjB5R2xvRXEiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 7 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.237
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsANtRAIDER.hiDJ51pIMu26IAL1aBmZyF.workErS.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiUHNTQlFIbXcyS0pRRHUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 17 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.151
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HasANTRaIDER.hIdJ51piMu26ial1AbmzYF.WoRKERS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQUVHOVp2TlJDeWk1IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 53 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.70
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hASANTRaIDer.HIdJ51pimU26IAL1AbmZYf.worKers.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiamczcGNSWHBwUVVEUSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 61 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.101
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HASAntrAIdER.hiDj51PiMu26IaL1abMzyf.WORkerS.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiM3daY3o2TGs5enVWdyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 21 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.200
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsAntraidEr.HIdJ51piMU26IaL1ABmzyf.WOrKERs.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiSWNNTmJqS2FJSk0iLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 39 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.16
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsAntRaiDER.HIDJ51PIMU26ial1abmZyf.workers.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiZUVsZTRBTmJWWTdnIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 13 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.27
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HASAntRAIdEr.hiDJ51pimu26iaL1ABMZYF.WorKerS.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiaHBSaDFDZ2F6R1EzIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 59 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.98
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hasANTraIDER.hidJ51Pimu26IaL1abMzyf.workERS.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoibnQzeDRrbEhzaUFyYVdIIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 10 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.226
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HasanTrAiDER.HIdJ51pImU26iAL1AbMzyF.worKerS.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiOXhmZlNQYkxDM3B2SXFzVSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 51 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.4
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HAsANTraIder.hIDJ51pimu26iAl1aBMzyF.wORKERS.DeV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicEhDZ2h0TWJ0IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 49 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.73
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: HASaNtRAideR.HIDJ51PiMU26iaL1aBMzyF.WorKERs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiS05HaENNQ3BkVFBnRWVPIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 65 - VLESS - Clean IP : 443 #1'
+  type: vless
+  server: 173.245.49.64
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsAntRaidEr.hIdJ51PImu26ial1abMzYF.WOrkerS.dEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicmwzWEx2YTRFdk1ZYSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 50 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.240
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hASaNtrAider.HIDJ51Pimu26IAL1AbmZYF.WoRKers.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiWE5BT3Y0dE1PUWFLVCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+- name: '💦 64 - VLESS - Clean IP : 443'
+  type: vless
+  server: 173.245.49.7
+  port: 443
+  uuid: 957a8c6c-3f5b-4588-bc95-7578c42350bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: hAsantrAider.hIDJ51PIMu26Ial1abMzyF.wOrkers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoibE9ia0xEVkMiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: hasantraider.hidj51pimu26ial1abmzyf.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '💦 42 - VLESS - Clean IP : 443'
+  - '💦 72 - VLESS - Clean IP : 443'
+  - '💦 29 - VLESS - Clean IP : 443'
+  - '💦 3 - VLESS - IPv4 : 443 #1'
+  - '💦 40 - VLESS - Clean IP : 443 #1'
+  - '💦 34 - VLESS - Clean IP : 443'
+  - '💦 26 - VLESS - Clean IP : 443'
+  - '💦 9 - VLESS - Clean IP : 443'
+  - '💦 37 - VLESS - Clean IP : 443'
+  - '💦 22 - VLESS - Clean IP : 443'
+  - '💦 66 - VLESS - Clean IP : 443'
+  - '💦 12 - VLESS - Clean IP : 443'
+  - '💦 30 - VLESS - Clean IP : 443 #1'
+  - '💦 45 - VLESS - Clean IP : 443'
+  - '💦 48 - VLESS - Clean IP : 443'
+  - '💦 58 - VLESS - Clean IP : 443'
+  - '💦 35 - VLESS - Clean IP : 443 #1'
+  - '💦 67 - VLESS - Clean IP : 443'
+  - '💦 57 - VLESS - Clean IP : 443'
+  - '💦 7 - VLESS - Clean IP : 443 #1'
+  - '💦 17 - VLESS - Clean IP : 443'
+  - '💦 53 - VLESS - Clean IP : 443'
+  - '💦 61 - VLESS - Clean IP : 443'
+  - '💦 21 - VLESS - Clean IP : 443 #1'
+  - '💦 39 - VLESS - Clean IP : 443 #1'
+  - '💦 13 - VLESS - Clean IP : 443 #1'
+  - '💦 59 - VLESS - Clean IP : 443'
+  - '💦 10 - VLESS - Clean IP : 443 #1'
+  - '💦 51 - VLESS - Clean IP : 443 #1'
+  - '💦 49 - VLESS - Clean IP : 443 #1'
+  - '💦 65 - VLESS - Clean IP : 443 #1'
+  - '💦 50 - VLESS - Clean IP : 443'
+  - '💦 64 - VLESS - Clean IP : 443'
+rules:
+- MATCH,CF-Nest-Batch

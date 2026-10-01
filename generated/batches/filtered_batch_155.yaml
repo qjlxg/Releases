@@ -1,0 +1,20 @@
+proxies:
+- name: AutoAiVPN461828
+  type: vless
+  server: skk.moe
+  port: 8880
+  uuid: 0de87762-7d50-49e7-a5ae-7ac85760e083
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/pyip=ProxyIP.US.CMLiussss.net '
+    headers:
+      Host: delicate-fog-bbae.205-635.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - AutoAiVPN461828
+rules:
+- MATCH,CF-Nest-Batch

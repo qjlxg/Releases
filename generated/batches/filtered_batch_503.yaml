@@ -1,0 +1,411 @@
+proxies:
+- name: 'CA #44'
+  type: vless
+  server: 188.114.97.8
+  port: 8443
+  uuid: 9c63fd59-f9ee-446e-97ec-0bf2de21ed7b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: dRy-GLITTer-ef10.gFRYubCdrYujVRtH.WorkErS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiVVhGU1pOZ1oxaTFUUldyVCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
+    headers:
+      Host: dry-glitter-ef10.gfryubcdryujvrth.workers.dev
+- name: 'CA #28'
+  type: vless
+  server: 104.21.31.137
+  port: 443
+  uuid: 59c70620-d2f3-4255-9d6f-f4c5103d64ce
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 59fssibe-sddrrs3qw83qqzz0h1nt-o.q7qwsxitb6byi5nmta4naalz.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/FpYFoMlg8sRpgV7SSaOaRYa3fagqGu?ed
+    headers:
+      Host: 59fssibe-sddrrs3qw83qqzz0h1nt-o.q7qwsxitb6byi5nmta4naalz.workers.dev
+- name: 'US #32'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 6642b81e-8b9d-4f9c-b0ab-e26f72cc5c0e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'CA #41'
+  type: vless
+  server: 172.67.131.125
+  port: 443
+  uuid: 8d0f652c-3caa-4570-a138-668364f3d25e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: SqqfQ0vy-l4v0qA0ZLxNJd79-ykvkw.mRmamaLi.WoRKerS.DEV
+  network: ws
+  ws-opts:
+    path: /vl/zInkY7qcXuM6P1AZTQ?ed=2560
+    headers:
+      Host: sqqfq0vy-l4v0qa0zlxnjd79-ykvkw.mrmamali.workers.dev
+- name: 'CA #57'
+  type: vless
+  server: 172.67.167.77
+  port: 443
+  uuid: cc08d2d0-8a7a-4469-81d2-c43704451271
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/6871nrbnl9WsdAiOUInt
+    headers:
+      Host: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+- name: 'CA #60'
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: b825ccd6-f90c-4273-afe1-7f85b436a4a2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: eJtl1LB-mlYxNz0kO5Iz618MOTR0msa.FoRNEwIRAn-1011.WORkeRS.dEV
+  network: ws
+  ws-opts:
+    path: /vl/6ayyVzPLRWVROzJKD82qZxn?ed=2560
+    headers:
+      Host: ejtl1lb-mlyxnz0ko5iz618motr0msa.fornewiran-1011.workers.dev
+- name: 'US #73'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: d3d09526-18f4-45db-ae99-89407c29c94a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'CA #58'
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: 73b03366-975a-4ca7-a41c-0f7e1b5d944a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: l75yY2sJQN5Fn0Gx.fORNeWIran-1013.worKERS.DeV
+  network: ws
+  ws-opts:
+    path: /vl/olqQqiJtpH7kVUcHl0PXN?ed=2560
+    headers:
+      Host: l75yy2sjqn5fn0gx.fornewiran-1013.workers.dev
+- name: IE
+  type: vless
+  server: 50.7.5.165
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ir-new1.failspace.top
+  flow: xtls-rprx-vision
+- name: 'GB #2'
+  type: vless
+  server: 45.88.12.110
+  port: 2083
+  uuid: 7e5b1e82-73db-429a-93b2-7839a0bf4dc0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: mol.ultimagamest.com
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: TW
+  type: vless
+  server: 59.125.69.24
+  port: 443
+  uuid: 06e177f7-240d-4687-bd85-235505801a5e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: ty986gfazs.cainiaohub.xyz
+- name: 'TW #1'
+  type: vless
+  server: 60.248.219.54
+  port: 443
+  uuid: 06e177f7-240d-4687-bd85-235505801a5e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: ty986gfazs.cainiaohub.xyz
+- name: 'CA #66'
+  type: vless
+  server: 104.17.158.20
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #68'
+  type: vless
+  server: 162.159.198.1
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'DE #1'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 973e1010-df7a-4389-9e8f-1098845821b1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'CA #69'
+  type: vless
+  server: 172.64.146.66
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'GB #1'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 302be23b-f76e-4bd3-b70d-10c261b85a16
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: GB
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 33d646c4-f9b8-4769-af47-a8bb446b64d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'CA #67'
+  type: vless
+  server: 104.26.10.213
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'US #96'
+  type: vless
+  server: 208.68.180.204
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: DE
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: c42b156f-3afe-4405-8b28-00a8278f5230
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'JP #9'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: c16f8911-d921-4c34-95da-742dd3e1def5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: AT
+  type: vless
+  server: ad-dedic-3.failspace.top
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: ad-dedic-3.failspace.top
+  flow: xtls-rprx-vision
+- name: 'CA #70'
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: d443c411-85e4-4e0e-8251-2294d7e7ae0b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: JwD9bmigRp5s8PqHAYvpR6DJ6Ol.fORNewIRaN-1014.wOrkErS.Dev
+  network: ws
+  ws-opts:
+    path: /vl/II2kyrr06FWkCZfkFs?ed=2560
+    headers:
+      Host: jwd9bmigrp5s8pqhayvpr6dj6ol.fornewiran-1014.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | 112FF0
+  type: vless
+  server: 172.67.68.240
+  port: 8880
+  uuid: 05e7abc2-46e1-4a23-9cdc-173ce17eb0d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: round-term-947c.41-332.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: round-term-947c.41-332.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | 57BB48
+  type: vless
+  server: 104.16.97.215
+  port: 8880
+  uuid: ce977d82-824b-4209-87f1-0719f78d6a2e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: royal-mode-cf74.210-62d.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: royal-mode-cf74.210-62d.workers.dev
+- name: 'JP #8'
+  type: vless
+  server: 216.23.123.211
+  port: 30718
+  uuid: 88ee0e1e-a2a2-477e-88ce-4875c058aeba
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: 123.714542.xyz
+  network: ws
+  ws-opts:
+    path: /Desi-vl
+    headers:
+      Host: 123.714542.xyz
+- name: 'NO'
+  type: vless
+  server: 31.76.5.137
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: norw-mori-3.failspace.top
+  flow: xtls-rprx-vision
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'CA #44'
+  - 'CA #28'
+  - 'US #32'
+  - 'CA #41'
+  - 'CA #57'
+  - 'CA #60'
+  - 'US #73'
+  - 'CA #58'
+  - IE
+  - 'GB #2'
+  - TW
+  - 'TW #1'
+  - 'CA #66'
+  - 'CA #68'
+  - 'DE #1'
+  - 'CA #69'
+  - 'GB #1'
+  - GB
+  - 'CA #67'
+  - 'US #96'
+  - DE
+  - 'JP #9'
+  - AT
+  - 'CA #70'
+  - CA 🇨🇦 | @Raydikalx | 112FF0
+  - CA 🇨🇦 | @Raydikalx | 57BB48
+  - 'JP #8'
+  - 'NO'
+rules:
+- MATCH,CF-Nest-Batch

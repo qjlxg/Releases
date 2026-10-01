@@ -1,0 +1,19 @@
+proxies:
+- name: 4Sarina-f5081a8065
+  type: vmess
+  server: 23.236.69.39
+  port: 24187
+  uuid: 12a8ee36-5936-4449-90bd-b5eac6db4c1d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 4Sarina-f5081a8065
+rules:
+- MATCH,CF-Nest-Batch

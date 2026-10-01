@@ -1,0 +1,32 @@
+proxies:
+- name: Vless-9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  type: vless
+  server: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  port: 443
+  uuid: cc08d2d0-8a7a-4469-81d2-c43704451271
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/6871nrbnl9WsdAiOUInt?ed=2560
+    headers:
+      Host: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+- name: Vless-norway-2.moritech.net
+  type: vless
+  server: norway-2.moritech.net
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  flow: xtls-rprx-vision
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  - Vless-norway-2.moritech.net
+rules:
+- MATCH,CF-Nest-Batch

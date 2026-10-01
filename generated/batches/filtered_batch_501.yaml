@@ -1,0 +1,1101 @@
+proxies:
+- name: '[OpenRay] 🇨🇦 CA-30085'
+  type: vless
+  server: 172.64.158.146
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '[OpenRay] Dynamic-27758'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 484af701-34a8-4957-bf61-0f7bc3891e59
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[OpenRay] Dynamic-28006'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[OpenRay] 🇺🇸 US-27555'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 5dc655f7-0de5-44ca-9eed-72d5d6d8b4e0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: '[OpenRay] 🇨🇦 CA-30433'
+  type: vless
+  server: 172.64.144.180
+  port: 8880
+  uuid: 530868e7-d788-4595-b2d6-6a40c098164d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: crimson-sea-a4bb.343-1a7.workers.dev
+- name: '[OpenRay] 🇨🇦 CA-30422'
+  type: vless
+  server: 162.159.0.169
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '[OpenRay] 🇺🇸 US-27450'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 61c766f6-ae5e-45c3-af3a-931add740bd1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: '[OpenRay] Dynamic-27920'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 5fccaf5f-6cc7-46a1-8a41-03c0a4231e6c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[OpenRay] Dynamic-27759'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 484af701-34a8-4957-bf61-0f7bc3891e59
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: '[OpenRay] 🇺🇸 US-27556'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: 5516a9e9-ed63-4ef6-81b1-b0c9974fa326
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27908'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 6b8a35c6-6f8c-4551-bce7-e15d83fb8d07
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] Dynamic-27924'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 5fccaf5f-6cc7-46a1-8a41-03c0a4231e6c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[OpenRay] 🇺🇸 US-27847'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 7549b427-3f64-424a-9d12-2c1bbf29a77c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: '[OpenRay] Dynamic-30366'
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: 725c66a2-2bce-4a24-ba52-b4e2e7047076
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: rapid-base-6c9e.45-d79.workers.dev
+- name: '[OpenRay] Dynamic-27757'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 484af701-34a8-4957-bf61-0f7bc3891e59
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[OpenRay] Dynamic-28005'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[OpenRay] 🇺🇸 US-27451'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 82d7aae0-c32e-48f9-959a-41a9e49abf57
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: '[OpenRay] 🇨🇦 CA-30424'
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇺🇸 US-27919'
+  type: vless
+  server: 117.55.233.250
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇯🇵 JP-4828'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 501bd13b-f39c-4409-9deb-1208d809f4bf
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇬🇧 GB-3489'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 44958807-1481-4421-91c1-29fc00532a38
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: '[OpenRay] 🇬🇧 GB-3449'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 25708467-7c80-47ca-b134-4c79331c4d71
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4830'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 4e1df6f0-ce8c-478c-9961-e9d2ff0e56b7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27675'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: 907291b7-0146-441a-862f-b1acb22c91fa
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: '[OpenRay] Dynamic-27925'
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 5fccaf5f-6cc7-46a1-8a41-03c0a4231e6c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: '[OpenRay] 🇺🇸 US-27913'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 9554b8e2-ccbb-471d-81bd-2dc00739116d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27958'
+  type: vless
+  server: 158.94.173.107
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] Dynamic-27852'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: ad19e43c-362d-42cb-9c2b-a6955cbc6af0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[OpenRay] 🇺🇸 US-27747'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: a2fc1abd-5513-4124-b37c-ec5424f27e1a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: '[OpenRay] 🇸🇬 SG-3241'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 208250f3-2dd1-4421-87d4-5e8691fd7b15
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4809'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 7267c45b-70cc-4871-9484-f876d8a402e3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27959'
+  type: vless
+  server: 134.122.0.192
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇸🇬 SG-3305'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 424f3017-6568-40a6-96bc-74a65b0719a6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27559'
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: b04286a1-f695-474c-a3d0-15e729cbc548
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇸🇬 SG-3304'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 54cd27d8-8d86-49e0-92e7-d3b9a6f8bfe6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27673'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: a0078bf2-f728-408b-ba26-2e4cfe3354f5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: '[OpenRay] Dynamic-27848'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: ad19e43c-362d-42cb-9c2b-a6955cbc6af0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[OpenRay] 🇸🇬 SG-3257'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 6163155f-2a79-4c87-8b7f-874a89b577ec
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: '[OpenRay] Dynamic-30289'
+  type: vless
+  server: www.large-files.info
+  port: 8443
+  uuid: 7c99dc89-bf49-45c9-acc5-e43f36657518
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: www.large-files.info
+  network: ws
+  ws-opts:
+    path: /var/www/html/video/preview/download/i8o0la
+- name: '[OpenRay] 🇯🇵 JP-4827'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 9310afbd-3bc1-4b89-bdd8-2b67e4112cf1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇩🇪 DE-24575'
+  type: vless
+  server: 80.240.18.227
+  port: 10051
+  uuid: 711b6476-63fc-4f01-b4e0-d44e17d79383
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: '[OpenRay] 🇰🇿 KZ-592'
+  type: vless
+  server: 89.218.15.90
+  port: 10002
+  uuid: 392fcc7e-b995-11f1-a6b7-1b2272a86bd5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kz1.vpnjantit.com
+  network: ws
+  ws-opts:
+    path: /vpnjantit
+    headers:
+      Host: kz1.vpnjantit.com
+- name: '[OpenRay] Dynamic-30439'
+  type: vless
+  server: fr.api-music-fa.com
+  port: 2053
+  uuid: 9d672694-c146-422e-b3b5-3717a38a0fcc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fr.api-music-fa.com
+  network: ws
+  ws-opts:
+    path: /api/voip/updates/static/fr2035
+    headers:
+      Host: fr.api-music-fa.com
+- name: '[OpenRay] 🇯🇵 JP-4788'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 9a5d54ea-7c85-4cef-bcda-3dd1c4e715e4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: '[OpenRay] 🇺🇸 US-27558'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: b051f987-76be-46be-b4a8-75a12860b5af
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4798'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 9951d4b4-0167-4872-b7a2-0e032af8f4b5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: '[OpenRay] Dynamic-27853'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: ad19e43c-362d-42cb-9c2b-a6955cbc6af0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: '[OpenRay] 🇺🇸 US-28008'
+  type: vless
+  server: 45.59.131.33
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇸🇬 SG-3326'
+  type: vless
+  server: 139.162.51.49
+  port: 2096
+  uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: free-server.techsonic.dev
+  network: ws
+  ws-opts:
+    path: /free-server.techsonic.dev
+    headers:
+      Host: free-server.techsonic.dev
+- name: '[OpenRay] 🇬🇧 GB-3532'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: 8a156284-4343-4feb-ae44-8e6a82359ef6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4833'
+  type: vless
+  server: 212.135.211.79
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇫🇷 FR-5058'
+  type: vless
+  server: 217.60.63.5
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇺🇸 US-27960'
+  type: vless
+  server: 45.38.228.94
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇬🇧 GB-3529'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 9839893f-46e4-4d2b-811a-179ff9437220
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇩🇪 DE-24754'
+  type: vless
+  server: 109.122.198.83
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇪🇸 ES-518'
+  type: vless
+  server: 141.253.194.63
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇩🇪 DE-24740'
+  type: vless
+  server: 94.130.178.194
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇩🇪 DE-24783'
+  type: vless
+  server: 5.45.111.195
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇫🇮 FI-5711'
+  type: vless
+  server: 103.71.22.234
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇩🇪 DE-24747'
+  type: vless
+  server: 5.45.111.195
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] Dynamic-27926'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: d78a47b6-dbd2-4ed1-8749-17a22dbe8c3e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[OpenRay] 🇭🇰 HK-3301'
+  type: vless
+  server: 141.11.90.160
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇸🇬 SG-3312'
+  type: vless
+  server: 132.243.238.192
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇭🇰 HK-3296'
+  type: vless
+  server: 141.11.90.160
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] Dynamic-27927'
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: d78a47b6-dbd2-4ed1-8749-17a22dbe8c3e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: '[OpenRay] 🇳🇴 NO-113'
+  type: vless
+  server: 91.190.155.173
+  port: 2083
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] Dynamic-27921'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: d78a47b6-dbd2-4ed1-8749-17a22dbe8c3e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[OpenRay] Dynamic-30444'
+  type: vless
+  server: site.check-looks.space
+  port: 2083
+  uuid: ca608afb-55ff-4f36-9d00-606fedbb30e1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: Site.check-looks.space
+  network: ws
+  ws-opts:
+    path: /
+- name: '[OpenRay] 🇬🇧 GB-3448'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: c6b947a2-d603-4d5c-ab9e-c942b034ea2a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: '[OpenRay] 🇭🇰 HK-3297'
+  type: vless
+  server: 2.27.109.236
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇬🇧 GB-3531'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: c81ffc9a-8fae-4a98-a0f9-6bfa31b81c93
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇬🇧 GB-3469'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: cc30c4b8-c043-437b-ab83-a0530ce1b718
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: '[OpenRay] 🇸🇬 SG-3242'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: c7440b4c-99be-408a-a26d-a947eef94f7f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇳🇴 NO-111'
+  type: vless
+  server: 31.76.5.144
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: norw-1.failspace.top
+  flow: xtls-rprx-vision
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[OpenRay] 🇨🇦 CA-30085'
+  - '[OpenRay] Dynamic-27758'
+  - '[OpenRay] Dynamic-28006'
+  - '[OpenRay] 🇺🇸 US-27555'
+  - '[OpenRay] 🇨🇦 CA-30433'
+  - '[OpenRay] 🇨🇦 CA-30422'
+  - '[OpenRay] 🇺🇸 US-27450'
+  - '[OpenRay] Dynamic-27920'
+  - '[OpenRay] Dynamic-27759'
+  - '[OpenRay] 🇺🇸 US-27556'
+  - '[OpenRay] 🇺🇸 US-27908'
+  - '[OpenRay] Dynamic-27924'
+  - '[OpenRay] 🇺🇸 US-27847'
+  - '[OpenRay] Dynamic-30366'
+  - '[OpenRay] Dynamic-27757'
+  - '[OpenRay] Dynamic-28005'
+  - '[OpenRay] 🇺🇸 US-27451'
+  - '[OpenRay] 🇨🇦 CA-30424'
+  - '[OpenRay] 🇺🇸 US-27919'
+  - '[OpenRay] 🇯🇵 JP-4828'
+  - '[OpenRay] 🇬🇧 GB-3489'
+  - '[OpenRay] 🇬🇧 GB-3449'
+  - '[OpenRay] 🇯🇵 JP-4830'
+  - '[OpenRay] 🇺🇸 US-27675'
+  - '[OpenRay] Dynamic-27925'
+  - '[OpenRay] 🇺🇸 US-27913'
+  - '[OpenRay] 🇺🇸 US-27958'
+  - '[OpenRay] Dynamic-27852'
+  - '[OpenRay] 🇺🇸 US-27747'
+  - '[OpenRay] 🇸🇬 SG-3241'
+  - '[OpenRay] 🇯🇵 JP-4809'
+  - '[OpenRay] 🇺🇸 US-27959'
+  - '[OpenRay] 🇸🇬 SG-3305'
+  - '[OpenRay] 🇺🇸 US-27559'
+  - '[OpenRay] 🇸🇬 SG-3304'
+  - '[OpenRay] 🇺🇸 US-27673'
+  - '[OpenRay] Dynamic-27848'
+  - '[OpenRay] 🇸🇬 SG-3257'
+  - '[OpenRay] Dynamic-30289'
+  - '[OpenRay] 🇯🇵 JP-4827'
+  - '[OpenRay] 🇩🇪 DE-24575'
+  - '[OpenRay] 🇰🇿 KZ-592'
+  - '[OpenRay] Dynamic-30439'
+  - '[OpenRay] 🇯🇵 JP-4788'
+  - '[OpenRay] 🇺🇸 US-27558'
+  - '[OpenRay] 🇯🇵 JP-4798'
+  - '[OpenRay] Dynamic-27853'
+  - '[OpenRay] 🇺🇸 US-28008'
+  - '[OpenRay] 🇸🇬 SG-3326'
+  - '[OpenRay] 🇬🇧 GB-3532'
+  - '[OpenRay] 🇯🇵 JP-4833'
+  - '[OpenRay] 🇫🇷 FR-5058'
+  - '[OpenRay] 🇺🇸 US-27960'
+  - '[OpenRay] 🇬🇧 GB-3529'
+  - '[OpenRay] 🇩🇪 DE-24754'
+  - '[OpenRay] 🇪🇸 ES-518'
+  - '[OpenRay] 🇩🇪 DE-24740'
+  - '[OpenRay] 🇩🇪 DE-24783'
+  - '[OpenRay] 🇫🇮 FI-5711'
+  - '[OpenRay] 🇩🇪 DE-24747'
+  - '[OpenRay] Dynamic-27926'
+  - '[OpenRay] 🇭🇰 HK-3301'
+  - '[OpenRay] 🇸🇬 SG-3312'
+  - '[OpenRay] 🇭🇰 HK-3296'
+  - '[OpenRay] Dynamic-27927'
+  - '[OpenRay] 🇳🇴 NO-113'
+  - '[OpenRay] Dynamic-27921'
+  - '[OpenRay] Dynamic-30444'
+  - '[OpenRay] 🇬🇧 GB-3448'
+  - '[OpenRay] 🇭🇰 HK-3297'
+  - '[OpenRay] 🇬🇧 GB-3531'
+  - '[OpenRay] 🇬🇧 GB-3469'
+  - '[OpenRay] 🇸🇬 SG-3242'
+  - '[OpenRay] 🇳🇴 NO-111'
+rules:
+- MATCH,CF-Nest-Batch

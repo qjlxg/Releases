@@ -1,0 +1,21 @@
+proxies:
+- name: vless-172.64.153.235
+  type: vless
+  server: 172.64.153.235
+  port: 8443
+  uuid: 656bb400-3b7a-47e3-94b0-0362f3865072
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: socks5.revil-time3.workers.dev
+  network: ws
+  ws-opts:
+    headers:
+      Host: socks5.revil-time3.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-172.64.153.235
+rules:
+- MATCH,CF-Nest-Batch

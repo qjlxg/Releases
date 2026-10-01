@@ -1,0 +1,345 @@
+proxies:
+- name: '[🇨🇦]t.me/ConfigsHub #1'
+  type: vless
+  server: 104.21.91.244
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: xray2-front-mci1-fs-ce-ws-70c921
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 7797f4a9-cf0b-4e07-a496-235897575512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: xray2-front-mci1-fs-ce-ws-923d07
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 7797f4a9-cf0b-4e07-a496-235897575512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: xray1-front-mci1-fs-ce-ws-50cc9d
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 7797f4a9-cf0b-4e07-a496-235897575512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 'EE #1'
+  type: vless
+  server: 141.0.187.53
+  port: 2083
+  uuid: 8dd437e1-5f3f-446e-98fe-aa29b80057fb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: crt.dodopanel.biz
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: 'EE #2'
+  type: vless
+  server: 141.0.187.16
+  port: 2083
+  uuid: fba73f98-777a-42a6-83c0-7d1f6f070e8d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: crt.dodopanel.biz
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: xray1-front-mci1-fs-ce-ws-0d6f2b
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 7797f4a9-cf0b-4e07-a496-235897575512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: '4135'
+  type: vless
+  server: 5.223.41.51
+  port: 80
+  uuid: 80c38933-9747-443d-9d87-15c80f8663ea
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+- name: 🇬🇧 United Kingdom, London | [BL]
+  type: vless
+  server: 45.88.12.119
+  port: 2083
+  uuid: 8dd437e1-5f3f-446e-98fe-aa29b80057fb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: crt.dodopanel.biz
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: xray2-front-mci1-fs-ce-ws-a3ee50
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 7797f4a9-cf0b-4e07-a496-235897575512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: EE
+  type: vless
+  server: ee10.zazazuza.ru
+  port: 8443
+  uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fdghyt.com
+  network: ws
+  ws-opts:
+    path: /vpn-wss/fluxor/59011/
+    headers:
+      Host: fdghyt.com
+- name: '0141'
+  type: vless
+  server: 95.216.160.107
+  port: 80
+  uuid: 06fdffc2-1a49-402d-a725-56334c6975a8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+- name: ⚠️ 🇸🇬 Сингапур [#РКП]
+  type: vless
+  server: speed.dulacloud.store
+  port: 443
+  uuid: aac0853d-f93d-402b-b1d3-159b7f603260
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: zoom.com
+  network: ws
+  ws-opts:
+    path: /dula
+    headers:
+      Host: speed.dulacloud.store
+- name: '⚠️ 🇸🇬 Сингапур [#РКП] #1'
+  type: vless
+  server: speed.dulacloud.store
+  port: 443
+  uuid: 592a0240-9346-4bd9-b787-7a2f12186502
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: m.youtube.com
+  network: ws
+  ws-opts:
+    path: /dula
+    headers:
+      Host: speed.dulacloud.store
+- name: 🇫🇷 Франция [#РКП]
+  type: vless
+  server: borsch.spravedlivost.fun
+  port: 443
+  uuid: c40ec629-cd50-4569-8ea7-ea7c498423fd
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: borsch.spravedlivost.fun
+  network: ws
+  ws-opts:
+    path: /api/metric/ws
+- name: vless-281610215
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 1cae67cd-9f09-4c59-94e6-998ed0346c44
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: lingering-lab-91a6.54-8c3.workers.dev
+- name: vless-1598881028
+  type: vless
+  server: 5.223.41.47
+  port: 80
+  uuid: e81daee0-e509-4983-a14a-763d3951c94d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+- name: vless-1592516075
+  type: vless
+  server: 5.223.41.121
+  port: 80
+  uuid: 0f7996b1-3ef7-4274-b612-0310270d2a41
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+- name: vless-1598879136
+  type: vless
+  server: 5.223.41.188
+  port: 80
+  uuid: 8afe27ac-aac9-4ff3-933f-7a12682adb70
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+- name: vless-1592516065
+  type: vless
+  server: 5.223.41.5
+  port: 80
+  uuid: 180252b0-8c59-475c-a3b8-6c33c2ed2359
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+- name: 'EE #9'
+  type: vless
+  server: 141.0.187.52
+  port: 2083
+  uuid: 8dd437e1-5f3f-446e-98fe-aa29b80057fb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: crt.dodopanel.biz
+  network: ws
+  ws-opts:
+    path: /vless-ws
+- name: CA 🇨🇦 | @Raydikalx | 70101F
+  type: vless
+  server: 104.17.21.137
+  port: 8880
+  uuid: 9e648bb6-25f7-4b16-9949-55ac0952d66b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: lingering-grass-6728.131-a78.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: lingering-grass-6728.131-a78.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | B84D39
+  type: vless
+  server: 104.21.70.21
+  port: 8080
+  uuid: 68662961-6c5f-48c1-b807-6398f3287dbc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: polished-meadow-2ac5.228-76d.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: polished-meadow-2ac5.228-76d.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | 55A6D3
+  type: vless
+  server: 104.16.107.139
+  port: 8880
+  uuid: ae83f4a6-7fd3-4168-9f42-1260fc601155
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: shy-mud-e936.15-bb9.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shy-mud-e936.15-bb9.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | 4AC04E
+  type: vless
+  server: 162.159.140.78
+  port: 8880
+  uuid: c18fd69e-92ba-446e-981b-213dbb551593
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: billowing-wind-5b29.133-323.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: billowing-wind-5b29.133-323.workers.dev
+- name: 'EE #10'
+  type: vless
+  server: 194.26.141.148
+  port: 8443
+  uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: fdghyt.com
+  network: ws
+  ws-opts:
+    path: /vpn-wss/fluxor/59011/
+    headers:
+      Host: fdghyt.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[🇨🇦]t.me/ConfigsHub #1'
+  - xray2-front-mci1-fs-ce-ws-70c921
+  - xray2-front-mci1-fs-ce-ws-923d07
+  - xray1-front-mci1-fs-ce-ws-50cc9d
+  - 'EE #1'
+  - 'EE #2'
+  - xray1-front-mci1-fs-ce-ws-0d6f2b
+  - '4135'
+  - 🇬🇧 United Kingdom, London | [BL]
+  - xray2-front-mci1-fs-ce-ws-a3ee50
+  - EE
+  - '0141'
+  - ⚠️ 🇸🇬 Сингапур [#РКП]
+  - '⚠️ 🇸🇬 Сингапур [#РКП] #1'
+  - 🇫🇷 Франция [#РКП]
+  - vless-281610215
+  - vless-1598881028
+  - vless-1592516075
+  - vless-1598879136
+  - vless-1592516065
+  - 'EE #9'
+  - CA 🇨🇦 | @Raydikalx | 70101F
+  - CA 🇨🇦 | @Raydikalx | B84D39
+  - CA 🇨🇦 | @Raydikalx | 55A6D3
+  - CA 🇨🇦 | @Raydikalx | 4AC04E
+  - 'EE #10'
+rules:
+- MATCH,CF-Nest-Batch

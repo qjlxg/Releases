@@ -1,0 +1,46 @@
+proxies:
+- name: '[13673][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.17.147.22
+  port: 443
+  uuid: 518de0d4-6ce8-4404-80db-23c4a8806128
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ez-5FAAFb.EsmAoi.wORKeRs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQkFLTnhqM2tZTSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: ez-5faafb.esmaoi.workers.dev
+- name: '[]t.me/ConfigsHub #5'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: d51b3246-21fe-47fb-b600-a7b7b9b6182d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+- name: '[]t.me/ConfigsHub #6'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: d51b3246-21fe-47fb-b600-a7b7b9b6182d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[13673][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[]t.me/ConfigsHub #5'
+  - '[]t.me/ConfigsHub #6'
+rules:
+- MATCH,CF-Nest-Batch

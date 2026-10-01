@@ -1,0 +1,201 @@
+proxies:
+- name: vless-1268263936
+  type: vless
+  server: 172.64.229.170
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1118598399
+  type: vless
+  server: 162.159.43.187
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1400214021
+  type: vless
+  server: 172.64.42.85
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1015475509
+  type: vless
+  server: 172.64.158.146
+  port: 8880
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1415934707
+  type: vless
+  server: 172.64.158.146
+  port: 80
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-974268362
+  type: vless
+  server: 172.64.229.2
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '[OpenRay] 🇨🇦 CA-27692'
+  type: vless
+  server: 104.18.34.245
+  port: 8880
+  uuid: 78b73cc4-8c3c-40ce-bb74-d5dcd3277c67
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/pyip=ProxyIP.JP.CMLiussss.net '
+    headers:
+      Host: white-hill-f907.23-b68.workers.dev
+- name: vless-1411400305
+  type: vless
+  server: 172.64.53.55
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1411315948
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 06183f61-967a-47a0-b09e-2a877d4f0c54
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+- name: 'vless-1411315960 #1'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 06183f61-967a-47a0-b09e-2a877d4f0c54
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+- name: '3394'
+  type: vless
+  server: 185.148.106.50
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: vms.lifetime54.workers.dev
+- name: '3946'
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: 767c5a66-bd28-440a-90c8-7ae1101a0172
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: still-voice-1adc.135-275.workers.dev
+- name: '2157'
+  type: vless
+  server: anydesk.com
+  port: 8880
+  uuid: b85c8be2-3109-4b8a-aa82-f0d8fe06f5ae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: young-dust-b8d9.31-8ba.workers.dev
+- name: '1048'
+  type: vless
+  server: 104.17.147.22
+  port: 443
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: d2127a49-flat-wood-c4b5.milia-akbarpoor.workers.dev
+- name: '4721'
+  type: vless
+  server: 8.219.155.125
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-1268263936
+  - vless-1118598399
+  - vless-1400214021
+  - vless-1015475509
+  - vless-1415934707
+  - vless-974268362
+  - '[OpenRay] 🇨🇦 CA-27692'
+  - vless-1411400305
+  - vless-1411315948
+  - 'vless-1411315960 #1'
+  - '3394'
+  - '3946'
+  - '2157'
+  - '1048'
+  - '4721'
+rules:
+- MATCH,CF-Nest-Batch

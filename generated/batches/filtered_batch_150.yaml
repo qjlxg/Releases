@@ -1,0 +1,37 @@
+proxies:
+- name: Vless-adheres-scruple.quick-cdn.net
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: a97b4f58-0d47-416f-9ecd-dfdf20f31bf7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 'Vless-www.speedtest.net #42'
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: b19419fa-8009-455b-b059-765e2856883a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: AkbaRiAN34.J9z65CE2UYKs.wORKERS.DEV
+  network: ws
+  ws-opts:
+    path: /vl/3Qe9Fv1V2cqEtXyBQApZYi
+    headers:
+      Host: AkbaRiAN34.J9z65CE2UYKs.wORKERS.DEV
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-adheres-scruple.quick-cdn.net
+  - 'Vless-www.speedtest.net #42'
+rules:
+- MATCH,CF-Nest-Batch

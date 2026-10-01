@@ -1,0 +1,70 @@
+proxies:
+- name: Free x315 @Outline_Vpn
+  type: vmess
+  server: 129.146.77.248
+  port: 39495
+  uuid: f836c736-87fc-4fde-aabc-00857ecdff3e
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+    headers:
+      Host: 129.146.77.248
+- name: 💰💥🇨🇦 CA 134.195.198.147 ◈ ws:443 ◈ GLOBALTELEHOST Corp. ◈ 82d28
+  type: vmess
+  server: 134.195.198.147
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: vk.com
+- name: 💥🇨🇦 CA 134.195.198.147 ◈ ws:443 ◈ GLOBALTELEHOST Corp. ◈ cd9da
+  type: vmess
+  server: 134.195.198.147
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: inna.cfd
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: inna.cfd
+- name: 💰💥🇨🇦 CA 23.162.200.227 ◈ ws:443 ◈ GLOBALTELEHOST Corp. / Palmira Hosting ◈
+    92319
+  type: vmess
+  server: 23.162.200.227
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: nelly.homes
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Free x315 @Outline_Vpn
+  - 💰💥🇨🇦 CA 134.195.198.147 ◈ ws:443 ◈ GLOBALTELEHOST Corp. ◈ 82d28
+  - 💥🇨🇦 CA 134.195.198.147 ◈ ws:443 ◈ GLOBALTELEHOST Corp. ◈ cd9da
+  - 💰💥🇨🇦 CA 23.162.200.227 ◈ ws:443 ◈ GLOBALTELEHOST Corp. / Palmira Hosting ◈ 92319
+rules:
+- MATCH,CF-Nest-Batch

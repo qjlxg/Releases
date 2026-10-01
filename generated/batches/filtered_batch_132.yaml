@@ -1,0 +1,235 @@
+proxies:
+- name: 🇫🇷FR_2044|591KB/s|A004-260618
+  type: vless
+  server: 172.66.132.196
+  port: 8880
+  uuid: 2efeba50-78fe-4729-9821-1fb9819ed9e8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dark-dew-c3ed.48-97c.workers.dev
+- name: 🇫🇷FR_2081|582KB/s|T001-260618
+  type: vless
+  server: 104.21.39.30
+  port: 443
+  uuid: 7201b2cd-0675-4c1a-9c76-07ca14ffcf08
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 6crihfknlqjdu3yuzco9phspq86dbp6q.christanmoccasin.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicHV2Z0VMNllZQmtoZEMiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
+    headers:
+      Host: 6crihfknlqjdu3yuzco9phspq86dbp6q.christanmoccasin.workers.dev
+- name: 🇫🇷FR_2158|504KB/s|A004-260618
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: 30a88c40-581e-4952-aa4c-8af95686ede0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: rapid-lab-95ef.173-74c.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rapid-lab-95ef.173-74c.workers.dev
+- name: 🇫🇷FR_2065|708KB/s|A004-260618
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 6b89f475-913c-4381-a102-f5e06a129685
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: log.bpminecraft.com
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: proud-dawn-56f1.125-85b.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | D9E204
+  type: vless
+  server: patient-moon-c61f.ggfsa55.workers.dev
+  port: 443
+  uuid: 737678dc-cc15-4643-85a4-ca9359df1aa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: patient-moon-c61f.ggfsa55.workers.dev
+  network: ws
+- name: 🇯🇵JP_45|223KB/s|A004-260618
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 2b1d61e5-6835-488a-a5fe-b91874a8c1a1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 🇯🇵JP_40|292KB/s|M003-260806
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 59b6ac03-2f22-490e-9f97-a6b942b49f60
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 🇳🇴NO_11|92KB/s|R002-260618
+  type: vless
+  server: 31.76.5.124
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: norway-2.failspace.top
+  flow: xtls-rprx-vision
+- name: 🇬🇧GB_54|417KB/s|V002-260618
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 47ba5dc6-8961-48a0-8b54-f57ec524627a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 🇯🇵JP_46|270KB/s|A004-260618
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: d6c21f6f-2e7e-479d-a4d9-4069995867ed
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 🇬🇧GB_52|797KB/s|M003-260806
+  type: vless
+  server: 57.129.130.200
+  port: 52014
+  uuid: 93c53b59-1523-4621-9528-77b016a28304
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇬🇧GB_53|926KB/s|V005-260618
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: bd01efed-f999-41a5-bbb1-3d2357647f11
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇩🇪DE_132|78KB/s|M003-260806
+  type: vless
+  server: 37.120.222.70
+  port: 8082
+  uuid: 59c3c1c7-62d0-4707-9d67-5ff9c008591c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇩🇪DE_130|273KB/s
+  type: vless
+  server: 79.137.199.52
+  port: 21
+  uuid: f346f223-ebf6-4da3-955e-425de7e9c372
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 🇮🇹IT_36|708KB/s|C002-260622
+  type: vless
+  server: 95.181.162.170
+  port: 444
+  uuid: f9d2937a-94e4-444a-95df-103faf1dd3fd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: 🇮🇹IT_39|221KB/s|M003-260806
+  type: vless
+  server: 95.181.162.170
+  port: 444
+  uuid: 751b51bc-af59-4b04-93c0-3fed4965297e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_2044|591KB/s|A004-260618
+  - 🇫🇷FR_2081|582KB/s|T001-260618
+  - 🇫🇷FR_2158|504KB/s|A004-260618
+  - 🇫🇷FR_2065|708KB/s|A004-260618
+  - CA 🇨🇦 | @Raydikalx | D9E204
+  - 🇯🇵JP_45|223KB/s|A004-260618
+  - 🇯🇵JP_40|292KB/s|M003-260806
+  - 🇳🇴NO_11|92KB/s|R002-260618
+  - 🇬🇧GB_54|417KB/s|V002-260618
+  - 🇯🇵JP_46|270KB/s|A004-260618
+  - 🇬🇧GB_52|797KB/s|M003-260806
+  - 🇬🇧GB_53|926KB/s|V005-260618
+  - 🇩🇪DE_132|78KB/s|M003-260806
+  - 🇩🇪DE_130|273KB/s
+  - 🇮🇹IT_36|708KB/s|C002-260622
+  - 🇮🇹IT_39|221KB/s|M003-260806
+rules:
+- MATCH,CF-Nest-Batch

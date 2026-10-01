@@ -1,0 +1,32 @@
+proxies:
+- name: 4FreeIran-bde8f3fe3a
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 63a1d550-f8da-456e-813c-398dd819e405
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/pyip=ProxyIP.JP.CMLiussss.net '
+    headers:
+      Host: noisy-cherry-b46b.206-866.workers.dev
+- name: 4Jadi-f3efd29154
+  type: vless
+  server: 172.67.69.129
+  port: 8880
+  uuid: d33cc776-9c57-4ea3-8c5a-6d85043029d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: shiny-flower-c72d.105-161.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 4FreeIran-bde8f3fe3a
+  - 4Jadi-f3efd29154
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,47 +1,97 @@
 proxies:
-- name: Free x312 @Outline_Vpn
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-  client-fingerprint: chrome
-  skip-cert-verify: true
-- name: 🇹🇼TW_45|438KB/s|R002-260618
-  type: tuic
-  server: tw3.dexlos.com
-  port: 8080
-  uuid: 8A9905B7-801B-41AF-BFC9-2034212770F6
-  password: 8A9905B7-801B-41AF-BFC9-2034212770F6
-  skip-cert-verify: true
-- name: Telegram:@v2rayng3
-  type: vless
-  server: 137.220.221.179
+- name: '[OpenRay] 🇺🇸 US-28024'
+  type: trojan
+  server: 167.82.76.7
   port: 443
-  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
-  client-fingerprint: chrome
+  password: mitivpn
   skip-cert-verify: true
-- name: TW-TUIC-01
-  type: tuic
-  server: tw6.dexlos.com
-  port: 8080
-  uuid: 8A9905B7-801B-41AF-BFC9-2034212770F6
-  password: 8A9905B7-801B-41AF-BFC9-2034212770F6
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: '[OpenRay] 🇺🇸 US-27995'
+  type: trojan
+  server: 167.82.76.7
+  port: 443
+  password: mitivpn
   skip-cert-verify: true
-- name: 'TW-TUIC-01 #2'
-  type: tuic
-  server: tw6.dexlos.com
-  port: 8080
-  uuid: 7FE4CBB4-D40B-4896-AE9B-3EF09D5B18E6
-  password: 7FE4CBB4-D40B-4896-AE9B-3EF09D5B18E6
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@VPNine1'
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: '[OpenRay] 🇺🇸 US-27993'
+  type: trojan
+  server: 199.232.78.160
+  port: 443
+  password: mitivpn
   skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@VPNine1'
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: '[OpenRay] 🇺🇸 US-27992'
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@VPNine1'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: '[OpenRay] 🇨🇦 CA-30106'
+  type: trojan
+  server: 188.114.97.6
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: 'US #28'
+  type: trojan
+  server: 199.232.78.188
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /?Telegram---V2ray_confiig
+    headers:
+      Host: mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net
+- name: 'US #24'
+  type: trojan
+  server: 199.232.78.170
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - Free x312 @Outline_Vpn
-  - 🇹🇼TW_45|438KB/s|R002-260618
-  - Telegram:@v2rayng3
-  - TW-TUIC-01
-  - 'TW-TUIC-01 #2'
+  - '[OpenRay] 🇺🇸 US-28024'
+  - '[OpenRay] 🇺🇸 US-27995'
+  - '[OpenRay] 🇺🇸 US-27993'
+  - '[OpenRay] 🇺🇸 US-27992'
+  - '[OpenRay] 🇨🇦 CA-30106'
+  - 'US #28'
+  - 'US #24'
 rules:
 - MATCH,CF-Nest-Batch

@@ -1,0 +1,65 @@
+proxies:
+- name: CF中转_0920104849
+  type: vless
+  server: 104.17.148.111
+  port: 2053
+  uuid: 2b181a3a-c001-4145-845a-5d43a43837d5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vpn-1fj.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vpn-1fj.pages.dev
+- name: CF中转_0920102513
+  type: vless
+  server: 104.18.208.202
+  port: 8880
+  uuid: 7a2df38b-2d8b-486b-9b43-641c81e11f40
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: shiny-mud-d9fa.466.workers.dev
+- name: CF中转_0920104888
+  type: vless
+  server: 104.17.112.90
+  port: 2053
+  uuid: 2b181a3a-c001-4145-845a-5d43a43837d5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vpn-1fj.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vpn-1fj.pages.dev
+- name: 乌克兰_092010016
+  type: vless
+  server: 46.202.30.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CF中转_0920104849
+  - CF中转_0920102513
+  - CF中转_0920104888
+  - 乌克兰_092010016
+rules:
+- MATCH,CF-Nest-Batch

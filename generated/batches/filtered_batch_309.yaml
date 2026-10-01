@@ -1,0 +1,20 @@
+proxies:
+- name: vless-172.64.88.168
+  type: vless
+  server: 172.64.88.168
+  port: 8880
+  uuid: 6e5270b6-9f28-4bc6-8a41-9c197f33f4bb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: autumn-dawn-fa6b.337-272.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-172.64.88.168
+rules:
+- MATCH,CF-Nest-Batch

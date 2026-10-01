@@ -1,0 +1,61 @@
+proxies:
+- name: '[23352][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 8d36dcef-c008-47f1-b8a0-4f63193697f8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=Telegram🇨🇳+@WangCai2
+    headers:
+      Host: tiny-union-8d4d.32-c76.workers.dev
+- name: '[30569][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  port: 443
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  network: ws
+  ws-opts:
+    path: /pRXE5ot0RZaQSr7B?ed=2560
+    headers:
+      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+- name: '[18528][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.16.8.66
+  port: 8880
+  uuid: 725c66a2-2bce-4a24-ba52-b4e2e7047076
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: rapid-base-6c9e.45-d79.workers.dev
+  network: ws
+  ws-opts:
+    headers:
+      Host: rapid-base-6c9e.45-d79.workers.dev
+- name: '[44138][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.16.107.139
+  port: 8880
+  uuid: f989cbf4-40d2-41d2-8a00-1fe4e29b2192
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: ancient-rice-c180.455-8ad.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[23352][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[30569][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[18528][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[44138][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+rules:
+- MATCH,CF-Nest-Batch

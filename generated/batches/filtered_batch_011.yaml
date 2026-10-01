@@ -1,0 +1,79 @@
+proxies:
+- name: 𔒰‎ ＳＥＧＡＲＯ
+  type: hysteria2
+  server: 217.60.33.215
+  port: 443
+  password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
+  skip-cert-verify: true
+  sni: streambox.wwwinternetvideo.click
+- name: hysteria2-1378760571
+  type: hysteria2
+  server: uk2.xiaoliyu.us
+  port: 2056
+  password: b8949dae-cb53-4b5a-ad9c-50f58c4656fb
+  skip-cert-verify: true
+  sni: uk2.xiaoliyu.us
+- name: '🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL] #1'
+  type: hysteria2
+  server: 95.85.252.67
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]
+  type: hysteria2
+  server: 95.85.252.66
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇱🇻 Latvia, Riga | 🌐 | [BL]
+  type: hysteria2
+  server: 104.165.205.142
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🌐 Anycast-IP | 🇱🇻 🇸🇪 | [BL]
+  type: hysteria2
+  server: 104.165.205.81
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: '🇱🇻 Latvia, Riga | 🌐 | [BL] #1'
+  type: hysteria2
+  server: 104.165.205.191
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: '🇱🇻 Latvia, Riga | 🌐 | [BL] #2'
+  type: hysteria2
+  server: 104.165.205.23
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇭🇰 Hong Kong · HKT Limited | 0d6ed79d-tlsio0-u4ai7k-z7a1.nw4.hyhuawei.com
+  type: hysteria2
+  server: 0d6ed79d-tlsio0-u4ai7k-z7a1.nw4.hyhuawei.com
+  port: 443
+  password: 3bd247a8-993e-11ec-a8bf-f23c91cfbbc9
+  skip-cert-verify: true
+  sni: 0d6ed79d-tlsio0-u4ai7k-z7a1.nw4.hyhuawei.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 𔒰‎ ＳＥＧＡＲＯ
+  - hysteria2-1378760571
+  - '🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL] #1'
+  - 🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]
+  - 🇱🇻 Latvia, Riga | 🌐 | [BL]
+  - 🌐 Anycast-IP | 🇱🇻 🇸🇪 | [BL]
+  - '🇱🇻 Latvia, Riga | 🌐 | [BL] #1'
+  - '🇱🇻 Latvia, Riga | 🌐 | [BL] #2'
+  - 🇭🇰 Hong Kong · HKT Limited | 0d6ed79d-tlsio0-u4ai7k-z7a1.nw4.hyhuawei.com
+rules:
+- MATCH,CF-Nest-Batch

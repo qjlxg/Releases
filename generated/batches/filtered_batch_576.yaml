@@ -1,0 +1,19 @@
+proxies:
+- name: 🇯🇵JP_29|273KB/s|C002-260622
+  type: vmess
+  server: 168.138.43.75
+  port: 80
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇯🇵JP_29|273KB/s|C002-260622
+rules:
+- MATCH,CF-Nest-Batch

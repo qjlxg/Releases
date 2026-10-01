@@ -1,0 +1,37 @@
+proxies:
+- name: vless-43.154.131.189
+  type: vless
+  server: 43.154.131.189
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+- name: vless-43.168.16.112
+  type: vless
+  server: 43.168.16.112
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-43.154.131.189
+  - vless-43.168.16.112
+rules:
+- MATCH,CF-Nest-Batch

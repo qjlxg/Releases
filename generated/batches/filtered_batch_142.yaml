@@ -1,0 +1,213 @@
+proxies:
+- name: 美国_091910669
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: a97b4f58-0d47-416f-9ecd-dfdf20f31bf7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 美国_091910771
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: a97b4f58-0d47-416f-9ecd-dfdf20f31bf7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 英国_091910144
+  type: vless
+  server: 91.193.58.125
+  port: 2053
+  uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vlso5.1d.mom
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vlso5.1d.mom
+- name: 美国_091910858
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 81a12262-81a7-45dc-8157-a6abc0c0cda3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 美国_091910780
+  type: vless
+  server: 151.101.73.242
+  port: 443
+  uuid: a375fa6a-bef7-4f71-92f0-17976e5afaac
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_091910735
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: eb199167-16d6-45d0-aadb-314cab5a4e72
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+- name: 美国_091910886
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 409f4682-a458-4671-8805-40dfc6978336
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 英国_091910044
+  type: vless
+  server: 31.76.5.3
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: viper-26.moriarty-web.com
+  flow: xtls-rprx-vision
+- name: 英国_091910412
+  type: vless
+  server: 31.76.5.2
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: viper-25.moriarty-web.com
+  flow: xtls-rprx-vision
+- name: 英国_091910060
+  type: vless
+  server: 199.232.173.242
+  port: 443
+  uuid: 0d03e44f-f60f-41b6-8ad7-13445af164fd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 英国_091910075
+  type: vless
+  server: 199.232.173.242
+  port: 443
+  uuid: b0cf4078-96b8-4e11-80a8-0f9352565a16
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 韩国_091910015
+  type: vless
+  server: 175.195.149.58
+  port: 10280
+  uuid: 8638521a-7d64-4ad0-9112-83aa1fc19867
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 英国_091910059
+  type: vless
+  server: viper-24.moriarty-web.com
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: viper-24.moriarty-web.com
+  flow: xtls-rprx-vision
+- name: 英国_091910304
+  type: vless
+  server: 199.232.173.242
+  port: 443
+  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 英国_091910045
+  type: vless
+  server: viper-23.moriarty-web.com
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: viper-23.moriarty-web.com
+  flow: xtls-rprx-vision
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 美国_091910669
+  - 美国_091910771
+  - 英国_091910144
+  - 美国_091910858
+  - 美国_091910780
+  - 美国_091910735
+  - 美国_091910886
+  - 英国_091910044
+  - 英国_091910412
+  - 英国_091910060
+  - 英国_091910075
+  - 韩国_091910015
+  - 英国_091910059
+  - 英国_091910304
+  - 英国_091910045
+rules:
+- MATCH,CF-Nest-Batch

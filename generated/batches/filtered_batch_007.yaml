@@ -1,22 +1,32 @@
 proxies:
-- name: '2758 | 🇺🇸 USA | VMESS | 📺 YT | TG: @YoutubeUnBlockRu'
-  type: vmess
-  server: 47.85.188.30
-  port: 12004
-  uuid: 8b5552bd-4cc7-4cac-af08-81c21686fd4f
-  alterId: 0
-  cipher: auto
+- name: '@tootffarangi🍓-12'
+  type: vless
+  server: 104.21.91.244
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
   skip-cert-verify: true
-  network: tcp
-- name: '1040 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
-  type: vmess
-  server: 67.220.95.3
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '0278 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 169.40.42.231
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   skip-cert-verify: true
-  network: tcp
+  tls: true
+  servername: yahoo.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  network: raw
 - name: '0776 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
   type: vmess
   server: 84.17.41.2
@@ -25,25 +35,127 @@ proxies:
   alterId: 0
   cipher: auto
   skip-cert-verify: true
-  network: tcp
-- name: '0417 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+- name: '0260 | 🇺🇦 Ukraine | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 179.254.109.54
+  port: 443
+  uuid: d0f0a880-0df1-0005-bdf1-5669fb9483ce
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: cosw.ggisopi.su
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+  network: raw
+- name: '1423 | 🇨🇦 Canada | VMESS | 📺 YT | TG: @YoutubeUnBlockRu'
   type: vmess
-  server: 129.146.143.80
-  port: 48111
-  uuid: d4603cc2-e0ee-4651-83f5-1db5b7168177
+  server: 158.51.121.123
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   skip-cert-verify: true
-  network: tcp
-- name: '0179 | 🇨🇦 Canada | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  network: ws
+  tls: true
+  servername: mygptagent.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: mygptagent.org
+- name: '2758 | 🇺🇸 USA | VMESS | 📺 YT | TG: @YoutubeUnBlockRu'
   type: vmess
-  server: 134.195.196.211
+  server: 47.85.188.30
+  port: 12004
+  uuid: 8b5552bd-4cc7-4cac-af08-81c21686fd4f
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+- name: 🇩🇪
+  type: vless
+  server: 2.26.30.216
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '1040 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: 67.220.95.3
   port: 18000
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
   alterId: 0
   cipher: auto
   skip-cert-verify: true
-  network: tcp
+- name: '0909 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: 129.146.77.248
+  port: 39495
+  uuid: f836c736-87fc-4fde-aabc-00857ecdff3e
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+- name: '🇨🇦 #2'
+  type: vless
+  server: 144.31.243.120
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '0290 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: fra.loozerp.wiki
+  port: 443
+  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fra.loozerp.wiki
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+    short-id: ff776ff77be48b88
+  network: raw
+- name: '1142 | 🌐 Unknown | VMESS | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: aksai.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /linkvws
+- name: '0292 | 🇳🇱 Netherlands | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 138.16.141.59
+  port: 7443
+  uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: ibm.com
+  reality-opts:
+    public-key: RY7zkFQ01lI92jxNAyCa8T33UBW1fgpJgg8ZEqMA10k
+    short-id: a09ff9f8
 - name: '0180 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
   type: vmess
   server: 67.220.72.237
@@ -53,15 +165,163 @@ proxies:
   cipher: auto
   skip-cert-verify: true
   network: raw
+- name: '0037 | 🌐 Unknown | VMESS | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: vspeedfast.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: vspeedfast.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: vspeedfast.org
+- name: '1563 | 🇳🇱 Netherlands | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: 139.64.166.25
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: pahobac.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: pahobac.org
+- name: '0267 | 🇦🇪 United Arab Emirates | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 146.70.102.82
+  port: 443
+  uuid: 31fd2fde-ca69-450e-8c03-eaad819b06b9
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: www.datadoghq.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: GDer6NQYXdbccrFI0tLn2671PjCvrcSy0R7TKY8vG1k
+    short-id: 002fb4ec7b3088cc
+  network: raw
+- name: '1978 | 🇨🇳 HongKong | VMESS | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: 194.99.79.26
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: aksai.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: aksai.org
+- name: '2850 | 🇦🇹 Austria | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: aidrivercat.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: aidrivercat.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: aidrivercat.org
+- name: '0981 | 🌐 Unknown | VMESS | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: mygptagent.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /linkvws
+- name: '2084 | 🌐 Unknown | VMESS | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: pahobac.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: pahobac.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: pahobac.org
+- name: '1305 | 🇬🇧 United Kingdom | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: 186.190.211.67
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: pahobac.org
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: pahobac.org
+- name: '1206 | 🌐 Unknown | VMESS | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vmess
+  server: vah4urdzl3jdx5r2.v.3dns.vip
+  port: 443
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: vah4urdzl3jdx5r2.v.3dns.vip
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: vah4urdzl3jdx5r2.v.3dns.vip
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - '2758 | 🇺🇸 USA | VMESS | 📺 YT | TG: @YoutubeUnBlockRu'
-  - '1040 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '@tootffarangi🍓-12'
+  - '0278 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
   - '0776 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
-  - '0417 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
-  - '0179 | 🇨🇦 Canada | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0260 | 🇺🇦 Ukraine | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '1423 | 🇨🇦 Canada | VMESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '2758 | 🇺🇸 USA | VMESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - 🇩🇪
+  - '1040 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0909 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '🇨🇦 #2'
+  - '0290 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  - '1142 | 🌐 Unknown | VMESS | TG: @YoutubeUnBlockRu'
+  - '0292 | 🇳🇱 Netherlands | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
   - '0180 | 🇺🇸 USA | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0037 | 🌐 Unknown | VMESS | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '1563 | 🇳🇱 Netherlands | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0267 | 🇦🇪 United Arab Emirates | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '1978 | 🇨🇳 HongKong | VMESS | TG: @YoutubeUnBlockRu'
+  - '2850 | 🇦🇹 Austria | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0981 | 🌐 Unknown | VMESS | TG: @YoutubeUnBlockRu'
+  - '2084 | 🌐 Unknown | VMESS | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '1305 | 🇬🇧 United Kingdom | VMESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '1206 | 🌐 Unknown | VMESS | 🔐 Stable | TG: @YoutubeUnBlockRu'
 rules:
 - MATCH,CF-Nest-Batch

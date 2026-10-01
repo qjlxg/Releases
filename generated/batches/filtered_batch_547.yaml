@@ -1,0 +1,67 @@
+proxies:
+- name: 🇺🇸 [v2rayNplus]
+  type: vless
+  server: x9f2.guiming.net
+  port: 8443
+  uuid: cbf3b4be-b3a8-4f70-bd28-988e72f7d46d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: x9f2.guiming.net
+  network: ws
+  ws-opts:
+    path: /d8f3k2m9
+    headers:
+      Host: x9f2.guiming.net
+- name: '[v2rayNplus] 🇳🇱'
+  type: vless
+  server: aken.nightfall.best
+  port: 443
+  uuid: af2bf319-ba88-4fec-8317-2b6a8cee96d1
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: aken.nightfall.best
+  network: grpc
+  grpc-opts:
+    grpc-service-name: rdamrwhuacfl
+- name: '[v2rayNplus] 🇵🇱'
+  type: vless
+  server: bober.nightfall.best
+  port: 443
+  uuid: af2bf319-ba88-4fec-8317-2b6a8cee96d1
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: bober.nightfall.best
+  network: grpc
+  grpc-opts:
+    grpc-service-name: rdamrwhuacfl
+- name: 'Server #23'
+  type: vless
+  server: vpn.cyrionflare.xyz
+  port: 2087
+  uuid: 15f434b8-aaec-4306-98c9-dd8f5ef608d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: 'Server #21'
+  type: vless
+  server: 172.105.54.92
+  port: 80
+  uuid: 7382908a-dc80-4d49-bbc4-f39f96cbb271
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇸 [v2rayNplus]
+  - '[v2rayNplus] 🇳🇱'
+  - '[v2rayNplus] 🇵🇱'
+  - 'Server #23'
+  - 'Server #21'
+rules:
+- MATCH,CF-Nest-Batch

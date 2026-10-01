@@ -1,0 +1,22 @@
+proxies:
+- name: Vless-104.21.80.1
+  type: vless
+  server: 104.21.80.1
+  port: 443
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: d2127a49-flat-wood-c4b5.milia-akbarpoor.workers.dev
+  network: ws
+  ws-opts:
+    path: /sd5fvgnaejylipcc?ed=2560
+    headers:
+      Host: d2127a49-flat-wood-c4b5.milia-akbarpoor.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-104.21.80.1
+rules:
+- MATCH,CF-Nest-Batch

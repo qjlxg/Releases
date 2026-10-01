@@ -1,0 +1,682 @@
+proxies:
+- name: 'us #2'
+  type: vless
+  server: 104.16.116.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=104.168.146.122:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #4'
+  type: vless
+  server: 104.16.118.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=104.168.87.130:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: gb
+  type: vless
+  server: 104.16.1.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.13.208.242:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #9'
+  type: vless
+  server: 104.16.124.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.172.187.94:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #3'
+  type: vless
+  server: 104.16.117.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=104.168.56.73:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #1'
+  type: vless
+  server: 104.16.10.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.137.248.227:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: nl
+  type: vless
+  server: 104.16.0.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.102.228.10:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #3'
+  type: vless
+  server: 104.16.105.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.45.247.67:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #2'
+  type: vless
+  server: 104.16.102.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.251.166.229:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #13'
+  type: vless
+  server: 104.16.13.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.174.154.23:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: sg
+  type: vless
+  server: 104.16.103.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.3.26.26:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: de
+  type: vless
+  server: 104.16.104.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.31.76.16:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #4'
+  type: vless
+  server: 104.16.106.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.65.231.157:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #6'
+  type: vless
+  server: 104.16.123.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.172.139.14:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #8'
+  type: vless
+  server: 104.16.126.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.172.32.207:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #6'
+  type: vless
+  server: 104.16.110.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.90.73.87:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #5'
+  type: vless
+  server: 104.16.107.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.65.231.245:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'gb #1'
+  type: vless
+  server: 104.16.112.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=104.128.190.209:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: pl
+  type: vless
+  server: 104.16.100.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.167.234.26:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #11'
+  type: vless
+  server: 104.16.128.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.173.15.46:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #7'
+  type: vless
+  server: 104.16.11.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.90.72.71:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #10'
+  type: vless
+  server: 104.16.127.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.173.15.138:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #8'
+  type: vless
+  server: 104.16.111.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.90.75.121:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #7'
+  type: vless
+  server: 104.16.125.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.172.222.174:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #9'
+  type: vless
+  server: 104.16.121.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=104.249.40.219:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #14'
+  type: vless
+  server: 104.16.130.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.174.40.115:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'de #1'
+  type: vless
+  server: 104.16.108.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=103.75.199.16:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #15'
+  type: vless
+  server: 104.16.131.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.174.83.113:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #16'
+  type: vless
+  server: 104.16.132.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.174.92.250:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #18'
+  type: vless
+  server: 104.16.134.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.175.224.82:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #17'
+  type: vless
+  server: 104.16.133.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=107.175.209.186:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'us #21'
+  type: vless
+  server: 104.16.137.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=108.181.199.80:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #11'
+  type: vless
+  server: 104.16.139.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.104.153.94:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'gb #2'
+  type: vless
+  server: 104.16.146.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.169.76.23:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fr #3'
+  type: vless
+  server: 104.16.15.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.199.122.5:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fr #1'
+  type: vless
+  server: 104.16.144.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.120.179.99:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fi #1'
+  type: vless
+  server: 104.16.14.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.107.155.76:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fr #2'
+  type: vless
+  server: 104.16.148.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.172.55.148:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: fi
+  type: vless
+  server: 104.16.140.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.107.171.147:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fr #4'
+  type: vless
+  server: 104.16.150.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.199.126.6:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'nl #13'
+  type: vless
+  server: 104.16.153.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.69.56.15:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fi #3'
+  type: vless
+  server: 104.16.147.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.172.54.73:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'de #4'
+  type: vless
+  server: 104.16.149.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.176.202.20:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'ru #2'
+  type: vless
+  server: 104.16.151.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.205.56.213:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+- name: 'fi #2'
+  type: vless
+  server: 104.16.145.1
+  port: 443
+  uuid: aa549d69-655a-4d03-83b7-a96b50bf6dc8
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: sub.spfnas.dpdns.org
+  network: ws
+  ws-opts:
+    path: /proxyip=109.120.185.29:443?ed=2560
+    headers:
+      Host: sub.spfnas.dpdns.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'us #2'
+  - 'us #4'
+  - gb
+  - 'us #9'
+  - 'us #3'
+  - 'nl #1'
+  - nl
+  - 'nl #3'
+  - 'nl #2'
+  - 'us #13'
+  - sg
+  - de
+  - 'nl #4'
+  - 'us #6'
+  - 'us #8'
+  - 'nl #6'
+  - 'nl #5'
+  - 'gb #1'
+  - pl
+  - 'us #11'
+  - 'nl #7'
+  - 'us #10'
+  - 'nl #8'
+  - 'us #7'
+  - 'nl #9'
+  - 'us #14'
+  - 'de #1'
+  - 'us #15'
+  - 'us #16'
+  - 'us #18'
+  - 'us #17'
+  - 'us #21'
+  - 'nl #11'
+  - 'gb #2'
+  - 'fr #3'
+  - 'fr #1'
+  - 'fi #1'
+  - 'fr #2'
+  - fi
+  - 'fr #4'
+  - 'nl #13'
+  - 'fi #3'
+  - 'de #4'
+  - 'ru #2'
+  - 'fi #2'
+rules:
+- MATCH,CF-Nest-Batch

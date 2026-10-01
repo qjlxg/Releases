@@ -1,0 +1,39 @@
+proxies:
+- name: 🌐 Cloudflare | 104.26.10.213 :443·vless·#4
+  type: vless
+  server: 104.26.10.213
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&fp=chrome&alpn=http/1.1#🌐
+    Cloudflare | 104.21.61.141 :443·vless·#4
+  type: vless
+  server: 104.21.61.141
+  port: 443
+  uuid: f85183cf-af02-4656-b1e9-3a61dced201f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fReeWORLd.aliAicODe47649.woRKers.Dev
+  network: ws
+  ws-opts:
+    path: /vl/a6yBMrki2p7ptrchleFfb?ed
+    headers:
+      Host: freeworld.aliaicode47649.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🌐 Cloudflare | 104.26.10.213 :443·vless·#4
+  - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&fp=chrome&alpn=http/1.1#🌐
+    Cloudflare | 104.21.61.141 :443·vless·#4
+rules:
+- MATCH,CF-Nest-Batch

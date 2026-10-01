@@ -1,0 +1,194 @@
+proxies:
+- name: '5493'
+  type: vless
+  server: 104.26.7.214
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: '2778'
+  type: vless
+  server: 104.21.15.212
+  port: 8880
+  uuid: 902fd911-ca5d-49a6-99ad-47372a266804
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: young-wildflower-6b6c.100-52d.workers.dev
+- name: '0353'
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: ef770523-8eb5-403f-9e95-06b328719c87
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: lucky-sunset-d12e.201-98c.workers.dev
+- name: '0063'
+  type: vless
+  server: 104.21.53.160
+  port: 443
+  uuid: 532a9115-aee7-4d39-9638-1e5146de075b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: muddy-math-c1fc.tmpnriqueau89.workers.dev
+- name: '3673'
+  type: vless
+  server: 104.21.74.189
+  port: 8880
+  uuid: 94977b19-6720-48a6-92fd-00238757ea30
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: fragrant-credit-c4cf.148-e68.workers.dev
+- name: '5163'
+  type: vless
+  server: 104.24.152.211
+  port: 8880
+  uuid: a7b8b48e-1000-46f5-a974-f6606d94f3b4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: misty-hill-4b94.146-c18.workers.dev
+- name: '4247'
+  type: vless
+  server: 172.64.153.11
+  port: 8880
+  uuid: 2d309706-de61-4c33-a086-3888e595b8eb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: codecanyon.net
+  network: ws
+  ws-opts:
+    headers:
+      Host: soft-scene-d370.55-7ff.workers.dev
+- name: '1979'
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: f4e6476f-40d0-40cb-841f-cc2f6909ff20
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: calm-haze-d105.21-7cd.workers.dev
+- name: '2536'
+  type: vless
+  server: 104.18.13.229
+  port: 8880
+  uuid: b85c8be2-3109-4b8a-aa82-f0d8fe06f5ae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: young-dust-b8d9.31-8ba.workers.dev
+- name: '1344'
+  type: vless
+  server: 172.67.155.222
+  port: 443
+  uuid: 82b279c6-5cba-3a96-f8bd-780a00000035
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: pi7ews-woj41w-7wx0gk.ho3ein13-3af.workers.dev
+- name: '1415'
+  type: vless
+  server: 172.66.44.124
+  port: 8443
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+- name: '0154'
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: 81d55675-8570-4b40-9a77-3125339a0f86
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: www.visa.com.sg
+  network: ws
+  ws-opts:
+    headers:
+      Host: spring-sound-8d8e.36-9ff.workers.dev
+- name: '5313'
+  type: vless
+  server: 172.67.134.136
+  port: 443
+  uuid: fa45096d-bed0-ad80-c773-23c300000003
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: xo3ubk-c97eql-n2d4a9.shoameni17.workers.dev
+- name: '4487'
+  type: vless
+  server: 38.190.210.250
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: vp10.pages.dev
+- name: '1832'
+  type: vless
+  server: uae.unixzone.us
+  port: 22573
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: uae.unixzone.us
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '5493'
+  - '2778'
+  - '0353'
+  - '0063'
+  - '3673'
+  - '5163'
+  - '4247'
+  - '1979'
+  - '2536'
+  - '1344'
+  - '1415'
+  - '0154'
+  - '5313'
+  - '4487'
+  - '1832'
+rules:
+- MATCH,CF-Nest-Batch

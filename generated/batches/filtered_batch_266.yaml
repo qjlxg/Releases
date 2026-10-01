@@ -1,0 +1,67 @@
+proxies:
+- name: '4490'
+  type: vless
+  server: skk.moe
+  port: 8880
+  uuid: 0de87762-7d50-49e7-a5ae-7ac85760e083
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: delicate-fog-bbae.205-635.workers.dev
+- name: '3205'
+  type: vless
+  server: deepl.com
+  port: 8880
+  uuid: f15a5586-23f6-453f-97f5-c301b949e699
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: mute-sunset-0849.40-aeb.workers.dev
+- name: '0517'
+  type: vless
+  server: 104.20.28.74
+  port: 8880
+  uuid: 80cead8e-0d28-4b0a-bacd-8005471a5c39
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: flat-fire-40ed.96-042.workers.dev
+- name: 🇱🇰 机场推荐:dafei.de 斯里兰卡 01
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 8443
+  uuid: c73ffa6e-a102-4984-9176-3e6242c1925e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: zoom.us
+  network: ws
+- name: '🇱🇰 机场推荐:dafei.de 斯里兰卡 01 #1'
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 8443
+  uuid: c73ffa6e-a102-4984-9176-3e6242c1925e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: zoom.us
+  network: ws
+  ws-opts:
+    path: /
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '4490'
+  - '3205'
+  - '0517'
+  - 🇱🇰 机场推荐:dafei.de 斯里兰卡 01
+  - '🇱🇰 机场推荐:dafei.de 斯里兰卡 01 #1'
+rules:
+- MATCH,CF-Nest-Batch

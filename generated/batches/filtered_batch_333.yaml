@@ -1,0 +1,46 @@
+proxies:
+- name: 未知_0920101126
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 4212034d-c18b-4060-b218-4f8372e5473a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: summer-hill-7f65.275-521.workers.dev
+- name: 未知_092010249
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: 4af06e6a-63ae-43c1-83c0-f8f613aef263
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: withered-sea-c187.445-608.workers.dev
+- name: 未知_092010674
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: a8985e6a-f338-4b44-9a41-f94495603a96
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: dawn-cell-346f.238-df6.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 未知_0920101126
+  - 未知_092010249
+  - 未知_092010674
+rules:
+- MATCH,CF-Nest-Batch

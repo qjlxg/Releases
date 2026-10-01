@@ -1,0 +1,148 @@
+proxies:
+- name: 🇫🇷FR_1860|587KB/s|S004-260618 01
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: e431026f-d605-4a52-8b3b-0912a68dc9d1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sparkling-shadow-481d.342-429.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: sparkling-shadow-481d.342-429.workers.dev
+- name: 🇫🇷FR_1806|476KB/s|B007-260618 01
+  type: vless
+  server: nameless-disk-194d.485.workers.dev
+  port: 8880
+  uuid: e7ca2c1c-9b47-4ef0-9d5e-2be26a86ffc1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: nameless-disk-194d.485.workers.dev
+- name: 🇺🇸 SkyBit-72_2026-09-29 17:36:24
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 🇫🇷FR_1835|176KB/s|T001-260618 01
+  type: vless
+  server: 104.21.70.21
+  port: 8080
+  uuid: d503ca85-91c2-426d-98ce-7a6f44666be1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: winter-hall-a0a2.74-532.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: winter-hall-a0a2.74-532.workers.dev
+- name: 🇫🇷FR_1859|179KB/s|B007-260618 01
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: a43a9a45-7387-4faf-ad06-24b1ae181fdc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: snowy-glade-85fa.arshiatakalloo88.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiVzg3NkFVRjZaUCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: snowy-glade-85fa.arshiatakalloo88.workers.dev
+- name: 🇫🇷FR_1800|458KB/s|A004-260618 01
+  type: vless
+  server: q2-phbest7v2a8iuowpr.g0xigfh41wwnv39y-b3rzmht.workers.dev
+  port: 443
+  uuid: 709b1cf4-a386-4cbf-bcf4-46f03c4788a8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: q2-phbest7v2a8iuowpr.g0xigfh41wwnv39y-b3rzmht.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/wufVnq4Dk8cyJO59lQ3WBXW8SFN435GD?ed=2560
+- name: 🇫🇷FR_1838|470KB/s|V007-260618 01
+  type: vless
+  server: 172.66.132.196
+  port: 8880
+  uuid: fba6d1fd-0dab-428d-ae71-0e64c73a6060
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: morning-wood-0e8a.28-63e.workers.dev
+- name: 🇫🇷FR_1848|388KB/s|B007-260618 01
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: 1e534c59-85c2-4042-a407-e491f68cb3a5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kJz42CNi3-kRCUj2-gQs8vEs15.foRNeWiRAN-1010.wOrKERs.dEV
+  network: ws
+  ws-opts:
+    path: /vl/Z8Ag5xQbwmhIHsvyDj3
+    headers:
+      Host: kjz42cni3-krcuj2-gqs8ves15.fornewiran-1010.workers.dev
+- name: '🇫🇷FR_1848|388KB/s|B007-260618 01 #1'
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: 1e534c59-85c2-4042-a407-e491f68cb3a5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kJz42CNi3-kRCUj2-gQs8vEs15.foRNeWiRAN-1010.wOrKERs.dEV
+  network: ws
+  ws-opts:
+    path: /vl/Z8Ag5xQbwmhIHsvyDj3?ed=2560
+    headers:
+      Host: kjz42cni3-krcuj2-gqs8ves15.fornewiran-1010.workers.dev
+- name: 🇱🇰LK_2|340KB/s|F003-260618 01
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 80
+  uuid: 684f9a2e-4f96-497f-bfd9-ff1e34637952
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_1860|587KB/s|S004-260618 01
+  - 🇫🇷FR_1806|476KB/s|B007-260618 01
+  - 🇺🇸 SkyBit-72_2026-09-29 17:36:24
+  - 🇫🇷FR_1835|176KB/s|T001-260618 01
+  - 🇫🇷FR_1859|179KB/s|B007-260618 01
+  - 🇫🇷FR_1800|458KB/s|A004-260618 01
+  - 🇫🇷FR_1838|470KB/s|V007-260618 01
+  - 🇫🇷FR_1848|388KB/s|B007-260618 01
+  - '🇫🇷FR_1848|388KB/s|B007-260618 01 #1'
+  - 🇱🇰LK_2|340KB/s|F003-260618 01
+rules:
+- MATCH,CF-Nest-Batch

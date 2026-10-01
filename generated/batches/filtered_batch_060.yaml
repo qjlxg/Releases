@@ -1,0 +1,626 @@
+proxies:
+- name: trojan-188.114.96.3
+  type: trojan
+  server: 188.114.96.3
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  network: ws
+  ws-opts:
+    path: /tr/N61UxT346epoPVmA9xFM6H00?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: 'CA #2'
+  type: trojan
+  server: 104.21.67.113
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: x0C3lq1A15ip-65Kc4-l1A1tx.cv4CGvqS05m-F4Hg5xU07wIAlm0.wOrkerS.DeV
+  network: ws
+  ws-opts:
+    path: /tr/rkSn26veCGpvDy162Z?ed=2560
+- name: trojan-172.67.132.80
+  type: trojan
+  server: 172.67.132.80
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 5Er0m2I2eNS2ULPg7Sjd45UGQs.87FCVt2K11501YnO2txm6yw-MiPJ2KR.worKERs.dEV
+  network: ws
+  ws-opts:
+    path: /tr/VCf8OF27gyXfyS3GNQ1ejyY7sy4?ed=2560
+    headers:
+      Host: 5er0m2i2ens2ulpg7sjd45ugqs.87fcvt2k11501yno2txm6yw-mipj2kr.workers.dev
+- name: trojan-172.67.191.121
+  type: trojan
+  server: 172.67.191.121
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 47hr9isj-655383snd63hjap38q6t.k-f3vpqaltfsxbtaxe.workers.dev
+  network: ws
+  ws-opts:
+    path: /tr/V2VWNDZAAEIdXVjOCkLfJnefnR5Pum?ed=2560
+    headers:
+      Host: 47hr9isj-655383snd63hjap38q6t.k-f3vpqaltfsxbtaxe.workers.dev
+- name: trojan-vless.herogoing.top
+  type: trojan
+  server: vless.herogoing.top
+  port: 443
+  password: bpb-trojan
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /tr?ed=2560
+- name: 'CA #5'
+  type: trojan
+  server: 104.21.8.63
+  port: 443
+  password: 5855d6850594830f
+  skip-cert-verify: true
+  sni: AkbARIan34.j9Z65Ce2uyks.WoRKeRS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/w2O3K3xXNYDKIxwOIw7?ed=2560
+- name: 'CA #6'
+  type: trojan
+  server: 104.17.147.22
+  port: 443
+  password: A4u^p(_UR*F6
+  skip-cert-verify: true
+  sni: 027.ELeCTroCelLco-CF-027.wORkERS.dEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: 027.electrocellco-cf-027.workers.dev
+- name: 'CA #9'
+  type: trojan
+  server: 104.21.56.225
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: IJM8X9UgwPIQRmN-Lo-s.ZTl55ltkpuB38y36MCTGM.wOrKERs.deV
+  network: ws
+  ws-opts:
+    path: /tr/MyONKU8UND5ZRBBUz6C?ed=2560
+    headers:
+      Host: ijm8x9ugwpiqrmn-lo-s.ztl55ltkpub38y36mctgm.workers.dev
+- name: 'CA #11'
+  type: trojan
+  server: 172.67.194.6
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: uH-E03OjZGQ4EV7yy7b.6V46fk4wd2Y8l5p2XTD.WORkErS.Dev
+  network: ws
+  ws-opts:
+    path: /tr/iXLpDGAew6fKEQeQY84txlnklnRciaQ?ed=2560
+- name: trojan-172.67.218.38
+  type: trojan
+  server: 172.67.218.38
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 1v95v6tjywcytbahl7f7lx8b27g.l4495eycqmse9he0yvoemjfc4ibyf-4.workers.dev
+  network: ws
+  ws-opts:
+    path: /tr/dxyX388XOtyAjF3A?ed=2560
+    headers:
+      Host: 1v95v6tjywcytbahl7f7lx8b27g.l4495eycqmse9he0yvoemjfc4ibyf-4.workers.dev
+- name: '⚡ #9'
+  type: trojan
+  server: 172.67.231.254
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #14'
+  type: trojan
+  server: 104.25.109.237
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: SC
+  type: trojan
+  server: 45.130.125.190
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'ES #1'
+  type: trojan
+  server: 185.18.250.245
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #16'
+  type: trojan
+  server: 172.67.217.240
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'US #6'
+  type: trojan
+  server: 45.205.0.6
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #18'
+  type: trojan
+  server: 104.21.13.204
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #19'
+  type: trojan
+  server: 172.64.150.28
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #15'
+  type: trojan
+  server: 188.114.98.0
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #24'
+  type: trojan
+  server: 104.19.64.105
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #27'
+  type: trojan
+  server: 104.17.147.22
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'US #8'
+  type: trojan
+  server: 162.159.253.41
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'SC #1'
+  type: trojan
+  server: 45.130.125.160
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #22'
+  type: trojan
+  server: chat.openai.com
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #21'
+  type: trojan
+  server: www.calmlunch.com
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #28'
+  type: trojan
+  server: 188.114.96.3
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #31'
+  type: trojan
+  server: www.speedtest.net
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #29'
+  type: trojan
+  server: 172.67.200.219
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #23'
+  type: trojan
+  server: 104.21.33.59
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
+- name: 'ES #2'
+  type: trojan
+  server: 185.18.250.252
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #32'
+  type: trojan
+  server: 162.159.91.211
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #34'
+  type: trojan
+  server: 104.18.9.83
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #35'
+  type: trojan
+  server: 104.19.229.21
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #36'
+  type: trojan
+  server: 162.159.36.20
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #44'
+  type: trojan
+  server: app-538961.user-y0o4gm.workers.dev
+  port: 443
+  password: 0b5fa773-6f37-4134-87d4-0c349742b6f6
+  skip-cert-verify: true
+  sni: app-538961.user-y0o4gm.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+- name: 'US #10'
+  type: trojan
+  server: 165.215.250.14
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'SC #2'
+  type: trojan
+  server: 45.130.125.76
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'SC #3'
+  type: trojan
+  server: 45.130.125.112
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #37'
+  type: trojan
+  server: 104.17.121.43
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'SC #4'
+  type: trojan
+  server: 45.130.125.75
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #41'
+  type: trojan
+  server: 104.16.72.2
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 'CA #39'
+  type: trojan
+  server: 188.114.97.6
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
+- name: 'US #13'
+  type: trojan
+  server: 5.78.92.27
+  port: 8443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: NL
+  type: trojan
+  server: 188.42.145.180
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: wWw.Volumeroot.cOm.
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #49'
+  type: trojan
+  server: 188.114.97.6
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id1.nathaya.web.id
+- name: 'CA #50'
+  type: trojan
+  server: 172.67.217.240
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id1.nathaya.web.id
+- name: 'CA #51'
+  type: trojan
+  server: 104.21.83.135
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+- name: 'CA #53'
+  type: trojan
+  server: 172.67.176.157
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+- name: 'CA #52'
+  type: trojan
+  server: 104.25.82.149
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+- name: 'CA #48'
+  type: trojan
+  server: 104.21.33.59
+  port: 443
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id1.nathaya.web.id
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - trojan-188.114.96.3
+  - 'CA #2'
+  - trojan-172.67.132.80
+  - trojan-172.67.191.121
+  - trojan-vless.herogoing.top
+  - 'CA #5'
+  - 'CA #6'
+  - 'CA #9'
+  - 'CA #11'
+  - trojan-172.67.218.38
+  - '⚡ #9'
+  - 'CA #14'
+  - SC
+  - 'ES #1'
+  - 'CA #16'
+  - 'US #6'
+  - 'CA #18'
+  - 'CA #19'
+  - 'CA #15'
+  - 'CA #24'
+  - 'CA #27'
+  - 'US #8'
+  - 'SC #1'
+  - 'CA #22'
+  - 'CA #21'
+  - 'CA #28'
+  - 'CA #31'
+  - 'CA #29'
+  - 'CA #23'
+  - 'ES #2'
+  - 'CA #32'
+  - 'CA #34'
+  - 'CA #35'
+  - 'CA #36'
+  - 'CA #44'
+  - 'US #10'
+  - 'SC #2'
+  - 'SC #3'
+  - 'CA #37'
+  - 'SC #4'
+  - 'CA #41'
+  - 'CA #39'
+  - 'US #13'
+  - NL
+  - 'CA #49'
+  - 'CA #50'
+  - 'CA #51'
+  - 'CA #53'
+  - 'CA #52'
+  - 'CA #48'
+rules:
+- MATCH,CF-Nest-Batch

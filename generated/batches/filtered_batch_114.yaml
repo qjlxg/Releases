@@ -1,0 +1,233 @@
+proxies:
+- name: '🇺🇸 #1'
+  type: trojan
+  server: 199.232.78.188
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@rzea8pppooopppppppp'
+    headers:
+      Host: mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net
+- name: 🇺🇸
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@TEHRANARGO'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: '[🏁]t.me/ConfigsHub #1'
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@rzeYuioo7jjkpppppppppp'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: '[🇵🇱]t.me/ConfigsHub'
+  type: trojan
+  server: cheerful-swan.rooster465.autos
+  port: 443
+  password: UX82473651
+  skip-cert-verify: true
+  sni: cheerful-swan.rooster465.autos
+- name: CA · TROJAN · wzmwayne · 64AEAAA3
+  type: trojan
+  server: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 6m1rGyIEclMRx9HeF1.Z6-0hlNUbJIBwZPa85.wOrKerS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/GaQvfFwT5sWgVxHig8YaXjtiuQPZNI?ed=2560
+    headers:
+      Host: 6m1rgyieclmrx9hef1.z6-0hlnubjibwzpa85.workers.dev
+- name: 'US #2'
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@mehrosaboran'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: '🔒 #8'
+  type: trojan
+  server: 3.120.109.26
+  port: 443
+  password: UX82473651
+  skip-cert-verify: true
+  sni: actual-squid.rooster465.autos
+- name: '🔒 #9'
+  type: trojan
+  server: 63.186.227.164
+  port: 443
+  password: UX82473651
+  skip-cert-verify: true
+  sni: alive-flea.rooster465.autos
+- name: 'US #1'
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: '@bored_vpn'
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: CA · TROJAN · wzmwayne · B1141C07
+  type: trojan
+  server: 104.18.32.47
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: SG
+  type: tuic
+  server: 146.235.16.130
+  port: 33738
+  uuid: 2d1ad594-80a4-4bfb-87a6-038e39701f51
+  password: 2d1ad594-80a4-4bfb-87a6-038e39701f51
+  skip-cert-verify: true
+  sni: sg2-8sb.6121999.dpdns.org
+  congestion-controller: bbr
+- name: JavidanNet 🫐
+  type: trojan
+  server: 104.18.4.5
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: ❓Other_1|862KB/s 01
+  type: tuic
+  server: sg2-8sb.6121999.dpdns.org
+  port: 33738
+  uuid: 2d1ad594-80a4-4bfb-87a6-038e39701f51
+  password: 2d1ad594-80a4-4bfb-87a6-038e39701f51
+  skip-cert-verify: true
+  sni: sg2-8sb.6121999.dpdns.org
+  congestion-controller: bbr
+- name: JavidanNet 🛸
+  type: trojan
+  server: 104.19.157.30
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: JavidanNet 🍉
+  type: trojan
+  server: 104.27.21.22
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: JavidanNet 🎈
+  type: trojan
+  server: 172.64.72.171
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: JavidanNet 🎧
+  type: trojan
+  server: 172.67.139.14
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: '[OpenRay] 🇳🇱 NL-10335'
+  type: trojan
+  server: 89.150.34.41
+  port: 2053
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: JavidanNet 🎁
+  type: trojan
+  server: 104.21.37.56
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🇺🇸 #1'
+  - 🇺🇸
+  - '[🏁]t.me/ConfigsHub #1'
+  - '[🇵🇱]t.me/ConfigsHub'
+  - CA · TROJAN · wzmwayne · 64AEAAA3
+  - 'US #2'
+  - '🔒 #8'
+  - '🔒 #9'
+  - 'US #1'
+  - CA · TROJAN · wzmwayne · B1141C07
+  - SG
+  - JavidanNet 🫐
+  - ❓Other_1|862KB/s 01
+  - JavidanNet 🛸
+  - JavidanNet 🍉
+  - JavidanNet 🎈
+  - JavidanNet 🎧
+  - '[OpenRay] 🇳🇱 NL-10335'
+  - JavidanNet 🎁
+rules:
+- MATCH,CF-Nest-Batch

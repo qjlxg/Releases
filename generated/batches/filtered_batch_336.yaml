@@ -1,0 +1,22 @@
+proxies:
+- name: 香港_092010071
+  type: vless
+  server: 156.224.76.205
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 香港_092010071
+rules:
+- MATCH,CF-Nest-Batch

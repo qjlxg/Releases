@@ -1,0 +1,146 @@
+proxies:
+- name: '@hex_proxy #1'
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: 9952b71a-6c86-4522-888f-ff9ea9b93536
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 1.hshs8227shhshs.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 1.hshs8227shhshs.workers.dev
+- name: '@meliproxyy #1'
+  type: vless
+  server: 104.21.70.21
+  port: 8080
+  uuid: 93fa8bdb-9cca-4a3e-8355-b7c12e4f595e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: fornewiran.ade-1000.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/yLWNcuUuw1jlJpkDhGy?ed=2560
+    headers:
+      Host: fornewiran.ade-1000.workers.dev
+- name: 🐊44@oneclickvpnkeys
+  type: vless
+  server: ezaccess-project-4c7950.ez-dc9bbb.workers.dev
+  port: 443
+  uuid: 96e341a7-3077-4613-b482-41bd9c90cc4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: eZaCCesS-proJEcT-4C7950.Ez-dC9bBB.WorKErs.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiN2w4dDlRNVV5NkZ5NU1aeSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: ezaccess-project-4c7950.ez-dc9bbb.workers.dev
+- name: 🇺🇸
+  type: vless
+  server: 172.67.203.158
+  port: 443
+  uuid: 911b84e1-d046-4fbf-bfc0-c168791115ef
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 12ygbae0k3gn0z0f.mehrshadhaddadi8.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/YCNmDFbqMu7cgTzgsfEWGtBD8kR
+    headers:
+      Host: 12ygbae0k3gn0z0f.mehrshadhaddadi8.workers.dev
+- name: '@V2ray_confiig #1'
+  type: vless
+  server: 104.21.55.229
+  port: 8880
+  uuid: afb13fa2-bba2-417f-b8c2-62565f92a78d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: orange-block-5cd1.124-199.workers.dev
+- name: '[ #3'
+  type: vless
+  server: upwork.com
+  port: 8880
+  uuid: b92380e2-e03f-4861-856e-7c2373b04728
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: dry-thunder-7f57.57-1a3.workers.dev
+- name: 🇸🇬
+  type: vless
+  server: 104.25.178.92
+  port: 443
+  uuid: d9abc6e3-83bf-4c28-ae68-72465e2abe39
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ikT-KKC25F27k-3Tehr8MC.ADE-1007.WOrKErS.DEV
+  network: ws
+  ws-opts:
+    path: /vl/xQhNe7rLrdM0emZlaW5LMsNwcoIgnT?ed=2560
+    headers:
+      Host: ikt-kkc25f27k-3tehr8mc.ade-1007.workers.dev
+- name: 🐊36@oneclickvpnkeys
+  type: vless
+  server: 50.7.226.174
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: en-new.moriarty-web.com
+  flow: xtls-rprx-vision
+- name: 🐊45@oneclickvpnkeys
+  type: vless
+  server: 46.101.253.244
+  port: 2083
+  uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edge.yzkvm.top
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edge.yzkvm.top
+- name: 🐊25@oneclickvpnkeys
+  type: vless
+  server: 45.76.87.125
+  port: 14750
+  uuid: c2c94230-7075-4558-89f4-ddf74d7de107
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@hex_proxy #1'
+  - '@meliproxyy #1'
+  - 🐊44@oneclickvpnkeys
+  - 🇺🇸
+  - '@V2ray_confiig #1'
+  - '[ #3'
+  - 🇸🇬
+  - 🐊36@oneclickvpnkeys
+  - 🐊45@oneclickvpnkeys
+  - 🐊25@oneclickvpnkeys
+rules:
+- MATCH,CF-Nest-Batch

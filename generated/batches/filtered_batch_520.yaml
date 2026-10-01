@@ -1,0 +1,427 @@
+proxies:
+- name: 'CDN 104.18.41.190 #2'
+  type: vless
+  server: 104.18.41.190
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.18.20.69 #2'
+  type: vless
+  server: 104.18.20.69
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.18.32.47 #1'
+  type: vless
+  server: 104.18.32.47
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.67.66.177 #2'
+  type: vless
+  server: 172.67.66.177
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.26.12.31 #1'
+  type: vless
+  server: 104.26.12.31
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.26.13.31 #2'
+  type: vless
+  server: 104.26.13.31
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 188.114.99.0 #2'
+  type: vless
+  server: 188.114.99.0
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.64.154.211 #1'
+  type: vless
+  server: 172.64.154.211
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 8.6.112.4 #2'
+  type: vless
+  server: 8.6.112.4
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.24.197.20 #2'
+  type: vless
+  server: 104.24.197.20
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.64.155.209 #1'
+  type: vless
+  server: 172.64.155.209
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.18.33.45 #1'
+  type: vless
+  server: 104.18.33.45
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.16.148.244 #2'
+  type: vless
+  server: 104.16.148.244
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.24.196.20 #2'
+  type: vless
+  server: 104.24.196.20
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.20.5.134 #2'
+  type: vless
+  server: 104.20.5.134
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 8.6.112.86 #2'
+  type: vless
+  server: 8.6.112.86
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.64.150.28 #1'
+  type: vless
+  server: 172.64.150.28
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.67.75.172 #2'
+  type: vless
+  server: 172.67.75.172
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.18.37.228 #1'
+  type: vless
+  server: 104.18.37.228
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.26.12.54 #2'
+  type: vless
+  server: 104.26.12.54
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.64.146.66 #2'
+  type: vless
+  server: 172.64.146.66
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.26.13.54 #2'
+  type: vless
+  server: 104.26.13.54
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 172.67.68.157 #2'
+  type: vless
+  server: 172.67.68.157
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.18.21.69 #2'
+  type: vless
+  server: 104.18.21.69
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 188.114.98.0 #2'
+  type: vless
+  server: 188.114.98.0
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.20.6.134 #2'
+  type: vless
+  server: 104.20.6.134
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 104.16.149.244 #2'
+  type: vless
+  server: 104.16.149.244
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 'CDN 188.114.96.6 #2'
+  type: vless
+  server: 188.114.96.6
+  port: 443
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'CDN 104.18.41.190 #2'
+  - 'CDN 104.18.20.69 #2'
+  - 'CDN 104.18.32.47 #1'
+  - 'CDN 172.67.66.177 #2'
+  - 'CDN 104.26.12.31 #1'
+  - 'CDN 104.26.13.31 #2'
+  - 'CDN 188.114.99.0 #2'
+  - 'CDN 172.64.154.211 #1'
+  - 'CDN 8.6.112.4 #2'
+  - 'CDN 104.24.197.20 #2'
+  - 'CDN 172.64.155.209 #1'
+  - 'CDN 104.18.33.45 #1'
+  - 'CDN 104.16.148.244 #2'
+  - 'CDN 104.24.196.20 #2'
+  - 'CDN 104.20.5.134 #2'
+  - 'CDN 8.6.112.86 #2'
+  - 'CDN 172.64.150.28 #1'
+  - 'CDN 172.67.75.172 #2'
+  - 'CDN 104.18.37.228 #1'
+  - 'CDN 104.26.12.54 #2'
+  - 'CDN 172.64.146.66 #2'
+  - 'CDN 104.26.13.54 #2'
+  - 'CDN 172.67.68.157 #2'
+  - 'CDN 104.18.21.69 #2'
+  - 'CDN 188.114.98.0 #2'
+  - 'CDN 104.20.6.134 #2'
+  - 'CDN 104.16.149.244 #2'
+  - 'CDN 188.114.96.6 #2'
+rules:
+- MATCH,CF-Nest-Batch

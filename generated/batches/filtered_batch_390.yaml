@@ -1,0 +1,19 @@
+proxies:
+- name: Unknown 2865
+  type: vless
+  server: www.glassdoor.com
+  port: 8880
+  uuid: 5fc8a5e4-d0c5-4ad2-8bfe-db589553c6c1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: red-disk-58df.153-2ce.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Unknown 2865
+rules:
+- MATCH,CF-Nest-Batch

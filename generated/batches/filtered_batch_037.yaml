@@ -1,11 +1,168 @@
 proxies:
-- name: 🇩🇪DE_19|1.1MB/s|R002-260618 01
+- name: ❓Other_146|652KB/s|B007-260618 01
   type: trojan
-  server: dggg.wsone.icu
+  server: 172.67.187.87
   port: 443
-  password: M7v%w11Se*
+  password: Telegram_healer_config
   skip-cert-verify: true
-  sni: dggg.wsone.icu
+  sni: bKtF381b04NcHTXkN8TidEzQgF.TCNTH9s31mg1j4TNxLAD62O1s2o.wOrKErS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/JIPAVWGHbaGJWIcEUAFGZIxrVCPW?ed=2560
+- name: 🇫🇷FR_718|395KB/s|B007-260618 01
+  type: trojan
+  server: 172.67.218.38
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 1v95V6tjywCyTBAhl7f7lX8B27G.l4495eycQmSE9he0YVoemJfc4IBYf-4.wORkerS.dEV
+  network: ws
+  ws-opts:
+    path: /tr/dxyX388XOtyAjF3A?ed=2560
+- name: 🇫🇷FR_445|404KB/s|M003-260806 01
+  type: trojan
+  server: 104.21.68.68
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 47HR9isJ-655383snD63HjAp38q6T.k-f3VPQAltFSxbTaxe.WorkERS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/kp0IOvZwWV0X35ln0vIh?ed=2560
+- name: 🇫🇷FR_356|396KB/s|S004-260618 01
+  type: trojan
+  server: 172.67.132.19
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: VRE6R9qRbQI0t25TG.SRTB0M3hdbwr2cJZ8fjUr.WoRKeRS.dev
+  network: ws
+  ws-opts:
+    path: /tr/bDodLFtTQwCZ6EX3ffMYJ06j9EjLse4d?ed=2560
+- name: 🇫🇷FR_774|819KB/s|B007-260618 01
+  type: trojan
+  server: 172.67.152.243
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 3W2hk6ZJ92orjcjEdmI77hzC.Ny49nUZ6G33RYkoWAZquNl-b9GuN5T.WoRKERs.dEv
+  network: ws
+  ws-opts:
+    path: /tr/e2X4F8y1t8YGOWfIV2ImzqxmdmGEpf?ed=2560
+- name: 🇫🇷FR_459|597KB/s|B007-260618 01
+  type: trojan
+  server: 172.67.221.159
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: X0c3LQ1a15iP-65kc4-L1A1TX.CV4CgVQS05m-f4HG5xU07wIalM0.workeRs.dEV
+  network: ws
+  ws-opts:
+    path: /tr/XDSHbKWRTEyuEeUs4isq9LG?ed=2560
+- name: 🇫🇷FR_628|248KB/s|S004-260618 01
+  type: trojan
+  server: 188.114.96.3
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 6M1RGYiecLMrX9HEf1.z6-0hLNuBjIBWzPa85.wOrkers.DEv
+  network: ws
+  ws-opts:
+    path: /tr/N61UxT346epoPVmA9xFM6H00?ed=2560
+- name: ❓Other_152|572KB/s|M003-260806 01
+  type: trojan
+  server: 172.67.182.52
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 6m1rGyIEclMRx9HeF1.Z6-0hlNUbJIBwZPa85.wOrKerS.DEV
+  network: ws
+  ws-opts:
+    path: /tr/GaQvfFwT5sWgVxHig8YaXjtiuQPZNI?ed=2560
+- name: 🇫🇷FR_458|229KB/s|B007-260618 01
+  type: trojan
+  server: 172.67.156.62
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: IJM8x9uGWPIQrMN-lo-S.ztl55lTKPUB38y36MCtgm.WOrKeRs.Dev
+  network: ws
+  ws-opts:
+    path: /tr/8g28WHK4FygFkZFa?ed=2560
+- name: 🇫🇷FR_397|497KB/s|B007-260618 01
+  type: trojan
+  server: 172.67.191.121
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 47hr9Isj-655383SND63hjaP38q6t.K-f3VpqALtfSxbtAXe.WORKerS.dev
+  network: ws
+  ws-opts:
+    path: /tr/V2VWNDZAAEIdXVjOCkLfJnefnR5Pum?ed=2560
+- name: 🇫🇷FR_456|453KB/s|B007-260618 01
+  type: trojan
+  server: 104.21.4.176
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 5Er0m2i2eNS2uLpg7SJd45UGqS.87fcvT2k11501YnO2TXm6yw-miPJ2Kr.worKerS.deV
+  network: ws
+  ws-opts:
+    path: /tr/5cJhuZZi5ZL6KKmZ5vKVeM?ed=2560
+- name: 🇫🇷FR_41|437KB/s|M002-260618 01
+  type: trojan
+  server: 104.21.26.36
+  port: 443
+  password: bpb-trojan
+  skip-cert-verify: true
+  sni: vless.herogoing.top
+  network: ws
+  ws-opts:
+    path: /tr?ed=2560
+- name: 4Sarina-8f9563acfa
+  type: trojan
+  server: 104.21.64.165
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 3w2hk6Zj92orJcJedMI77HzC.Ny49NuZ6g33rYkoWaZQUNl-B9GuN5T.wOrkERs.DEv
+  network: ws
+  ws-opts:
+    path: /tr/owxywx7VjYMLyGu2JOQYjHwV67l?ed=2560
+    headers:
+      Host: 3w2hk6zj92orjcjedmi77hzc.ny49nuz6g33rykowazqunl-b9gun5t.workers.dev
+- name: 4Nika-570070abb8
+  type: trojan
+  server: dl2uf-ivdezilz3e86rk18.hhvt37tjm2xbosql5hxogn-y.workers.dev
+  port: 443
+  password: LcICDcp!jD9TFV$NbH
+  skip-cert-verify: true
+  sni: dl2uF-iVdeZILZ3E86rK18.Hhvt37tjm2XBOsQL5HXogN-Y.woRKERS.dEv
+  network: ws
+  ws-opts:
+    path: /tr/pg4wM48V9O859nmqsJg22EOFKN4S570y?ed=2560
+    headers:
+      Host: dl2uf-ivdezilz3e86rk18.hhvt37tjm2xbosql5hxogn-y.workers.dev
+- name: 🇫🇷FR_508|564KB/s|B007-260618
+  type: trojan
+  server: 172.67.130.246
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 3OQxS5h6kCscecND.ZMh9KCGos2cq55uh6qDYaa938a5UgB.wOrkERS.dEV
+  network: ws
+  ws-opts:
+    path: /tr/zMUJnc0O87fJR02xzGNed?ed=2560
+- name: 🇫🇷FR_548|652KB/s|V007-260618
+  type: trojan
+  server: uh-e03ojzgq4ev7yy7b.6v46fk4wd2y8l5p2xtd.workers.dev
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: uH-E03OjZGQ4EV7yy7b.6V46fk4wd2Y8l5p2XTD.WORkErS.Dev
+  network: ws
+  ws-opts:
+    path: /tr/iXLpDGAew6fKEQeQY84txlnklnRciaQ?ed=2560
 - name: 🇪🇪EE_13|514KB/s|C002-260622 01
   type: trojan
   server: 109.206.241.10
@@ -20,12 +177,44 @@ proxies:
   password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
   skip-cert-verify: true
   sni: 154.90.62.70
+- name: 🇮🇳IN_21|819KB/s|A004-260618
+  type: trojan
+  server: tttyder.wsone.icu
+  port: 443
+  password: M7v%w11Se*
+  skip-cert-verify: true
+  sni: tttyder.wsone.icu
+  network: raw
+- name: 🇮🇳IN_22|721KB/s|A004-260618
+  type: trojan
+  server: hyfuuf6.wsone.icu
+  port: 443
+  password: M7v%w11Se*
+  skip-cert-verify: true
+  sni: hyfuuf6.wsone.icu
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - 🇩🇪DE_19|1.1MB/s|R002-260618 01
+  - ❓Other_146|652KB/s|B007-260618 01
+  - 🇫🇷FR_718|395KB/s|B007-260618 01
+  - 🇫🇷FR_445|404KB/s|M003-260806 01
+  - 🇫🇷FR_356|396KB/s|S004-260618 01
+  - 🇫🇷FR_774|819KB/s|B007-260618 01
+  - 🇫🇷FR_459|597KB/s|B007-260618 01
+  - 🇫🇷FR_628|248KB/s|S004-260618 01
+  - ❓Other_152|572KB/s|M003-260806 01
+  - 🇫🇷FR_458|229KB/s|B007-260618 01
+  - 🇫🇷FR_397|497KB/s|B007-260618 01
+  - 🇫🇷FR_456|453KB/s|B007-260618 01
+  - 🇫🇷FR_41|437KB/s|M002-260618 01
+  - 4Sarina-8f9563acfa
+  - 4Nika-570070abb8
+  - 🇫🇷FR_508|564KB/s|B007-260618
+  - 🇫🇷FR_548|652KB/s|V007-260618
   - 🇪🇪EE_13|514KB/s|C002-260622 01
   - 🇸🇨SC_1|476KB/s|A004-260618 01
+  - 🇮🇳IN_21|819KB/s|A004-260618
+  - 🇮🇳IN_22|721KB/s|A004-260618
 rules:
 - MATCH,CF-Nest-Batch

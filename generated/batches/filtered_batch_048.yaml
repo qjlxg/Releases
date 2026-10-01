@@ -1,0 +1,33 @@
+proxies:
+- name: 'Join+Telegram:@Farah_VPN #1'
+  type: trojan
+  server: 188.114.97.3
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: N19HYbk46HtAL-mvnTu149WCU-H.bKcZgnqOdLQtM6enDLZ3VS4f2KzQ.wOrkeRS.Dev
+  network: ws
+  ws-opts:
+    path: /tr/QjO9GZbQ41dJ7RJJykX?ed=2560
+    headers:
+      Host: n19hybk46htal-mvntu149wcu-h.bkczgnqodlqtm6endlz3vs4f2kzq.workers.dev
+- name: '@GozargahAzad|'
+  type: trojan
+  server: 104.21.17.125
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 30f67sBQ8jJwMt7GYtfc14.0M68-Qz3hqYfnLAR6n3Iq.wORkErs.dEv
+  network: ws
+  ws-opts:
+    path: /tr/hYgAqUlh5GyczDyXP?ed=2560
+    headers:
+      Host: 30f67sbq8jjwmt7gytfc14.0m68-qz3hqyfnlar6n3iq.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'Join+Telegram:@Farah_VPN #1'
+  - '@GozargahAzad|'
+rules:
+- MATCH,CF-Nest-Batch

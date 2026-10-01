@@ -1,0 +1,82 @@
+proxies:
+- name: wstlsip_4515
+  type: vless
+  server: 172.67.67.178
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: wstlsip_5887
+  type: vless
+  server: 219.76.13.166
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+- name: wstlsip_5892
+  type: vless
+  server: 219.76.13.169
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+- name: wstlsip_5894
+  type: vless
+  server: 219.76.13.177
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+- name: wstlsip_5889
+  type: vless
+  server: 219.76.13.167
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - wstlsip_4515
+  - wstlsip_5887
+  - wstlsip_5892
+  - wstlsip_5894
+  - wstlsip_5889
+rules:
+- MATCH,CF-Nest-Batch

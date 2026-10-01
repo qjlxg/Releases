@@ -1,0 +1,37 @@
+proxies:
+- name: 🇺🇸 United States · Fastly | 151.101.193.242 :443·vless·#7
+  type: vless
+  server: 151.101.193.242
+  port: 443
+  uuid: cd9e00aa-3581-42e4-a35c-56ae3a521159
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 🇺🇸 United States · Fastly | 151.101.1.242 :443·vless·#5
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇸 United States · Fastly | 151.101.193.242 :443·vless·#7
+  - 🇺🇸 United States · Fastly | 151.101.1.242 :443·vless·#5
+rules:
+- MATCH,CF-Nest-Batch

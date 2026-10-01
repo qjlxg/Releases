@@ -1,0 +1,121 @@
+proxies:
+- name: vless-www.speedtest.net
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 0432902e-6604-40cd-bbd0-57ab4e5d909f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bPB-4dc4958B.hXjkcgHcHv.woRkeRs.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiOENNZnB6WTgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
+    headers:
+      Host: bpb-4dc4958b.hxjkcghchv.workers.dev
+- name: vless-wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  type: vless
+  server: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  port: 443
+  uuid: 07821f66-cdb7-4c70-9de6-e230cffac470
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/li1khihh3dnitjyzraemspbqvu
+    headers:
+      Host: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+- name: vless-www.baipiao.eu.org
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: 1113b881-179c-411c-b29b-53dae8faaf0a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: raspy-sun-3de0.338.workers.dev
+- name: vless-www.gov.ua
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: 1742863c-ce4b-4bb7-b807-80da29cbec86
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=proxyip.ΓÇª
+    headers:
+      Host: icy-fog-9a41.70-a39.workers.dev
+- name: vless-188.164.248.96
+  type: vless
+  server: 188.164.248.96
+  port: 8443
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: whitecreeper.pages.dev
+  network: ws
+  ws-opts:
+    path: /proxyip=ProxyIP.SG.CMLiussss.Net
+    headers:
+      Host: whitecreeper.pages.dev
+- name: vless-172.67.75.194
+  type: vless
+  server: 172.67.75.194
+  port: 2096
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: whitecreeper.pages.dev
+  network: ws
+  ws-opts:
+    path: /proxyip=ProxyIP.SG.CMLiussss.Net
+    headers:
+      Host: whitecreeper.pages.dev
+- name: vless-app-q0zc4t.user-4gfyh5.workers.dev
+  type: vless
+  server: app-q0zc4t.user-4gfyh5.workers.dev
+  port: 443
+  uuid: 07f9bc85-613f-4a33-8da1-191973c43c0a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: app-q0zc4t.user-4gfyh5.workers.dev
+  network: ws
+  ws-opts:
+    path: /cmh
+    headers:
+      Host: app-q0zc4t.user-4gfyh5.workers.dev
+- name: vless-log.bpminecraft.com
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 1cefdbfd-6032-43d5-ac13-f58b4498e2f7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: royal-salad-175d.306.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-www.speedtest.net
+  - vless-wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  - vless-www.baipiao.eu.org
+  - vless-www.gov.ua
+  - vless-188.164.248.96
+  - vless-172.67.75.194
+  - vless-app-q0zc4t.user-4gfyh5.workers.dev
+  - vless-log.bpminecraft.com
+rules:
+- MATCH,CF-Nest-Batch

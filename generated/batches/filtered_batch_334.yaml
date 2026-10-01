@@ -1,0 +1,322 @@
+proxies:
+- name: 未知_092010923
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: d2127A49-flAT-wooD-C4B5.mILia-AkbARpOor.WorkERs.dEV
+  network: ws
+  ws-opts:
+    path: /8eaZJhRwB5zzDy81?ed=2560
+    headers:
+      Host: d2127a49-flat-wood-c4b5.milia-akbarpoor.workers.dev
+- name: 美国_0920101565
+  type: vless
+  server: 151.101.65.242
+  port: 443
+  uuid: 51a8d623-0d6d-4018-82f4-84b76d5bd015
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 法国_092010058
+  type: vless
+  server: 185.7.240.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 法国_092010056
+  type: vless
+  server: 141.11.202.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_0920101108
+  type: vless
+  server: 199.34.228.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 澳大利亚_092010032
+  type: vless
+  server: 185.207.199.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 约旦_092010001
+  type: vless
+  server: 62.72.166.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 爱沙尼亚_092010034
+  type: vless
+  server: 45.80.108.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_092010037
+  type: vless
+  server: 89.116.161.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_092010028
+  type: vless
+  server: 88.216.66.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_092010026
+  type: vless
+  server: 88.216.67.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_092010018
+  type: vless
+  server: 86.38.214.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_092010032
+  type: vless
+  server: 89.117.112.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 瑞士_092010020
+  type: vless
+  server: 185.18.250.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 罗马尼亚_092010015
+  type: vless
+  server: 45.12.30.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_0920101238
+  type: vless
+  server: 66.225.252.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 立陶宛_092010033
+  type: vless
+  server: 89.116.250.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_0920101853
+  type: vless
+  server: 108.165.216.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_0920101923
+  type: vless
+  server: 199.181.197.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_092010293
+  type: vless
+  server: 155.46.213.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_092010334
+  type: vless
+  server: 167.68.4.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2
+    headers:
+      Host: speed.dulacloud.store
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 未知_092010923
+  - 美国_0920101565
+  - 法国_092010058
+  - 法国_092010056
+  - 美国_0920101108
+  - 澳大利亚_092010032
+  - 约旦_092010001
+  - 爱沙尼亚_092010034
+  - 立陶宛_092010037
+  - 立陶宛_092010028
+  - 立陶宛_092010026
+  - 立陶宛_092010018
+  - 立陶宛_092010032
+  - 瑞士_092010020
+  - 罗马尼亚_092010015
+  - 美国_0920101238
+  - 立陶宛_092010033
+  - 美国_0920101853
+  - 美国_0920101923
+  - 美国_092010293
+  - 美国_092010334
+rules:
+- MATCH,CF-Nest-Batch

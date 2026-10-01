@@ -1,0 +1,48 @@
+proxies:
+- name: '[12748][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: www.iplocation.net
+  port: 8880
+  uuid: 4bf6fee9-d3c4-4a98-b83b-170bf37c669c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: cold-water-945c.43-bc5.workers.dev
+- name: '[45174][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.16.107.139
+  port: 8880
+  uuid: ff7390de-ce93-4d7d-b08b-bef8f71a85cf
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tiny-lake-c7f3.16-1af.workers.dev
+- name: '[2260][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 116.204.164.17
+  port: 7443
+  uuid: 0baed386-770e-4e17-a6ca-24349e60903f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[12748][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[45174][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[2260][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+rules:
+- MATCH,CF-Nest-Batch

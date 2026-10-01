@@ -1,0 +1,22 @@
+proxies:
+- name: Rose | 🇩🇪 DE | VLESS | 261
+  type: vless
+  server: 216.24.57.15
+  port: 443
+  uuid: 2ee0d2aa-867e-a77e-9538-2edfc0b242aa
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: four04-rd37.onrender.com
+  network: ws
+  ws-opts:
+    path: /ws/2ee0d2aa-867e-a77e-9538-2edfc0b242aafp=firefox
+    headers:
+      Host: four04-rd37.onrender.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Rose | 🇩🇪 DE | VLESS | 261
+rules:
+- MATCH,CF-Nest-Batch

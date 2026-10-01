@@ -1,0 +1,21 @@
+proxies:
+- name: CA 🇨🇦 | @Raydikalx | 5560D9
+  type: vless
+  server: 172.67.209.127
+  port: 8880
+  uuid: 30a88c40-581e-4952-aa4c-8af95686ede0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: rapid-lab-95ef.173-74c.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rapid-lab-95ef.173-74c.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CA 🇨🇦 | @Raydikalx | 5560D9
+rules:
+- MATCH,CF-Nest-Batch

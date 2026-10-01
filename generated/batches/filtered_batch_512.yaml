@@ -1,23 +1,34 @@
 proxies:
-- name: vless-188.245.25.223
+- name: '@DeltaKroneckerGithub #251'
   type: vless
-  server: 188.245.25.223
-  port: 8402
-  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+  server: 172.64.148.60
+  port: 8880
+  uuid: 19f4ec52-5c17-495f-803f-7b2a085b9339
   client-fingerprint: chrome
   skip-cert-verify: true
-- name: vless-77.42.20.51
+  network: ws
+  ws-opts:
+    headers:
+      Host: still-hill-0fb2.160-42e.workers.dev
+- name: '@DeltaKroneckerGithub #230'
   type: vless
-  server: 77.42.20.51
-  port: 1085
-  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+  server: 45.12.30.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
   client-fingerprint: chrome
   skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - vless-188.245.25.223
-  - vless-77.42.20.51
+  - '@DeltaKroneckerGithub #251'
+  - '@DeltaKroneckerGithub #230'
 rules:
 - MATCH,CF-Nest-Batch

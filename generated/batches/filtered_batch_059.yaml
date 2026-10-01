@@ -1,0 +1,39 @@
+proxies:
+- name: 🇫🇷FR_1546|559KB/s|B007-260618 01
+  type: trojan
+  server: 188.114.97.8
+  port: 443
+  password: -wb.oDfOeHifTGMVEf
+  skip-cert-verify: true
+  sni: C0yR9j09Y2l9G0tD8wa5.2wHBRirhjGslM43zJCqEi.worKeRs.DEV
+  network: ws
+  ws-opts:
+    path: /tr/JkwIXZZlza6sgoi9?ed=2560
+- name: 🇫🇷 Франция [#РКП]
+  type: trojan
+  server: 104.16.174.181
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: wispy-heart-a780.asakod4.workers.dev
+  network: ws
+  ws-opts:
+    path: /www.calmlunch.com/assignment
+    headers:
+      Host: wispy-heart-a780.asakod4.workers.dev
+- name: '3894'
+  type: trojan
+  server: 34.131.228.210
+  port: 443
+  password: M7v%w11Se*
+  skip-cert-verify: true
+  sni: hyfuuf6.wsone.icu
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_1546|559KB/s|B007-260618 01
+  - 🇫🇷 Франция [#РКП]
+  - '3894'
+rules:
+- MATCH,CF-Nest-Batch

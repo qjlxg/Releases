@@ -1,0 +1,288 @@
+proxies:
+- name: vless-1592762578
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM-----TOOTFFARANGI
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: vless-1593326674
+  type: vless
+  server: 104.18.46.46
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '@iranping24 #1'
+  type: vless
+  server: 104.21.110.102
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '@iranping24'
+  type: vless
+  server: 104.19.31.123
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '@iranping24 #2'
+  type: vless
+  server: 104.25.215.61
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '@iranping24 #3'
+  type: vless
+  server: 104.21.55.220
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: vless-1033577579
+  type: vless
+  server: 162.159.0.53
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-290343793
+  type: vless
+  server: lucky-field-0220.191-de2.workers.dev
+  port: 8880
+  uuid: 01c2fb74-10b5-452d-b893-67cb528b6a8d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: lucky-field-0220.191-de2.workers.dev
+- name: '☁ @anonymouskeys #1'
+  type: vless
+  server: 172.64.32.103
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '☁ @anonymouskeys #8'
+  type: vless
+  server: 104.16.100.66
+  port: 8880
+  uuid: 3fe8191f-52ae-4e38-8385-5869ab47fb70
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: jolly-violet-a006.10-ae8.workers.dev
+- name: '🌐 @anonymouskeys #1'
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 6b89f475-913c-4381-a102-f5e06a129685
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: log.bpminecraft.com
+  network: ws
+  ws-opts:
+    headers:
+      Host: proud-dawn-56f1.125-85b.workers.dev
+- name: '☁ @anonymouskeys #4'
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 91c7ea79-9187-4f07-ab97-68c584186843
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: nameless-dust-1a36.207-b50.workers.dev
+- name: '☁ @anonymouskeys #15'
+  type: vless
+  server: 104.17.191.15
+  port: 8880
+  uuid: 80cead8e-0d28-4b0a-bacd-8005471a5c39
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: flat-fire-40ed.96-042.workers.dev
+- name: vless-qqyst.sfht.kdns.fr
+  type: vless
+  server: qqyst.sfht.kdns.fr
+  port: 443
+  uuid: 33e87cba-907f-4990-8dbd-a9d14e5d17e1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: qqyst.sfht.kdns.fr
+  network: ws
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: qqyst.sfht.kdns.fr
+- name: 🇬🇧GB_48|180KB/s|V002-260618
+  type: vless
+  server: 199.232.78.159
+  port: 443
+  uuid: bfb1ec97-a326-4cf3-adcf-d2a0e2dc49f8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: pan2e.global.ssl.fastly.net
+- name: '[🇨🇦]t.me/ConfigsHub #2'
+  type: vless
+  server: 104.21.84.30
+  port: 2053
+  uuid: 9d672694-c146-422e-b3b5-3717a38a0fcc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fr.api-music-fa.com
+  network: ws
+  ws-opts:
+    path: /api/voip/updates/static/fr2035
+    headers:
+      Host: fr.api-music-fa.com
+- name: '@iranping24 #4'
+  type: vless
+  server: 104.29.127.245
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[🇨🇦]t.me/ConfigsHub #4'
+  type: vless
+  server: 172.67.185.98
+  port: 2053
+  uuid: 9d672694-c146-422e-b3b5-3717a38a0fcc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fr.api-music-fa.com
+  network: ws
+  ws-opts:
+    path: /api/voip/updates/static/fr2035
+    headers:
+      Host: fr.api-music-fa.com
+- name: 👉🆔@v2ray_configs_pool📡🇳🇴®️Norway©️Oslo🅿️ping:14.26ms
+  type: vless
+  server: 91.190.155.173
+  port: 2083
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: VLESS | @PulseConfigs | 0e88c3
+  type: vless
+  server: 141.253.194.63
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-1592762578
+  - vless-1593326674
+  - '@iranping24 #1'
+  - '@iranping24'
+  - '@iranping24 #2'
+  - '@iranping24 #3'
+  - vless-1033577579
+  - vless-290343793
+  - '☁ @anonymouskeys #1'
+  - '☁ @anonymouskeys #8'
+  - '🌐 @anonymouskeys #1'
+  - '☁ @anonymouskeys #4'
+  - '☁ @anonymouskeys #15'
+  - vless-qqyst.sfht.kdns.fr
+  - 🇬🇧GB_48|180KB/s|V002-260618
+  - '[🇨🇦]t.me/ConfigsHub #2'
+  - '@iranping24 #4'
+  - '[🇨🇦]t.me/ConfigsHub #4'
+  - 👉🆔@v2ray_configs_pool📡🇳🇴®️Norway©️Oslo🅿️ping:14.26ms
+  - VLESS | @PulseConfigs | 0e88c3
+rules:
+- MATCH,CF-Nest-Batch

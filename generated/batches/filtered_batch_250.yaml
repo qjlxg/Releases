@@ -1,0 +1,37 @@
+proxies:
+- name: wstlsip_5180
+  type: vless
+  server: 188.164.248.81
+  port: 2087
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: whitecreeper.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: whitecreeper.pages.dev
+- name: wstlsip_6439
+  type: vless
+  server: 91.193.59.32
+  port: 2083
+  uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vlsovip.1d.mom
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vlsovip.1d.mom
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - wstlsip_5180
+  - wstlsip_6439
+rules:
+- MATCH,CF-Nest-Batch

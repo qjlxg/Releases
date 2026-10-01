@@ -1,0 +1,18 @@
+proxies:
+- name: CA 🇨🇦 | @Raydikalx | 6E8D5C
+  type: vless
+  server: frosty-pond-7436.shhabbyat914.workers.dev
+  port: 443
+  uuid: de78c0b1-c5c8-412a-bd92-430d1f2e2642
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: FroSTy-PonD-7436.SHHabbYAt914.woRkErS.dEv
+  network: ws
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CA 🇨🇦 | @Raydikalx | 6E8D5C
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,334 @@
+proxies:
+- name: '@meliproxyy'
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: vless-188.114.97.6
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /?
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&alpn=http/1.1#𝗝𝗼𝗶𝗻➠@PlanB_net
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /?ed
+    headers:
+      Host: shephe.dpdns.org
+- name: 🇨🇦183646 | ⚡️Telegram = t.me/SOSkeyNET
+  type: vless
+  server: port2.axiomed.ir
+  port: 443
+  uuid: fa9ec1a9-6c24-4be2-9472-d1e2592b45b4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: G84-nee38RYD6hElYZ6Z9qW1rm1BdL1.FornEwirAn-1056.WorkerS.dEv
+  network: ws
+  ws-opts:
+    path: /vl/pmsM6vhny85OmnvYbXIpf1l
+    headers:
+      Host: g84-nee38ryd6helyz6z9qw1rm1bdl1.fornewiran-1056.workers.dev
+- name: '1393'
+  type: vless
+  server: 104.16.106.213
+  port: 8880
+  uuid: e43ca713-a646-4406-a4d5-1e7bad20e7da
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: autumn-snow-735a.175-9d9.workers.dev
+- name: '3934'
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 5990e0a5-fc5f-43c6-8fdc-39612c60a9cd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: jolly-butterfly-24e0.212-cb3.workers.dev
+- name: '2895'
+  type: vless
+  server: 104.18.42.54
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: newwk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    headers:
+      Host: newwk1.f1w.de5.net
+- name: '1917'
+  type: vless
+  server: 172.67.142.169
+  port: 443
+  uuid: 4c0b7280-76bb-495c-9c8b-f05712ebf805
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: youxuanku.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: youxuanku.kdns.fr
+- name: '0230'
+  type: vless
+  server: 172.67.162.93
+  port: 8880
+  uuid: 94977b19-6720-48a6-92fd-00238757ea30
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: fragrant-credit-c4cf.148-e68.workers.dev
+- name: '1967'
+  type: vless
+  server: 104.16.99.215
+  port: 8880
+  uuid: 0bd6aa8d-3bdb-4fa3-893e-75a844e2e409
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: wispy-cake-ec69.193-bc6.workers.dev
+- name: '4642'
+  type: vless
+  server: 172.67.152.71
+  port: 8880
+  uuid: d6d0ba7b-fa88-4b2c-9915-530ae4a81035
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: aged-mud-9b4c.202-2dc.workers.dev
+- name: '1879'
+  type: vless
+  server: 104.16.101.215
+  port: 8880
+  uuid: ce977d82-824b-4209-87f1-0719f78d6a2e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: royal-mode-cf74.210-62d.workers.dev
+- name: '2709'
+  type: vless
+  server: 162.159.0.169
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '3442'
+  type: vless
+  server: 104.26.7.214
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: '3977'
+  type: vless
+  server: 104.24.31.89
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: rayan-007.nastaran.dpdns.org
+  network: ws
+  ws-opts:
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: '5299'
+  type: vless
+  server: 104.18.39.218
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '0350'
+  type: vless
+  server: 91.193.58.125
+  port: 2053
+  uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vlso5.1d.mom
+  network: ws
+  ws-opts:
+    headers:
+      Host: vlso5.1d.mom
+- name: '4739'
+  type: vless
+  server: 104.18.34.14
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '3369'
+  type: vless
+  server: 172.67.179.98
+  port: 8880
+  uuid: d829cf8d-0a32-4e60-bcc3-a03fb4658ea4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: shy-wind-a26f.182-104.workers.dev
+- name: '2145'
+  type: vless
+  server: www.iplocation.net
+  port: 8880
+  uuid: 05e7abc2-46e1-4a23-9cdc-173ce17eb0d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: www.iplocation.net
+  network: ws
+  ws-opts:
+    headers:
+      Host: round-term-947c.41-332.workers.dev
+- name: '2187'
+  type: vless
+  server: 104.16.100.66
+  port: 8880
+  uuid: 92a4cb10-228f-4239-8c63-c566b20a9167
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: square-waterfall-c1de.199-82d.workers.dev
+- name: '2971'
+  type: vless
+  server: 172.66.158.115
+  port: 8880
+  uuid: 80cead8e-0d28-4b0a-bacd-8005471a5c39
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: flat-fire-40ed.96-042.workers.dev
+- name: '1724'
+  type: vless
+  server: 104.16.242.208
+  port: 8880
+  uuid: 19f4ec52-5c17-495f-803f-7b2a085b9339
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: still-hill-0fb2.160-42e.workers.dev
+- name: '2988'
+  type: vless
+  server: 167.172.183.195
+  port: 2096
+  uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: edge.yzkvm.top
+  network: ws
+  ws-opts:
+    headers:
+      Host: edge.yzkvm.top
+- name: '3182'
+  type: vless
+  server: 185.115.207.141
+  port: 443
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    headers:
+      Host: wzs.echo.net.eu.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@meliproxyy'
+  - vless-188.114.97.6
+  - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&alpn=http/1.1#𝗝𝗼𝗶𝗻➠@PlanB_net
+  - 🇨🇦183646 | ⚡️Telegram = t.me/SOSkeyNET
+  - '1393'
+  - '3934'
+  - '2895'
+  - '1917'
+  - '0230'
+  - '1967'
+  - '4642'
+  - '1879'
+  - '2709'
+  - '3442'
+  - '3977'
+  - '5299'
+  - '0350'
+  - '4739'
+  - '3369'
+  - '2145'
+  - '2187'
+  - '2971'
+  - '1724'
+  - '2988'
+  - '3182'
+rules:
+- MATCH,CF-Nest-Batch

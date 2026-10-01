@@ -1,0 +1,101 @@
+proxies:
+- name: '🔒 #1'
+  type: vless
+  server: 104.21.86.200
+  port: 8880
+  uuid: fe3b26ec-4bc0-464d-a7b9-2db72a89846e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: orange-base-2e09.87-c52.workers.dev
+- name: '🔒 #74'
+  type: vless
+  server: 104.18.13.229
+  port: 8880
+  uuid: d8235de7-84c7-4454-b333-4d854c393929
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: fragrant-butterfly-3e76.387.workers.dev
+- name: '🔒 #68'
+  type: vless
+  server: 104.18.39.196
+  port: 8880
+  uuid: 19f4ec52-5c17-495f-803f-7b2a085b9339
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: still-hill-0fb2.160-42e.workers.dev
+- name: '🔒 #46'
+  type: vless
+  server: 104.21.19.225
+  port: 443
+  uuid: fa9ec1a9-6c24-4be2-9472-d1e2592b45b4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: G84-nee38RYD6hElYZ6Z9qW1rm1BdL1.FornEwirAn-1056.WorkerS.dEv
+  network: ws
+  ws-opts:
+    path: /vl/pmsM6vhny85OmnvYbXIpf1l
+    headers:
+      Host: g84-nee38ryd6helyz6z9qw1rm1bdl1.fornewiran-1056.workers.dev
+- name: '🔒 #71'
+  type: vless
+  server: 104.21.6.42
+  port: 8880
+  uuid: e7ca2c1c-9b47-4ef0-9d5e-2be26a86ffc1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: nameless-disk-194d.485.workers.dev
+- name: '🔒 #95'
+  type: vless
+  server: 104.21.52.122
+  port: 8880
+  uuid: 35e8826f-0873-492d-8b8a-d495c9947480
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: super-sunset-010c.24-43d.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: super-sunset-010c.24-43d.workers.dev
+- name: '🔒 #88'
+  type: vless
+  server: 64.204.49.68
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🔒 #1'
+  - '🔒 #74'
+  - '🔒 #68'
+  - '🔒 #46'
+  - '🔒 #71'
+  - '🔒 #95'
+  - '🔒 #88'
+rules:
+- MATCH,CF-Nest-Batch

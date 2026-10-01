@@ -1,0 +1,34 @@
+proxies:
+- name: '@DeltaKroneckerGithub'
+  type: vless
+  server: 172.67.136.155
+  port: 8880
+  uuid: fe3b26ec-4bc0-464d-a7b9-2db72a89846e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: orange-base-2e09.87-c52.workers.dev
+- name: 🇳🇱 The Netherlands · Cloudflare London | 188.164.248.81 :2087·vless
+  type: vless
+  server: 188.164.248.81
+  port: 2087
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: whitecreeper.pages.dev
+  network: ws
+  ws-opts:
+    headers:
+      Host: whitecreeper.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@DeltaKroneckerGithub'
+  - 🇳🇱 The Netherlands · Cloudflare London | 188.164.248.81 :2087·vless
+rules:
+- MATCH,CF-Nest-Batch

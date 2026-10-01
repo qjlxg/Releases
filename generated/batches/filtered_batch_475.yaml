@@ -1,0 +1,22 @@
+proxies:
+- name: 🏳️ ShatakVPN 864760
+  type: vless
+  server: 104.21.82.226
+  port: 443
+  uuid: 36a857e4-f3d4-43aa-8b90-d7da849da989
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 002.Inc-ElectROcElL-001-002.WoRKERS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoib0RnakxTZUZvOSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: 002.inc-electrocell-001-002.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🏳️ ShatakVPN 864760
+rules:
+- MATCH,CF-Nest-Batch

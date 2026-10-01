@@ -1,0 +1,33 @@
+proxies:
+- name: 🇨🇦176060 | ⚡️Telegram = t.me/SOSkeyNET
+  type: trojan
+  server: 104.18.12.149
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: '@filembad`'
+  type: trojan
+  server: 45.130.125.69
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇨🇦176060 | ⚡️Telegram = t.me/SOSkeyNET
+  - '@filembad`'
+rules:
+- MATCH,CF-Nest-Batch

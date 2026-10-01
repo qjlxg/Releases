@@ -1,0 +1,65 @@
+proxies:
+- name: 🇭🇰 t.me/rghoddoosi رسول قدوسی - 56
+  type: vmess
+  server: az-1.linkaa.xyz
+  port: 53617
+  uuid: 6E571484-4166-4699-8F58-B34A1823691F
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /game/resources
+    headers:
+      Host: az-1.linkaa.xyz
+- name: 🇸🇬 t.me/rghoddoosi رسول قدوسی - 56
+  type: vmess
+  server: cf1.linkmesh.info
+  port: 443
+  uuid: 6E571484-4166-4699-8F58-B34A1823691F
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  servername: jkk.packetflow.info
+  ws-opts:
+    path: /game/resources
+    headers:
+      Host: jkk.packetflow.info
+- name: '🇹🇼 t.me/rghoddoosi رسول قدوسی - 56 #1'
+  type: vmess
+  server: hi.northcluster.info
+  port: 52300
+  uuid: 6E571484-4166-4699-8F58-B34A1823691F
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /video
+    headers:
+      Host: hi.northcluster.info
+- name: 🇹🇼 t.me/rghoddoosi رسول قدوسی - 56
+  type: vmess
+  server: mdk.mdmekjll.best
+  port: 80
+  uuid: 6E571484-4166-4699-8F58-B34A1823691F
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /game/resources
+    headers:
+      Host: mdk.mdmekjll.best
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇭🇰 t.me/rghoddoosi رسول قدوسی - 56
+  - 🇸🇬 t.me/rghoddoosi رسول قدوسی - 56
+  - '🇹🇼 t.me/rghoddoosi رسول قدوسی - 56 #1'
+  - 🇹🇼 t.me/rghoddoosi رسول قدوسی - 56
+rules:
+- MATCH,CF-Nest-Batch

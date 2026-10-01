@@ -1,0 +1,20 @@
+proxies:
+- name: 🇫🇷
+  type: trojan
+  server: 104.17.121.9
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,50 @@
+proxies:
+- name: 🇷🇺 Россия [#РКП]
+  type: vless
+  server: 172.64.149.54
+  port: 443
+  uuid: fe34b5df-e634-4c83-a057-e53f41ce8e27
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: late-lab-d6a2.ciwoda8715.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQ3dmV1d4OUFQdSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: late-lab-d6a2.ciwoda8715.workers.dev
+- name: '🇸🇪 Швеция [#РКП] #3'
+  type: vless
+  server: 188.114.96.8
+  port: 443
+  uuid: 513beae3-56e7-4954-a17e-930e06237b27
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: cfoi-2fx16g3-8ry2kdxmcj.wjesv2ila3rxbuhpc2nsugrachgawk.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/piIRdE9WUi24Sn3bb2oSJ
+    headers:
+      Host: cfoi-2fx16g3-8ry2kdxmcj.wjesv2ila3rxbuhpc2nsugrachgawk.workers.dev
+- name: '🇸🇪 Швеция [#РКП] #6'
+  type: vless
+  server: frosty-pond-7436.shhabbyat914.workers.dev
+  port: 443
+  uuid: de78c0b1-c5c8-412a-bd92-430d1f2e2642
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: frosty-pond-7436.shhabbyat914.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇷🇺 Россия [#РКП]
+  - '🇸🇪 Швеция [#РКП] #3'
+  - '🇸🇪 Швеция [#РКП] #6'
+rules:
+- MATCH,CF-Nest-Batch

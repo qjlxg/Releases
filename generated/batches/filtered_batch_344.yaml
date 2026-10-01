@@ -1,0 +1,315 @@
+proxies:
+- name: '[29208][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 162.159.140.78
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: '[4516][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: 1b3ad465-d37e-48a2-bb53-d7fddfc97b11
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: calm-silence-d4a1.217.workers.dev
+- name: '[32035][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: bd3eb105-b048-47fa-9a1d-63a66f9830a2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: misty-flower-4d15.372-912.workers.dev
+- name: '[23321][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: skk.moe
+  port: 8880
+  uuid: 8cc8bedd-5103-4d22-a79c-a88f1160055a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: red-unit-60bc.165-1dd.workers.dev
+- name: '[36185][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.16.106.213
+  port: 8880
+  uuid: d829cf8d-0a32-4e60-bcc3-a03fb4658ea4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: shy-wind-a26f.182-104.workers.dev
+- name: '[7045][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 2b5753cf-4d0a-4746-b63d-cd67a3de2ccc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: crimson-hill-8061.166-dcf.workers.dev
+- name: '[18257][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 162.159.156.214
+  port: 8880
+  uuid: 7121d0be-40f5-4eda-b3d1-1556e71ea4fa
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: shrill-recipe-0c1d.404-a1d.workers.dev
+- name: '[30562][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: skk.moe
+  port: 8880
+  uuid: b2c879ed-08a2-4a79-9c57-37c7db614e96
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: sweet-cake-1340.474-288.workers.dev
+- name: '[1733][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.56.202
+  port: 8880
+  uuid: 0787cfdb-9930-4abb-8419-c1b96c3ef628
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: red-snowflake-c399.12-ee1.workers.dev
+- name: '[1736][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.67.190.141
+  port: 8880
+  uuid: 0787cfdb-9930-4abb-8419-c1b96c3ef628
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: red-snowflake-c399.12-ee1.workers.dev
+- name: '[23320][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 8cc8bedd-5103-4d22-a79c-a88f1160055a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: red-unit-60bc.165-1dd.workers.dev
+- name: '[8230][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.66.132.196
+  port: 8880
+  uuid: 31f345f3-b8eb-4ca6-8b14-bb555ae2c1f9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: tiny-feather-4c41.227.workers.dev
+- name: '[25493][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: 984d10dd-4d51-45ac-a781-f0c1357644c2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: lingering-sun-d7b5.49-56e.workers.dev
+- name: '[7048][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.67.187.219
+  port: 8880
+  uuid: 2b5753cf-4d0a-4746-b63d-cd67a3de2ccc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: crimson-hill-8061.166-dcf.workers.dev
+- name: '[11734][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 486ebf01-0b45-4c38-9ef6-198aa0f9d2c3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: quiet-feather-19f3.410-a69.workers.dev
+- name: '[16982][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.64.94.251
+  port: 8880
+  uuid: 65aed3c1-1999-46a1-a3f3-2e5eb119ec64
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: weathered-hat-76a5.380-d00.workers.dev
+- name: '[24225][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.27.82.154
+  port: 8880
+  uuid: 902fd911-ca5d-49a6-99ad-47372a266804
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: young-wildflower-6b6c.100-52d.workers.dev
+- name: '[15412][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 5a4d9f40-56db-402a-9fbc-31c9229bdcf6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: floral-resonance-4baf.468.workers.dev
+- name: '[1144][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: upwork.com
+  port: 8880
+  uuid: 05e7abc2-46e1-4a23-9cdc-173ce17eb0d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: round-term-947c.41-332.workers.dev
+- name: '[7047][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: 2b5753cf-4d0a-4746-b63d-cd67a3de2ccc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: crimson-hill-8061.166-dcf.workers.dev
+- name: '[43975][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.12.116
+  port: 8880
+  uuid: f7ebef03-3c34-4769-bfe4-66e3c92ed665
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: lively-dream-d892.262.workers.dev
+- name: '[3847][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.67.187.219
+  port: 8880
+  uuid: 160ca353-676d-4b7f-a041-0289e388b865
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: skk.moe
+  network: ws
+  ws-opts:
+    headers:
+      Host: proud-cloud-7bdd.208-a52.workers.dev
+- name: '[4924][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 172.67.209.127
+  port: 8880
+  uuid: 1f06dae9-e4cc-4aae-b026-07f7fc81fb56
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: spring-fire-a493.251-67d.workers.dev
+- name: '[33781][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: support.zoom.us
+  port: 80
+  uuid: cac6ec8f-99f0-44c5-814f-2f3f65e4db74
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: support.zoom.us
+  network: ws
+  ws-opts:
+    path: /dula
+    headers:
+      Host: speed.dulacloud.store
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[29208][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[4516][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[32035][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[23321][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[36185][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[7045][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[18257][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[30562][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[1733][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[1736][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[23320][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[8230][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[25493][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[7048][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[11734][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[16982][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[24225][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[15412][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[1144][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[7047][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[43975][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[3847][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[4924][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  - '[33781][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+rules:
+- MATCH,CF-Nest-Batch

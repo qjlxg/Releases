@@ -1,0 +1,22 @@
+proxies:
+- name: A🟢🇭🇰res[🎬🤖📺🎭]_dokng.com_9ff2cb14
+  type: vless
+  server: cfd.130209.xyz
+  port: 443
+  uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
+  client-fingerprint: edge
+  skip-cert-verify: true
+  tls: true
+  servername: hk.152568.xyz
+  network: ws
+  ws-opts:
+    path: /cdn/packages/runtime-core.tar.gz
+    headers:
+      Host: hk.152568.xyz
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - A🟢🇭🇰res[🎬🤖📺🎭]_dokng.com_9ff2cb14
+rules:
+- MATCH,CF-Nest-Batch

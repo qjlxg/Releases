@@ -1,0 +1,41 @@
+proxies:
+- name: '3446'
+  type: trojan
+  server: app-538961.user-y0o4gm.workers.dev
+  port: 443
+  password: 0b5fa773-6f37-4134-87d4-0c349742b6f6
+  skip-cert-verify: true
+  network: ws
+- name: 'Join+Telegram:@Farah_VPN #10'
+  type: trojan
+  server: 45.130.125.126
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: '@Anthony'
+  type: trojan
+  server: 104.16.7.70
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '3446'
+  - 'Join+Telegram:@Farah_VPN #10'
+  - '@Anthony'
+rules:
+- MATCH,CF-Nest-Batch

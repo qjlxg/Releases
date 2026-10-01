@@ -1,0 +1,37 @@
+proxies:
+- name: '@DeltaKroneckerGithub #23'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 18b91bec-1abf-45c0-bd06-f2c6ed22a125
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '@DeltaKroneckerGithub #148'
+  type: vless
+  server: 167.172.183.195
+  port: 2096
+  uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edge.yzkvm.top
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edge.yzkvm.top
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@DeltaKroneckerGithub #23'
+  - '@DeltaKroneckerGithub #148'
+rules:
+- MATCH,CF-Nest-Batch

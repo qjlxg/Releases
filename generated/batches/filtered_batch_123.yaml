@@ -1,15 +1,178 @@
 proxies:
-- name: 🇸🇬_新加坡_75
+- name: '🇩🇪 #2'
   type: vless
-  server: 134.122.154.210
+  server: 188.114.97.6
   port: 443
-  uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
+  uuid: 33918b20-9e02-4dc6-8b30-79b2d4b2e0e6
   client-fingerprint: chrome
   skip-cert-verify: true
+  tls: true
+  servername: auto-scale-238b2b.infra-core-1630dd.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiUjJBU3JkVlRwSWtnciIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0
+    headers:
+      Host: auto-scale-238b2b.infra-core-1630dd.workers.dev
+- name: 🇸🇬
+  type: vless
+  server: 172.67.174.249
+  port: 443
+  uuid: 26b35808-f1e1-4b97-8c69-46796f058d8b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ezaccess-project-9138d4.5f6on.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicG9pMkt4TDY2TVNtRSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: ezaccess-project-9138d4.5f6on.workers.dev
+- name: 🐊50@oneclickvpnkeys
+  type: vless
+  server: lhns3ww2-cxq-gj1vvobkepig4nopkc.hqu4v38hi9iftcp6mzfmx-3bmx.workers.dev
+  port: 443
+  uuid: 38d6b629-64c2-4c31-a10d-26eb3a2a053d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: lHNs3ww2-CXQ-Gj1vvOBkEPIg4noPkc.hqu4v38Hi9iFtcp6mZfMX-3bmx.WoRKeRS.dEV
+  network: ws
+  ws-opts:
+    path: /vl/cxl8Wn1ylnsk63nJ0
+    headers:
+      Host: lhns3ww2-cxq-gj1vvobkepig4nopkc.hqu4v38hi9iftcp6mzfmx-3bmx.workers.dev
+- name: 🇺🇸
+  type: vless
+  server: 172.67.174.249
+  port: 443
+  uuid: 26b35808-f1e1-4b97-8c69-46796f058d8b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ezaccess-project-9138d4.5f6on.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoicG9pMkt4TDY2TVNtRSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
+    headers:
+      Host: ezaccess-project-9138d4.5f6on.workers.dev
+- name: '[ #4'
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 3e7bb66e-d7c6-4711-aa05-e4ab0ec58c6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: shrill-cell-cca7.158-6fa.workers.dev
+- name: '🇸🇬 #4'
+  type: vless
+  server: www.5h.com
+  port: 443
+  uuid: 4c0b7280-76bb-495c-9c8b-f05712ebf805
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: youxuanku.kdns.fr
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: youxuanku.kdns.fr
+- name: 🐊57@oneclickvpnkeys
+  type: vless
+  server: patient-moon-c61f.ggfsa55.workers.dev
+  port: 443
+  uuid: 737678dc-cc15-4643-85a4-ca9359df1aa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: patient-moon-c61f.ggfsa55.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+- name: '[ #10'
+  type: vless
+  server: 172.67.179.98
+  port: 8880
+  uuid: 75323b6f-184f-4d00-839d-323b8fc70221
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: dry-sunset-f3c4.282.workers.dev
+- name: 🇯🇵
+  type: vless
+  server: 188.114.97.8
+  port: 443
+  uuid: 513beae3-56e7-4954-a17e-930e06237b27
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: cFOi-2fX16G3-8ry2KDxMcJ.wjESV2IlA3rXBuhpC2NsUgrAChGAWk.wOrKerS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/FuJlzLUhMmosE6ySAHYtJDUq6XlF?ed=2560
+    headers:
+      Host: cfoi-2fx16g3-8ry2kdxmcj.wjesv2ila3rxbuhpc2nsugrachgawk.workers.dev
+- name: '🇸🇬 #3'
+  type: vless
+  server: www.speedtest.net
+  port: 80
+  uuid: 63f1ef69-92fd-427a-b3e4-98ffddf81ac6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /nPKoVRUdyuRZ6jpY/YnBiLnlvdXNlZi5pc2VnYXJvLmNvbSxwcm94eWlwLmNtbGl1c3Nzcy5uZXQsbmltYS5uc2NsLmlyLHR1cmsucmFkaWNhbGl6YXRpb24uaXI=
+    headers:
+      Host: young-rice-749e.heliy78750.workers.dev
+- name: 🐊85@oneclickvpnkeys
+  type: vless
+  server: 177.3.208.65
+  port: 443
+  uuid: 4f34bc04-479c-49ba-91a8-6bb9ed15031c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: tgmansion.site
+  network: ws
+  ws-opts:
+    path: /vless-il
+    headers:
+      Host: tgmansion.site
+- name: 🇦🇹
+  type: vless
+  server: 83.147.216.223
+  port: 4433
+  uuid: 660174a2-d32d-4521-840d-d1853bfc80b8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - 🇸🇬_新加坡_75
+  - '🇩🇪 #2'
+  - 🇸🇬
+  - 🐊50@oneclickvpnkeys
+  - 🇺🇸
+  - '[ #4'
+  - '🇸🇬 #4'
+  - 🐊57@oneclickvpnkeys
+  - '[ #10'
+  - 🇯🇵
+  - '🇸🇬 #3'
+  - 🐊85@oneclickvpnkeys
+  - 🇦🇹
 rules:
 - MATCH,CF-Nest-Batch

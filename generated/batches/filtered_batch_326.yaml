@@ -1,0 +1,46 @@
+proxies:
+- name: 🇺🇸US_665|376KB/s|A004-260618 01
+  type: vless
+  server: 69.48.201.136
+  port: 30016
+  uuid: 03dc60cb-a8d4-4226-93fe-0e6cbf77fe5a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /usserver
+- name: 🇫🇷FR_271|65KB/s|C002-260622 01
+  type: vless
+  server: 172.64.94.251
+  port: 8880
+  uuid: 30a88c40-581e-4952-aa4c-8af95686ede0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: rapid-lab-95ef.173-74c.workers.dev
+- name: 🇯🇵JP_12|118KB/s|T001-260618 01
+  type: vless
+  server: 8.219.155.125
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇸US_665|376KB/s|A004-260618 01
+  - 🇫🇷FR_271|65KB/s|C002-260622 01
+  - 🇯🇵JP_12|118KB/s|T001-260618 01
+rules:
+- MATCH,CF-Nest-Batch

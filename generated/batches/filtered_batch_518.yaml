@@ -1,63 +1,304 @@
 proxies:
-- name: 🏁 未知-01E5A486
-  type: vmess
-  server: 141.95.65.9
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: true
-- name: 🏁 未知-67C1FE41
-  type: vmess
-  server: 45.90.106.24
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: true
-- name: 未知 VMESS-1104 | free-nodes
-  type: vmess
-  server: 159.223.13.109
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: true
-  servername: supervpn.super.com
-- name: 未知 VMESS-1107 | free-nodes
-  type: vmess
-  server: 162.19.204.71
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: true
-  servername: supervpn.super.com
-- name: 🇰🇷 韩国-01958B5F
-  type: vmess
-  server: 140.238.2.250
+- name: 美国_0930071790
+  type: vless
+  server: grimness-backlogs.cdn-content.com
   port: 443
-  uuid: 41a7089a-040b-4538-8b8d-010902405bde
-  alterId: 0
-  cipher: auto
+  uuid: f1646667-a135-4246-9a9a-de0c53b0dc8d
+  client-fingerprint: chrome
   skip-cert-verify: true
-  network: none
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: 美国_093007948
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 316f013e-4cf9-4a02-8415-73c22932594a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_093007154
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: c9ff358e-20c4-4979-bc14-acc3daaf1297
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_093007952
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 11e6c528-434f-4b15-83b3-40a46237ea13
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 美国_093007957
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 9819d5c6-bc6e-4e31-8af7-c023ecff6022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_093007988
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 9d50fde6-7e89-4dee-9fee-17a77046604c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 美国_093007951
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 11e6c528-434f-4b15-83b3-40a46237ea13
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_0930072259
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 1b3837df-41d5-4740-8a36-467ea03adfc3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 🇺🇸 БС 📋✓ №266 2.1MB/s 236ms
+  type: vless
+  server: 162.159.130.234
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: newwk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    headers:
+      Host: newwk1.f1w.de5.net
+- name: 新加坡_093007192
+  type: vless
+  server: 185.115.207.141
+  port: 443
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HV1ZNVwcHTQsJSgAJVBQUG0dCQEwWAx4AAg4c
+    headers:
+      Host: wzs.echo.net.eu.org
+- name: '🇺🇸 США [#РКП] #2'
+  type: vless
+  server: 69.63.221.116
+  port: 25517
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HBRETS1lYDldeEEFRGxhbVloPHhpEVl9AFwxSGQ9bSQ==
+    headers:
+      Host: wzs.echo.net.eu.org
+- name: 美国_093007746
+  type: vless
+  server: 167.68.42.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+- name: 美国_0930072367
+  type: vless
+  server: 139.64.235.7
+  port: 8443
+  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: speed.dulacloud.store
+  network: ws
+  ws-opts:
+    path: /dula?Telegram-WangCai2fp=chrome
+    headers:
+      Host: speed.dulacloud.store
+- name: 🇯🇵 Япония [#РКП]
+  type: vless
+  server: 104.238.161.103
+  port: 443
+  uuid: 8344360f-0349-4784-a19f-33fd92e89389
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: api.w2m.ink
+  network: ws
+  ws-opts:
+    path: /v2
+    headers:
+      Host: api.w2m.ink
+- name: 🇩🇪 Германия [#РКП]
+  type: vless
+  server: 37.120.222.70
+  port: 8082
+  uuid: c5cdf808-931c-4af0-8f8c-38bb89be986d
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: 🇯🇵 Япония | 🔗 Каскад [#РКП]
+  type: vless
+  server: 38.147.171.13
+  port: 443
+  uuid: 8344360f-0349-4784-a19f-33fd92e89389
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: api.w2m.ink
+  network: ws
+  ws-opts:
+    path: /v2
+    headers:
+      Host: api.w2m.ink
+- name: '🇯🇵 Япония | 🔗 Каскад [#РКП] #1'
+  type: vless
+  server: 172.93.167.45
+  port: 443
+  uuid: 8344360f-0349-4784-a19f-33fd92e89389
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: api.w2m.ink
+  network: ws
+  ws-opts:
+    path: /v2
+    headers:
+      Host: api.w2m.ink
+- name: 🇺🇦 @anonymouskeys
+  type: vless
+  server: 173.242.63.235
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 🇹🇷
+  type: vless
+  server: 155.103.70.53
+  port: 30303
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HAAQNCV1EClxZAgMWAlBZXRlKXU4aTV8WGRQRQkoXFgweUABdHg==
+    headers:
+      Host: wzs.echo.net.eu.org
+- name: ⚠️ 🇯🇵 Япония | 🔗 Каскад [#РКП]
+  type: vless
+  server: 207.57.131.171
+  port: 443
+  uuid: 8344360f-0349-4784-a19f-33fd92e89389
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: api.w2m.ink
+  network: ws
+  ws-opts:
+    path: /v2
+    headers:
+      Host: api.w2m.ink
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - 🏁 未知-01E5A486
-  - 🏁 未知-67C1FE41
-  - 未知 VMESS-1104 | free-nodes
-  - 未知 VMESS-1107 | free-nodes
-  - 🇰🇷 韩国-01958B5F
+  - 美国_0930071790
+  - 美国_093007948
+  - 美国_093007154
+  - 美国_093007952
+  - 美国_093007957
+  - 美国_093007988
+  - 美国_093007951
+  - 美国_0930072259
+  - 🇺🇸 БС 📋✓ №266 2.1MB/s 236ms
+  - 新加坡_093007192
+  - '🇺🇸 США [#РКП] #2'
+  - 美国_093007746
+  - 美国_0930072367
+  - 🇯🇵 Япония [#РКП]
+  - 🇩🇪 Германия [#РКП]
+  - 🇯🇵 Япония | 🔗 Каскад [#РКП]
+  - '🇯🇵 Япония | 🔗 Каскад [#РКП] #1'
+  - 🇺🇦 @anonymouskeys
+  - 🇹🇷
+  - ⚠️ 🇯🇵 Япония | 🔗 Каскад [#РКП]
 rules:
 - MATCH,CF-Nest-Batch

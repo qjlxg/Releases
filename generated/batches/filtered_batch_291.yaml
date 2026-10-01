@@ -1,0 +1,35 @@
+proxies:
+- name: 美国+CloudFlare节点
+  type: vless
+  server: www.ipget.net
+  port: 8880
+  uuid: f3a30870-eb2e-4ad7-85cb-c0e65d061d5b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: shrill-mouse-dacd.391.workers.dev
+- name: 4Sarina-3979396ae0
+  type: vless
+  server: milan.adaspoloandco.com
+  port: 8443
+  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: milan.adaspoloandco.com
+  network: ws
+  ws-opts:
+    path: /RoBeRt
+    headers:
+      Host: milan.adaspoloandco.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 美国+CloudFlare节点
+  - 4Sarina-3979396ae0
+rules:
+- MATCH,CF-Nest-Batch

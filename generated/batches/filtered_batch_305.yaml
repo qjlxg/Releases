@@ -1,0 +1,37 @@
+proxies:
+- name: 🇫🇷FR_1403|473KB/s|B007-260618 01
+  type: vless
+  server: mybb.com
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: '@DeltaKroneckerGithub #111'
+  type: vless
+  server: 104.21.16.109
+  port: 443
+  uuid: cc08d2d0-8a7a-4469-81d2-c43704451271
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/6871nrbnl9WsdAiOUInt
+    headers:
+      Host: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_1403|473KB/s|B007-260618 01
+  - '@DeltaKroneckerGithub #111'
+rules:
+- MATCH,CF-Nest-Batch

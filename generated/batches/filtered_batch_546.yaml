@@ -1,0 +1,532 @@
+proxies:
+- name: zhuhai.uk 🌐 未知 10
+  type: vless
+  server: cf.3666888.xyz
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🌐 未知 258
+  type: vless
+  server: 172.67.69.156
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇩🇪 德国 12
+  type: vless
+  server: 162.159.197.1
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇨🇦 加拿大 01
+  type: vless
+  server: 104.17.148.175
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk | 战争贩子 | US | 143.198.106.68:443
+  type: vless
+  server: 143.198.106.68
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇺🇸 美国 45
+  type: vless
+  server: 77.73.8.247
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇩🇪 德国 11
+  type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇨🇦 加拿大 02
+  type: vless
+  server: cf.130519.xyz
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 小日本儿 | JP | 103.53.80.84:443
+  type: vless
+  server: 103.53.80.84
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 立陶宛 LT | ARN | 144.31.243.69:443
+  type: vless
+  server: 144.31.243.69
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 台湾 TW | TPE | 85.237.207.126:443
+  type: vless
+  server: 85.237.207.126
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇯🇵 日本 18
+  type: vless
+  server: 160.16.103.102
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk | 印加坡县 | SG | 103.170.217.60:443
+  type: vless
+  server: 103.170.217.60
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇯🇵 日本 11
+  type: vless
+  server: 43.170.8.95
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk | 港岛茶记 | HK | 103.101.0.73:443
+  type: vless
+  server: 103.101.0.73
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇯🇵 日本 106
+  type: vless
+  server: 137.220.225.56
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk | 印加坡县 | SG | 103.195.191.121:443
+  type: vless
+  server: 103.195.191.121
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🌐 未知 12
+  type: vless
+  server: cf.3666888.xyz
+  port: 2053
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇰🇷 韩国 27
+  type: vless
+  server: 193.122.115.184
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇰🇷 韩国 101
+  type: vless
+  server: 129.154.197.113
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk | 香港 HK | HKG | 45.153.130.61:8443
+  type: vless
+  server: 45.153.130.61
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇰🇷 韩国 04
+  type: vless
+  server: 64.110.70.64
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: 🇮🇩印尼
+  type: vless
+  server: 103.169.206.131
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk | 印度尼西亚 ID | CGK | 172.232.246.133:8443
+  type: vless
+  server: 172.232.246.133
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: zhuhai.uk 🇸🇬 新加坡 46
+  type: vless
+  server: 89.28.239.234
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇸🇬 新加坡 11
+  type: vless
+  server: 103.170.217.60
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇸🇬 新加坡 135
+  type: vless
+  server: 172.104.60.181
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇸🇬 新加坡 90
+  type: vless
+  server: 143.198.209.123
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[11801][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-09-28][2026-09-28'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 566e98ad-4a56-4c1d-9dbc-83987079731b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: zhuhai.uk 🇰🇷 韩国 66
+  type: vless
+  server: 123.111.169.70
+  port: 2087
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[11802][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-09-28][2026-09-28'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 566e98ad-4a56-4c1d-9dbc-83987079731b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: zhuhai.uk 🇰🇷 韩国 76
+  type: vless
+  server: 123.111.169.70
+  port: 2096
+  uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: free-server.techsonic.dev
+  network: ws
+  ws-opts:
+    path: /free-server.techsonic.dev
+    headers:
+      Host: free-server.techsonic.dev
+- name: zhuhai.uk 🇮🇳 印度 64
+  type: vless
+  server: 172.232.246.133
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇮🇳 印度 100
+  type: vless
+  server: 5.253.30.225
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: zhuhai.uk 🇮🇳 印度 06
+  type: vless
+  server: 65.2.215.47
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - zhuhai.uk 🌐 未知 10
+  - zhuhai.uk 🌐 未知 258
+  - zhuhai.uk 🇩🇪 德国 12
+  - zhuhai.uk 🇨🇦 加拿大 01
+  - zhuhai.uk | 战争贩子 | US | 143.198.106.68:443
+  - zhuhai.uk 🇺🇸 美国 45
+  - zhuhai.uk 🇩🇪 德国 11
+  - zhuhai.uk 🇨🇦 加拿大 02
+  - zhuhai.uk | 小日本儿 | JP | 103.53.80.84:443
+  - zhuhai.uk | 立陶宛 LT | ARN | 144.31.243.69:443
+  - zhuhai.uk | 台湾 TW | TPE | 85.237.207.126:443
+  - zhuhai.uk 🇯🇵 日本 18
+  - zhuhai.uk | 印加坡县 | SG | 103.170.217.60:443
+  - zhuhai.uk 🇯🇵 日本 11
+  - zhuhai.uk | 港岛茶记 | HK | 103.101.0.73:443
+  - zhuhai.uk 🇯🇵 日本 106
+  - zhuhai.uk | 印加坡县 | SG | 103.195.191.121:443
+  - zhuhai.uk 🌐 未知 12
+  - zhuhai.uk 🇰🇷 韩国 27
+  - zhuhai.uk 🇰🇷 韩国 101
+  - zhuhai.uk | 香港 HK | HKG | 45.153.130.61:8443
+  - zhuhai.uk 🇰🇷 韩国 04
+  - 🇮🇩印尼
+  - zhuhai.uk | 印度尼西亚 ID | CGK | 172.232.246.133:8443
+  - zhuhai.uk 🇸🇬 新加坡 46
+  - zhuhai.uk 🇸🇬 新加坡 11
+  - zhuhai.uk 🇸🇬 新加坡 135
+  - zhuhai.uk 🇸🇬 新加坡 90
+  - '[11801][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-09-28][2026-09-28'
+  - zhuhai.uk 🇰🇷 韩国 66
+  - '[11802][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-09-28][2026-09-28'
+  - zhuhai.uk 🇰🇷 韩国 76
+  - zhuhai.uk 🇮🇳 印度 64
+  - zhuhai.uk 🇮🇳 印度 100
+  - zhuhai.uk 🇮🇳 印度 06
+rules:
+- MATCH,CF-Nest-Batch

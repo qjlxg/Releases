@@ -1,0 +1,49 @@
+proxies:
+- name: 🇯🇵 AetrisVPN
+  type: vless
+  server: 172.67.179.98
+  port: 8880
+  uuid: 56c673ba-865a-48ec-8dc0-fd7133a7ecfd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: curly-surf-4401.75-08c.workers.dev
+- name: 'Join+Telegram:@Farah_VPN #7'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: ecbc4229-e8d3-4607-8f02-fd592c9a0743
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 'Join+Telegram:@Farah_VPN #8'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: ecbc4229-e8d3-4607-8f02-fd592c9a0743
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇯🇵 AetrisVPN
+  - 'Join+Telegram:@Farah_VPN #7'
+  - 'Join+Telegram:@Farah_VPN #8'
+rules:
+- MATCH,CF-Nest-Batch

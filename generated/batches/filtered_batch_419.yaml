@@ -1,0 +1,37 @@
+proxies:
+- name: 🏳️ ShatakVPN 634001
+  type: vless
+  server: 162.159.152.4
+  port: 443
+  uuid: f2a73750-3087-48ff-a763-1348c15dce68
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: rAyAn-007.mAxImA.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rAyAn-007.mAxImA.DpDnS.OrG
+- name: 🇯🇵[www.v2nodes.com
+  type: vless
+  server: 64.204.49.68
+  port: 443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: vp10.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp10.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🏳️ ShatakVPN 634001
+  - 🇯🇵[www.v2nodes.com
+rules:
+- MATCH,CF-Nest-Batch

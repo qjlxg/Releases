@@ -1,0 +1,866 @@
+proxies:
+- name: 🇫🇷FR_838|1.4MB/s|B007-260618 01
+  type: vless
+  server: 172.66.47.45
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: wk1.f1w.de5.net
+- name: 🇫🇷FR_879|1.1MB/s|C002-260622 01
+  type: vless
+  server: www.ipget.net
+  port: 8880
+  uuid: b0962bf7-0b03-4353-9be1-131b78ad71d0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: weathered-truth-581a.383.workers.dev
+- name: 🇫🇷FR_920|598KB/s|C002-260622 01
+  type: vless
+  server: muddy-math-c1fc.tmpnriqueau89.workers.dev
+  port: 443
+  uuid: 532a9115-aee7-4d39-9638-1e5146de075b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: muddy-math-c1fc.tmpnriqueau89.workers.dev
+  network: ws
+  ws-opts:
+    path: /js/cHlpcC55Z2tray5kcGRucy5vcmc=/?ed=2048
+    headers:
+      Host: muddy-math-c1fc.tmpnriqueau89.workers.dev
+- name: 🇫🇷FR_948|1.1MB/s|X001-260618 01
+  type: vless
+  server: codecanyon.net
+  port: 8880
+  uuid: 6e857db2-ea80-48e1-903f-d5cf557c21ff
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: silent-snow-1a0d.241-b0a.workers.dev
+- name: 🇫🇷FR_859|489KB/s|C002-260622 01
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: f7ebef03-3c34-4769-bfe4-66e3c92ed665
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: lively-dream-d892.262.workers.dev
+- name: 🇫🇷FR_1028|282KB/s|A004-260618 01
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: 25322a43-4ef3-45cc-9e96-db44bcccd7be
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: purple-disk-f68d.14-360.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: purple-disk-f68d.14-360.workers.dev
+- name: 🇫🇷FR_876|366KB/s|C002-260622 01
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: 30a88c40-581e-4952-aa4c-8af95686ede0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: rapid-lab-95ef.173-74c.workers.dev
+- name: 🇫🇷FR_889|255KB/s|C002-260622 01
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: 6d613d5f-1d65-48ca-b2e8-d83a2c3a17d9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: tight-star-08eb.331-729.workers.dev
+- name: 🇫🇷FR_854|984KB/s|C002-260622 01
+  type: vless
+  server: 162.159.156.214
+  port: 8880
+  uuid: 565326ee-c588-4843-9472-a051578ab1ae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: lucky-cell-e8c5.490-f12.workers.dev
+- name: 🇫🇷FR_959|538KB/s|T001-260618 01
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: 7121d0be-40f5-4eda-b3d1-1556e71ea4fa
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: shrill-recipe-0c1d.404-a1d.workers.dev
+- name: 🇫🇷FR_1001|485KB/s|A004-260618 01
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 23187ddc-16a5-432d-bf4e-dd42a7ae39f7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: steep-thunder-97fa.108-d10.workers.dev
+- name: 🇫🇷FR_746|595KB/s|M003-260806 01
+  type: vless
+  server: go.inmobi.com
+  port: 8443
+  uuid: 656bb400-3b7a-47e3-94b0-0362f3865072
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: socks5.revil-time3.workers.dev
+  network: ws
+  ws-opts:
+    path: /socks5://128.140.46.169:13482
+    headers:
+      Host: socks5.revil-time3.workers.dev
+- name: 🇫🇷FR_982|417KB/s|M003-260806 01
+  type: vless
+  server: 104.21.67.236
+  port: 443
+  uuid: 96e341a7-3077-4613-b482-41bd9c90cc4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: eZaCCesS-proJEcT-4C7950.Ez-dC9bBB.WorKErs.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiN2w4dDlRNVV5NkZ5NU1aeSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: ezaccess-project-4c7950.ez-dc9bbb.workers.dev
+- name: 🇫🇷FR_1000|357KB/s|A004-260618 01
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 91c7ea79-9187-4f07-ab97-68c584186843
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: skk.moe
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: nameless-dust-1a36.207-b50.workers.dev
+- name: 🇫🇷FR_1002|592KB/s|A004-260618 01
+  type: vless
+  server: 104.16.99.215
+  port: 8880
+  uuid: 23187ddc-16a5-432d-bf4e-dd42a7ae39f7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: steep-thunder-97fa.108-d10.workers.dev
+- name: 🇫🇷FR_939|368KB/s|C002-260622 01
+  type: vless
+  server: anydesk.com
+  port: 8880
+  uuid: b85c8be2-3109-4b8a-aa82-f0d8fe06f5ae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: young-dust-b8d9.31-8ba.workers.dev
+- name: 🇫🇷FR_1017|893KB/s|A004-260618 01
+  type: vless
+  server: 66.81.247.155
+  port: 2083
+  uuid: 6cc29a05-4828-4e48-a34a-20b7ada60e85
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: testmikonim.hydrymhmdamyn7.workers.dev
+  network: ws
+  ws-opts:
+    path: /OAZko425kNFF0PpQ
+    headers:
+      Host: testmikonim.hydrymhmdamyn7.workers.dev
+- name: ❓Other_77|265KB/s 01
+  type: vless
+  server: 104.16.106.213
+  port: 8880
+  uuid: 9c772ed7-2843-4554-9a96-4a88f827de58
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: nameless-tree-08b8.352.workers.dev
+- name: 🇫🇷FR_1021|473KB/s 01
+  type: vless
+  server: 104.17.178.154
+  port: 8880
+  uuid: f6e14309-5cff-4f5d-bce1-06a260159bbe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: steep-bread-32f0.92-d12.workers.dev
+- name: 🇫🇷FR_1029|978KB/s|A004-260618 01
+  type: vless
+  server: 172.64.151.134
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: 🇫🇷FR_837|219KB/s 01
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: 35b94b2c-1b46-4209-a04b-32ecf159b632
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: fragrant-tooth-2180.97-cbb.workers.dev
+- name: 🇫🇷FR_1027|336KB/s|A004-260618 01
+  type: vless
+  server: 104.18.36.122
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: 🇫🇷FR_1050|542KB/s|C002-260622 01
+  type: vless
+  server: 172.64.94.251
+  port: 8880
+  uuid: 723c410e-5789-4b21-abb9-d6ec05547ba9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: blue-sky-e65b.221-553.workers.dev
+- name: 🇫🇷FR_1062|553KB/s|C002-260622 01
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: ad85a1ce-3519-4634-9ea1-66c60d3694ba
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: little-pond-8731.81-68e.workers.dev
+- name: 🇫🇷FR_1032|482KB/s|A004-260618 01
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 2b5753cf-4d0a-4746-b63d-cd67a3de2ccc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: crimson-hill-8061.166-dcf.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: crimson-hill-8061.166-dcf.workers.dev
+- name: 🇫🇷FR_1063|328KB/s|C002-260622 01
+  type: vless
+  server: anydesk.com
+  port: 8880
+  uuid: 984d10dd-4d51-45ac-a781-f0c1357644c2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: lingering-sun-d7b5.49-56e.workers.dev
+- name: 🇫🇷FR_1134|436KB/s|A004-260618 01
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 6e857db2-ea80-48e1-903f-d5cf557c21ff
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: silent-snow-1a0d.241-b0a.workers.dev
+- name: 🇫🇷FR_1131|806KB/s|F003-260618 01
+  type: vless
+  server: liang92.dpdns.org
+  port: 443
+  uuid: 0aab6adc-104c-4339-8d25-09755ffe2cbd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: liang92.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇫🇷FR_976|563KB/s|B007-260618 01
+  type: vless
+  server: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+  port: 443
+  uuid: 527451fe-ee1f-4e6f-94ca-808f055f7c9b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/ERYN0G44hia16zhR
+- name: ❓Other_79|221KB/s|A004-260618 01
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: ad85a1ce-3519-4634-9ea1-66c60d3694ba
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: little-pond-8731.81-68e.workers.dev
+- name: ❓Other_80|272KB/s|A004-260618 01
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 999c9769-28db-425a-84d8-ccd7a3321406
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: log.bpminecraft.com
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: jolly-glitter-123c.196-2b3.workers.dev
+- name: 🇫🇷FR_1194|1.4MB/s|M003-260806 01
+  type: vless
+  server: 104.17.148.22
+  port: 443
+  uuid: 518de0d4-6ce8-4404-80db-23c4a8806128
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ez-5FAAFb.EsmAoi.wORKeRs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQkFLTnhqM2tZTSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: ez-5faafb.esmaoi.workers.dev
+- name: 🇫🇷FR_1121|340KB/s|M003-260806 01
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 7a2df38b-2d8b-486b-9b43-641c81e11f40
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: shiny-mud-d9fa.466.workers.dev
+- name: 🇫🇷FR_1126|1.0MB/s|C002-260622 01
+  type: vless
+  server: themeforest.net
+  port: 8880
+  uuid: 96a32aaa-ebd9-4824-aa04-e9678011d9b0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: old-tooth-d793.447-02e.workers.dev
+- name: 🇫🇷FR_1175|638KB/s|B007-260618 01
+  type: vless
+  server: 5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev
+  port: 443
+  uuid: 5934b979-e128-4c90-a600-744b97bffc8c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5DKTCUajb2a1jxIX7csNrmEUCg.MAhRADeMAmi.wORkeRs.dEV
+  network: ws
+  ws-opts:
+    path: /vl/Fi3kP8cNjBoo8UPv
+    headers:
+      Host: 5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev
+- name: 🇫🇷FR_1269|515KB/s|C002-260622 01
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: afb13fa2-bba2-417f-b8c2-62565f92a78d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: orange-block-5cd1.124-199.workers.dev
+- name: 🇫🇷FR_1331|607KB/s|A004-260618 01
+  type: vless
+  server: 172.64.151.134
+  port: 8880
+  uuid: f15a5586-23f6-453f-97f5-c301b949e699
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: mute-sunset-0849.40-aeb.workers.dev
+- name: 🇫🇷FR_1244|571KB/s|C002-260622 01
+  type: vless
+  server: courses.mftplus.qzz.io
+  port: 2096
+  uuid: b9ede7a5-5b4b-4aee-ac37-2c307e587e47
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: courses.mftplus.qzz.io
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidVkzQm1ROUg4dyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: courses.mftplus.qzz.io
+- name: 🇪🇸ES_19|288KB/s|F003-260618 01
+  type: vless
+  server: 172.65.90.52
+  port: 8880
+  uuid: 667a035b-6656-4a4f-a74c-8cd6a679f8d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: winter-mode-7f4e.89-136.workers.dev
+- name: 🇪🇸ES_21|252KB/s|A004-260618 01
+  type: vless
+  server: 172.65.90.53
+  port: 8880
+  uuid: 812b1aeb-c6f7-43cb-8d8b-981711fea21a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: dark-cake-4743.198-46c.workers.dev
+- name: 🇫🇷FR_1186|192KB/s|M003-260806 01
+  type: vless
+  server: 172.66.140.62
+  port: 8880
+  uuid: 3adac494-0eb1-4d89-a187-b2181691444d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: tiny-lake-bbf1.369-766.workers.dev
+- name: 🇫🇷FR_1375|444KB/s|C002-260622 01
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: 🇫🇷FR_1181|357KB/s|M003-260806 01
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /8eaZJhRwB5zzDy81
+    headers:
+      Host: d2127A49-flAT-wooD-C4B5.mILia-AkbARpOor.WorkERs.dEV
+- name: 🇫🇷FR_1320|563KB/s|A004-260618 01
+  type: vless
+  server: 104.16.8.66
+  port: 8880
+  uuid: b92380e2-e03f-4861-856e-7c2373b04728
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: dry-thunder-7f57.57-1a3.workers.dev
+- name: 🇫🇷FR_1363|414KB/s 01
+  type: vless
+  server: www.glassdoor.com
+  port: 8880
+  uuid: f6e14309-5cff-4f5d-bce1-06a260159bbe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: steep-bread-32f0.92-d12.workers.dev
+- name: 🇫🇷FR_1367|571KB/s|C002-260622 01
+  type: vless
+  server: themeforest.net
+  port: 8880
+  uuid: a429499b-6237-44b2-ae4d-0d53d14cf46a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: small-wave-9851.441-57f.workers.dev
+- name: 🇫🇷FR_1321|476KB/s|C002-260622 01
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: 96a32aaa-ebd9-4824-aa04-e9678011d9b0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: old-tooth-d793.447-02e.workers.dev
+- name: 🇫🇷FR_1398|401KB/s|M003-260806 01
+  type: vless
+  server: 172.67.152.162
+  port: 443
+  uuid: 07f9bc85-613f-4a33-8da1-191973c43c0a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: app-q0zc4t.user-4gfyh5.workers.dev
+  network: ws
+  ws-opts:
+    path: /cmh
+    headers:
+      Host: app-q0zc4t.user-4gfyh5.workers.dev
+- name: 🇫🇷FR_1427|1.1MB/s|C002-260622 01
+  type: vless
+  server: 103.133.1.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime36.workers.dev
+- name: 🇫🇷FR_1411|522KB/s 01
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: b2c879ed-08a2-4a79-9c57-37c7db614e96
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: sweet-cake-1340.474-288.workers.dev
+- name: 🇫🇷FR_1498|457KB/s|M003-260806 01
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 86d998bc-a5a2-45d5-8169-b906259110a6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: muddy-art-8cda.197-0c6.workers.dev
+- name: 🇫🇷FR_1490|470KB/s|M003-260806 01
+  type: vless
+  server: 188.114.97.6
+  port: 8880
+  uuid: 142d1453-9cfe-4045-8e54-f3fb33342185
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: lively-scene-744f.107-47a.workers.dev
+- name: 🇫🇷FR_1422|429KB/s|A004-260618 01
+  type: vless
+  server: 104.26.7.214
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: 🇫🇷FR_1529|516KB/s|A004-260618 01
+  type: vless
+  server: www.iplocation.net
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: 🇫🇷FR_1444|136KB/s 01
+  type: vless
+  server: icook.tw
+  port: 8880
+  uuid: f6e14309-5cff-4f5d-bce1-06a260159bbe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: steep-bread-32f0.92-d12.workers.dev
+- name: 🇫🇷FR_1493|340KB/s|M003-260806 01
+  type: vless
+  server: 104.17.21.32
+  port: 8880
+  uuid: 5659b42c-636f-4563-ac41-87d565d0dd1e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: autumn-base-0eb9.116-d25.workers.dev
+- name: 🇫🇷FR_1495|419KB/s|M003-260806 01
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 6cc29a05-4828-4e48-a34a-20b7ada60e85
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /OAZko425kNFF0PpQ
+    headers:
+      Host: testmikonim.hydrymhmdamyn7.workers.dev
+- name: 🇫🇷FR_1520|374KB/s|A004-260618 01
+  type: vless
+  server: 104.21.56.202
+  port: 8880
+  uuid: fba6d1fd-0dab-428d-ae71-0e64c73a6060
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: morning-wood-0e8a.28-63e.workers.dev
+- name: 🇫🇷FR_1491|446KB/s|M003-260806 01
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 3adac494-0eb1-4d89-a187-b2181691444d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: tiny-lake-bbf1.369-766.workers.dev
+- name: 🇫🇷FR_1544|359KB/s|M003-260806 01
+  type: vless
+  server: 162.159.152.4
+  port: 443
+  uuid: f2a73750-3087-48ff-a763-1348c15dce68
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: rAyAn-007.mAxImA.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rAyAn-007.mAxImA.DpDnS.OrG
+- name: 🇫🇷FR_1524|413KB/s|A004-260618 01
+  type: vless
+  server: 172.67.152.71
+  port: 8880
+  uuid: 999c9769-28db-425a-84d8-ccd7a3321406
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: jolly-glitter-123c.196-2b3.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: jolly-glitter-123c.196-2b3.workers.dev
+- name: 🇫🇷FR_1581|337KB/s|V007-260618 01
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: afb13fa2-bba2-417f-b8c2-62565f92a78d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: orange-block-5cd1.124-199.workers.dev
+- name: 🇫🇷FR_1567|415KB/s|A004-260618 01
+  type: vless
+  server: 104.18.30.170
+  port: 8880
+  uuid: b85c8be2-3109-4b8a-aa82-f0d8fe06f5ae
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: young-dust-b8d9.31-8ba.workers.dev
+- name: 🇫🇷FR_1383|1.7MB/s|M003-260806 01
+  type: vless
+  server: 172.67.175.23
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-ef859652a80e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: trex-panel-nubj0s.samifakor.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/TrexBridge/ef859652a80e
+    headers:
+      Host: trex-panel-nubj0s.samifakor.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_838|1.4MB/s|B007-260618 01
+  - 🇫🇷FR_879|1.1MB/s|C002-260622 01
+  - 🇫🇷FR_920|598KB/s|C002-260622 01
+  - 🇫🇷FR_948|1.1MB/s|X001-260618 01
+  - 🇫🇷FR_859|489KB/s|C002-260622 01
+  - 🇫🇷FR_1028|282KB/s|A004-260618 01
+  - 🇫🇷FR_876|366KB/s|C002-260622 01
+  - 🇫🇷FR_889|255KB/s|C002-260622 01
+  - 🇫🇷FR_854|984KB/s|C002-260622 01
+  - 🇫🇷FR_959|538KB/s|T001-260618 01
+  - 🇫🇷FR_1001|485KB/s|A004-260618 01
+  - 🇫🇷FR_746|595KB/s|M003-260806 01
+  - 🇫🇷FR_982|417KB/s|M003-260806 01
+  - 🇫🇷FR_1000|357KB/s|A004-260618 01
+  - 🇫🇷FR_1002|592KB/s|A004-260618 01
+  - 🇫🇷FR_939|368KB/s|C002-260622 01
+  - 🇫🇷FR_1017|893KB/s|A004-260618 01
+  - ❓Other_77|265KB/s 01
+  - 🇫🇷FR_1021|473KB/s 01
+  - 🇫🇷FR_1029|978KB/s|A004-260618 01
+  - 🇫🇷FR_837|219KB/s 01
+  - 🇫🇷FR_1027|336KB/s|A004-260618 01
+  - 🇫🇷FR_1050|542KB/s|C002-260622 01
+  - 🇫🇷FR_1062|553KB/s|C002-260622 01
+  - 🇫🇷FR_1032|482KB/s|A004-260618 01
+  - 🇫🇷FR_1063|328KB/s|C002-260622 01
+  - 🇫🇷FR_1134|436KB/s|A004-260618 01
+  - 🇫🇷FR_1131|806KB/s|F003-260618 01
+  - 🇫🇷FR_976|563KB/s|B007-260618 01
+  - ❓Other_79|221KB/s|A004-260618 01
+  - ❓Other_80|272KB/s|A004-260618 01
+  - 🇫🇷FR_1194|1.4MB/s|M003-260806 01
+  - 🇫🇷FR_1121|340KB/s|M003-260806 01
+  - 🇫🇷FR_1126|1.0MB/s|C002-260622 01
+  - 🇫🇷FR_1175|638KB/s|B007-260618 01
+  - 🇫🇷FR_1269|515KB/s|C002-260622 01
+  - 🇫🇷FR_1331|607KB/s|A004-260618 01
+  - 🇫🇷FR_1244|571KB/s|C002-260622 01
+  - 🇪🇸ES_19|288KB/s|F003-260618 01
+  - 🇪🇸ES_21|252KB/s|A004-260618 01
+  - 🇫🇷FR_1186|192KB/s|M003-260806 01
+  - 🇫🇷FR_1375|444KB/s|C002-260622 01
+  - 🇫🇷FR_1181|357KB/s|M003-260806 01
+  - 🇫🇷FR_1320|563KB/s|A004-260618 01
+  - 🇫🇷FR_1363|414KB/s 01
+  - 🇫🇷FR_1367|571KB/s|C002-260622 01
+  - 🇫🇷FR_1321|476KB/s|C002-260622 01
+  - 🇫🇷FR_1398|401KB/s|M003-260806 01
+  - 🇫🇷FR_1427|1.1MB/s|C002-260622 01
+  - 🇫🇷FR_1411|522KB/s 01
+  - 🇫🇷FR_1498|457KB/s|M003-260806 01
+  - 🇫🇷FR_1490|470KB/s|M003-260806 01
+  - 🇫🇷FR_1422|429KB/s|A004-260618 01
+  - 🇫🇷FR_1529|516KB/s|A004-260618 01
+  - 🇫🇷FR_1444|136KB/s 01
+  - 🇫🇷FR_1493|340KB/s|M003-260806 01
+  - 🇫🇷FR_1495|419KB/s|M003-260806 01
+  - 🇫🇷FR_1520|374KB/s|A004-260618 01
+  - 🇫🇷FR_1491|446KB/s|M003-260806 01
+  - 🇫🇷FR_1544|359KB/s|M003-260806 01
+  - 🇫🇷FR_1524|413KB/s|A004-260618 01
+  - 🇫🇷FR_1581|337KB/s|V007-260618 01
+  - 🇫🇷FR_1567|415KB/s|A004-260618 01
+  - 🇫🇷FR_1383|1.7MB/s|M003-260806 01
+rules:
+- MATCH,CF-Nest-Batch

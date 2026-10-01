@@ -1,29 +1,31 @@
 proxies:
-- name: 🇺🇸 | @WhiteDNS | US1334|1.6MB/s|DNSOK|GPT⁺-US
+- name: 4Kian-f8b590eefa
   type: trojan
-  server: 43.173.90.202
+  server: lhns3ww2-cxq-gj1vvobkepig4nopkc.hqu4v38hi9iftcp6mzfmx-3bmx.workers.dev
   port: 443
-  password: sg-trojan-2026
+  password: EPI4SnpMUxd6L-I.B9
   skip-cert-verify: true
-- name: trojan-1359874475
+  sni: lHNs3ww2-CXQ-Gj1vvOBkEPIg4noPkc.hqu4v38Hi9iFtcp6mZfMX-3bmx.WoRKeRS.dEV
+  network: ws
+  ws-opts:
+    path: /tr/bZQmUGcGvss6BIiQhIPr003mzA?ed=2560
+- name: 🇫🇷 Франция [#РКП]
   type: trojan
-  server: cloud.lakshan.us
-  port: 119
-  password: skynet
+  server: 104.16.174.181
+  port: 443
+  password: humanity
   skip-cert-verify: true
-- name: 'SG #13'
-  type: trojan
-  server: 64.120.95.203
-  port: 119
-  password: skynet
-  skip-cert-verify: true
-  sni: cloud.lakshan.us
+  sni: jolly-meadow-adb7.artichoke-55.workers.dev
+  network: ws
+  ws-opts:
+    path: /www.calmlunch.com/assignment
+    headers:
+      Host: jolly-meadow-adb7.artichoke-55.workers.dev
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - 🇺🇸 | @WhiteDNS | US1334|1.6MB/s|DNSOK|GPT⁺-US
-  - trojan-1359874475
-  - 'SG #13'
+  - 4Kian-f8b590eefa
+  - 🇫🇷 Франция [#РКП]
 rules:
 - MATCH,CF-Nest-Batch

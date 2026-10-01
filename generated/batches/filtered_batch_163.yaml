@@ -1,17 +1,34 @@
 proxies:
-- name: Vless-186.190.211.188
+- name: '[13681][US][0][VLESS][None][marambashi][2026-08-14][2026-08-16'
   type: vless
-  server: 186.190.211.188
+  server: www.speedtest.net
   port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  uuid: 518de0d4-6ce8-4404-80db-23c4a8806128
   client-fingerprint: chrome
   skip-cert-verify: true
   tls: true
-  servername: /?BIA_TELEGRAM@YamYamProxy_YamYamProxy_YamYamProxy_YamYamProxy
+  servername: ez-5FAAFb.EsmAoi.wORKeRs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQkFLTnhqM2tZTSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2560
+    headers:
+      Host: ez-5faafb.esmaoi.workers.dev
+- name: '[37535][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
+  type: vless
+  server: 104.21.12.116
+  port: 8880
+  uuid: df26029b-bffe-4ce2-9246-25b52ed2b1c7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: polished-field-4448.186-705.workers.dev
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - Vless-186.190.211.188
+  - '[13681][US][0][VLESS][None][marambashi][2026-08-14][2026-08-16'
+  - '[37535][US][0][VLESS][None][ext_raw.githubusercontent.com][2026-08-16][2026-08-16'
 rules:
 - MATCH,CF-Nest-Batch

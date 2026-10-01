@@ -1,17 +1,37 @@
 proxies:
-- name: 'SG #4'
+- name: 未知_091910409
   type: vless
-  server: free-server.techsonic.dev
+  server: lhns3ww2-cxq-gj1vvobkepig4nopkc.hqu4v38hi9iftcp6mzfmx-3bmx.workers.dev
   port: 443
-  uuid: f1178fbe-1420-4eef-b087-4f33b32b4a19
+  uuid: 38d6b629-64c2-4c31-a10d-26eb3a2a053d
   client-fingerprint: chrome
   skip-cert-verify: true
   tls: true
-  servername: aka.ms
+  servername: lHNs3ww2-CXQ-Gj1vvOBkEPIg4noPkc.hqu4v38Hi9iFtcp6mZfMX-3bmx.WoRKeRS.dEV
+  network: ws
+  ws-opts:
+    path: /vl/cxl8Wn1ylnsk63nJ0?ed=2560
+    headers:
+      Host: lhns3ww2-cxq-gj1vvobkepig4nopkc.hqu4v38hi9iftcp6mzfmx-3bmx.workers.dev
+- name: 未知_091910288
+  type: vless
+  server: novantunnel.tech
+  port: 443
+  uuid: ee556a4f-d9f6-44de-af02-42c51659416a
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: novantunnel.tech
+  network: ws
+  ws-opts:
+    path: /Novan-AE9
+    headers:
+      Host: novantunnel.tech
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - 'SG #4'
+  - 未知_091910409
+  - 未知_091910288
 rules:
 - MATCH,CF-Nest-Batch

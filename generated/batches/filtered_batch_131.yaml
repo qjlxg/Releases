@@ -1,0 +1,896 @@
+proxies:
+- name: 🇫🇷FR_143|640KB/s|B007-260618
+  type: vless
+  server: chatgpt.com
+  port: 443
+  uuid: a43a9a45-7387-4faf-ad06-24b1ae181fdc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: SNowy-glade-85FA.ArSHIaTAkaLlOo88.wOrKErs.dEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiVzg3NkFVRjZaUCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: snowy-glade-85fa.arshiatakalloo88.workers.dev
+- name: 🇫🇷FR_100|672KB/s|A004-260618
+  type: vless
+  server: muddy-queen-cdda.181-cf9.workers.dev
+  port: 8880
+  uuid: 8995976a-1c81-4b44-a414-d3bc71058a21
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: muddy-queen-cdda.181-cf9.workers.dev
+- name: 🇫🇷FR_277|515KB/s|C002-260622
+  type: vless
+  server: deepl.com
+  port: 8880
+  uuid: 9bf81377-d077-4569-9fc9-5f0a55180651
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: super-feather-91c4.267.workers.dev
+- name: 🇫🇷FR_311|756KB/s|A004-260618
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 8d36dcef-c008-47f1-b8a0-4f63193697f8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=teΓÇª
+    headers:
+      Host: tiny-union-8d4d.32-c76.workers.dev
+- name: 🇫🇷FR_187|1.4MB/s|C002-260622
+  type: vless
+  server: 104.17.181.19
+  port: 8880
+  uuid: b8cd08fd-a19a-4ad0-b8ae-b664b89791da
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: sweet-scene-bffd.312-860.workers.dev
+- name: 🇫🇷FR_213|433KB/s
+  type: vless
+  server: 172.66.170.53
+  port: 8880
+  uuid: 9b14cdbe-bcfe-4178-a674-3ad88a7c6f6a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: summer-snow-c151.320-3ef.workers.dev
+- name: 🇫🇷FR_335|1000KB/s|M003-260806
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: a8c27bd6-e395-4f9b-a75d-1c3bc6b1f83a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: long-boat-7113.303-08c.workers.dev
+- name: 🇫🇷FR_290|423KB/s|X001-260618
+  type: vless
+  server: www.ipget.net
+  port: 8880
+  uuid: fc46b03d-e185-48e7-8c18-dea03b4a0c25
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: flat-union-b292.17-4e0.workers.dev
+- name: 🇫🇷FR_346|380KB/s|A004-260618
+  type: vless
+  server: 172.67.179.98
+  port: 8880
+  uuid: 2b2ed3be-36bd-486d-9d04-ebf5b4be7ae9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: twilight-heart-dbd6.220-2bd.workers.dev
+- name: 🇫🇷FR_180|544KB/s
+  type: vless
+  server: 104.27.82.154
+  port: 8880
+  uuid: 0ed342c3-eb45-4d63-83a1-697252636ca9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: yellow-hall-d482.260-d22.workers.dev
+- name: 🇫🇷FR_289|942KB/s|C002-260622
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: f7ed4770-81f4-47a1-9490-8b8cd684c97e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: silent-cloud-aa63.324-7d8.workers.dev
+- name: 🇫🇷FR_444|557KB/s|A001-260618
+  type: vless
+  server: 104.16.8.66
+  port: 8880
+  uuid: 2145ee90-d933-4975-b4fe-8fa5365937f0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: long-breeze-5552.250-271.workers.dev
+- name: 🇫🇷FR_328|580KB/s|M003-260806
+  type: vless
+  server: 188.114.97.1
+  port: 2053
+  uuid: 0b3e7958-e5c4-498f-ab21-b49686f95d2d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bold-term-4edd.mbigspot.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: bold-term-4edd.mbigspot.workers.dev
+- name: 🇫🇷FR_361|339KB/s|M003-260806
+  type: vless
+  server: 172.66.47.45
+  port: 443
+  uuid: e56059f1-5a1a-4d0a-a2d0-58ecb4eb2f3f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ezaccess-project-f62c30.pages.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiZWlPODVjTnhnaSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: ezaccess-project-f62c30.pages.dev
+- name: 🇫🇷FR_442|672KB/s|C002-260622
+  type: vless
+  server: cloudflare-ech.com
+  port: 8880
+  uuid: dd2952d5-2bc6-40c8-8a82-6dc00fe5105c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: nameless-shape-271e.321-5f5.workers.dev
+- name: 🇫🇷FR_608|946KB/s|A004-260618
+  type: vless
+  server: 104.16.106.213
+  port: 8880
+  uuid: ae83f4a6-7fd3-4168-9f42-1260fc601155
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: shy-mud-e936.15-bb9.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shy-mud-e936.15-bb9.workers.dev
+- name: 🇫🇷FR_480|768KB/s|M002-260618
+  type: vless
+  server: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  port: 443
+  uuid: 07821f66-cdb7-4c70-9de6-e230cffac470
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN-i10VPN?ed
+- name: 🇫🇷FR_436|441KB/s|S001-260618
+  type: vless
+  server: 104.24.152.211
+  port: 8880
+  uuid: 2acde116-5949-48d8-a1e6-60a1d2547deb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: lively-pine-093d.144-868.workers.dev
+- name: 🇫🇷FR_619|382KB/s|A004-260618
+  type: vless
+  server: 104.16.106.213
+  port: 8880
+  uuid: 3e7bb66e-d7c6-4711-aa05-e4ab0ec58c6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: shrill-cell-cca7.158-6fa.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shrill-cell-cca7.158-6fa.workers.dev
+- name: 🇫🇷FR_493|391KB/s|B007-260618
+  type: vless
+  server: 5xgovtcyqgoh5tedrlj6sg--sn9pbh.mahsapodcst.workers.dev
+  port: 443
+  uuid: a4ec0cdd-a71d-4093-b8e1-aa9bfbcd75eb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5xgovtCYqgoh5tEDRLJ6Sg--sn9PbH.mAHsApOdCSt.WOrKers.deV
+  network: ws
+  ws-opts:
+    path: /vl/P7l2zlifeGb5UNmfWMkoVakVd
+- name: 🇫🇷FR_860|382KB/s|C002-260622
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: 1f06dae9-e4cc-4aae-b026-07f7fc81fb56
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: spring-fire-a493.251-67d.workers.dev
+- name: 🇫🇷FR_931|276KB/s|C002-260622
+  type: vless
+  server: 185.162.229.40
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560&https://t.me/youtube@ZYFXS🇨🇳
+    headers:
+      Host: vms.lifetime61.workers.dev
+- name: 🇫🇷FR_1029|477KB/s|M003-260806
+  type: vless
+  server: 188.114.97.8
+  port: 8443
+  uuid: 9c63fd59-f9ee-446e-97ec-0bf2de21ed7b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: dry-glitter-ef10.gfryubcdryujvrth.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiVVhGU1pOZ1oxaTFUUldyVCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: dry-glitter-ef10.gfryubcdryujvrth.workers.dev
+- name: 🇫🇷FR_823|444KB/s|C002-260622
+  type: vless
+  server: 172.64.88.168
+  port: 8880
+  uuid: b4883d27-3151-4adf-92b1-841c0dccd1ea
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: damp-surf-aacf.296-8ed.workers.dev
+- name: 🇫🇷FR_1052|627KB/s
+  type: vless
+  server: 172.67.215.39
+  port: 443
+  uuid: 532a9115-aee7-4d39-9638-1e5146de075b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: muddy-math-c1fc.tmpnriqueau89.workers.dev
+  network: ws
+  ws-opts:
+    path: /js/cHlpcC55Z2tray5kcGRucy5vcmc=/
+    headers:
+      Host: muddy-math-c1fc.tmpnriqueau89.workers.dev
+- name: 🇫🇷FR_1055|436KB/s
+  type: vless
+  server: courses.mftplus.qzz.io
+  port: 2096
+  uuid: b9ede7a5-5b4b-4aee-ac37-2c307e587e47
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: CoURsEs.MftPLus.QZZ.IO
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidVkzQm1ROUg4dyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: courses.mftplus.qzz.io
+- name: 🇫🇷FR_1114|576KB/s|A004-260618
+  type: vless
+  server: app-q0zc4t.user-4gfyh5.workers.dev
+  port: 443
+  uuid: 07f9bc85-613f-4a33-8da1-191973c43c0a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: app-q0zc4t.user-4gfyh5.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇫🇷FR_1073|713KB/s
+  type: vless
+  server: 104.17.181.19
+  port: 8880
+  uuid: 26fb53e4-fd49-4b34-b605-b6cc1b1a06a8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: royal-shape-3771.93-728.workers.dev
+- name: 🇫🇷FR_1187|794KB/s|A004-260618
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: 73ae7d45-1046-4cc5-9741-199375b620f1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: round-resonance-a84c.13-531.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: round-resonance-a84c.13-531.workers.dev
+- name: 🇫🇷FR_1104|583KB/s|C002-260622
+  type: vless
+  server: 154.194.12.40
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560&https://t.me/youtube@ZYFXS🇨🇳
+    headers:
+      Host: vms.lifetime35.workers.dev
+- name: 🇺🇸US_684|391KB/s|M003-260806
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 40ca0d8c-0641-4e2d-a701-9fd8330daf6d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+- name: 🇺🇸US_687|348KB/s|A004-260618
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: a4f907a1-b0fe-4306-a0fa-f05bea688879
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 🇫🇷FR_1367|447KB/s|M003-260806
+  type: vless
+  server: 188.114.97.7
+  port: 443
+  uuid: ba49d874-fe02-465d-82d3-ed981dc7694f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o94Yv7LIF0-aNXISd9eFehvvS7mxn6bH.Z-ULe-iKa-d-e-ne-K-e.wORkeRs.Dev
+  network: ws
+  ws-opts:
+    path: /7J5lLqtBnJg9WjVT?ed
+    headers:
+      Host: o94yv7lif0-anxisd9efehvvs7mxn6bh.z-ule-ika-d-e-ne-k-e.workers.dev
+- name: 🇫🇷FR_1211|582KB/s|M003-260806
+  type: vless
+  server: 104.17.148.22
+  port: 443
+  uuid: 2db92da9-8ffb-491b-81d6-6e8d50876020
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bpB-01c11365.HJdBcvDbKV.WORKErS.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiWlFRWlMwRDdLakVqMyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: bpb-01c11365.hjdbcvdbkv.workers.dev
+- name: 🇫🇷FR_1545|246KB/s|M002-260618
+  type: vless
+  server: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  port: 443
+  uuid: 07821f66-cdb7-4c70-9de6-e230cffac470
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/Li1khIHH3DNItJyzraemsPBQvu?ed=2560
+    headers:
+      Host: wgrcqwtkfyqujs43.ghydgdbdbddvv.workers.dev
+- name: 🇫🇷FR_1565|478KB/s|A004-260618
+  type: vless
+  server: 104.17.191.15
+  port: 8880
+  uuid: 19f4ec52-5c17-495f-803f-7b2a085b9339
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: still-hill-0fb2.160-42e.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyipsecurity=tls
+    headers:
+      Host: still-hill-0fb2.160-42e.workers.dev
+- name: 🇫🇷FR_1566|679KB/s|A004-260618
+  type: vless
+  server: 104.16.98.215
+  port: 8880
+  uuid: 23187ddc-16a5-432d-bf4e-dd42a7ae39f7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: steep-thunder-97fa.108-d10.workers.dev
+  network: ws
+  ws-opts:
+    path: /security=tls
+    headers:
+      Host: steep-thunder-97fa.108-d10.workers.dev
+- name: 🇫🇷FR_1741|640KB/s|M003-260806
+  type: vless
+  server: 188.114.97.1
+  port: 443
+  uuid: af0db32b-2cb0-48c7-b04e-96003f8c2369
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: dl2uF-IVdEZilz3e86Rk18.HHvt37tjM2xboSql5hXOGN-Y.woRKerS.Dev
+  network: ws
+  ws-opts:
+    path: /vl/S4yuZSVQY6NKjQqfwbBxw58?ed=2560
+    headers:
+      Host: dl2uf-ivdezilz3e86rk18.hhvt37tjm2xbosql5hxogn-y.workers.dev
+- name: 🇺🇸US_700|312KB/s|M003-260806
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 72fbb611-628d-4afa-8198-bda3e38021f9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 🇺🇸US_689|340KB/s|M003-260806
+  type: vless
+  server: 128.241.25.3
+  port: 30021
+  uuid: afec813e-a5c7-432d-be48-2803c30eea4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+- name: 🇫🇷FR_1546|1.2MB/s
+  type: vless
+  server: www.ipget.net
+  port: 8880
+  uuid: e06b6255-1c90-4db0-bd8c-7704df82b27c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: silent-cherry-7112.257.workers.dev
+- name: 🇫🇷FR_1658|420KB/s|B007-260618
+  type: vless
+  server: cfoi-2fx16g3-8ry2kdxmcj.wjesv2ila3rxbuhpc2nsugrachgawk.workers.dev
+  port: 443
+  uuid: 513beae3-56e7-4954-a17e-930e06237b27
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: cfOI-2FX16g3-8RY2kDXmCj.WJeSV2iLa3rxbUHPc2nsUGRAcHgaWK.WorKerS.DEV
+  network: ws
+  ws-opts:
+    path: /vl/1NM75lSM9FVMO5loRH5RSHTFj1g?ed=2560
+    headers:
+      Host: cfoi-2fx16g3-8ry2kdxmcj.wjesv2ila3rxbuhpc2nsugrachgawk.workers.dev
+- name: 🇫🇷FR_1401|1.0MB/s|B007-260618
+  type: vless
+  server: 188.114.96.7
+  port: 443
+  uuid: ba49d874-fe02-465d-82d3-ed981dc7694f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o94yv7lIF0-AnXiSd9EFeHVVS7mxn6Bh.z-ULe-IKA-d-e-Ne-k-E.WORKERs.DEv
+  network: ws
+  ws-opts:
+    path: /dbJqwUHWfrXV0Z3Q?ed=2560
+    headers:
+      Host: o94yv7lif0-anxisd9efehvvs7mxn6bh.z-ule-ika-d-e-ne-k-e.workers.dev
+- name: 🇫🇷FR_1688|510KB/s|M003-260806
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 513beae3-56e7-4954-a17e-930e06237b27
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: CfOI-2FX16g3-8rY2kdXmCJ.WJeSv2ILA3rXbUhpC2NSugRAchGaWK.WOrkeRs.DEV
+  network: ws
+  ws-opts:
+    path: /vl/3wSAeuGJbrGHwJ45DA6ircvHC6?ed=2560
+    headers:
+      Host: cfoi-2fx16g3-8ry2kdxmcj.wjesv2ila3rxbuhpc2nsugrachgawk.workers.dev
+- name: 🇫🇷FR_1861|763KB/s|T001-260618
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: fae09ec8-642b-4750-a019-27a97cd967fd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ez-3e9698.ezaccess1ec1f0c.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoib0FkbVU0Vm5ITkQiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
+    headers:
+      Host: ez-3e9698.ezaccess1ec1f0c.workers.dev
+- name: 🇯🇵JP_34|313KB/s|M003-260806
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: 9c7501fb-4e23-44d8-9a9e-973807ae4f35
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+- name: 🇫🇷FR_1872|396KB/s|A004-260618
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 87a5d3eb-afd4-4193-9787-c54ef7c26c8c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: patient-cake-39c7.44-e7a.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: patient-cake-39c7.44-e7a.workers.dev
+- name: 🇫🇷FR_1939|3.9MB/s|M003-260806
+  type: vless
+  server: web-tomcat.pages.dev
+  port: 443
+  uuid: 2cf94f4d-9d5b-49ca-81a3-ddc0529a2dac
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: web-tomcat.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: web-tomcat.pages.dev
+- name: 🇫🇷FR_1876|545KB/s|A004-260618
+  type: vless
+  server: super-sunset-010c.24-43d.workers.dev
+  port: 8880
+  uuid: 35e8826f-0873-492d-8b8a-d495c9947480
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: super-sunset-010c.24-43d.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: super-sunset-010c.24-43d.workers.dev
+- name: 🇬🇧GB_17|1006KB/s|M003-260806
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: 091ea5fd-4e8d-4459-90af-e4d10179efff
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 🇫🇷FR_1942|436KB/s|A004-260618
+  type: vless
+  server: 104.21.88.129
+  port: 8880
+  uuid: 8546bcef-8456-41a2-82bc-d2231b42b769
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: small-tree-9ec0.84-971.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: small-tree-9ec0.84-971.workers.dev
+- name: 🇫🇷FR_2056|452KB/s|B007-260618
+  type: vless
+  server: 172.67.187.219
+  port: 8880
+  uuid: d6c595c9-bff4-4510-893a-dfa3c87fa0cd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: lucky-cell-d20c.78-107.workers.dev
+- name: 🇫🇷FR_2042|593KB/s|A004-260618
+  type: vless
+  server: 104.17.170.132
+  port: 8880
+  uuid: 35b94b2c-1b46-4209-a04b-32ecf159b632
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: fragrant-tooth-2180.97-cbb.workers.dev
+- name: 🇩🇪DE_102|469KB/s|M002-260618
+  type: vless
+  server: 45.76.87.125
+  port: 14750
+  uuid: 30f6c75f-8fcd-4555-854f-439f09d3e2e3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇯🇵JP_36|163KB/s|M003-260806
+  type: vless
+  server: 54.178.110.17
+  port: 4443
+  uuid: d5fbd83b-7346-4ad9-94c0-76293724824d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 🇮🇹IT_33|397KB/s|S004-260618
+  type: vless
+  server: 116.204.164.5
+  port: 7443
+  uuid: 0f2765c2-1845-4545-987e-337c7cfb4e52
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇮🇹IT_35|563KB/s|M003-260806
+  type: vless
+  server: 116.204.164.27
+  port: 7443
+  uuid: 00274dd7-7cee-420d-9942-b24d047611a7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 🇮🇹IT_34|462KB/s|C002-260622
+  type: vless
+  server: 116.204.164.27
+  port: 7443
+  uuid: 67ad6de6-ac67-4af7-8209-98ba3bd88834
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 🇩🇪DE_108|523KB/s|M003-260806
+  type: vless
+  server: 147.45.42.73
+  port: 20443
+  uuid: f293db4d-7ab1-4faf-bb15-89540d8709cb
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 🇩🇪DE_116|494KB/s|M003-260806
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 3dbf58d7-53fc-4fad-8779-1c867e024fd0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+- name: 🇮🇹IT_37|625KB/s|M003-260806
+  type: vless
+  server: 116.204.164.27
+  port: 7443
+  uuid: c82e5af9-5fef-4fdd-9454-2682873e1563
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇸🇬SG_69|221KB/s|M003-260806
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: b3ddac6f-b2b7-43a6-bd69-413013f30040
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 🇩🇪DE_114|491KB/s|M003-260806
+  type: vless
+  server: 84.22.150.39
+  port: 7443
+  uuid: 5cc814de-2bbb-4409-ad8c-ee841ca7bad1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇫🇷FR_143|640KB/s|B007-260618
+  - 🇫🇷FR_100|672KB/s|A004-260618
+  - 🇫🇷FR_277|515KB/s|C002-260622
+  - 🇫🇷FR_311|756KB/s|A004-260618
+  - 🇫🇷FR_187|1.4MB/s|C002-260622
+  - 🇫🇷FR_213|433KB/s
+  - 🇫🇷FR_335|1000KB/s|M003-260806
+  - 🇫🇷FR_290|423KB/s|X001-260618
+  - 🇫🇷FR_346|380KB/s|A004-260618
+  - 🇫🇷FR_180|544KB/s
+  - 🇫🇷FR_289|942KB/s|C002-260622
+  - 🇫🇷FR_444|557KB/s|A001-260618
+  - 🇫🇷FR_328|580KB/s|M003-260806
+  - 🇫🇷FR_361|339KB/s|M003-260806
+  - 🇫🇷FR_442|672KB/s|C002-260622
+  - 🇫🇷FR_608|946KB/s|A004-260618
+  - 🇫🇷FR_480|768KB/s|M002-260618
+  - 🇫🇷FR_436|441KB/s|S001-260618
+  - 🇫🇷FR_619|382KB/s|A004-260618
+  - 🇫🇷FR_493|391KB/s|B007-260618
+  - 🇫🇷FR_860|382KB/s|C002-260622
+  - 🇫🇷FR_931|276KB/s|C002-260622
+  - 🇫🇷FR_1029|477KB/s|M003-260806
+  - 🇫🇷FR_823|444KB/s|C002-260622
+  - 🇫🇷FR_1052|627KB/s
+  - 🇫🇷FR_1055|436KB/s
+  - 🇫🇷FR_1114|576KB/s|A004-260618
+  - 🇫🇷FR_1073|713KB/s
+  - 🇫🇷FR_1187|794KB/s|A004-260618
+  - 🇫🇷FR_1104|583KB/s|C002-260622
+  - 🇺🇸US_684|391KB/s|M003-260806
+  - 🇺🇸US_687|348KB/s|A004-260618
+  - 🇫🇷FR_1367|447KB/s|M003-260806
+  - 🇫🇷FR_1211|582KB/s|M003-260806
+  - 🇫🇷FR_1545|246KB/s|M002-260618
+  - 🇫🇷FR_1565|478KB/s|A004-260618
+  - 🇫🇷FR_1566|679KB/s|A004-260618
+  - 🇫🇷FR_1741|640KB/s|M003-260806
+  - 🇺🇸US_700|312KB/s|M003-260806
+  - 🇺🇸US_689|340KB/s|M003-260806
+  - 🇫🇷FR_1546|1.2MB/s
+  - 🇫🇷FR_1658|420KB/s|B007-260618
+  - 🇫🇷FR_1401|1.0MB/s|B007-260618
+  - 🇫🇷FR_1688|510KB/s|M003-260806
+  - 🇫🇷FR_1861|763KB/s|T001-260618
+  - 🇯🇵JP_34|313KB/s|M003-260806
+  - 🇫🇷FR_1872|396KB/s|A004-260618
+  - 🇫🇷FR_1939|3.9MB/s|M003-260806
+  - 🇫🇷FR_1876|545KB/s|A004-260618
+  - 🇬🇧GB_17|1006KB/s|M003-260806
+  - 🇫🇷FR_1942|436KB/s|A004-260618
+  - 🇫🇷FR_2056|452KB/s|B007-260618
+  - 🇫🇷FR_2042|593KB/s|A004-260618
+  - 🇩🇪DE_102|469KB/s|M002-260618
+  - 🇯🇵JP_36|163KB/s|M003-260806
+  - 🇮🇹IT_33|397KB/s|S004-260618
+  - 🇮🇹IT_35|563KB/s|M003-260806
+  - 🇮🇹IT_34|462KB/s|C002-260622
+  - 🇩🇪DE_108|523KB/s|M003-260806
+  - 🇩🇪DE_116|494KB/s|M003-260806
+  - 🇮🇹IT_37|625KB/s|M003-260806
+  - 🇸🇬SG_69|221KB/s|M003-260806
+  - 🇩🇪DE_114|491KB/s|M003-260806
+rules:
+- MATCH,CF-Nest-Batch

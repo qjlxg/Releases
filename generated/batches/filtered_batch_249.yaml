@@ -1,0 +1,37 @@
+proxies:
+- name: wstlsdom_1678
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 0432902e-6604-40cd-bbd0-57ab4e5d909f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bPB-4dc4958B.hXjkcgHcHv.woRkeRs.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiOENNZnB6WTgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed
+    headers:
+      Host: bpb-4dc4958b.hxjkcghchv.workers.dev
+- name: wstlsip_0481
+  type: vless
+  server: 104.17.147.22
+  port: 443
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: d2127A49-flAT-wooD-C4B5.mILia-AkbARpOor.WorkERs.dEV
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: d2127a49-flat-wood-c4b5.milia-akbarpoor.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - wstlsdom_1678
+  - wstlsip_0481
+rules:
+- MATCH,CF-Nest-Batch

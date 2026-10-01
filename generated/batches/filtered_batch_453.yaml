@@ -1,0 +1,52 @@
+proxies:
+- name: №723 | 🇩🇪 Germany | @obwhitel
+  type: vless
+  server: 172.64.145.202
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: newwk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: newwk1.f1w.de5.net
+- name: №733 | 🇩🇪 Germany | @obwhitel
+  type: vless
+  server: 172.67.164.152
+  port: 443
+  uuid: 36a857e4-f3d4-43aa-8b90-d7da849da989
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 002.Inc-ElectROcElL-001-002.WoRKERS.DEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoib0RnakxTZUZvOSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: 002.inc-electrocell-001-002.workers.dev
+- name: №740 | 🇩🇪 Germany | @obwhitel
+  type: vless
+  server: 104.17.148.22
+  port: 443
+  uuid: 0836463b-214f-4af6-aa85-85a56a62388e
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  servername: d2127A49-flAT-wooD-C4B5.mILia-AkbARpOor.WorkERs.dEV
+  network: ws
+  ws-opts:
+    path: /8eaZJhRwB5zzDy81?ed=2560
+    headers:
+      Host: d2127a49-flat-wood-c4b5.milia-akbarpoor.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - №723 | 🇩🇪 Germany | @obwhitel
+  - №733 | 🇩🇪 Germany | @obwhitel
+  - №740 | 🇩🇪 Germany | @obwhitel
+rules:
+- MATCH,CF-Nest-Batch

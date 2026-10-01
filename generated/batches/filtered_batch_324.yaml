@@ -1,0 +1,92 @@
+proxies:
+- name: CA 🇨🇦 | @Raydikalx | DB4E21
+  type: vless
+  server: 172.67.209.127
+  port: 8880
+  uuid: a9fb0f8c-89e9-44ee-9574-a310c5bd259c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: autumn-leaf-eefd.119-38e.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: autumn-leaf-eefd.119-38e.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | EEB2EF
+  type: vless
+  server: cnmfangbinxing.cnmfangbinxing-f.workers.dev.
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: cnmfangbinxing.cnmfangbinxing-f.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cnmfangbinxing.cnmfangbinxing-f.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | 79625E
+  type: vless
+  server: 172.67.190.141
+  port: 8880
+  uuid: 160ca353-676d-4b7f-a041-0289e388b865
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: skk.moe
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: proud-cloud-7bdd.208-a52.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | 5DD9AC
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: cnmfangbinxing.cnmfangbinxing-f.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cnmfangbinxing.cnmfangbinxing-f.workers.dev
+- name: CA 🇨🇦 | @Raydikalx | C63706
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: d4733e5a-5850-4523-942e-f28f82ebf4a9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: party-5cn.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: party-5cn.pages.dev
+- name: US 🇺🇸 | @Raydikalx | 36C330
+  type: vless
+  server: 162.159.38.127
+  port: 8880
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - CA 🇨🇦 | @Raydikalx | DB4E21
+  - CA 🇨🇦 | @Raydikalx | EEB2EF
+  - CA 🇨🇦 | @Raydikalx | 79625E
+  - CA 🇨🇦 | @Raydikalx | 5DD9AC
+  - CA 🇨🇦 | @Raydikalx | C63706
+  - US 🇺🇸 | @Raydikalx | 36C330
+rules:
+- MATCH,CF-Nest-Batch

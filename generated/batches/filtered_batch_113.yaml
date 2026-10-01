@@ -1,0 +1,151 @@
+proxies:
+- name: 🇺🇸 美国 | TROJAN | 002
+  type: trojan
+  server: 199.232.78.160
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/D-e1i@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
+    headers:
+      Host: mitivpn---us--s---mitivpn-11.global.ssl.fastly.net
+- name: '@Vip_Security'
+  type: trojan
+  server: 104.16.104.34
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: TH1R714O73d1P35f.mr2esNK29L620Xo76Kpuv-QUb4B7IDfR.WOrkeRS.DeV
+  network: ws
+  ws-opts:
+    path: /tr/gtMkuJkm42JnKfAr?ed=2560
+- name: 🇫🇷FR_351|471KB/s|M003-260806 01
+  type: trojan
+  server: 188.114.97.6
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: bjsa2ygfitzjtho8ucze29xf2m2q9c.g3fiajpf0erm9k3x6ww-yegzl2.workers.dev
+  network: ws
+  ws-opts:
+    path: /tr/J6IJuAAWkqyiEt8UkeRnVdLlkLIGukLr?ed=2560
+- name: '[OpenRay] 🇺🇸 US-28086'
+  type: trojan
+  server: 199.232.78.188
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/NLSus---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN
+    headers:
+      Host: mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net
+- name: 🚀 t.me/iProxyChannel
+  type: trojan
+  server: 199.232.78.188
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /?Telegram---`V2ray_confiig`
+    headers:
+      Host: mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net
+- name: DE
+  type: trojan
+  server: alive-flea.rooster465.autos
+  port: 443
+  password: UX82473651
+  skip-cert-verify: true
+- name: 'US #5'
+  type: trojan
+  server: 199.232.78.101
+  port: 443
+  password: mitivpn
+  skip-cert-verify: true
+  sni: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
+    headers:
+      Host: mitivpn---de--s---mitivpn-11.global.ssl.fastly.net
+- name: DE · TROJAN · wzmwayne · 50E5E11B
+  type: trojan
+  server: 45.80.111.7
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 🇫🇷 法国 | TROJAN | 010
+  type: trojan
+  server: 185.220.100.168
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 'CA #1'
+  type: trojan
+  server: 104.21.57.25
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: CA
+  type: trojan
+  server: 104.16.85.85
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.volumeroot.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: 'CA #2'
+  type: trojan
+  server: nimm.mpd.cc.cd
+  port: 2053
+  password: e309e031-991e-4656-9934-44d10deb8fd8
+  skip-cert-verify: true
+  sni: nimm.mpd.cc.cd
+  network: ws
+  ws-opts:
+    path: /0962
+    headers:
+      Host: nimm.mpd.cc.cd
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇸 美国 | TROJAN | 002
+  - '@Vip_Security'
+  - 🇫🇷FR_351|471KB/s|M003-260806 01
+  - '[OpenRay] 🇺🇸 US-28086'
+  - 🚀 t.me/iProxyChannel
+  - DE
+  - 'US #5'
+  - DE · TROJAN · wzmwayne · 50E5E11B
+  - 🇫🇷 法国 | TROJAN | 010
+  - 'CA #1'
+  - CA
+  - 'CA #2'
+rules:
+- MATCH,CF-Nest-Batch

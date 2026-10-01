@@ -1,0 +1,241 @@
+proxies:
+- name: 'vless-icook.tw #1'
+  type: vless
+  server: icook.tw
+  port: 8880
+  uuid: aa7461af-3176-42a3-8974-59930189c521
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: round-block-e864.326.workers.dev
+- name: vless-icook.tw
+  type: vless
+  server: icook.tw
+  port: 8880
+  uuid: 9adb120c-0cce-4b56-9023-ccf7f1e13536
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: spring-sunset-81e8.322.workers.dev
+- name: vless-www.visa.com.sg
+  type: vless
+  server: www.visa.com.sg
+  port: 8880
+  uuid: 81d55675-8570-4b40-9a77-3125339a0f86
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: spring-sound-8d8e.36-9ff.workers.dev
+- name: vless-themeforest.net
+  type: vless
+  server: themeforest.net
+  port: 8880
+  uuid: 80f083d3-8348-4514-b075-62f303b7fd86
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: themeforest.net
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: young-term-5783.284.workers.dev
+- name: vless-172.67.155.147
+  type: vless
+  server: 172.67.155.147
+  port: 8880
+  uuid: 9fa85900-14f9-4874-89af-eaf7c2fe4885
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: summer-hill-7bbd.149-40f.workers.dev
+- name: vless-104.18.36.122
+  type: vless
+  server: 104.18.36.122
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: vless-104.16.99.215
+  type: vless
+  server: 104.16.99.215
+  port: 8880
+  uuid: c6d29888-78d5-446a-b2f0-f3968e6d1634
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: lingering-cherry-5f41.42-08a.workers.dev
+- name: vless-log.bpminecraft.com
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: b9ea760d-3200-4d6d-8000-30514ebbce5a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: aged-pine-d8c4.379.workers.dev
+- name: vless-172.67.173.75
+  type: vless
+  server: 172.67.173.75
+  port: 80
+  uuid: 923e051a-f598-4ea5-9c6c-f7e37c438a60
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vl/D2pryqVs9LAgCYdTK76lsafWY?ed=2560
+    headers:
+      Host: vkvd8bpskvxgjwdvcidxgoccr.javanbaghe.workers.dev
+- name: vless-104.17.26.45
+  type: vless
+  server: 104.17.26.45
+  port: 8880
+  uuid: a5c7e18f-1701-46ed-8f42-00eb078d9445
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: weathered-snow-b87b.292-455.workers.dev
+- name: vless-www.gov.ua
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: bbecfa92-4f64-4eb8-82e6-388394d909fe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: empty-poetry-07b6.477-e0d.workers.dev
+- name: vless-www.iplocation.net
+  type: vless
+  server: www.iplocation.net
+  port: 8880
+  uuid: 878dd962-027b-4bd3-a1f8-66be68a03c4d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: young-wind-3c58.240-2ce.workers.dev
+- name: 'vless-www.baipiao.eu.org #1'
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: dec6b197-3211-46f0-bca8-71dfca535709
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: patient-bread-62cc.473-002.workers.dev
+- name: vless-crimson-smoke-7818.397.workers.dev
+  type: vless
+  server: crimson-smoke-7818.397.workers.dev
+  port: 8880
+  uuid: d6bdda67-168d-4501-a2c1-ef01070cb327
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: crimson-smoke-7818.397.workers.dev
+- name: 'vless-www.zsu.gov.ua #1'
+  type: vless
+  server: www.zsu.gov.ua
+  port: 8880
+  uuid: b0b406f8-1f30-484c-9fcf-2fdffc715473
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: round-thunder-8e62.265-833.workers.dev
+- name: vless-cgxgqcheiamna-jks01fidlsnqojwf-s.aliama.workers.dev
+  type: vless
+  server: cgxgqcheiamna-jks01fidlsnqojwf-s.aliama.workers.dev
+  port: 443
+  uuid: d8c14c5c-a80a-4f6f-a5fb-52071849c443
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: CgxGqchEiAMnA-jkS01FiDlsnqOjwF-S.ALIAmA.WOrKErS.DeV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiZTFWRGJFS0NUd2F2NkRmIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ
+    headers:
+      Host: cgxgqcheiamna-jks01fidlsnqojwf-s.aliama.workers.dev
+- name: vless-frosty-pond-7436.shhabbyat914.workers.dev
+  type: vless
+  server: frosty-pond-7436.shhabbyat914.workers.dev
+  port: 443
+  uuid: de78c0b1-c5c8-412a-bd92-430d1f2e2642
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: FroSTy-PonD-7436.SHHabbYAt914.woRkErS.dEv
+  network: ws
+  ws-opts:
+    path: /NmrU9ImDG7jA7oFEem
+- name: vless-novantunnel.tech
+  type: vless
+  server: novantunnel.tech
+  port: 443
+  uuid: ee556a4f-d9f6-44de-af02-42c51659416a
+  client-fingerprint: randomized
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /Novan-AE9
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'vless-icook.tw #1'
+  - vless-icook.tw
+  - vless-www.visa.com.sg
+  - vless-themeforest.net
+  - vless-172.67.155.147
+  - vless-104.18.36.122
+  - vless-104.16.99.215
+  - vless-log.bpminecraft.com
+  - vless-172.67.173.75
+  - vless-104.17.26.45
+  - vless-www.gov.ua
+  - vless-www.iplocation.net
+  - 'vless-www.baipiao.eu.org #1'
+  - vless-crimson-smoke-7818.397.workers.dev
+  - 'vless-www.zsu.gov.ua #1'
+  - vless-cgxgqcheiamna-jks01fidlsnqojwf-s.aliama.workers.dev
+  - vless-frosty-pond-7436.shhabbyat914.workers.dev
+  - vless-novantunnel.tech
+rules:
+- MATCH,CF-Nest-Batch

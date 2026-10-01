@@ -1,0 +1,28 @@
+proxies:
+- name: 🇺🇸US-43.173.90.202-0424
+  type: trojan
+  server: 43.173.90.202
+  port: 443
+  password: sg-trojan-2026
+  skip-cert-verify: true
+  sni: sg-proxy.local
+- name: 🏁RELAY-172.67.231.254-0653
+  type: trojan
+  server: 172.67.231.254
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇺🇸US-43.173.90.202-0424
+  - 🏁RELAY-172.67.231.254-0653
+rules:
+- MATCH,CF-Nest-Batch

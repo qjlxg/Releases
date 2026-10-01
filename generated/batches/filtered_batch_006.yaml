@@ -1,0 +1,241 @@
+proxies:
+- name: '0215 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 15.204.97.219
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: fuck.rkn
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  network: raw
+- name: '0221 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 107.149.159.190
+  port: 4433
+  uuid: 443d55c9-9b78-4ad4-ac34-5ada5b98e97e
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: www.postgresql.org
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: ptrxM_lwiuXte-ynRSfM7AyayGbWrfCzkV1gQ5EgeSw
+    short-id: 0fa5bc397af019a2
+- name: '>>@oneclickvpnkeys::US'
+  type: vless
+  server: 63.141.128.22
+  port: 443
+  uuid: b8b01773-36b1-4b49-9bd0-6249f52345b4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiTkNUaFg0ZnJNUjhhcyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
+- name: '0212 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 169.40.42.163
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: ios
+  skip-cert-verify: true
+  tls: true
+  servername: yahoo.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  network: raw
+- name: '@hex_proxy'
+  type: vless
+  server: 104.21.61.42
+  port: 443
+  uuid: 5b14b2cf-57e3-4f96-92f2-9695078f06d8
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 001.inc-electrocell-001-001.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiSGdhak9tRkZLeDdwcCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: 001.inc-electrocell-001-001.workers.dev
+- name: ✨
+  type: vless
+  server: 172.64.149.54
+  port: 443
+  uuid: fe34b5df-e634-4c83-a057-e53f41ce8e27
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: lATE-LaB-d6A2.CIwodA8715.WoRKerS.DeV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiQ3dmV1d4OUFQdSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: late-lab-d6a2.ciwoda8715.workers.dev
+- name: '0206 | 🇫🇷 France | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 152.228.139.33
+  port: 51671
+  uuid: 75cc7568-abb0-46a8-88be-8137d3c647d4
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: www.sony.com
+  reality-opts:
+    public-key: -5PowNUY37Pi01YKO9fjRTrum1m_9n6XauaPDpmOJzU
+    short-id: 2fed44d8c59f7e71
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc_common3
+- name: '0233 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 169.40.42.16
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: yahoo.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  network: raw
+- name: '3559 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: private.netraidly.ru
+  port: 40443
+  uuid: 5e3f974b-06fc-4555-907a-6681391b7c17
+  client-fingerprint: qq
+  skip-cert-verify: true
+  tls: true
+  servername: deepl.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: oc9uweln_cqyaJnlRMnhhhKrGNP7RrYOsuYtaIOIQDE
+    short-id: 2bc0
+  network: raw
+- name: '0234 | 🇳🇱 Netherlands | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 31.56.184.132
+  port: 8443
+  uuid: 11f21602-47aa-42e2-9149-69120f2e6df6
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: cloudflare.com
+  reality-opts:
+    public-key: bzbe7QdD633ew_Er1_YWEhuCEHWurmDpxpz3fRzXr0A
+    short-id: b4e3b0b55b8dc75b
+  network: grpc
+  grpc-opts:
+    grpc-service-name: shiforgrpc
+- name: '0245 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 2.24.124.64
+  port: 443
+  uuid: 719b9354-45e2-4718-8709-d965b64554db
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: www.cloudflare.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: zpXR6Y36C8qUCIVk2p_j8C9KGeBk5xisLw66j3WFOls
+    short-id: 9f1fc5a631ef3126
+  network: raw
+- name: 3-MCI--@V2rayAlpha
+  type: vless
+  server: 82.39.171.12
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: yahoo.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+- name: '0208 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: arcturus.yokkastars.com
+  port: 40443
+  uuid: bb0f1ed0-0298-40a1-adb1-1f5d6ab33d54
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: deepl.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: w4AYHvQnQS6olDqoG9ptLOtgehaWOsv9HQhDax5bLA4
+    short-id: db46e2946fc466fd
+- name: '0203 | 🇷🇺 Russia | VLESS | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 176.108.246.73
+  port: 9873
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: dl.google.com
+  reality-opts:
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+    short-id: aa
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: '0217 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: tomaz1337shellbuy.vvzzkontaktezzvv.garden
+  port: 443
+  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: s0ypPx0AL3k2KOk74tbm-aE-i7eIR_MYVzfLHZeLaUk
+    short-id: 2e124af254a65e7c
+- name: '0255 | 🇫🇷 France | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  type: vless
+  server: 31.77.227.6
+  port: 52006
+  uuid: bc659d88-a1e0-076c-a49a-7b51b26a7a7f
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: bigdick.gamegrow.ru
+  flow: xtls-rprx-vision
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '0215 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0221 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '>>@oneclickvpnkeys::US'
+  - '0212 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '@hex_proxy'
+  - ✨
+  - '0206 | 🇫🇷 France | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0233 | 🇺🇸 USA | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '3559 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  - '0234 | 🇳🇱 Netherlands | VLESS | 📺 YT | 🔐 Stable | TG: @YoutubeUnBlockRu'
+  - '0245 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - 3-MCI--@V2rayAlpha
+  - '0208 | 🇺🇸 USA | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+  - '0203 | 🇷🇺 Russia | VLESS | TG: @YoutubeUnBlockRu'
+  - '0217 | 🌐 Unknown | VLESS | TG: @YoutubeUnBlockRu'
+  - '0255 | 🇫🇷 France | VLESS | 📺 YT | TG: @YoutubeUnBlockRu'
+rules:
+- MATCH,CF-Nest-Batch

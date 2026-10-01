@@ -1,0 +1,332 @@
+proxies:
+- name: 美国_0919101760
+  type: vless
+  server: 151.101.129.242
+  port: 443
+  uuid: cd9e00aa-3581-42e4-a35c-56ae3a521159
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_0919101823
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: abd924f4-132d-4ad3-ac2a-3aa01b8e5923
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_091910423
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 4ea9c6dd-4d73-49f2-82ce-b80b1b5dd646
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_091910450
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 7eeeaa43-4ffd-4223-88a6-484a2be9cb95
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_091910205
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 8a9b898d-5658-4f77-9fe9-5ff5b61fa107
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 美国_091910466
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 0d03e44f-f60f-41b6-8ad7-13445af164fd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_091910346
+  type: vless
+  server: 151.101.193.242
+  port: 443
+  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: 美国_091910440
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 7eeeaa43-4ffd-4223-88a6-484a2be9cb95
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_091910267
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 11f654d8-8ee6-4663-8fc6-26f2a128b519
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_0919101910
+  type: vless
+  server: 151.101.65.242
+  port: 443
+  uuid: e8bec62c-ba78-45e9-a216-44c1a138b88d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_091910472
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 9760fa51-423f-4000-9dd8-15eccf811982
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_0919101830
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 51a8d623-0d6d-4018-82f4-84b76d5bd015
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: 美国_091910527
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: b2aa6d03-4d3e-478d-98aa-2447f09d4cb1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+- name: 美国_091910537
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: e836302b-2ab2-4286-b584-c1dcf2c2e6a0
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+- name: 美国_091910484
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: fadcfc37-376a-42e6-a5cd-cb65988663d3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: 美国_091910368
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 254e661b-77ef-454a-8e2d-832bcdfc7470
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_0919101567
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_091910359
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: eb199167-16d6-45d0-aadb-314cab5a4e72
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_091910268
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 7797f4a9-cf0b-4e07-a496-235897575512
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_0919101459
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: d51b3246-21fe-47fb-b600-a7b7b9b6182d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: 美国_0919101705
+  type: vless
+  server: 151.101.65.242
+  port: 443
+  uuid: 57a8ea50-1a8d-4e9f-b6e8-e991a9914a8a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: 美国_091910451
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 91c35e01-00bf-41f5-94e4-71539222d255
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 美国_0919101760
+  - 美国_0919101823
+  - 美国_091910423
+  - 美国_091910450
+  - 美国_091910205
+  - 美国_091910466
+  - 美国_091910346
+  - 美国_091910440
+  - 美国_091910267
+  - 美国_0919101910
+  - 美国_091910472
+  - 美国_0919101830
+  - 美国_091910527
+  - 美国_091910537
+  - 美国_091910484
+  - 美国_091910368
+  - 美国_0919101567
+  - 美国_091910359
+  - 美国_091910268
+  - 美国_0919101459
+  - 美国_0919101705
+  - 美国_091910451
+rules:
+- MATCH,CF-Nest-Batch

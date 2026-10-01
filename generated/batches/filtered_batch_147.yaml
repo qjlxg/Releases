@@ -1,0 +1,19 @@
+proxies:
+- name: Vless-104.17.21.32
+  type: vless
+  server: 104.17.21.32
+  port: 8880
+  uuid: 4070e7c9-a412-4ed0-a5fa-fdb455451d2c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: icy-sky-53f2.9-e8e.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Vless-104.17.21.32
+rules:
+- MATCH,CF-Nest-Batch

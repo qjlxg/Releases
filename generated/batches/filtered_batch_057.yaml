@@ -1,15 +1,20 @@
 proxies:
-- name: trojan-1394634876
+- name: Trojan-restless-base-fe24.alirezahabibi20009.workers.dev
   type: trojan
-  server: 43.173.90.202
+  server: restless-base-fe24.alirezahabibi20009.workers.dev
   port: 443
-  password: sg-trojan-2026
+  password: uR0TSWA@N^%u,Bni
   skip-cert-verify: true
-  sni: 43.173.90.202
+  sni: rESTless-basE-fe24.aLiReZaHabibi20009.woRKErS.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiM2VVWXFtczhRUVN5SHpGMyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: restless-base-fe24.alirezahabibi20009.workers.dev
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - trojan-1394634876
+  - Trojan-restless-base-fe24.alirezahabibi20009.workers.dev
 rules:
 - MATCH,CF-Nest-Batch

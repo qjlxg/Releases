@@ -1,0 +1,19 @@
+proxies:
+- name: vless-104.21.23.72
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: 1b3ad465-d37e-48a2-bb53-d7fddfc97b11
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: calm-silence-d4a1.217.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-104.21.23.72
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,851 @@
+proxies:
+- name: '[OpenRay] 🇨🇦 CA-30452'
+  type: vless
+  server: 104.18.191.208
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇨🇦 CA-30441'
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: //?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] Dynamic-30398'
+  type: vless
+  server: cf.877774.xyz
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] Dynamic-30357'
+  type: vless
+  server: cf.877774.xyz
+  port: 2053
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] Dynamic-28011'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: eb3a2eaf-ab4e-468f-b79c-bebd52f8d872
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: grimness-backlogs.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- name: '[OpenRay] Dynamic-28009'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: eb3a2eaf-ab4e-468f-b79c-bebd52f8d872
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[OpenRay] Dynamic-30343'
+  type: vless
+  server: cf.877774.xyz
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] Dynamic-30386'
+  type: vless
+  server: cf.877774.xyz
+  port: 2053
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇨🇦 CA-30445'
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] Dynamic-28010'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: eb3a2eaf-ab4e-468f-b79c-bebd52f8d872
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[OpenRay] 🇺🇸 US-27909'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: dd08d3a1-794f-4e3b-a5f4-2998b9167d12
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇨🇦 CA-30432'
+  type: vless
+  server: 172.67.210.250
+  port: 8080
+  uuid: f85183cf-af02-4656-b1e9-3a61dced201f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vl/uyXT65o0H9U3hDBrVjJ9E?ed=2560
+    headers:
+      Host: freeworld.aliaicode47649.workers.dev
+- name: '[OpenRay] 🇳🇱 NL-12687'
+  type: vless
+  server: dedic-nl-new.failspace.top
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: firefox
+  skip-cert-verify: true
+  tls: true
+  servername: dedic-nl-new.failspace.top
+  flow: xtls-rprx-vision
+- name: '[OpenRay] 🇺🇸 US-27869'
+  type: vless
+  server: 40.116.88.35
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇺🇸 US-27895'
+  type: vless
+  server: 40.116.88.35
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇺🇸 US-27911'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: f8f268f6-d65a-46fa-8e8f-6ccdc6f48c41
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
+- name: 🇫🇷FR_1673|578KB/s|T001-260618 01
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: d9abc6e3-83bf-4c28-ae68-72465e2abe39
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ikt-kkc25f27k-3tehr8mc.ade-1007.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/xQhNe7rLrdM0emZlaW5LMsNwcoIgnT
+    headers:
+      Host: ikt-kkc25f27k-3tehr8mc.ade-1007.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4789'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: d5f8cb9f-0fde-45a9-8c2f-52a03207f26b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4799'
+  type: vless
+  server: 203.137.165.164
+  port: 57554
+  uuid: d9788c3a-a097-4182-be39-8b6b8a34264c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4762'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: f938296c-d0c9-4801-b865-91373a1b3e10
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: '[OpenRay] 🇬🇧 GB-3490'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: d03af339-e245-4709-9bec-57a5e2d502ea
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4787'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: fbbc292b-4168-446d-a692-34a77ae9485e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4808'
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: fbdc2b46-7208-4499-abd1-5b5a148b2197
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: '[OpenRay] 🇯🇵 JP-4821'
+  type: vless
+  server: 216.23.122.125
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇸🇬 SG-3224'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: d94fe65a-bdfb-46af-9d90-d54096aa9f4f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: CA
+  type: vless
+  server: 104.17.149.168
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #7'
+  type: vless
+  server: 104.26.0.226
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #1'
+  type: vless
+  server: 104.18.41.190
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #4'
+  type: vless
+  server: 104.16.154.133
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: '[OpenRay] 🇯🇵 JP-4820'
+  type: vless
+  server: 45.192.202.199
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇯🇵 JP-4831'
+  type: vless
+  server: 45.8.173.250
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #8'
+  type: vless
+  server: 172.67.73.170
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #2'
+  type: vless
+  server: 104.17.150.17
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇹🇼 TW-803'
+  type: vless
+  server: 141.11.87.48
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇩🇪 DE-24706'
+  type: vless
+  server: 2.26.30.216
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'US #1'
+  type: vless
+  server: 128.241.25.11
+  port: 30021
+  uuid: 37d6fe46-0e65-4dce-9024-b13abfd50f9d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'CA #5'
+  type: vless
+  server: 104.21.88.201
+  port: 443
+  uuid: 07f9bc85-613f-4a33-8da1-191973c43c0a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: app-q0zc4t.user-4gfyh5.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: app-q0zc4t.user-4gfyh5.workers.dev
+- name: '[OpenRay] 🇸🇬 SG-3269'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: fa2a499a-9d15-4bca-b14e-cefc7dc0770d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+- name: 'US #7'
+  type: vless
+  server: 129.153.71.28
+  port: 28863
+  uuid: ae64dd66-9a2a-40fa-b6dc-b49690bd5b6e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'CA #15'
+  type: vless
+  server: 172.67.198.254
+  port: 8880
+  uuid: 35e8826f-0873-492d-8b8a-d495c9947480
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: super-sunset-010c.24-43d.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: super-sunset-010c.24-43d.workers.dev
+- name: '[OpenRay] 🇺🇦 UA-133'
+  type: vless
+  server: 173.242.63.235
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: '[OpenRay] 🇬🇧 GB-3524'
+  type: vless
+  server: 45.152.65.100
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 'CA #34'
+  type: vless
+  server: 104.21.81.162
+  port: 443
+  uuid: 20836693-ea23-4f40-a1e7-48a6da897917
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: netra-85a0ca.shoameni19.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/bluTTbb7MO8rvX1COEYH4WW4qzbr2aui
+    headers:
+      Host: netra-85a0ca.shoameni19.workers.dev
+- name: 'CA #35'
+  type: vless
+  server: 172.67.145.5
+  port: 443
+  uuid: 20836693-ea23-4f40-a1e7-48a6da897917
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: netra-85a0ca.shoameni19.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/bluTTbb7MO8rvX1COEYH4WW4qzbr2aui
+    headers:
+      Host: netra-85a0ca.shoameni19.workers.dev
+- name: 'CA #33'
+  type: vless
+  server: 104.26.15.4
+  port: 443
+  uuid: 1e534c59-85c2-4042-a407-e491f68cb3a5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: kJz42CNi3-kRCUj2-gQs8vEs15.foRNeWiRAN-1010.wOrKERs.dEV
+  network: ws
+  ws-opts:
+    path: /vl/Z8Ag5xQbwmhIHsvyDj3?ed=2560
+    headers:
+      Host: kjz42cni3-krcuj2-gqs8ves15.fornewiran-1010.workers.dev
+- name: '[OpenRay] 🇹🇷 TR-1979'
+  type: vless
+  server: 130.94.0.228
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 🇦🇹AT_6|841KB/s|M003-260806 01
+  type: vless
+  server: 50.7.36.30
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ad-dedic-3.failspace.top
+  flow: xtls-rprx-vision-udp443
+- name: '[OpenRay] 🇸🇬 SG-3309'
+  type: vless
+  server: 43.174.192.1
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: JP
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: 5fb24d6b-0fe5-4138-94f6-33caeafa2117
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'GB #1'
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: d6b5c6ad-481f-40fd-a068-8ab14a8d8c65
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+- name: 'GB #2'
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: d94253cf-a998-48ac-b1ab-b2a71284cd9b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'DE #3'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 21694977-a723-4fd4-8efd-fbe64ededb2d
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: GB
+  type: vless
+  server: 57.129.130.57
+  port: 52014
+  uuid: c9761274-18b3-40bb-aee3-18c2c9e5819c
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+- name: 'DE #1'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: 9687ca77-564b-45c7-b06f-90bb71db9673
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+- name: 'DE #2'
+  type: vless
+  server: 185.125.103.62
+  port: 8082
+  uuid: a1edef7b-26a0-4309-b65f-0656b89188da
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+- name: 'SG #2'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 61dd40f5-70d8-46b2-94b8-3d6c0f9f93e5
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
+- name: 'SG #1'
+  type: vless
+  server: 45.77.241.190
+  port: 8441
+  uuid: 7f99dcea-d6fa-45d5-aae9-11edad31364b
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[OpenRay] 🇨🇦 CA-30452'
+  - '[OpenRay] 🇨🇦 CA-30441'
+  - '[OpenRay] Dynamic-30398'
+  - '[OpenRay] Dynamic-30357'
+  - '[OpenRay] Dynamic-28011'
+  - '[OpenRay] Dynamic-28009'
+  - '[OpenRay] Dynamic-30343'
+  - '[OpenRay] Dynamic-30386'
+  - '[OpenRay] 🇨🇦 CA-30445'
+  - '[OpenRay] Dynamic-28010'
+  - '[OpenRay] 🇺🇸 US-27909'
+  - '[OpenRay] 🇨🇦 CA-30432'
+  - '[OpenRay] 🇳🇱 NL-12687'
+  - '[OpenRay] 🇺🇸 US-27869'
+  - '[OpenRay] 🇺🇸 US-27895'
+  - '[OpenRay] 🇺🇸 US-27911'
+  - 🇫🇷FR_1673|578KB/s|T001-260618 01
+  - '[OpenRay] 🇯🇵 JP-4789'
+  - '[OpenRay] 🇯🇵 JP-4799'
+  - '[OpenRay] 🇯🇵 JP-4762'
+  - '[OpenRay] 🇬🇧 GB-3490'
+  - '[OpenRay] 🇯🇵 JP-4787'
+  - '[OpenRay] 🇯🇵 JP-4808'
+  - '[OpenRay] 🇯🇵 JP-4821'
+  - '[OpenRay] 🇸🇬 SG-3224'
+  - CA
+  - 'CA #7'
+  - 'CA #1'
+  - 'CA #4'
+  - '[OpenRay] 🇯🇵 JP-4820'
+  - '[OpenRay] 🇯🇵 JP-4831'
+  - 'CA #8'
+  - 'CA #2'
+  - '[OpenRay] 🇹🇼 TW-803'
+  - '[OpenRay] 🇩🇪 DE-24706'
+  - 'US #1'
+  - 'CA #5'
+  - '[OpenRay] 🇸🇬 SG-3269'
+  - 'US #7'
+  - 'CA #15'
+  - '[OpenRay] 🇺🇦 UA-133'
+  - '[OpenRay] 🇬🇧 GB-3524'
+  - 'CA #34'
+  - 'CA #35'
+  - 'CA #33'
+  - '[OpenRay] 🇹🇷 TR-1979'
+  - 🇦🇹AT_6|841KB/s|M003-260806 01
+  - '[OpenRay] 🇸🇬 SG-3309'
+  - JP
+  - 'GB #1'
+  - 'GB #2'
+  - 'DE #3'
+  - GB
+  - 'DE #1'
+  - 'DE #2'
+  - 'SG #2'
+  - 'SG #1'
+rules:
+- MATCH,CF-Nest-Batch

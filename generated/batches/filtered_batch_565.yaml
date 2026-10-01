@@ -1,0 +1,104 @@
+proxies:
+- name: '🇪🇸[www.v2nodes.com] vless-ES-4... #2'
+  type: vless
+  server: www.zsu.gov.ua
+  port: 8880
+  uuid: 667a035b-6656-4a4f-a74c-8cd6a679f8d4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.netfp=firefox
+    headers:
+      Host: winter-mode-7f4e.89-136.workers.dev
+- name: vless-chatgpt.com
+  type: vless
+  server: chatgpt.com
+  port: 443
+  uuid: a43a9a45-7387-4faf-ad06-24b1ae181fdc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: SNowy-glade-85FA.ArSHIaTAkaLlOo88.wOrKErs.dEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiVzg3NkFVRjZaUCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: SNowy-glade-85FA.ArSHIaTAkaLlOo88.wOrKErs.dEv
+- name: '@DeltaKroneckerGithub #41'
+  type: vless
+  server: 172.64.147.223
+  port: 443
+  uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /44.209.52.7-443
+    headers:
+      Host: blackshadow.dpdns.org
+- name: ⚠️ 🇸🇬 Сингапур [#РКП]
+  type: vless
+  server: onhit.shalana.shop
+  port: 44
+  uuid: d19ef364-8c88-447d-b1be-c59a27113de9
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: www.microsoft.com
+- name: '🇸🇪[www.v2nodes.com] vless-SE-9... #2'
+  type: vless
+  server: 103.71.22.234
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shephe.dpdns.org
+- name: '⚠️ 🇸🇬 Сингапур [#РКП] #1'
+  type: vless
+  server: speed.dulacloud.store
+  port: 443
+  uuid: b04a7ec4-c501-4d9b-b0ba-73354e4fc972
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: aka.ms
+  network: ws
+  ws-opts:
+    path: /dula
+    headers:
+      Host: speed.dulacloud.store
+- name: '🏳[www.v2nodes.com] vless- #22'
+  type: vless
+  server: 141.11.87.48
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🇪🇸[www.v2nodes.com] vless-ES-4... #2'
+  - vless-chatgpt.com
+  - '@DeltaKroneckerGithub #41'
+  - ⚠️ 🇸🇬 Сингапур [#РКП]
+  - '🇸🇪[www.v2nodes.com] vless-SE-9... #2'
+  - '⚠️ 🇸🇬 Сингапур [#РКП] #1'
+  - '🏳[www.v2nodes.com] vless- #22'
+rules:
+- MATCH,CF-Nest-Batch

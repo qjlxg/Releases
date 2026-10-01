@@ -1,0 +1,171 @@
+proxies:
+- name: vless-1286936077
+  type: vless
+  server: 108.162.198.178
+  port: 80
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-897225032
+  type: vless
+  server: 162.159.0.169
+  port: 8080
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1254039528
+  type: vless
+  server: 162.159.0.53
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: unsafe
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: CA
+  type: vless
+  server: 172.67.179.98
+  port: 8880
+  uuid: 8c56b4af-4762-4299-a1f8-799790dbaac7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/pyip=ProxyIP.SG.CMLiussss.net '
+    headers:
+      Host: lively-lab-4fd2.150-6f7.workers.dev
+- name: 'CA #4'
+  type: vless
+  server: liang92.dpdns.org
+  port: 443
+  uuid: 0aab6adc-104c-4339-8d25-09755ffe2cbd
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: liang92.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: liang92.dpdns.org
+- name: 🇩🇪@ELiV2RAY
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: a375fa6a-bef7-4f71-92f0-17976e5afaac
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: vless-974268382
+  type: vless
+  server: 162.159.39.218
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1258579639
+  type: vless
+  server: 172.64.52.6
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: vless-1370323676
+  type: vless
+  server: 162.159.39.218
+  port: 80
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 'CA #3'
+  type: vless
+  server: 104.17.147.22
+  port: 443
+  uuid: 0432902e-6604-40cd-bbd0-57ab4e5d909f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: bPB-4dc4958B.hXjkcgHcHv.woRkeRs.deV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiOENNZnB6WTgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
+    headers:
+      Host: bpb-4dc4958b.hxjkcghchv.workers.dev
+- name: UN-VLESS-01
+  type: vless
+  server: ld.235231.xyz
+  port: 443
+  uuid: 65d3f9b3-d289-4a8e-9c87-90bba156de30
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: ld.235231.xyz
+  network: ws
+  ws-opts:
+    headers:
+      Host: ld.235231.xyz
+- name: vless-162.159.38.127
+  type: vless
+  server: 162.159.38.127
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-1286936077
+  - vless-897225032
+  - vless-1254039528
+  - CA
+  - 'CA #4'
+  - 🇩🇪@ELiV2RAY
+  - vless-974268382
+  - vless-1258579639
+  - vless-1370323676
+  - 'CA #3'
+  - UN-VLESS-01
+  - vless-162.159.38.127
+rules:
+- MATCH,CF-Nest-Batch

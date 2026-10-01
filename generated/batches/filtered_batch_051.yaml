@@ -1,0 +1,18 @@
+proxies:
+- name: 'Trojan-104.18.32.47 #1'
+  type: trojan
+  server: 104.18.32.47
+  port: 443
+  password: A4u^p(_UR*F6
+  skip-cert-verify: true
+  sni: 027.eLECTROcelLCO-cf-027.WorKerS.Dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidDJ0UDljR2ZIaVBQakg2byIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'Trojan-104.18.32.47 #1'
+rules:
+- MATCH,CF-Nest-Batch

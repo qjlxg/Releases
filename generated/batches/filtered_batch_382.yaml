@@ -1,0 +1,32 @@
+proxies:
+- name: vless-www.gov.ua
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: f5c01a38-a92a-46a1-8968-a0582f4e2f2a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: steep-frost-8b18.350-c77.workers.dev
+- name: vless-104.17.178.154
+  type: vless
+  server: 104.17.178.154
+  port: 8880
+  uuid: f6e14309-5cff-4f5d-bce1-06a260159bbe
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: steep-bread-32f0.92-d12.workers.dev
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-www.gov.ua
+  - vless-104.17.178.154
+rules:
+- MATCH,CF-Nest-Batch

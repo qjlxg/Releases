@@ -1,14 +1,190 @@
 proxies:
-- name: '🇸🇬 [TR] Сингапур #3813 | РосТуннель t.me/rjsxrd'
+- name: 🇺🇸US_817|408KB/s|T001-260618 01
   type: trojan
-  server: 86.38.247.109
-  port: 2087
-  password: sshs8_6481354771
+  server: 104.18.42.98
+  port: 443
+  password: xhl549341
   skip-cert-verify: true
+  sni: tro.baiyi.cloudns.org
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+- name: 'CA #3'
+  type: trojan
+  server: 104.21.16.123
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: 7X7o3VTq5z6ymu3Hv1fH-Op9BlT.hYa6LOSM6lZNOXHm6w3MK.woRKErS.DeV
+  network: ws
+  ws-opts:
+    path: /tr/qL8YIeH28wNcXfNTPgLCwOhNFEr?ed=2560
+- name: 美国_Buffalo_HostPapa_Gemini_Claude19
+  type: trojan
+  server: 172.64.80.1
+  port: 443
+  password: 0b5fa773-6f37-4134-87d4-0c349742b6f6
+  skip-cert-verify: true
+  sni: app-538961.user-y0o4gm.workers.dev
+  network: ws
+- name: 'CA #2'
+  type: trojan
+  server: 172.67.177.105
+  port: 443
+  password: 0b5fa773-6f37-4134-87d4-0c349742b6f6
+  skip-cert-verify: true
+  sni: app-538961.user-y0o4gm.workers.dev
+  network: ws
+  ws-opts:
+    path: /cmh
+    headers:
+      Host: app-538961.user-y0o4gm.workers.dev
+- name: trojan-104.18.8.83
+  type: trojan
+  server: 104.18.8.83
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 🇳🇱NL_170|1.2MB/s|M003-260806
+  type: trojan
+  server: 104.21.33.59
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: '🇺🇸 #3'
+  type: trojan
+  server: to6r63-kkchighqm2.vxz0dduq7to7su0cdqf.workers.dev
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: To6R63-kKChiGHqm2.vxz0Dduq7to7Su0CDQf.worKERs.DEV
+  network: ws
+  ws-opts:
+    path: /tr/xwtrOUcg21SS0Ega?ed=2560
+    headers:
+      Host: to6r63-kkchighqm2.vxz0dduq7to7su0cdqf.workers.dev
+- name: '🔥Join+Telegram:@Farah_VPN🟣 #4'
+  type: trojan
+  server: www.speedtest.net
+  port: 443
+  password: Telegram_healer_config
+  skip-cert-verify: true
+  sni: BjSa2yGfiTzJtho8uCZE29Xf2M2Q9C.g3fIAjPF0erM9k3X6wW-YeGZl2.WORkERS.dev
+  network: ws
+  ws-opts:
+    path: /tr/VQ1n6VuZtSQv0vvjjCG?ed=2560
+    headers:
+      Host: bjsa2ygfitzjtho8ucze29xf2m2q9c.g3fiajpf0erm9k3x6ww-yegzl2.workers.dev
+- name: trojan-185.114.72.31
+  type: trojan
+  server: 185.114.72.31
+  port: 2053
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: trojan-191.96.94.226
+  type: trojan
+  server: 191.96.94.226
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: trojan-82.117.245.125
+  type: trojan
+  server: 82.117.245.125
+  port: 2053
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: 🇪🇸 西班牙 | trojan | 08
+  type: trojan
+  server: 212.227.144.37
+  port: 8443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 4Mohsen-7fb9058110
+  type: trojan
+  server: 185.225.68.232
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: Nova Free 026 | TROJAN
+  type: trojan
+  server: 104.21.70.21
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: Nova Free 025 | TROJAN
+  type: trojan
+  server: 104.21.103.254
+  port: 443
+  password: humanity
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
 proxy-groups:
 - name: CF-Nest-Batch
   type: select
   proxies:
-  - '🇸🇬 [TR] Сингапур #3813 | РосТуннель t.me/rjsxrd'
+  - 🇺🇸US_817|408KB/s|T001-260618 01
+  - 'CA #3'
+  - 美国_Buffalo_HostPapa_Gemini_Claude19
+  - 'CA #2'
+  - trojan-104.18.8.83
+  - 🇳🇱NL_170|1.2MB/s|M003-260806
+  - '🇺🇸 #3'
+  - '🔥Join+Telegram:@Farah_VPN🟣 #4'
+  - trojan-185.114.72.31
+  - trojan-191.96.94.226
+  - trojan-82.117.245.125
+  - 🇪🇸 西班牙 | trojan | 08
+  - 4Mohsen-7fb9058110
+  - Nova Free 026 | TROJAN
+  - Nova Free 025 | TROJAN
 rules:
 - MATCH,CF-Nest-Batch
