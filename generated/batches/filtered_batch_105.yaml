@@ -1,0 +1,15 @@
+proxies:
+- name: '1774'
+  type: trojan
+  server: 38.180.35.145
+  port: 443
+  password: 600421cf-11d7-429f-a65b-c30397f1bc03
+  skip-cert-verify: true
+  sni: bu2.freeguard.org
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '1774'
+rules:
+- MATCH,CF-Nest-Batch

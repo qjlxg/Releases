@@ -1,0 +1,15 @@
+proxies:
+- name: '[OpenRay] Dynamic-28034'
+  type: vless
+  server: smart.avenone.ir
+  port: 1085
+  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[OpenRay] Dynamic-28034'
+rules:
+- MATCH,CF-Nest-Batch

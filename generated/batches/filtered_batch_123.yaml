@@ -1,0 +1,15 @@
+proxies:
+- name: 🇸🇬_新加坡_75
+  type: vless
+  server: 134.122.154.210
+  port: 443
+  uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇸🇬_新加坡_75
+rules:
+- MATCH,CF-Nest-Batch

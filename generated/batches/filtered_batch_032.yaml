@@ -1,0 +1,155 @@
+proxies:
+- name: 🇨🇿 Чехия [#РКП]
+  type: hysteria2
+  server: 162.249.127.137
+  port: 8443
+  password: 9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
+  skip-cert-verify: true
+  sni: hop-germany-september.dynuddns.com
+- name: '🇺🇸US_16|2.6MB/s | 福利姬: https://t.me/fuliji_Arrest'
+  type: hysteria2
+  server: mg.mangshe.xyz
+  port: 2060
+  password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
+  skip-cert-verify: true
+  sni: mg.mangshe.xyz
+- name: 🇩🇪DE_5|3.3MB/s|GPT⁺|YT-DE|NF|D+|17%
+  type: hysteria2
+  server: 95.85.252.83
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇱🇻 机场推荐:dafei.de 拉脱维亚 03
+  type: hysteria2
+  server: 31.76.104.152
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+- name: 🇱🇻LV_1|2.8MB/s|GPT⁺|YT-RU|NF|0%
+  type: hysteria2
+  server: 104.165.205.250
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇱🇻LV_3|2.7MB/s|GPT⁺|YT-RU|NF|0%
+  type: hysteria2
+  server: 104.165.205.53
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇱🇻LV_6|2.8MB/s|GPT⁺|YT-RU|NF|0%
+  type: hysteria2
+  server: 104.165.205.44
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇬🇧 @anonymouskeys
+  type: hysteria2
+  server: 103.126.51.39
+  port: 8443
+  password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+  skip-cert-verify: true
+  sni: hopp-romania-new.roxa.org
+- name: 🇩🇪DE_179|6.3MB/s|R002-260618
+  type: hysteria2
+  server: 194.48.250.8
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 美国_Los Angeles_PEG TECH INC_Claude5
+  type: hysteria2
+  server: 107.149.159.190
+  port: 8443
+  password: 488b2611852407f03a681927cb91804b
+  skip-cert-verify: true
+- name: 🇩🇪 机场推荐:dafei.de 德国 18
+  type: hysteria2
+  server: 95.85.252.78
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+- name: 🇱🇻LV_8|2.5MB/s|GPT⁺|YT-RU|NF|0%
+  type: hysteria2
+  server: 104.165.205.46
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇱🇻LV_9|2.8MB/s|GPT⁺|YT-RU|NF|0%
+  type: hysteria2
+  server: 104.165.205.43
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇺🇸US_491|1.4MB/s|A004-260618
+  type: hysteria2
+  server: 198.46.215.223
+  port: 4443
+  password: 31329f25
+  skip-cert-verify: true
+  sni: 198.46.215.223
+- name: 🇩🇪 Германия [#РКП]
+  type: hysteria2
+  server: 77.74.123.101
+  port: 8443
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  skip-cert-verify: true
+  sni: grape-test-italy.dynuddns.net
+- name: 🇳🇱 荷兰 | HYSTERIA2 | 006
+  type: hysteria2
+  server: 72.56.102.31
+  port: 443
+  password: BWAFlp8g53
+  skip-cert-verify: true
+  sni: 'off'
+- name: '🇩🇪 Германия [#РКП] #2'
+  type: hysteria2
+  server: 77.74.123.102
+  port: 8443
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  skip-cert-verify: true
+  sni: grape-test-italy.dynuddns.net
+- name: hysteria2-1515687090
+  type: hysteria2
+  server: 77.74.123.100
+  port: 8443
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  skip-cert-verify: true
+  sni: grape-test-italy.dynuddns.net
+- name: 🇵🇱
+  type: hysteria2
+  server: mix.pantera-radio.ru
+  port: 443
+  password: 0a11d3b4-682c-4bfb-afb0-820b8285cb4b
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇨🇿 Чехия [#РКП]
+  - '🇺🇸US_16|2.6MB/s | 福利姬: https://t.me/fuliji_Arrest'
+  - 🇩🇪DE_5|3.3MB/s|GPT⁺|YT-DE|NF|D+|17%
+  - 🇱🇻 机场推荐:dafei.de 拉脱维亚 03
+  - 🇱🇻LV_1|2.8MB/s|GPT⁺|YT-RU|NF|0%
+  - 🇱🇻LV_3|2.7MB/s|GPT⁺|YT-RU|NF|0%
+  - 🇱🇻LV_6|2.8MB/s|GPT⁺|YT-RU|NF|0%
+  - 🇬🇧 @anonymouskeys
+  - 🇩🇪DE_179|6.3MB/s|R002-260618
+  - 美国_Los Angeles_PEG TECH INC_Claude5
+  - 🇩🇪 机场推荐:dafei.de 德国 18
+  - 🇱🇻LV_8|2.5MB/s|GPT⁺|YT-RU|NF|0%
+  - 🇱🇻LV_9|2.8MB/s|GPT⁺|YT-RU|NF|0%
+  - 🇺🇸US_491|1.4MB/s|A004-260618
+  - 🇩🇪 Германия [#РКП]
+  - 🇳🇱 荷兰 | HYSTERIA2 | 006
+  - '🇩🇪 Германия [#РКП] #2'
+  - hysteria2-1515687090
+  - 🇵🇱
+rules:
+- MATCH,CF-Nest-Batch

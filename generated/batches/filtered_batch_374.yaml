@@ -1,0 +1,16 @@
+proxies:
+- name: '@v2rayargon'
+  type: vless
+  server: 94.183.170.135
+  port: 8443
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '@v2rayargon'
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,47 @@
+proxies:
+- name: Free x312 @Outline_Vpn
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: 🇹🇼TW_45|438KB/s|R002-260618
+  type: tuic
+  server: tw3.dexlos.com
+  port: 8080
+  uuid: 8A9905B7-801B-41AF-BFC9-2034212770F6
+  password: 8A9905B7-801B-41AF-BFC9-2034212770F6
+  skip-cert-verify: true
+- name: Telegram:@v2rayng3
+  type: vless
+  server: 137.220.221.179
+  port: 443
+  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: TW-TUIC-01
+  type: tuic
+  server: tw6.dexlos.com
+  port: 8080
+  uuid: 8A9905B7-801B-41AF-BFC9-2034212770F6
+  password: 8A9905B7-801B-41AF-BFC9-2034212770F6
+  skip-cert-verify: true
+- name: 'TW-TUIC-01 #2'
+  type: tuic
+  server: tw6.dexlos.com
+  port: 8080
+  uuid: 7FE4CBB4-D40B-4896-AE9B-3EF09D5B18E6
+  password: 7FE4CBB4-D40B-4896-AE9B-3EF09D5B18E6
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - Free x312 @Outline_Vpn
+  - 🇹🇼TW_45|438KB/s|R002-260618
+  - Telegram:@v2rayng3
+  - TW-TUIC-01
+  - 'TW-TUIC-01 #2'
+rules:
+- MATCH,CF-Nest-Batch

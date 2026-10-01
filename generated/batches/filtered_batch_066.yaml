@@ -1,0 +1,14 @@
+proxies:
+- name: 🇸🇨SC_4|487KB/s|A004-260618 01
+  type: trojan
+  server: 154.90.62.70
+  port: 56127
+  password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇸🇨SC_4|487KB/s|A004-260618 01
+rules:
+- MATCH,CF-Nest-Batch

@@ -1,0 +1,23 @@
+proxies:
+- name: 🇪🇪EE_5|2.5MB/s|A004-260618
+  type: trojan
+  server: 109.206.241.10
+  port: 449
+  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
+  skip-cert-verify: true
+  sni: 109.206.241.10
+- name: 🇸🇬SG_107|322KB/s|A004-260618
+  type: trojan
+  server: cloud.lakshan.us
+  port: 119
+  password: skynet
+  skip-cert-verify: true
+  sni: cloud.lakshan.us
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇪🇪EE_5|2.5MB/s|A004-260618
+  - 🇸🇬SG_107|322KB/s|A004-260618
+rules:
+- MATCH,CF-Nest-Batch

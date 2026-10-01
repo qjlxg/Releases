@@ -1,0 +1,16 @@
+proxies:
+- name: vless-186.190.211.188
+  type: vless
+  server: 186.190.211.188
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-186.190.211.188
+rules:
+- MATCH,CF-Nest-Batch

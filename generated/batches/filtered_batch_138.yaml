@@ -1,0 +1,17 @@
+proxies:
+- name: 'SG #4'
+  type: vless
+  server: free-server.techsonic.dev
+  port: 443
+  uuid: f1178fbe-1420-4eef-b087-4f33b32b4a19
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: aka.ms
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'SG #4'
+rules:
+- MATCH,CF-Nest-Batch

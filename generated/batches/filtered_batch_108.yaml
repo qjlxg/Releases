@@ -1,0 +1,31 @@
+proxies:
+- name: '[🇵🇱]t.me/ConfigsHub'
+  type: trojan
+  server: cheerful-swan.rooster465.autos
+  port: 443
+  password: UX82473651
+  skip-cert-verify: true
+  sni: cheerful-swan.rooster465.autos
+- name: 🇲🇾MY_3|852KB/s|A004-260618
+  type: trojan
+  server: 47.250.84.25
+  port: 443
+  password: 5931134d1cde66bf83a54acdfebe7ab2
+  skip-cert-verify: true
+  sni: 47.250.84.25\u0026allowInsecure=1\u0026type=tcp\u0026fp=chrome
+- name: 🇲🇾MY_2|399KB/s|A004-260618
+  type: trojan
+  server: 47.250.84.25
+  port: 443
+  password: 5931134d1cde66bf83a54acdfebe7ab2
+  skip-cert-verify: true
+  sni: moltbot.doctoroyy.net\u0026allowInsecure=1\u0026type=tcp\u0026fp=chrome
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[🇵🇱]t.me/ConfigsHub'
+  - 🇲🇾MY_3|852KB/s|A004-260618
+  - 🇲🇾MY_2|399KB/s|A004-260618
+rules:
+- MATCH,CF-Nest-Batch

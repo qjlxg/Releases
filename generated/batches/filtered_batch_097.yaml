@@ -1,0 +1,14 @@
+proxies:
+- name: '🇸🇬 [TR] Сингапур #3813 | РосТуннель t.me/rjsxrd'
+  type: trojan
+  server: 86.38.247.109
+  port: 2087
+  password: sshs8_6481354771
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '🇸🇬 [TR] Сингапур #3813 | РосТуннель t.me/rjsxrd'
+rules:
+- MATCH,CF-Nest-Batch

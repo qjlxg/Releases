@@ -1,0 +1,15 @@
+proxies:
+- name: vless-158.247.125.162
+  type: vless
+  server: 158.247.125.162
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  client-fingerprint: chrome
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-158.247.125.162
+rules:
+- MATCH,CF-Nest-Batch

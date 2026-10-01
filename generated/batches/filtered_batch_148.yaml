@@ -1,0 +1,17 @@
+proxies:
+- name: 🇬🇧 AetrisVPN
+  type: vless
+  server: 186.190.211.188
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: /?BIA_TELEGRAM@MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇬🇧 AetrisVPN
+rules:
+- MATCH,CF-Nest-Batch

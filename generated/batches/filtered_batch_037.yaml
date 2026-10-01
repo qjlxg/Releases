@@ -1,0 +1,31 @@
+proxies:
+- name: 🇩🇪DE_19|1.1MB/s|R002-260618 01
+  type: trojan
+  server: dggg.wsone.icu
+  port: 443
+  password: M7v%w11Se*
+  skip-cert-verify: true
+  sni: dggg.wsone.icu
+- name: 🇪🇪EE_13|514KB/s|C002-260622 01
+  type: trojan
+  server: 109.206.241.10
+  port: 449
+  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
+  skip-cert-verify: true
+  sni: russiapower.accesscam.org
+- name: 🇸🇨SC_1|476KB/s|A004-260618 01
+  type: trojan
+  server: 154.90.62.70
+  port: 56127
+  password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+  skip-cert-verify: true
+  sni: 154.90.62.70
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇩🇪DE_19|1.1MB/s|R002-260618 01
+  - 🇪🇪EE_13|514KB/s|C002-260622 01
+  - 🇸🇨SC_1|476KB/s|A004-260618 01
+rules:
+- MATCH,CF-Nest-Batch

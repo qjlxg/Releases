@@ -1,0 +1,147 @@
+proxies:
+- name: HYSTERIA2 | @PulseConfigs | a784e7
+  type: hysteria2
+  server: 192.255.128.123
+  port: 443
+  password: RN_3f80eeb4bbd0f13f
+  skip-cert-verify: true
+  sni: www.bing.com
+- name: HYSTERIA2 | @PulseConfigs | 33a77d
+  type: hysteria2
+  server: 82.38.64.239
+  port: 8443
+  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
+  skip-cert-verify: true
+  sni: hopp-swizland-new.mysynology.net
+- name: 🇭🇰 中国香港 | HYSTERIA2 | 010
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2рҹүҹү
+- name: 🇺🇳 未知地区 | HYSTERIA2 | 003
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2����
+- name: 香港 20
+  type: hysteria2
+  server: hk2.xiaoliyu.cyou
+  port: 4433
+  password: 19f72087-4591-4d72-930b-2697078ec2be
+  skip-cert-verify: true
+- name: hysteria2-1527482523
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: 'off'
+- name: 🇺🇳 未知地区 | HYSTERIA2 | 001
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2üáüá
+- name: 🇫🇮 机场推荐:dafei.de 芬兰 04
+  type: hysteria2
+  server: 144.31.212.253
+  port: 443
+  password: cf83b611-6cba-4535-adcb-8da06c6a9146
+  skip-cert-verify: true
+- name: hysteria2-1456970890
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2%d1%80%d2%b9%d2%af
+- name: ZZ · HYSTERIA2 · au1rxx-clash · 2D3852ED
+  type: hysteria2
+  server: open.w2m.ink
+  port: 5443
+  password: my_super_password_123
+  skip-cert-verify: true
+- name: 🇹🇼TW_1|504KB/s|C002-260622
+  type: hysteria2
+  server: 103.115.109.49
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/WangCai2
+- name: HYSTERIA2 | @PulseConfigs | f3ac02
+  type: hysteria2
+  server: 82.38.64.237
+  port: 8443
+  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
+  skip-cert-verify: true
+  sni: hopp-swizland-new.mysynology.net
+- name: hysteria2-1561765011
+  type: hysteria2
+  server: vpn-hk-004.fastervpn.world
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: vpn-hk-004.fastervpn.world
+- name: 🇭🇰 中国香港 | HYSTERIA2 | 021
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2%c3%b0%c2%9f%c2%87%c2%a8%c3%b0%c2%9f%c2%87%c2%b3
+- name: '🇩🇪 机场推荐:dafei.de 德国 11 #2'
+  type: hysteria2
+  server: 162.249.127.136
+  port: 8443
+  password: 9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
+  skip-cert-verify: true
+  sni: hop-germany-september.dynuddns.com
+- name: hysteria2-1582652685
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2ð\x9f\x87¨ð\x9f\x87³
+- name: ZZ · HYSTERIA2 · au1rxx-clash · 11D7FA2F
+  type: hysteria2
+  server: vpn-hk-004.fastervpn.world
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+- name: 🇺🇳 未知地区 | HYSTERIA2 | 005
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2%ef%a3%bf%c3%bc%c3%a1
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - HYSTERIA2 | @PulseConfigs | a784e7
+  - HYSTERIA2 | @PulseConfigs | 33a77d
+  - 🇭🇰 中国香港 | HYSTERIA2 | 010
+  - 🇺🇳 未知地区 | HYSTERIA2 | 003
+  - 香港 20
+  - hysteria2-1527482523
+  - 🇺🇳 未知地区 | HYSTERIA2 | 001
+  - 🇫🇮 机场推荐:dafei.de 芬兰 04
+  - hysteria2-1456970890
+  - ZZ · HYSTERIA2 · au1rxx-clash · 2D3852ED
+  - 🇹🇼TW_1|504KB/s|C002-260622
+  - HYSTERIA2 | @PulseConfigs | f3ac02
+  - hysteria2-1561765011
+  - 🇭🇰 中国香港 | HYSTERIA2 | 021
+  - '🇩🇪 机场推荐:dafei.de 德国 11 #2'
+  - hysteria2-1582652685
+  - ZZ · HYSTERIA2 · au1rxx-clash · 11D7FA2F
+  - 🇺🇳 未知地区 | HYSTERIA2 | 005
+rules:
+- MATCH,CF-Nest-Batch

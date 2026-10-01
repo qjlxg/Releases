@@ -1,0 +1,23 @@
+proxies:
+- name: vless-188.245.25.223
+  type: vless
+  server: 188.245.25.223
+  port: 8402
+  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: vless-77.42.20.51
+  type: vless
+  server: 77.42.20.51
+  port: 1085
+  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - vless-188.245.25.223
+  - vless-77.42.20.51
+rules:
+- MATCH,CF-Nest-Batch

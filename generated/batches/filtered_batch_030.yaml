@@ -1,0 +1,166 @@
+proxies:
+- name: 🇨🇭 瑞士 | hy2 | 05
+  type: hysteria2
+  server: 31.76.104.152
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 🇬🇧 Великобритания [#РКП]
+  type: hysteria2
+  server: 103.126.51.38
+  port: 8443
+  password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+  skip-cert-verify: true
+  sni: hopp-romania-new.roxa.org
+- name: hysteria2-1517930484
+  type: hysteria2
+  server: 162.249.127.130
+  port: 8443
+  password: 9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
+  skip-cert-verify: true
+  sni: hop-germany-september.dynuddns.com
+- name: 🇺🇸US_639|1.4MB/s|P002-260618 01
+  type: hysteria2
+  server: 198.46.215.223
+  port: 4443
+  password: 31329f25
+  skip-cert-verify: true
+  sni: proxy.bingtao.xyz
+- name: 🇩🇪 德国 | hy2 | 05
+  type: hysteria2
+  server: 8.211.15.144
+  port: 8443
+  password: fc04RSUu3TfONQnlbKTwvA
+  skip-cert-verify: true
+  sni: www.cloudflare.com
+- name: '[342.9ms +/-721ms] hysteria2-1560525153'
+  type: hysteria2
+  server: us3.xiaoliyu.cyou
+  port: 18333
+  password: 19f72087-4591-4d72-930b-2697078ec2be
+  skip-cert-verify: true
+  sni: us3.xiaoliyu.cyou
+- name: '[342.9ms +/-721ms] hysteria2-1560525153 #2'
+  type: hysteria2
+  server: us3.xiaoliyu.cyou
+  port: 18333
+  password: 19f72087-4591-4d72-930b-2697078ec2be
+  skip-cert-verify: true
+  sni: us3.xiaoliyu.cyou\u0026insecure=1
+- name: 🇯🇵JP_72|211KB/s|A004-260618 01
+  type: hysteria2
+  server: open.w2m.ink
+  port: 443
+  password: my_super_password_123
+  skip-cert-verify: true
+  sni: open.w2m.ink
+- name: 🇺🇸 [190.3ms +/-512ms] hysteria2-1531623568
+  type: hysteria2
+  server: 192.255.128.123
+  port: 443
+  password: RN_3f80eeb4bbd0f13f
+  skip-cert-verify: true
+  sni: 192.255.128.123\u0026insecure=1
+- name: 🇩🇪184960 | ⚡️Telegram = t.me/SOSkeyNET
+  type: hysteria2
+  server: dehys.superbuba.top
+  port: 443
+  password: d4cae7df-50a1-428c-bd62-881c8f3bbd90
+  skip-cert-verify: true
+  sni: dehys.superbuba.top
+- name: 🇰🇷KR_39|168KB/s|A004-260618 01
+  type: hysteria2
+  server: 152.69.231.175
+  port: 50160
+  password: 1beb216e3f60aea9555dae60d219a5ca
+  skip-cert-verify: true
+  sni: 152-69-231-175.liao.kdns.fr
+- name: '[269.3ms +/-234ms] hysteria2-1547179636'
+  type: hysteria2
+  server: open.2ml.bid
+  port: 443
+  password: my_super_password_123
+  skip-cert-verify: true
+  sni: open.2ml.bid\u0026insecure=1
+- name: 🇳🇱NL_199|5.1MB/s|A004-260618 01
+  type: hysteria2
+  server: 77.74.123.99
+  port: 8443
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  skip-cert-verify: true
+  sni: grape-test-italy.dynuddns.net
+- name: ®️SHΞN™ᴢᴇʀᴏ🇩🇪T.me/Shervini
+  type: hysteria2
+  server: 8.211.15.144
+  port: 8443
+  password: fc04RSUu3TfONQnlbKTwvA
+  skip-cert-verify: true
+- name: Hysteria2 1145
+  type: hysteria2
+  server: us1.xiaoliyu.us
+  port: 19512
+  password: b8949dae-cb53-4b5a-ad9c-50f58c4656fb
+  skip-cert-verify: true
+  sni: us1.xiaoliyu.us\u0026insecure=1
+- name: 🇺🇸US_660|416KB/s|R002-260618 01
+  type: hysteria2
+  server: 144.24.46.175
+  port: 8443
+  password: pbgLTkd5276SN1sZ
+  skip-cert-verify: true
+  sni: www.bing.com
+- name: 🇯🇵JP_65|474KB/s|A004-260618 01
+  type: hysteria2
+  server: open.w2m.ink
+  port: 5443
+  password: my_super_password_123
+  skip-cert-verify: true
+  sni: 127.0.0.1
+- name: 🇯🇵JP_62|709KB/s|A001-260618 01
+  type: hysteria2
+  server: open.w2m.ink
+  port: 5443
+  password: my_super_password_123
+  skip-cert-verify: true
+  sni: open.w2m.ink
+- name: '[288.7ms +/-406ms] hysteria2-1474773098'
+  type: hysteria2
+  server: open.w2m.ink
+  port: 443
+  password: my_super_password_123
+  skip-cert-verify: true
+  sni: open.w2m.ink\u0026insecure=1
+- name: 🇯🇵JP_70|454KB/s|A004-260618 01
+  type: hysteria2
+  server: open.2ml.cc.cd
+  port: 5443
+  password: my_super_password_123
+  skip-cert-verify: true
+  sni: open.2ml.cc.cd
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇨🇭 瑞士 | hy2 | 05
+  - 🇬🇧 Великобритания [#РКП]
+  - hysteria2-1517930484
+  - 🇺🇸US_639|1.4MB/s|P002-260618 01
+  - 🇩🇪 德国 | hy2 | 05
+  - '[342.9ms +/-721ms] hysteria2-1560525153'
+  - '[342.9ms +/-721ms] hysteria2-1560525153 #2'
+  - 🇯🇵JP_72|211KB/s|A004-260618 01
+  - 🇺🇸 [190.3ms +/-512ms] hysteria2-1531623568
+  - 🇩🇪184960 | ⚡️Telegram = t.me/SOSkeyNET
+  - 🇰🇷KR_39|168KB/s|A004-260618 01
+  - '[269.3ms +/-234ms] hysteria2-1547179636'
+  - 🇳🇱NL_199|5.1MB/s|A004-260618 01
+  - ®️SHΞN™ᴢᴇʀᴏ🇩🇪T.me/Shervini
+  - Hysteria2 1145
+  - 🇺🇸US_660|416KB/s|R002-260618 01
+  - 🇯🇵JP_65|474KB/s|A004-260618 01
+  - 🇯🇵JP_62|709KB/s|A001-260618 01
+  - '[288.7ms +/-406ms] hysteria2-1474773098'
+  - 🇯🇵JP_70|454KB/s|A004-260618 01
+rules:
+- MATCH,CF-Nest-Batch

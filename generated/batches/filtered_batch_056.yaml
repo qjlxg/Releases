@@ -1,0 +1,14 @@
+proxies:
+- name: 🇪🇪[openproxylist.com
+  type: trojan
+  server: 109.206.241.10
+  port: 449
+  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🇪🇪[openproxylist.com
+rules:
+- MATCH,CF-Nest-Batch

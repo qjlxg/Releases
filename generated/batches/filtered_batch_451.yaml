@@ -1,0 +1,23 @@
+proxies:
+- name: '[OpenRay] Dynamic-24795'
+  type: vless
+  server: kvm1.avenone.ir
+  port: 8402
+  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: PL
+  type: vless
+  server: 145.239.30.17
+  port: 2053
+  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - '[OpenRay] Dynamic-24795'
+  - PL
+rules:
+- MATCH,CF-Nest-Batch

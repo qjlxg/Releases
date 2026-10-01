@@ -1,0 +1,17 @@
+proxies:
+- name: g_616
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 443
+  uuid: 3d08ed67-5a47-42d3-a948-ebc7d2eb21f7
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  tls: true
+  servername: aka.ms
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - g_616
+rules:
+- MATCH,CF-Nest-Batch

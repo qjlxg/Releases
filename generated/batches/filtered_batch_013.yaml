@@ -1,0 +1,263 @@
+proxies:
+- name: 4Sarina-5c114ca264
+  type: hysteria2
+  server: hys28.wba-pn.ru
+  port: 443
+  password: BWAFlp8g53
+  skip-cert-verify: true
+- name: hysteria2-863226972
+  type: hysteria2
+  server: 31.57.248.176
+  port: 50160
+  password: b0917015b656b3dd2286b5633af0c5c1
+  skip-cert-verify: true
+  sni: www.bing.com
+- name: hysteria2-963402032
+  type: hysteria2
+  server: 31.57.248.176
+  port: 50160
+  password: b0917015b656b3dd2286b5633af0c5c1
+  skip-cert-verify: true
+- name: hysteria2-1232696196
+  type: hysteria2
+  server: 152.70.237.123
+  port: 2053
+  password: maintell
+  skip-cert-verify: true
+- name: hysteria2-177193639
+  type: hysteria2
+  server: 91.196.32.163
+  port: 443
+  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  skip-cert-verify: true
+  sni: germany3.h2corp.local
+- name: 香港 31
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: 202.146.222.174
+- name: 🇰🇷KR_44|779KB/s|A004-260618 01
+  type: hysteria2
+  server: 131.186.19.174
+  port: 50160
+  password: 7302ad33229de166d393cd56143a1e4c
+  skip-cert-verify: true
+  sni: vk.com
+- name: hysteria2-858183552
+  type: hysteria2
+  server: de1.xiaoliyu.cyou
+  port: 4433
+  password: 6a3fe9d0-0d68-4f29-ae99-5771d4217a45
+  skip-cert-verify: true
+- name: 🇰🇷 South Korea, Chuncheon-si | [BL]
+  type: hysteria2
+  server: 152.67.200.82
+  port: 50160
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  skip-cert-verify: true
+  sni: speedtest.tinkoff.ru
+- name: US
+  type: hysteria2
+  server: 155.248.209.237
+  port: 33333
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  skip-cert-verify: true
+  sni: 155.248.209.2
+- name: 香港 11
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/WangCai2🇨🇳
+- name: 香港 34
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: t.me
+- name: hysteria2-589844071
+  type: hysteria2
+  server: 202.146.222.89
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+- name: '🇰🇷 South Korea, Chuncheon-si | [BL] #2'
+  type: hysteria2
+  server: 152.67.200.82
+  port: 50160
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  skip-cert-verify: true
+  sni: css.rbxcdn.com
+- name: 🇹🇼TW_7|506KB/s|C002-260622 01
+  type: hysteria2
+  server: 103.115.109.49
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/WangCai2🇨🇳
+- name: 🇱🇻 Latvia, Riga | 🌐 | [BL]
+  type: hysteria2
+  server: 104.165.205.142
+  port: 9443
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  skip-cert-verify: true
+  sni: onecloudstream.com
+- name: 'US #2'
+  type: hysteria2
+  server: 155.248.209.237
+  port: 33333
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  skip-cert-verify: true
+- name: 🇰🇷KR_34|559KB/s|A004-260618 01
+  type: hysteria2
+  server: 152.67.200.82
+  port: 50160
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  skip-cert-verify: true
+  sni: 152.67.200.82
+- name: 🇫🇷FR_266|5.1MB/s|A004-260618 01
+  type: hysteria2
+  server: vpn-fr-002.fastervpn.world
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: 127.0.0.1
+- name: 🇫🇷FR_682|4.3MB/s|A004-260618 01
+  type: hysteria2
+  server: 151.247.197.253
+  port: 36723
+  password: Krab9Hyst2_Rk7pQ2xL
+  skip-cert-verify: true
+  sni: www.cloudflare.com
+- name: 🇬🇧GB_49|2.8MB/s|A004-260618 01
+  type: hysteria2
+  server: 104.165.205.42
+  port: 8443
+  password: 52e3dd44-ed23-4030-b0cc-5b5a953f2d4d
+  skip-cert-verify: true
+  sni: speedtestmark.com
+- name: 香港 17
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2
+- name: 🇹🇼TW_8|501KB/s|A004-260618 01
+  type: hysteria2
+  server: 103.115.109.49
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: 103.115.109.49
+- name: 4Jadi-58cf216b7b
+  type: hysteria2
+  server: de.1.23.h2corp.org
+  port: 443
+  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  skip-cert-verify: true
+  sni: germany3.h2corp.local
+- name: 香港 07
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2
+- name: 🐊33@oneclickvpnkeys
+  type: hysteria2
+  server: 151.247.197.253
+  port: 36723
+  password: Krab9Hyst2_Rk7pQ2xL
+  skip-cert-verify: true
+  sni: 151.247.197.253
+- name: 🇰🇷 South Korea, Yangcheondong | 🌐 | [BL]
+  type: hysteria2
+  server: 152.70.237.123
+  port: 2053
+  password: maintell
+  skip-cert-verify: true
+  sni: bing.com
+- name: 🇱🇻LV_9|3.2MB/s|A004-260618 01
+  type: hysteria2
+  server: 104.165.205.42
+  port: 8443
+  password: 54d2f622-fd71-4f5f-8813-832b68f4ca3b
+  skip-cert-verify: true
+  sni: speedtestmark.com
+- name: 香港 10
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+  sni: t.me
+- name: 🇺🇸US_299|888KB/s|A004-260618 01
+  type: hysteria2
+  server: 155.248.209.237
+  port: 33333
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  skip-cert-verify: true
+  sni: hy2.123266.xyz
+- name: 🇯🇵 Japan, Inzai (Otsuka) | [BL]
+  type: hysteria2
+  server: 138.3.208.26
+  port: 50160
+  password: 184cdec28da5a09450803c8debcd2cc9
+  skip-cert-verify: true
+  sni: www.bing.com
+- name: hysteria2-1276640913
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  skip-cert-verify: true
+- name: hysteria2-956723733
+  type: hysteria2
+  server: 132.226.226.189
+  port: 50160
+  password: 1671a252e2a97dc2bda4e515475931da
+  skip-cert-verify: true
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 4Sarina-5c114ca264
+  - hysteria2-863226972
+  - hysteria2-963402032
+  - hysteria2-1232696196
+  - hysteria2-177193639
+  - 香港 31
+  - 🇰🇷KR_44|779KB/s|A004-260618 01
+  - hysteria2-858183552
+  - 🇰🇷 South Korea, Chuncheon-si | [BL]
+  - US
+  - 香港 11
+  - 香港 34
+  - hysteria2-589844071
+  - '🇰🇷 South Korea, Chuncheon-si | [BL] #2'
+  - 🇹🇼TW_7|506KB/s|C002-260622 01
+  - 🇱🇻 Latvia, Riga | 🌐 | [BL]
+  - 'US #2'
+  - 🇰🇷KR_34|559KB/s|A004-260618 01
+  - 🇫🇷FR_266|5.1MB/s|A004-260618 01
+  - 🇫🇷FR_682|4.3MB/s|A004-260618 01
+  - 🇬🇧GB_49|2.8MB/s|A004-260618 01
+  - 香港 17
+  - 🇹🇼TW_8|501KB/s|A004-260618 01
+  - 4Jadi-58cf216b7b
+  - 香港 07
+  - 🐊33@oneclickvpnkeys
+  - 🇰🇷 South Korea, Yangcheondong | 🌐 | [BL]
+  - 🇱🇻LV_9|3.2MB/s|A004-260618 01
+  - 香港 10
+  - 🇺🇸US_299|888KB/s|A004-260618 01
+  - 🇯🇵 Japan, Inzai (Otsuka) | [BL]
+  - hysteria2-1276640913
+  - hysteria2-956723733
+rules:
+- MATCH,CF-Nest-Batch

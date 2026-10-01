@@ -1,0 +1,17 @@
+proxies:
+- name: 'DE #8'
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 443
+  uuid: 3d08ed67-5a47-42d3-a948-ebc7d2eb21f7
+  client-fingerprint: random
+  skip-cert-verify: true
+  tls: true
+  servername: aka.ms
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 'DE #8'
+rules:
+- MATCH,CF-Nest-Batch

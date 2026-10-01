@@ -1,0 +1,63 @@
+proxies:
+- name: 🏁 未知-01E5A486
+  type: vmess
+  server: 141.95.65.9
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: true
+- name: 🏁 未知-67C1FE41
+  type: vmess
+  server: 45.90.106.24
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: true
+- name: 未知 VMESS-1104 | free-nodes
+  type: vmess
+  server: 159.223.13.109
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: true
+  servername: supervpn.super.com
+- name: 未知 VMESS-1107 | free-nodes
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: true
+  servername: supervpn.super.com
+- name: 🇰🇷 韩国-01958B5F
+  type: vmess
+  server: 140.238.2.250
+  port: 443
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: none
+proxy-groups:
+- name: CF-Nest-Batch
+  type: select
+  proxies:
+  - 🏁 未知-01E5A486
+  - 🏁 未知-67C1FE41
+  - 未知 VMESS-1104 | free-nodes
+  - 未知 VMESS-1107 | free-nodes
+  - 🇰🇷 韩国-01958B5F
+rules:
+- MATCH,CF-Nest-Batch
