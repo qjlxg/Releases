@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse
@@ -6,7 +5,16 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests, yaml
 
-DEFAULT_INPUT_PATTERNS = ["*.yaml", "*.yml"]
+# 🔑 优化：默认输入模式覆盖根目录及各个协议子目录下的所有 yaml/txt 文件
+DEFAULT_INPUT_PATTERNS = [
+    "*.yaml", "*.yml",
+    "hysteria2/**/*.yaml", "hysteria2/**/*.yml", "hysteria2/**/*.txt",
+    "ss/**/*.yaml", "ss/**/*.yml", "ss/**/*.txt",
+    "trojan/**/*.yaml", "trojan/**/*.yml", "trojan/**/*.txt",
+    "tuic/**/*.yaml", "tuic/**/*.yml", "tuic/**/*.txt",
+    "vless/**/*.yaml", "vless/**/*.yml", "vless/**/*.txt",
+    "vmess/**/*.yaml", "vmess/**/*.yml", "vmess/**/*.txt"
+]
 DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
 VALID_POOL_FILE = ".valid_pool.json"
@@ -40,11 +48,29 @@ def core_fingerprint(proxy):
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def load_yaml_file(path):
-    with open(path, "r", encoding="utf-8") as f:
-        data = yaml.safe_load(f) or {}
-    if not isinstance(data, dict): return []
-    proxies = data.get("proxies", [])
-    return proxies if isinstance(proxies, list) else []
+    """
+    兼容处理：既能读取标准 YAML 文件的 proxies 列表，
+    也能兼容部分文本/分享链接形式或者直接整个文件就是 list 的情况。
+    """
+    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+        content = f.read().strip()
+    
+    if not content:
+        return []
+
+    # 尝试作为 YAML 解析
+    try:
+        data = yaml.safe_load(content)
+        if isinstance(data, dict):
+            proxies = data.get("proxies", [])
+            if isinstance(proxies, list):
+                return proxies
+        elif isinstance(data, list):
+            return data
+    except Exception:
+        pass
+
+    return []
 
 def collect_files(inputs):
     files = []
@@ -68,9 +94,11 @@ def merge_nodes(files):
         try:
             nodes = load_yaml_file(path)
         except Exception as e:
-            log(f"❌ YAML 读取失败: {path}: {e}")
+            log(f"❌ 读取文件失败: {path}: {e}")
             continue
-        log(f"📄 {path}: {len(nodes)} 个节点")
+        if not nodes:
+            continue
+        log(f"📄 {path}: 发现 {len(nodes)} 个节点")
         for node in nodes:
             stats["raw"] += 1
             if not isinstance(node, dict) or not node.get("type") or not node.get("server") or not node.get("port"):
@@ -142,11 +170,11 @@ def test_one(node):
                 delays.append(api_delay(name, url))
             except Exception as e:
                 return {"name": name, "node": node, "ok": False, "stage": stage, "label": label, "url": url, "error": str(e), "delays": delays}
-    
-    # 只要 6 个测试点全部成功通过，不论延迟高低，一律判定为可用（绝不因延迟误判）
+
+    # 只要 6 个测试点全部成功通过，不论延迟高低，一律判定为可用
     if len(delays) != 6:
         return {"name": name, "node": node, "ok": False, "stage": "最终检查", "label": "6/6 数量不足", "url": "", "error": f"实际成功 {len(delays)}/6", "delays": delays}
-    
+
     avg_delay = round(sum(delays) / len(delays), 1)
     return {"name": name, "node": node, "ok": True, "avg": avg_delay, "delays": delays}
 
@@ -182,7 +210,6 @@ def save_checkpoint(tested_fps):
         json.dump(list(tested_fps), f)
 
 def load_pool(path):
-    """加载白名单或黑名单历史库"""
     if os.path.exists(path):
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -192,7 +219,6 @@ def load_pool(path):
     return set()
 
 def save_pool(path, pool_set):
-    """保存白名单或黑名单历史库"""
     with open(path, "w", encoding="utf-8") as f:
         json.dump(list(pool_set), f)
 
@@ -239,41 +265,35 @@ def main():
     args = parser.parse_args()
 
     files = collect_files(args.inputs or DEFAULT_INPUT_PATTERNS)
-    if not files: raise SystemExit("❌ 没有找到输入 YAML")
+    if not files: raise SystemExit("❌ 没有在指定目录中找到任何输入文件")
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
     nodes, stats = merge_nodes(files)
     if not nodes: raise SystemExit("❌ 没有可测试节点")
-    log(f"📦 原始节点: {stats['raw']} | 去重后待测总数: {len(nodes)}")
+    log(f"📦 扫描到文件数: {stats['files']} | 原始节点总数: {stats['raw']} | 去重后待测总数: {len(nodes)}")
 
     tested_fps = load_checkpoint()
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
     log(f"🔄 历史库加载完成：白名单(已验证) {len(valid_pool)} 个 | 黑名单(已失效) {len(invalid_pool)} 个")
 
-    # 🔑 步骤一：增量过滤（黑白名单与去重拦截）
     untested_nodes = []
     white_inherited_nodes = []
-    
+
     for node in nodes:
         fp = fingerprint(node)
         cfp = core_fingerprint(node)
-        
-        # 1. 命中黑名单：直接丢弃
+
         if cfp in invalid_pool:
             continue
-        
-        # 2. 命中白名单：老面孔免测，直接归入有效组
         if cfp in valid_pool:
             white_inherited_nodes.append(node)
             tested_fps.add(fp)
             continue
-            
-        # 3. 检查断点续传已测过的
         if fp in tested_fps:
             continue
-            
+
         untested_nodes.append(node)
 
     log(f"⏳ 经黑白名单过滤后，本次需进行智能短路测速的全新节点数: {len(untested_nodes)} (白名单直接继承: {len(white_inherited_nodes)} 个)")
@@ -282,7 +302,6 @@ def main():
         log("🎉 所有节点都已经处理完毕！无需重复运行。")
         return 0
 
-    # 🔑 步骤二：智能短路测速（针对全新节点按核心配置分组）
     groups_by_core = {}
     for node in untested_nodes:
         cfp = core_fingerprint(node)
@@ -293,8 +312,7 @@ def main():
         batch_test_nodes.append(group_nodes[0])
 
     new_tested_good_nodes = []
-    
-    # 🛡️ 异常兜底：无论中途是否报错或中断，退出前强制落盘黑白名单与断点进度
+
     try:
         if batch_test_nodes:
             total_batches = (len(batch_test_nodes) + BATCH_SIZE - 1) // BATCH_SIZE
@@ -328,19 +346,15 @@ def main():
                                 tested_fps.add(fingerprint(res["node"]))
                                 if res["ok"]:
                                     log(f"✅ [{index}/{total_f}] {res['name']} | 6/6 | avg={res['avg']}ms")
-                        
-                        # 🔑 修复后的正确缩进与黑白名单归类逻辑
+
                         for res in results:
                             node = res["node"]
                             cfp = core_fingerprint(node)
                             if res["ok"]:
-                                # 1. 测通：将该核心配置加入白名单
                                 valid_pool.add(cfp)
-                                # 2. 核心：把该配置对应的【全部套娃 IP 节点】全部捞出来放入合格列表！
                                 if cfp in groups_by_core:
                                     new_tested_good_nodes.extend(groups_by_core[cfp])
                             else:
-                                # 3. 不通：将该核心配置加入黑名单
                                 invalid_pool.add(cfp)
                     finally:
                         if proc.poll() is None:
@@ -352,21 +366,17 @@ def main():
                 save_pool(VALID_POOL_FILE, valid_pool)
                 save_pool(INVALID_POOL_FILE, invalid_pool)
     finally:
-        # 确保即使触发异常退出，也能最后强制同步一次黑白名单与断点
         save_checkpoint(tested_fps)
         save_pool(VALID_POOL_FILE, valid_pool)
         save_pool(INVALID_POOL_FILE, invalid_pool)
 
-    # 🔑 步骤三：结果合并输出
     all_good_nodes = []
     existing_batch_files = glob.glob("generated/batches/filtered_batch_*.yaml")
     for bfile in existing_batch_files:
         all_good_nodes.extend(load_yaml_file(bfile))
 
-    # 合并白名单继承的老节点以及这次新测通的节点
     combined_new_nodes = white_inherited_nodes + new_tested_good_nodes
     if combined_new_nodes:
-        # 重新按批次归档保存
         current_batch_num = len(existing_batch_files) + 1 if existing_batch_files else 1
         save_batch_yaml(combined_new_nodes, current_batch_num)
         all_good_nodes.extend(combined_new_nodes)
