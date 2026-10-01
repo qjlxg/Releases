@@ -5,15 +5,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests, yaml
 
-# 🔑 优化：默认输入模式覆盖根目录及各个协议子目录下的所有 yaml/txt 文件
+# 🔑 适配：统一递归扫描 nodes 目录下的所有文件
 DEFAULT_INPUT_PATTERNS = [
-    "*.yaml", "*.yml",
-    "hysteria2/**/*.yaml", "hysteria2/**/*.yml", "hysteria2/**/*.txt",
-    "ss/**/*.yaml", "ss/**/*.yml", "ss/**/*.txt",
-    "trojan/**/*.yaml", "trojan/**/*.yml", "trojan/**/*.txt",
-    "tuic/**/*.yaml", "tuic/**/*.yml", "tuic/**/*.txt",
-    "vless/**/*.yaml", "vless/**/*.yml", "vless/**/*.txt",
-    "vmess/**/*.yaml", "vmess/**/*.yml", "vmess/**/*.txt"
+    "nodes/**/*.yaml",
+    "nodes/**/*.yml",
+    "nodes/**/*.txt"
 ]
 DEFAULT_OUTPUT = "filtered_nodes.yaml"
 CHECKPOINT_FILE = ".tested_progress.json"
@@ -265,7 +261,7 @@ def main():
     args = parser.parse_args()
 
     files = collect_files(args.inputs or DEFAULT_INPUT_PATTERNS)
-    if not files: raise SystemExit("❌ 没有在指定目录中找到任何输入文件")
+    if not files: raise SystemExit("❌ 没有在 nodes 目录中找到任何输入文件")
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
