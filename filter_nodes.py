@@ -130,6 +130,7 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="
     for item in inputs:
         p = Path(item)
         if p.is_dir():
+            # 优先及全量检索所有 txt 文件，同时兼容其他常见后缀
             for ext in ("*.txt", "*.yaml", "*.yml", "*.conf", "*.list"):
                 for f in p.rglob(ext):
                     if f.name not in (output_filename, skip_filename):
@@ -180,15 +181,31 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
             except Exception as e:
                 log(f"❌ YAML 文件读取失败: {path}: {e}")
         else:
+            # 专门针对 TXT 或其它纯文本文件的逐行与 Base64 订阅解析
             try:
                 with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                    for line in f:
-                        file_scanned_count += 1
-                        node = parse_share_link(line)
-                        if node:
-                            file_nodes.append(node)
+                    content_lines = f.readlines()
+                
+                # 检查是否为整个文件是 Base64 编码的订阅格式
+                full_text = "".join(content_lines).strip()
+                if full_text and not any(full_text.startswith(x) for x in ("ss://", "vmess://", "vless://", "trojan://", "hysteria2://", "hy2://", "tuic://")):
+                    try:
+                        missing_padding = len(full_text) % 4
+                        if missing_padding: full_text += "=" * (4 - missing_padding)
+                        decoded_bytes = base64.b64decode(full_text)
+                        decoded_text = decoded_bytes.decode("utf-8", errors="ignore")
+                        if "://" in decoded_text:
+                            content_lines = decoded_text.splitlines()
+                    except Exception:
+                        pass
+
+                for line in content_lines:
+                    file_scanned_count += 1
+                    node = parse_share_link(line)
+                    if node:
+                        file_nodes.append(node)
             except Exception as e:
-                log(f"❌ 文本文件读取失败: {path}: {e}")
+                log(f"❌ 文本/TXT 文件读取失败: {path}: {e}")
 
         total_raw_scanned += file_scanned_count
         file_passed_list = []
@@ -335,7 +352,7 @@ def build_final_aio_streamed(output_path):
     output = Path(output_path).resolve()
     temp_output = str(output) + ".tmp"
     log("📦 正在以流式方式合并所有批次生成最终 AIO 配置...")
-    
+
     all_names = []
     for bfile in sorted(glob.glob("generated/batches/filtered_batch_*.yaml")):
         with open(bfile, "r", encoding="utf-8") as f:
@@ -437,10 +454,10 @@ def main():
     parser.add_argument("--mihomo", default=MIHOMO_BIN)
     args = parser.parse_args()
 
-    # 默认扫描 nodes 目录下的所有文件以及其他潜在资产
+    # 默认扫描 nodes 目录下的所有文件 (包括各类 txt 订阅源)
     inputs = args.inputs if args.inputs else DEFAULT_INPUT_PATTERNS
     files = collect_files(inputs, args.output, "gem.yaml")
-    if not files: raise SystemExit("❌ 没有找到任何输入节点文件")
+    if not files: raise SystemExit("❌ 没有找到任何输入节点文件或 TXT 订阅文件")
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
@@ -448,7 +465,7 @@ def main():
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
 
-    log("🚀 启动 V5 全目录海量物料审计与清洗引擎...")
+    log("🚀 启动 V5 全目录 TXT 订阅及节点海量物料审计与清洗引擎...")
 
     batch_slice = []
     for old_b in glob.glob("generated/batches/filtered_batch_*.yaml"):
