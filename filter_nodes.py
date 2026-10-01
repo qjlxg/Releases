@@ -78,19 +78,24 @@ SKIP_TCP_TYPES = frozenset(
     {"hysteria2", "hy2", "tuic", "wireguard", "mieru", "warp"}
 )
 
-NODE_FILE_EXTS = {
-    ".txt",
-    ".list",
-    ".conf",
-    ".csv",
-    ".yaml",
-    ".yml",
-    ".json",
-    ".log",
-    ".data",
-    ".nodes",
-    ".sub",
-}
+NODE_FILE_EXTS = {".txt", ".list", ".conf", ".yaml", ".yml"}
+
+SKIP_FILENAMES = frozenset(
+    {
+        "filtered_nodes.yaml",
+        "gem.yaml",
+        ".tested_progress.json",
+        ".valid_pool.json",
+        ".invalid_pool.json",
+        "seen_fingerprints.json",
+        "source_hashes.json",
+        "stats.csv",
+        "changelog.md",
+        "readme.md",
+        "license",
+        "license.md",
+    }
+)
 
 
 def log(msg):
@@ -578,18 +583,9 @@ def normalize_yaml_node(raw):
     return node
 
 
-def is_skip_file(name, skip_names):
-    if name in skip_names:
-        return True
+def is_skip_file(name):
     lower = name.lower()
-    if lower in (
-        "seen_fingerprints.json",
-        "source_hashes.json",
-        "changelog.md",
-        "readme.md",
-        "license",
-        "license.md",
-    ):
+    if lower in SKIP_FILENAMES:
         return True
     if lower.startswith("."):
         return True
@@ -597,81 +593,61 @@ def is_skip_file(name, skip_names):
 
 
 def is_node_source_file(fp):
-    name = fp.name
     ext = fp.suffix.lower()
     if ext in NODE_FILE_EXTS:
-        return True
-    if ext == "":
         return True
     return False
 
 
-def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="gem.yaml"):
-    skip_names = {
-        output_filename,
-        skip_filename,
-        CHECKPOINT_FILE,
-        VALID_POOL_FILE,
-        INVALID_POOL_FILE,
-        "filtered_nodes.yaml",
-        "gem.yaml",
-    }
+def collect_files(inputs, output_filename="filtered_nodes.yaml"):
+    skip_names = set(SKIP_FILENAMES)
+    skip_names.add(output_filename)
     files = set()
-    dir_count = 0
     for item in inputs:
         p = Path(item).expanduser()
         if not p.is_absolute():
             p = (Path.cwd() / p).resolve()
         else:
             p = p.resolve()
-        log(f"[收集] 输入路径: {p} exists={p.exists()} is_dir={p.is_dir()} is_file={p.is_file()}")
+        log(
+            f"[收集] 输入路径: {p} exists={p.exists()} "
+            f"is_dir={p.is_dir()} is_file={p.is_file()}"
+        )
         if not p.exists():
             log(f"[收集] 路径不存在，跳过: {p}")
             continue
         if p.is_file():
-            if not is_skip_file(p.name, skip_names) and is_node_source_file(p):
-                files.add(p)
+            if not is_skip_file(p.name) and is_node_source_file(p):
+                files.add(p.resolve())
             continue
         if p.is_dir():
-            for root, dirs, filenames in os.walk(str(p), followlinks=True):
-                dirs.sort()
-                dir_count += 1
-                root_path = Path(root)
-                try:
-                    rel_root = root_path.relative_to(Path.cwd())
-                except ValueError:
-                    rel_root = root_path
-                matched_here = []
-                for name in filenames:
-                    if is_skip_file(name, skip_names):
-                        continue
-                    fp = root_path / name
+            patterns = ("**/*.txt", "**/*.yaml", "**/*.yml", "**/*.list", "**/*.conf")
+            found = []
+            for pattern in patterns:
+                for fp in p.glob(pattern):
                     if not fp.is_file():
                         continue
-                    if is_node_source_file(fp):
-                        files.add(fp.resolve())
-                        matched_here.append(name)
-                log(
-                    f"[收集] 目录 {rel_root} 子目录数={len(dirs)} "
-                    f"文件数={len(filenames)} 命中源文件={len(matched_here)}"
-                )
-                if matched_here and len(matched_here) <= 20:
-                    for n in matched_here:
-                        log(f"         -> {n}")
-                elif matched_here:
-                    for n in matched_here[:10]:
-                        log(f"         -> {n}")
-                    log(f"         -> ... 另有 {len(matched_here) - 10} 个文件")
+                    if is_skip_file(fp.name) or fp.name in skip_names:
+                        continue
+                    files.add(fp.resolve())
+                    found.append(fp)
+            log(f"[收集] 目录 {p} 通过 ** 递归命中 {len(found)} 个源文件")
+            for fp in sorted(found, key=lambda x: str(x))[:50]:
+                try:
+                    rel = fp.relative_to(Path.cwd())
+                except ValueError:
+                    rel = fp
+                log(f"         -> {rel}")
+            if len(found) > 50:
+                log(f"         -> ... 另有 {len(found) - 50} 个文件")
     sorted_files = sorted(str(f) for f in files)
-    log(f"[收集] 共遍历目录 {dir_count} 个，最终源文件 {len(sorted_files)} 个")
+    log(f"[收集] 最终源文件 {len(sorted_files)} 个")
     for i, fpath in enumerate(sorted_files, 1):
         try:
             rel = Path(fpath).relative_to(Path.cwd())
         except ValueError:
             rel = fpath
         log(f"   [{i:04d}] {rel}")
-    if len(sorted_files) <= 1:
-        log("[收集] 警告: 源文件过少。请确认 nodes 下 ss/vmess/vless/trojan/hysteria2/tuic 等子目录已完整拉取且内含 txt 文件")
     return sorted_files
 
 
@@ -690,81 +666,53 @@ def flush_tcp_chunk(chunk, check_func):
             yield future.result()
 
 
-def load_text_nodes_from_file(path):
+def load_nodes_line_by_line(path):
     nodes = []
     reject = 0
     scanned = 0
+    blank = 0
+    ext = Path(path).suffix.lower()
     try:
+        if ext in (".yaml", ".yml"):
+            with open(path, "r", encoding="utf-8") as f:
+                data = yaml.safe_load(f) or {}
+            if isinstance(data, dict):
+                proxies = data.get("proxies") or []
+                scanned = len(proxies)
+                for raw in proxies:
+                    node = normalize_yaml_node(raw)
+                    if node:
+                        nodes.append(node)
+                    else:
+                        reject += 1
+            elif isinstance(data, list):
+                scanned = len(data)
+                for raw in data:
+                    node = normalize_yaml_node(raw)
+                    if node:
+                        nodes.append(node)
+                    else:
+                        reject += 1
+            return nodes, scanned, reject, blank
         with open(path, "r", encoding="utf-8", errors="ignore") as f:
-            content = f.read()
+            for line in f:
+                scanned += 1
+                stripped = line.strip()
+                if not stripped:
+                    blank += 1
+                    continue
+                if stripped.startswith("#") or stripped.startswith("//"):
+                    blank += 1
+                    continue
+                node = parse_share_link(stripped)
+                if node:
+                    nodes.append(node)
+                else:
+                    reject += 1
     except Exception as e:
         log(f"读取失败: {path}: {e}")
-        return nodes, 0, 0
-    if path.lower().endswith((".yaml", ".yml")):
-        try:
-            data = yaml.safe_load(content) or {}
-        except Exception as e:
-            log(f"YAML 解析失败: {path}: {e}")
-            return nodes, 0, 0
-        if isinstance(data, dict):
-            proxies = data.get("proxies") or []
-            scanned = len(proxies)
-            for raw in proxies:
-                node = normalize_yaml_node(raw)
-                if node:
-                    nodes.append(node)
-                else:
-                    reject += 1
-        elif isinstance(data, list):
-            scanned = len(data)
-            for raw in data:
-                node = normalize_yaml_node(raw)
-                if node:
-                    nodes.append(node)
-                else:
-                    reject += 1
-        return nodes, scanned, reject
-    if path.lower().endswith(".json"):
-        try:
-            data = json.loads(content)
-        except Exception:
-            data = None
-        if isinstance(data, dict) and "proxies" in data:
-            proxies = data.get("proxies") or []
-            scanned = len(proxies)
-            for raw in proxies:
-                node = normalize_yaml_node(raw)
-                if node:
-                    nodes.append(node)
-                else:
-                    reject += 1
-            return nodes, scanned, reject
-        if isinstance(data, list):
-            scanned = len(data)
-            for raw in data:
-                if isinstance(raw, dict):
-                    node = normalize_yaml_node(raw)
-                elif isinstance(raw, str):
-                    node = parse_share_link(raw)
-                else:
-                    node = None
-                if node:
-                    nodes.append(node)
-                else:
-                    reject += 1
-            return nodes, scanned, reject
-    for line in content.splitlines():
-        scanned += 1
-        stripped = line.strip()
-        if not stripped or stripped.startswith("#") or stripped.startswith("//"):
-            continue
-        node = parse_share_link(line)
-        if node:
-            nodes.append(node)
-        else:
-            if "://" in stripped:
-                reject += 1
-    return nodes, scanned, reject
+        return nodes, scanned, reject, blank
+    return nodes, scanned, reject, blank
 
 
 def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, batch_size):
@@ -792,8 +740,8 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
 
     for path in files:
         path_key = str(path)
-        file_nodes, file_scanned_count, file_reject_count = load_text_nodes_from_file(
-            path_key
+        file_nodes, file_scanned_count, file_reject_count, _blank = (
+            load_nodes_line_by_line(path_key)
         )
         total_raw_scanned += file_scanned_count
         total_rejected_standard += file_reject_count
@@ -825,8 +773,8 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
         except ValueError:
             rel = path_key
         log(
-            f"[源文件扫描] {rel} -> 原始: {file_scanned_count} "
-            f"| 官方标准合规: {file_valid_count} "
+            f"[源文件扫描] {rel} -> 总行数: {file_scanned_count} "
+            f"| 逐行解析合规: {file_valid_count} "
             f"| 标准剔除: {file_reject_count}"
         )
         chunk = []
@@ -864,11 +812,11 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps, bat
     log(f"扫描输入源文件总数: {len(files)} 个")
     for p, st in file_stats.items():
         log(
-            f"   - [{Path(p).name}] 原始: {st['scanned']} "
+            f"   - [{Path(p).name}] 总行数: {st['scanned']} "
             f"| 合规: {st['valid']} | 标准剔除: {st['reject']}"
         )
     log("-----------------------------------------------------------------")
-    log(f"累计原始总条目数: {total_raw_scanned} 条")
+    log(f"累计原始总行数: {total_raw_scanned} 行")
     log(f"官方标准不合规直接排除: {total_rejected_standard} 条")
     log(f"历史已测/黑名单拦截(跳过): {total_already_tested} 条")
     log(f"本轮合规新增(去重后): {total_raw_valid} 条")
@@ -1193,7 +1141,7 @@ def build_final_aio_streamed(output_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="V6 节点审计清洗引擎（递归扫描协议子目录）"
+        description="V6 节点审计清洗引擎（递归子目录 + 逐行明文解析）"
     )
     parser.add_argument("inputs", nargs="*", help="目录或文件路径，默认 nodes")
     parser.add_argument("-o", "--output", default=DEFAULT_OUTPUT)
@@ -1205,10 +1153,10 @@ def main():
     inputs = args.inputs if args.inputs else DEFAULT_INPUT_PATTERNS
     log(f"工作目录 cwd={Path.cwd()}")
     log(f"输入参数 inputs={inputs}")
-    files = collect_files(inputs, args.output, "gem.yaml")
+    files = collect_files(inputs, args.output)
     if not files:
         raise SystemExit(
-            "没有找到任何输入节点文件。请确认当前目录下存在 nodes/ss、nodes/vmess 等子目录，且目录内有 txt/yaml 文件。可用: ls -laR nodes"
+            "没有找到任何输入节点文件。请确认 nodes 下各协议子目录内有 .txt 文件。"
         )
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"找不到 Mihomo: {args.mihomo}")
