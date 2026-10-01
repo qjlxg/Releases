@@ -1,4 +1,4 @@
-import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse, base64, socket
+import argparse, copy, glob, hashlib, json, os, shutil, subprocess, tempfile, time, urllib.parse, base64, socket, re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests, yaml
@@ -29,15 +29,25 @@ def fingerprint(proxy):
     raw = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
+def is_valid_uuid(val):
+    if not isinstance(val, str):
+        return False
+    uuid_pattern = re.compile(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$')
+    return bool(uuid_pattern.match(val.strip()))
+
 def validate_node_by_official_standard(node):
+    """
+    严格按照官方标准对节点参数进行合规校验，不达标视为废节点直接剔除
+    """
     if not isinstance(node, dict):
         return False
     ptype = str(node.get("type", "")).lower().strip()
     server = str(node.get("server", "")).strip()
     port = node.get("port")
 
-    if not ptype or not server:
+    if not ptype or not server or server.lower() in ("none", "null", "127.0.0.1", "localhost", "0.0.0.0"):
         return False
+    
     try:
         port_num = int(port)
         if not (1 <= port_num <= 65535):
@@ -46,18 +56,40 @@ def validate_node_by_official_standard(node):
         return False
 
     if ptype == "ss":
-        if not node.get("cipher") or not node.get("password"): return False
+        if not node.get("cipher") or not node.get("password"): 
+            return False
+    elif ptype == "ssr":
+        if not node.get("server") or not node.get("port") or not node.get("password") or not node.get("cipher") or not node.get("protocol") or not node.get("obfs"):
+            return False
     elif ptype in ("vmess", "vless"):
-        if not node.get("uuid"): return False
+        uuid_val = str(node.get("uuid", ""))
+        if not is_valid_uuid(uuid_val): 
+            return False
     elif ptype == "trojan":
-        if not node.get("password"): return False
+        if not node.get("password") or len(str(node.get("password"))) < 1: 
+            return False
     elif ptype in ("hysteria2", "hy2"):
-        if not node.get("password"): return False
+        if not node.get("password") or len(str(node.get("password"))) < 1: 
+            return False
     elif ptype == "tuic":
-        if not node.get("uuid") and not node.get("password"): return False
+        if not node.get("uuid") and not node.get("password"): 
+            return False
+    elif ptype == "snell":
+        if not node.get("preshared-key") and not node.get("psk"): 
+            return False
     else:
         return False
     return True
+
+def decode_base64_safe(data):
+    data = data.strip()
+    for padding in ("", "=", "==", "==="):
+        try:
+            padded = data + padding
+            return base64.b64decode(padded).decode("utf-8", errors="ignore")
+        except Exception:
+            continue
+    return ""
 
 def parse_share_link(line):
     line = line.strip()
@@ -65,64 +97,161 @@ def parse_share_link(line):
         return None
     node = None
     try:
+        # 1. Shadowsocks (ss://)
         if line.startswith("ss://"):
             main_part = line[5:]
             fragment = ""
             if "#" in main_part:
                 main_part, fragment = main_part.split("#", 1)
                 fragment = urllib.parse.unquote(fragment)
+            
             if "@" not in main_part:
-                missing_padding = len(main_part) % 4
-                if missing_padding: main_part += "=" * (4 - missing_padding)
-                try:
-                    decoded = base64.b64decode(main_part).decode("utf-8", errors="ignore")
-                    if "@" in decoded: main_part = decoded
-                except Exception: pass
+                decoded = decode_base64_safe(main_part)
+                if "@" in decoded: 
+                    main_part = decoded
 
             if "@" in main_part:
                 userinfo, hostport = main_part.rsplit("@", 1)
-                method, password = (userinfo.split(":", 1) if ":" in userinfo else [base64.b64decode(userinfo + '==='[:(4-len(userinfo)%4)%4]).decode('utf-8', errors='ignore').split(':', 1)[0], ""])
-                server, port = hostport.rsplit(":", 1) if ":" in hostport else (None, None)
-                if server and port:
-                    node = {"name": fragment or f"SS-{server}", "type": "ss", "server": server, "port": int(port), "cipher": method, "password": password}
+                method, password = "", ""
+                if ":" in userinfo:
+                    method, password = userinfo.split(":", 1)
+                else:
+                    dec_user = decode_base64_safe(userinfo)
+                    if ":" in dec_user:
+                        method, password = dec_user.split(":", 1)
+                
+                if ":" in hostport:
+                    server, port_str = hostport.rsplit(":", 1)
+                    if server and port_str.isdigit():
+                        node = {
+                            "name": fragment or f"SS-{server}", "type": "ss", 
+                            "server": server.strip("[]"), "port": int(port_str), 
+                            "cipher": method.strip(), "password": password.strip()
+                        }
 
+        # 2. ShadowsocksR (ssr://)
+        elif line.startswith("ssr://"):
+            main_part = line[6:]
+            decoded = decode_base64_safe(main_part)
+            if ":" in decoded and "/" in decoded:
+                # 格式: host:port:protocol:method:obfs:password_base64/?params
+                parts = decoded.split("/?", 1)
+                base_info = parts[0]
+                query_str = parts[1] if len(parts) > 1 else ""
+                
+                sub_parts = base_info.split(":")
+                if len(sub_parts) >= 6:
+                    server = sub_parts[0]
+                    port = int(sub_parts[1])
+                    protocol = sub_parts[2]
+                    method = sub_parts[3]
+                    obfs = sub_parts[4]
+                    password = decode_base64_safe(sub_parts[5])
+                    
+                    query = urllib.parse.parse_qs(query_str)
+                    node_name = f"SSR-{server}"
+                    if "remarks" in query:
+                        node_name = decode_base64_safe(query["remarks"][0]) or node_name
+
+                    node = {
+                        "name": urllib.parse.unquote(node_name), "type": "ssr",
+                        "server": server.strip("[]"), "port": port, "password": password,
+                        "cipher": method, "protocol": protocol, "obfs": obfs
+                    }
+
+        # 3. Vmess (vmess://)
         elif line.startswith("vmess://"):
             raw_b64 = line[8:]
-            missing_padding = len(raw_b64) % 4
-            if missing_padding: raw_b64 += "=" * (4 - missing_padding)
-            config = json.loads(base64.b64decode(raw_b64).decode("utf-8", errors="ignore"))
-            node = {
-                "name": config.get("ps") or f"Vmess-{config.get('add', 'node')}",
-                "type": "vmess", "server": config.get("add"), "port": int(config.get("port", 443)),
-                "uuid": config.get("id"), "alterId": int(config.get("aid", 0)), "cipher": "auto", "skip-cert-verify": True
-            }
-            net = config.get("net", "tcp")
-            if net: node["network"] = net
-            if config.get("tls") in ("tls", "1"):
-                node["tls"] = True
-                if config.get("sni"): node["servername"] = config["sni"]
+            decoded_json = decode_base64_safe(raw_b64)
+            if decoded_json:
+                config = json.loads(decoded_json)
+                server = config.get("add")
+                port = config.get("port")
+                if server and port:
+                    node = {
+                        "name": config.get("ps") or f"Vmess-{server}",
+                        "type": "vmess", "server": str(server).strip("[]"), "port": int(port),
+                        "uuid": config.get("id"), "alterId": int(config.get("aid", 0)), 
+                        "cipher": config.get("scy") or "auto", "skip-cert-verify": True
+                    }
+                    net = config.get("net", "tcp")
+                    if net: node["network"] = net
+                    if config.get("tls") in ("tls", "1", True):
+                        node["tls"] = True
+                        if config.get("sni"): node["servername"] = config["sni"]
+
+        # 4. 通用 URL 协议解析 (vless, trojan, hysteria2, hy2, tuic, snell)
         else:
             parsed = urllib.parse.urlparse(line)
             scheme = parsed.scheme.lower()
-            server, port, password, uuid = parsed.hostname, parsed.port or 443, parsed.username or "", parsed.username or ""
+            server = parsed.hostname
+            port = parsed.port
+            password = parsed.username or ""
+            uuid = parsed.username or ""
             query = urllib.parse.parse_qs(parsed.query)
+            fragment = urllib.parse.unquote(parsed.fragment)
+
+            if not server or not port:
+                return None
 
             if scheme in ("hysteria2", "hy2"):
-                node = {"name": urllib.parse.unquote(parsed.fragment) or f"Hy2-{server}", "type": "hysteria2", "server": server, "port": port, "password": password, "skip-cert-verify": True}
+                # hy2 有时密码在 query 中 (auth=xxx) 或直接作为 username
+                hy2_pass = password
+                if not hy2_pass and "auth" in query:
+                    hy2_pass = query["auth"][0]
+                node = {
+                    "name": fragment or f"Hy2-{server}", "type": "hysteria2", 
+                    "server": server, "port": port, "password": hy2_pass, "skip-cert-verify": True
+                }
                 if "sni" in query: node["sni"] = query["sni"][0]
+                if "up" in query: node["up"] = query["up"][0]
+                if "down" in query: node["down"] = query["down"][0]
+
             elif scheme == "vless":
-                node = {"name": urllib.parse.unquote(parsed.fragment) or f"Vless-{server}", "type": "vless", "server": server, "port": port, "uuid": uuid, "client-fingerprint": query.get("fp", ["chrome"])[0], "skip-cert-verify": True}
-                if query.get("security", [""])[0] == "tls" or "encryption" in query:
+                node = {
+                    "name": fragment or f"Vless-{server}", "type": "vless", 
+                    "server": server, "port": port, "uuid": uuid, 
+                    "client-fingerprint": query.get("fp", ["chrome"])[0], "skip-cert-verify": True
+                }
+                if query.get("security", [""])[0] in ("tls", "reality") or "encryption" in query:
                     node["tls"] = True
                     if "sni" in query: node["servername"] = query["sni"][0]
+                    if "security" in query and query["security"][0] == "reality":
+                        if "pbk" in query:
+                            node["reality-opts"] = {"public-key": query["pbk"][0]}
+                        if "sid" in query:
+                            node.setdefault("reality-opts", {})["short-id"] = query["sid"][0]
+
             elif scheme == "trojan":
-                node = {"name": urllib.parse.unquote(parsed.fragment) or f"Trojan-{server}", "type": "trojan", "server": server, "port": port, "password": password, "skip-cert-verify": True}
+                node = {
+                    "name": fragment or f"Trojan-{server}", "type": "trojan", 
+                    "server": server, "port": port, "password": password, "skip-cert-verify": True
+                }
                 if "sni" in query: node["sni"] = query["sni"][0]
+
             elif scheme == "tuic":
-                node = {"name": urllib.parse.unquote(parsed.fragment) or f"Tuic-{server}", "type": "tuic", "server": server, "port": port, "uuid": uuid, "password": parsed.password or "", "skip-cert-verify": True}
+                tuic_pass = parsed.password or query.get("password", [""])[0]
+                node = {
+                    "name": fragment or f"Tuic-{server}", "type": "tuic", 
+                    "server": server, "port": port, "uuid": uuid, 
+                    "password": tuic_pass, "skip-cert-verify": True
+                }
+                if "congestion_control" in query:
+                    node["congestion-control"] = query["congestion_control"][0]
+
+            elif scheme == "snell":
+                psk = query.get("psk", [""])[0] or password
+                node = {
+                    "name": fragment or f"Snell-{server}", "type": "snell",
+                    "server": server, "port": port, "psk": psk
+                }
+                if "version" in query:
+                    node["version"] = int(query["version"][0])
+
     except Exception:
         pass
 
+    # 严格根据官方标准过滤，不达标直接抛弃
     return node if node and validate_node_by_official_standard(node) else None
 
 def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="gem.yaml"):
@@ -130,7 +259,6 @@ def collect_files(inputs, output_filename="filtered_nodes.yaml", skip_filename="
     for item in inputs:
         p = Path(item)
         if p.is_dir():
-            # 优先及全量检索所有 txt 文件，同时兼容其他常见后缀
             for ext in ("*.txt", "*.yaml", "*.yml", "*.conf", "*.list"):
                 for f in p.rglob(ext):
                     if f.name not in (output_filename, skip_filename):
@@ -181,23 +309,15 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
             except Exception as e:
                 log(f"❌ YAML 文件读取失败: {path}: {e}")
         else:
-            # 专门针对 TXT 或其它纯文本文件的逐行与 Base64 订阅解析
             try:
                 with open(path, "r", encoding="utf-8", errors="ignore") as f:
                     content_lines = f.readlines()
                 
-                # 检查是否为整个文件是 Base64 编码的订阅格式
                 full_text = "".join(content_lines).strip()
-                if full_text and not any(full_text.startswith(x) for x in ("ss://", "vmess://", "vless://", "trojan://", "hysteria2://", "hy2://", "tuic://")):
-                    try:
-                        missing_padding = len(full_text) % 4
-                        if missing_padding: full_text += "=" * (4 - missing_padding)
-                        decoded_bytes = base64.b64decode(full_text)
-                        decoded_text = decoded_bytes.decode("utf-8", errors="ignore")
-                        if "://" in decoded_text:
-                            content_lines = decoded_text.splitlines()
-                    except Exception:
-                        pass
+                if full_text and not any(full_text.startswith(x) for x in ("ss://", "ssr://", "vmess://", "vless://", "trojan://", "hysteria2://", "hy2://", "tuic://", "snell://")):
+                    decoded_sub = decode_base64_safe(full_text)
+                    if "://" in decoded_sub:
+                        content_lines = decoded_sub.splitlines()
 
                 for line in content_lines:
                     file_scanned_count += 1
@@ -205,7 +325,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
                     if node:
                         file_nodes.append(node)
             except Exception as e:
-                log(f"❌ 文本/TXT 文件读取失败: {path}: {e}")
+                log(f"❌ 文本文件读取失败: {path}: {e}")
 
         total_raw_scanned += file_scanned_count
         file_passed_list = []
@@ -228,7 +348,7 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
             file_passed_list.append(node)
 
         file_stats[path_key] = {"scanned": file_scanned_count, "valid": file_valid_count}
-        log(f"📂 [源文件扫描] {Path(path_key).relative_to(Path.cwd()) if Path(path_key).is_relative_to(Path.cwd()) else path_key} -> 原始行数/条目: {file_scanned_count} | 提取合规未测: {file_valid_count}")
+        log(f"📂 [源文件扫描] {Path(path_key).relative_to(Path.cwd()) if Path(path_key).is_relative_to(Path.cwd()) else path_key} -> 原始行数/条目: {file_scanned_count} | 合规有效提取: {file_valid_count}")
 
         chunk = []
         for node in file_passed_list:
@@ -257,11 +377,11 @@ def stream_merge_and_tcp_filter(files, invalid_pool, valid_pool, tested_fps):
     log(f"📁 扫描输入源文件总数: {len(files)} 个")
     for p, st in file_stats.items():
         rel_name = Path(p).name
-        log(f"   - 📄 [{rel_name}] 原始扫描: {st['scanned']} 条 | 有效提取: {st['valid']} 条")
+        log(f"   - 📄 [{rel_name}] 原始扫描: {st['scanned']} 条 | 合规有效提取: {st['valid']} 条")
     log(f"-----------------------------------------------------------------")
     log(f"📦 累计全网检索原始总条目数: {total_raw_scanned} 条")
     log(f"🛑 历史缓存已测/失效拦截(跳过): {total_already_tested} 条")
-    log(f"🔍 本轮合规标准质检总新增: {total_raw_valid} 条")
+    log(f"🔍 严格官方标准质检通过: {total_raw_valid} 条")
     log(f"♻️ 历史白名单继承命中: {total_inherited} 条")
     log(f"⚡ TCP 离线预检剔除死节点: {total_tcp_filtered} 条")
     log(f"🎯 最终进入本轮 Mihomo 测速总池: {total_passed_tcp} 条")
@@ -454,10 +574,9 @@ def main():
     parser.add_argument("--mihomo", default=MIHOMO_BIN)
     args = parser.parse_args()
 
-    # 默认扫描 nodes 目录下的所有文件 (包括各类 txt 订阅源)
     inputs = args.inputs if args.inputs else DEFAULT_INPUT_PATTERNS
     files = collect_files(inputs, args.output, "gem.yaml")
-    if not files: raise SystemExit("❌ 没有找到任何输入节点文件或 TXT 订阅文件")
+    if not files: raise SystemExit("❌ 没有找到任何输入节点文件")
     if not shutil.which(args.mihomo) and not os.path.isfile(args.mihomo):
         raise SystemExit(f"❌ 找不到 Mihomo: {args.mihomo}")
 
@@ -465,7 +584,7 @@ def main():
     valid_pool = load_pool(VALID_POOL_FILE)
     invalid_pool = load_pool(INVALID_POOL_FILE)
 
-    log("🚀 启动 V5 全目录 TXT 订阅及节点海量物料审计与清洗引擎...")
+    log("🚀 启动 V6 严苛官方标准多协议物料审计与清洗引擎...")
 
     batch_slice = []
     for old_b in glob.glob("generated/batches/filtered_batch_*.yaml"):
