@@ -853,3 +853,4 @@ tuic://8f7cb770-1305-11ee-b107-f23c91cfbbc9:8f7cb770-1305-11ee-b107-f23c91cfbbc9
 tuic://9adb384a-0f16-4501-a8f3-b6b2556fce87:dongtaiwang.com@62.210.24.143:33888?sni=bing.com&alpn=h3&congestion_control=cubic&udp_relay_mode=native#%F0%9F%87%AB%F0%9F%87%B7%20Paris%2C%20FR%20%C2%B7%20Scaleway%20%7C%2062.210.24.143%20%3A33888
 tuic://8687b6e0-ef24-4cd2-bcd2-02d3732bf554:dongtaiwang.com@[2001:bc8:32d7:302::16]:34997/?congestion_
 tuic://8A9905B7-801B-41AF-BFC9-2034212770F6@tw3.dexlos.com:8080?sni=tw3.dexlos.com&alpn=h3#TW%20-%20zhuhai.uk
+tuic://8a9905b7-801b-41af-bfc9-2034212770f6:8A9905B7-801B-41AF-BFC9-2034212770F6@tw4.dexlos.com:8080#TW · TUIC · wzmwayne · 06F96B6C
